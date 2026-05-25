@@ -1,0 +1,150 @@
+/* =========================
+   PÁGINA DE EVENTOS (LISTA E DETALHE)
+========================= */
+
+/* --- LISTAGEM DE EVENTOS --- */
+.events-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.event-item {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 20px;
+  padding: 24px 32px;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
+
+.event-item:hover {
+  transform: translateX(10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.06);
+  border-color: var(--green-light);
+  background: #fafcfb;
+}
+
+.event-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 2px solid var(--green-light);
+  color: var(--green);
+  min-width: 95px;
+  height: 95px;
+  border-radius: 20px;
+  font-weight: 700;
+  line-height: 1;
+  transition: var(--transition);
+}
+
+.event-item:hover .event-date {
+  background: var(--green);
+  color: #fff;
+  border-color: var(--green);
+}
+
+.event-date span {
+  font-size: 34px;
+  margin-bottom: 4px;
+}
+
+.event-info h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.event-info p {
+  color: var(--muted);
+}
+
+.event-info p i {
+  color: var(--green);
+  margin-right: 6px;
+}
+
+.event-btn {
+  color: var(--green);
+  border-color: var(--green-border);
+  margin-left: auto;
+}
+
+.event-item:hover .event-btn {
+  background: var(--green);
+  color: #fff;
+  border-color: var(--green);
+}
+
+/* --- DETALHES DO EVENTO --- */
+.event-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 60px;
+  align-items: start;
+}
+
+.event-content img {
+  border-radius: 24px;
+  width: 100%;
+}
+
+.event-sidebar {
+  position: sticky;
+  top: 120px;
+}
+
+.event-info-card {
+  background: var(--green-light);
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid var(--green-border);
+}
+
+.event-info-card h5 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: var(--dark);
+}
+
+.event-meta-list li {
+  margin-bottom: 15px;
+  display: flex;
+  gap: 10px;
+  color: var(--muted);
+}
+
+.event-meta-list li i {
+  color: var(--green);
+  width: 20px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 960px) {
+  .event-details-grid {
+    grid-template-columns: 1fr;
+  }
+  .event-sidebar {
+    position: relative;
+    top: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .event-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 24px;
+  }
+  .event-btn {
+    width: 100%;
+    margin-left: 0;
+  }
+}

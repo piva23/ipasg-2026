@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>IPASG — Membros</title>
+    <meta name="description" content="Conheça a equipe do IPASG" />
+    <link rel="shortcut icon" href="assets/images/favicon.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Swiper (CDN) -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@9/swiper-bundle.min.css"
+    />
+
+    <!-- Site styles -->
+    <link rel="stylesheet" href="assets/css/style-membros.css" />
+
+    <!-- Optional: fontawesome for icons (local or CDN) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-..."
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <!-- topbar (keeps current content) -->
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <div class="left">
+          <a href="https://maps.google.com" target="_blank"
+            ><i class="fa-solid fa-location-dot"></i> Estrada Municipal, Mampituba/RS</a
+          >
+        </div>
+        <div class="right">
+          <a href="mailto:moradasustentavel@gmail.com"
+            ><i class="fa-regular fa-envelope"></i> moradasustentavel@gmail.com</a
+          >
+          <a href="tel:+5551992429974"><i class="fa-solid fa-phone"></i> (51) 99242-9974</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- header -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html">
+          <img src="assets/images/logo.png" alt="IPASG" />
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <ul>
+            <li><a href="index.html">Início</a></li>
+            <li class="has-drop">
+              <a href="sobre.html">Sobre nós <i class="fa-solid fa-chevron-down"></i></a>
+              <ul class="drop">
+                <li><a href="sobre.html#missao">Missão</a></li>
+                <li><a href="sobre.html#equipe">Equipe</a></li>
+              </ul>
+            </li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="eventos.html">Eventos</a></li>
+            <li><a class="btn-cta" href="contact-us.html">Contato</a></li>
+          </ul>
+        </nav>
+
+        <button class="mobile-toggle" aria-label="Abrir menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- banner com slider simples (mantendo a ideia do IPESA) -->
+    <section class="banner">
+      <div class="container">
+        <div class="banner-inner">
+          <div class="banner-left">
+            <span class="eyebrow"><i class="fa-solid fa-people-roof"></i> Transformando ideias em ações sustentáveis</span>
+            <h1>Conheça as pessoas que constroem o <strong>IPASG</strong></h1>
+            <p class="lead">Equipe multidisciplinar trabalhando por um futuro mais equilibrado.</p>
+          </div>
+
+          <div class="banner-slider">
+            <!-- swiper -->
+            <div class="swiper mySwiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img src="assets/images/banner/slide-1.jpg" alt="Slide 1" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="assets/images/banner/slide-2.jpg" alt="Slide 2" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="assets/images/banner/slide-3.jpg" alt="Slide 3" />
+                </div>
+              </div>
+              <!-- pagination -->
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- membros / cards (renderizados pelo JS a partir dos dados) -->
+    <main class="container content">
+      <section class="team-grid" id="teamGrid" aria-label="Equipe IPASG">
+        <!-- cards serão injetados aqui por assets/js/membros.js -->
+      </section>
+    </main>
+
+    <!-- footer (mantive estrutura simples) -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="col">
+          <a href="index.html" class="brand-footer">
+            <img src="assets/images/logo-light.png" alt="IPASG" />
+          </a>
+          <p>Instituto IPASG — educação ambiental e projetos regenerativos.</p>
+        </div>
+        <div class="col">
+          <h4>Links</h4>
+          <ul>
+            <li><a href="about-us.html">Sobre nós</a></li>
+            <li><a href="our-causes.html">Projetos</a></li>
+            <li><a href="contact-us.html">Contato</a></li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Contato</h4>
+          <p><i class="fa-solid fa-location-dot"></i> Estrada Municipal, Mampituba/RS</p>
+          <p><i class="fa-solid fa-phone"></i> (51) 99242-9974</p>
+          <p><i class="fa-regular fa-envelope"></i> moradasustentavel@gmail.com</p>
+        </div>
+      </div>
+      <div class="copyright">
+        <div class="container">
+          <small>&copy; <span id="year"></span> IPASG. Todos os direitos reservados.</small>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Dependências JS mínimas -->
+    <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/vanilla-tilt@1.7.0/dist/vanilla-tilt.min.js"></script>
+
+    <!-- Dados e comportamentos da página -->
+    <script src="assets/js/membros.js"></script>
+
+    <script>
+      // ano automático
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // mobile menu toggle
+      const mobileToggle = document.querySelector('.mobile-toggle');
+      const nav = document.querySelector('.main-nav');
+      mobileToggle?.addEventListener('click', () => {
+        nav.classList.toggle('open');
+        mobileToggle.classList.toggle('open');
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,355 @@
+/* =========================
+   TOPBAR
+========================= */
+.topbar {
+  background: var(--green-dark);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 13px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.topbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.topbar-left,
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.topbar a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition);
+}
+
+.topbar a:hover {
+  color: #8ce3bf;
+}
+
+/* Ícones Sociais (Limpos e sem borda) */
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.social-links a {
+  font-size: 16px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.social-links a:hover {
+  color: #8ce3bf;
+  transform: translateY(-2px); /* Efeito Pro de levitar o ícone */
+}
+
+/* =========================
+   SMART HEADER & NAV (PRO)
+========================= */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  /* Fundo inicial mais limpo */
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  transition:
+    transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Quando rola a página, aplica o Glassmorphism (efeito vidro) */
+.site-header.scrolled {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.site-header.scroll-down {
+  transform: translateY(-100%);
+}
+
+.site-header.scroll-up {
+  transform: translateY(0);
+}
+
+.navwrap {
+  height: 92px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  transition: height 0.3s ease;
+}
+
+/* Header diminui levemente ao rolar (efeito premium) */
+.site-header.scrolled .navwrap {
+  height: 76px;
+}
+
+.brand {
+  flex-shrink: 0;
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+}
+
+.brand img {
+  height: 60px;
+  width: auto;
+  transition: 0.3s ease;
+}
+
+.site-header.scrolled .brand img {
+  height: 50px;
+}
+
+/* NAVEGAÇÃO DESKTOP */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-item > a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--dark);
+  transition: var(--transition);
+}
+
+.nav-item > a i {
+  font-size: 14px;
+  color: var(--green);
+  transition: var(--transition);
+}
+
+/* Hover Moderno: Linha animada embaixo do texto */
+.nav-item > a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--green);
+  transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 2px;
+}
+
+.nav-item > a:hover::after,
+.nav-item:hover > a::after {
+  width: 100%;
+}
+
+.nav-item > a:hover,
+.nav-item:hover > a {
+  color: var(--green);
+}
+
+/* DROPDOWN MENU */
+.dropdown {
+  padding-bottom: 20px;
+  margin-bottom: -20px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: -10px;
+  min-width: 240px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  z-index: 50;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 8px;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--muted);
+  transition: var(--transition);
+}
+
+.dropdown-menu a:hover {
+  background: var(--green-light);
+  color: var(--green);
+  transform: translateX(5px);
+}
+
+.caret {
+  font-size: 11px !important;
+  transition: transform 0.3s ease;
+  color: var(--muted) !important;
+}
+
+.dropdown:hover .caret {
+  transform: rotate(180deg);
+  color: var(--green) !important;
+}
+
+/* UTILITÁRIOS E BOTÃO DO HEADER */
+.header-utilities {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Otimização do botão 'Apoie' para caber perfeitamente no menu */
+.header-utilities .btn-primary {
+  min-height: 42px;
+  padding: 0 20px;
+  font-size: 14px;
+  gap: 8px;
+}
+
+/* MOBILE TOGGLE */
+.mobile-toggle {
+  display: none;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--green-light);
+  color: var(--green);
+  font-size: 22px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.mobile-toggle:hover {
+  background: var(--green);
+  color: #fff;
+}
+
+/* RESPONSIVE HEADER */
+@media (max-width: 1024px) {
+  .nav {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 960px) {
+  .topbar {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed;
+    top: 92px;
+    right: -100%;
+    width: 320px;
+    max-width: 100%;
+    height: calc(100vh - 92px);
+    background: #ffffff;
+    box-shadow: -15px 0 40px rgba(0, 0, 0, 0.08);
+    padding: 30px 24px;
+    transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    overflow-y: auto;
+    gap: 0;
+  }
+
+  .nav.active {
+    right: 0;
+  }
+
+  .site-header.scrolled .nav {
+    top: 76px;
+    height: calc(100vh - 76px);
+  }
+
+  .nav-item {
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  }
+
+  .nav-item > a {
+    width: 100%;
+    height: 60px;
+    font-size: 18px;
+    padding: 0 10px;
+  }
+
+  .nav-item > a::after {
+    display: none;
+  } /* Remove a linha do hover no mobile */
+
+  .dropdown {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    border-left: 2px solid var(--green-light);
+    border-radius: 0;
+    padding: 0 0 10px 16px;
+    margin-left: 14px;
+    display: none;
+  }
+
+  .dropdown.open .dropdown-menu {
+    display: block;
+  }
+}
+
+@media (max-width: 500px) {
+  .header-utilities .btn-primary {
+    display: none;
+  }
+}

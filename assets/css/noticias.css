@@ -1,0 +1,70 @@
+/* =========================
+   PÁGINA NOTÍCIAS (PRO)
+========================= */
+.noticias-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px; /* Conteúdo | Sidebar */
+  gap: 60px;
+  align-items: start;
+}
+
+.noticias-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+/* Sidebar Fixa */
+.noticias-sidebar {
+  position: sticky;
+  top: 120px;
+}
+
+.sidebar-widget {
+  background: #f8fbf9;
+  padding: 30px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  border: 1px solid var(--green-border);
+}
+
+.sidebar-widget h5 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: var(--dark);
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid var(--green-border);
+}
+
+.cat-list li {
+  margin-bottom: 10px;
+}
+
+.cat-list a {
+  color: var(--muted);
+  transition: var(--transition);
+}
+
+.cat-list a:hover {
+  color: var(--green);
+  padding-left: 5px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 992px) {
+  .noticias-layout {
+    grid-template-columns: 1fr;
+  }
+  .noticias-sidebar {
+    position: relative;
+    top: auto;
+  }
+  .noticias-grid {
+    grid-template-columns: 1fr;
+  }
+}

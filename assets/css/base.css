@@ -1,0 +1,177 @@
+/* =========================
+   RESET / BASE / VARIABLES
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden; /* Mantido apenas no body para o sticky header funcionar */
+  font-family: 'Outfit', sans-serif;
+  background: #ffffff;
+  color: #0f1724;
+  /* Deixa as fontes super nítidas como em sites de ponta */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+:root {
+  --green: #1e8b6f;
+  --green-dark: #146b54;
+  --green-light: #edf8f2;
+  --green-border: #dcefe4;
+  --dark: #0f1724;
+  --muted: #556275;
+  --white: #ffffff;
+  --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.12);
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --container: 1220px;
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--green);
+  outline-offset: 4px;
+}
+
+/* =========================
+   GLOBAL UTILITIES
+========================= */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Espaçamento reduzido para as seções não ficarem vazias */
+.section {
+  padding: 75px 0;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* Utilitários de Fundo (Color Blocking) */
+.bg-white {
+  background-color: #ffffff;
+}
+.bg-light {
+  background-color: #f4f9f6;
+}
+.bg-green-light {
+  background-color: var(--green-light);
+}
+
+/* Utilitários de Alinhamento */
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+
+/* Cabeçalhos de Seção Centralizados e mais próximos do conteúdo */
+.section-header {
+  margin: 0 auto 40px;
+  max-width: 720px;
+  text-align: center;
+}
+
+.section-header h2 {
+  font-size: clamp(32px, 5vw, 48px);
+  line-height: 1.1;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+}
+
+.section-header p {
+  font-size: 18px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* =========================
+   BUTTONS (PRO GLOW)
+========================= */
+.btn-primary,
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 54px;
+  padding: 0 28px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn-primary {
+  background: var(--green);
+  color: #fff;
+  border: 1px solid var(--green);
+  /* Sombra que usa a própria cor do botão, criando um "Glow" em vez de sombra cinza */
+  box-shadow: 0 8px 20px rgba(30, 139, 111, 0.25);
+}
+
+.btn-primary:hover {
+  background: var(--green-dark);
+  border-color: var(--green-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(30, 139, 111, 0.4);
+}
+
+.btn-ghost {
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  color: #fff;
+}
+
+.btn-ghost:hover {
+  background: #fff;
+  color: var(--dark);
+  transform: translateY(-3px);
+}
+
+/* =========================
+   RESPONSIVO BASE
+========================= */
+@media (max-width: 700px) {
+  .section {
+    padding: 50px 0; /* Ainda mais compacto no celular */
+  }
+  .btn-primary,
+  .btn-ghost {
+    width: 100%;
+  }
+}
