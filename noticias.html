@@ -2,8 +2,16 @@
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Notícias | IPASG</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Notícias e Artigos | IPASG</title>
+    <meta
+      name="description"
+      content="Acompanhe as ações, novidades e transformações promovidas pelo IPASG."
+    />
+
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+    <link rel="apple-touch-icon" href="assets/images/favicon.png" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap"
       rel="stylesheet"
@@ -30,36 +38,36 @@
             <i class="fa-solid fa-location-dot"></i> Estrada Municipal, 885 –
             Mampituba/RS
           </a>
+          <a href="mailto:ipasg.rs@gmail.com">
+            <i class="fa-regular fa-envelope"></i> ipasg.rs@gmail.com
+          </a>
         </div>
         <div class="topbar-right">
-          <div
-            class="social-links"
-            style="border-left: none; padding-left: 0; gap: 20px"
-          >
-            <a href="tel:+5551992429974" aria-label="Ligar para o IPASG">
-              <i class="fa-solid fa-phone"></i>
-            </a>
+          <div class="social-links">
+            <a href="tel:+5551992429974" aria-label="Ligar para o IPASG"
+              ><i class="fa-solid fa-phone"></i
+            ></a>
             <a
               href="https://wa.me/5551992429974"
               target="_blank"
               aria-label="Falar no WhatsApp"
-            >
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
+              ><i class="fa-brands fa-whatsapp"></i
+            ></a>
             <a
               href="https://instagram.com/"
               target="_blank"
               aria-label="Instagram"
-            >
-              <i class="fa-brands fa-instagram"></i>
-            </a>
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
             <a
               href="https://www.facebook.com/"
               target="_blank"
               aria-label="Facebook"
-            >
-              <i class="fa-brands fa-facebook-f"></i>
-            </a>
+              ><i class="fa-brands fa-facebook-f"></i
+            ></a>
+            <a href="mailto:ipasg.rs@gmail.com" aria-label="Enviar E-mail"
+              ><i class="fa-solid fa-envelope"></i
+            ></a>
           </div>
         </div>
       </div>
@@ -93,9 +101,9 @@
               <i class="fa-solid fa-caret-down caret"></i
             ></a>
             <div class="dropdown-menu">
-              <a href="projetos.html">Todos os projetos</a>
-              <a href="projetos/bioconstrucao.html">Permacultura</a>
-              <a href="projetos/meliponicultura.html">Arte</a>
+              <a href="projetos.html?filter=all">Todos os projetos</a>
+              <a href="projetos.html?filter=permacultura">Permacultura</a>
+              <a href="projetos.html?filter=arte">Arte</a>
             </div>
           </div>
           <div class="nav-item">
@@ -109,7 +117,7 @@
             >
           </div>
           <div class="nav-item">
-            <a href="noticias.html"
+            <a href="noticias.html" class="active"
               ><i class="fa-solid fa-newspaper"></i> Notícias</a
             >
           </div>
@@ -120,17 +128,10 @@
           </div>
         </nav>
 
-        <div
-          class="header-utilities"
-          style="display: flex; align-items: center; gap: 16px"
-        >
-          <a
-            href="apoie.html"
-            class="btn-primary"
-            style="min-height: 42px; padding: 0 20px; font-size: 14px; gap: 8px"
+        <div class="header-utilities">
+          <a href="apoie.html" class="btn-primary"
+            ><i class="fa-solid fa-heart"></i> Apoie</a
           >
-            <i class="fa-solid fa-heart"></i> Apoie
-          </a>
           <button
             id="mobileToggle"
             class="mobile-toggle"
@@ -141,50 +142,107 @@
         </div>
       </div>
     </header>
+
     <main>
-      <section class="section bg-light text-center">
+      <section
+        class="page-banner"
+        style="
+          background: linear-gradient(
+            135deg,
+            var(--green-dark) 0%,
+            var(--green) 100%
+          );
+          color: #fff;
+          padding: 140px 0 80px;
+          margin-top: -92px;
+          text-align: center;
+        "
+      >
         <div class="container">
-          <header class="section-header" style="margin-bottom: 0">
-            <h2>Notícias e Artigos</h2>
-            <p class="muted">Acompanhe as ações e transformações do IPASG.</p>
-          </header>
+          <span
+            style="
+              display: inline-flex;
+              align-items: center;
+              gap: 8px;
+              font-weight: 700;
+              color: #8ce3bf;
+              text-transform: uppercase;
+              letter-spacing: 1px;
+              margin-bottom: 15px;
+            "
+            ><i class="fa-solid fa-newspaper"></i> Blog e Novidades</span
+          >
+          <h1
+            style="
+              font-size: clamp(38px, 6vw, 64px);
+              font-weight: 700;
+              margin-bottom: 16px;
+              letter-spacing: -1px;
+            "
+          >
+            Notícias IPASG
+          </h1>
+          <p
+            style="
+              font-size: 20px;
+              color: rgba(255, 255, 255, 0.85);
+              max-width: 600px;
+              margin: 0 auto;
+            "
+          >
+            Acompanhe nossas ações, projetos e conteúdos educativos em tempo
+            real.
+          </p>
         </div>
       </section>
 
-      <section class="section bg-white">
+      <section class="section bg-light">
         <div class="container">
           <div class="noticias-layout">
-            <div id="news-list" class="noticias-grid">
-              <article class="news-card">
-                <img
-                  src="assets/images/banner/m-two.png"
-                  alt="Capa da notícia"
-                />
-                <div class="news-content">
-                  <span class="news-date">10 Outubro, 2023</span>
-                  <h3>IPASG aprova novo projeto de recuperação florestal</h3>
-                  <a href="#" class="read-more"
-                    >Ler mais <i class="fa-solid fa-arrow-right"></i
-                  ></a>
-                </div>
-              </article>
-            </div>
+            <div id="news-list" class="noticias-grid"></div>
 
             <aside class="noticias-sidebar">
               <div class="sidebar-widget">
-                <h5>Buscar</h5>
-                <input
-                  type="text"
-                  placeholder="Pesquisar..."
-                  class="search-input"
-                />
+                <h5>Buscar Notícias</h5>
+                <div class="search-box">
+                  <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="O que você procura?"
+                    class="search-input"
+                  />
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
               </div>
+
               <div class="sidebar-widget">
                 <h5>Categorias</h5>
-                <ul class="cat-list">
-                  <li><a href="#">Permacultura</a></li>
-                  <li><a href="#">Educação Ambiental</a></li>
-                  <li><a href="#">Saneamento</a></li>
+                <ul class="cat-list" id="categoryList">
+                  <li>
+                    <button data-cat="all" class="cat-btn active">
+                      Todas as Notícias
+                    </button>
+                  </li>
+                  <li>
+                    <button data-cat="Permacultura" class="cat-btn">
+                      Permacultura
+                    </button>
+                  </li>
+                  <li>
+                    <button data-cat="Educação" class="cat-btn">
+                      Educação Ambiental
+                    </button>
+                  </li>
+                  <li>
+                    <button data-cat="Saneamento" class="cat-btn">
+                      Saneamento
+                    </button>
+                  </li>
+                  <li>
+                    <button data-cat="Eventos" class="cat-btn">
+                      Eventos e Oficinas
+                    </button>
+                  </li>
                 </ul>
               </div>
             </aside>
@@ -193,6 +251,132 @@
       </section>
     </main>
 
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <div class="footer-main-grid">
+          <div class="footer-widget">
+            <div class="footer-two__widget-logo">
+              <a href="index.html">
+                <img
+                  src="assets/images/logo-light.png"
+                  alt="IPASG"
+                  style="max-height: 80px"
+                  loading="lazy"
+                />
+              </a>
+            </div>
+            <p
+              style="
+                margin-top: 20px;
+                color: rgba(255, 255, 255, 0.72);
+                line-height: 1.7;
+              "
+            >
+              O IPASG é um instituto dedicado à permacultura, educação ambiental
+              e ao fortalecimento de comunidades por meio de projetos
+              socioambientais regenerativos.
+            </p>
+          </div>
+
+          <div class="footer-widget">
+            <h5>Transparência</h5>
+            <div class="footer-line">
+              <span class="large-line"></span><span class="small-line"></span>
+            </div>
+            <ul class="footer-list">
+              <li>
+                <a href="termos.html"
+                  ><i class="fa-solid fa-arrow-right"></i> Termos de Uso</a
+                >
+              </li>
+              <li>
+                <a href="privacidade.html"
+                  ><i class="fa-solid fa-arrow-right"></i> Política de
+                  Privacidade</a
+                >
+              </li>
+              <li>
+                <a href="cookies.html"
+                  ><i class="fa-solid fa-arrow-right"></i> Política de
+                  Cookies</a
+                >
+              </li>
+              <li>
+                <a href="lgpd.html"
+                  ><i class="fa-solid fa-arrow-right"></i> LGPD</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-widget footer-two__widget--contact">
+            <h5>Contato</h5>
+            <div class="footer-line">
+              <span class="large-line"></span><span class="small-line"></span>
+            </div>
+            <ul class="footer-list">
+              <li>
+                <a
+                  href="https://maps.app.goo.gl/Gr9pTNqz5FRNrjQw8"
+                  target="_blank"
+                >
+                  <i class="fa-solid fa-location-dot"></i> Estrada Municipal,
+                  885 – Mampituba/RS
+                </a>
+              </li>
+              <li>
+                <a href="mailto:ipasg.rs@gmail.com">
+                  <i class="fa-regular fa-envelope"></i> ipasg.rs@gmail.com
+                </a>
+              </li>
+            </ul>
+
+            <div class="footer-socials">
+              <a href="tel:+5551992429974" aria-label="Ligar"
+                ><i class="fa-solid fa-phone"></i
+              ></a>
+              <a
+                href="https://wa.me/5551992429974"
+                target="_blank"
+                aria-label="WhatsApp"
+                ><i class="fa-brands fa-whatsapp"></i
+              ></a>
+              <a
+                href="https://instagram.com/"
+                target="_blank"
+                aria-label="Instagram"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a
+                href="https://www.facebook.com/"
+                target="_blank"
+                aria-label="Facebook"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+              <a href="mailto:ipasg.rs@gmail.com" aria-label="Enviar E-mail"
+                ><i class="fa-solid fa-envelope"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="copyright-bar">
+          <div class="copyright-text">
+            <p>
+              © <span id="copyrightYear"></span>
+              <a href="index.html" style="color: #8ce3bf">IPASG</a>. Todos os
+              direitos reservados.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('copyrightYear').textContent =
+        new Date().getFullYear();
+    </script>
     <script src="assets/js/menu.js"></script>
+    <script src="assets/js/noticias.js"></script>
   </body>
 </html>

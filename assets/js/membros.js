@@ -1,87 +1,252 @@
-/* membros.js
-   Data-driven rendering dos cards de membros + init Swiper e VanillaTilt
-   Coloque em assets/js/membros.js
-*/
+/* ==========================================
+   membros.js
+   Renderização dinâmica via banco de dados
+========================================== */
 
-// --- Dados dos membros (mantive os nomes e cargos do arquivo que você enviou) ---
+// 1. Nosso Banco de Dados Simulado
 const MEMBERS = [
-  { name: "Elaine Regina dos Santos", role: "Presidenta", img: "assets/images/team/one.png", url: "team-elaine.html" },
-  { name: "Leandro N. dos Santos", role: "Vice-presidente", img: "assets/images/team/leandro-santos.png", url: "team-leandro.html" },
-  { name: "Felipe Lopes Piva", role: "Conselho Fiscal - Administrador", img: "assets/images/team/felipe-piva.png", url: "team-felipe-piva.html" },
-  { name: "Caroline Falero da Silva", role: "Conselho Fiscal - Artista e Produtora", img: "assets/images/team/one.png", url: "mailto:abayomi.falero@gmail.com" },
-  { name: "Antônio Dias Echeverria", role: "Zootecnista (Membro Fundador)", img: "assets/images/team/one.png", url: "mailto:echeverriasvp@hotmail.com" },
-  { name: "Patrícia Maria Berg T. de Oliveira", role: "Aposentada (Membro Fundador)", img: "assets/images/team/one.png", url: "mailto:patricia1436@hotmail.com" },
-  { name: "Helena Pereira Frantz", role: "Engenheira Florestal (Membro Fundador)", img: "assets/images/team/one.png", url: "mailto:helenafrantz@gmail.com" },
-  { name: "Artemio Soares Marques", role: "Professor (Membro Fundador)", img: "assets/images/team/one.png", url: "mailto:marquesartemio@gmail.com" },
-  { name: "Alexandre Oliveira", role: "Empresário (Membro Fundador)", img: "assets/images/team/one.png", url: "mailto:studioonearts@hotmail.com" },
-  { name: "Siomara Goulart Kronbauer", role: "Educadora Física / Dança (Membro Fundador)", img: "assets/images/team/one.png", url: "mailto:siokronbauer@hotmail.com" },
-  { name: "César Augusto Cougo Camargo", role: "Artista (Membro Fundador)", img: "assets/images/team/one.png", url: "mailto:cesarportoalegre@gmail.com" },
-  { name: "José Fernando Dresch Kronbauer", role: "Administrador Sanitarista (Membro Fundador)", img: "assets/images/team/one.png", url: "mailto:zezekronbauer@gmail.com" }
-  // Se quiser adicionar mais, siga o padrão { name, role, img, url }
+  {
+    name: 'Elaine Regina dos Santos',
+    role: 'Membro Fundadora',
+    img: 'assets/members/elaine/elaine.jpg',
+    url: 'team-elaine.html',
+    socials: {
+      whatsapp: 'https://wa.me/5551992429974',
+      instagram: 'https://instagram.com',
+      facebook: 'https://facebook.com',
+      youtube: 'https://youtube.com',
+      email: 'mailto:elaine@email.com',
+    },
+  },
+  {
+    name: 'Leandro N. dos Santos',
+    role: 'Membro Fundador',
+    img: 'assets/members/leandro/leandro.jpg',
+    url: 'team-leandro.html',
+    socials: {
+      whatsapp: 'https://wa.me/5551992429974',
+      instagram: 'https://instagram.com',
+      facebook: 'https://facebook.com',
+      youtube: 'https://youtube.com',
+      email: 'mailto:elaine@email.com',
+    },
+  },
+  {
+    name: 'Felipe Lopes Piva',
+    role: 'Membro Fundador',
+    img: 'assets/members/felipe/felipe.png',
+    url: 'team-felipe-piva.html',
+    socials: {
+      whatsapp: 'https://wa.me/5551992429974',
+      instagram: 'https://instagram.com',
+      facebook: 'https://facebook.com',
+      youtube: 'https://youtube.com',
+      email: 'mailto:elaine@email.com',
+    },
+  },
+  {
+    name: 'Caroline Falero da Silva',
+    role: 'Membro Fundadora',
+    img: 'assets/members/caroline/caroline.jpg',
+    url: 'mailto:abayomi.falero@gmail.com',
+    socials: {
+      whatsapp: 'https://wa.me/5551992429974',
+      instagram: 'https://instagram.com',
+      facebook: 'https://facebook.com',
+      youtube: 'https://youtube.com',
+      email: 'mailto:elaine@email.com',
+    },
+  },
+  {
+    name: 'Antônio Dias Echeverria',
+    role: 'Membro Fundador',
+    img: 'assets/members/antonio/antonio.jpeg',
+    url: 'mailto:echeverriasvp@hotmail.com',
+    socials: {
+      whatsapp: 'https://wa.me/5551992429974',
+      instagram: 'https://instagram.com',
+      facebook: 'https://facebook.com',
+      youtube: 'https://youtube.com',
+      email: 'mailto:elaine@email.com',
+    },
+  },
+  {
+    name: 'Patrícia Maria Berg',
+    role: 'Membro Fundadora',
+    img: 'assets/members/patricia/patricia.jpg',
+    url: 'mailto:patricia1436@hotmail.com',
+    socials: {
+      whatsapp: 'https://wa.me/5551992429974',
+      instagram: 'https://instagram.com',
+      facebook: 'https://facebook.com',
+      youtube: 'https://youtube.com',
+      email: 'mailto:elaine@email.com',
+    },
+  },
+  {
+    name: 'Helena Pereira Frantz',
+    role: 'Membro Fundadora',
+    img: 'assets/members/helena/helena.jpeg',
+    url: 'mailto:helenafrantz@gmail.com',
+    socials: {
+      whatsapp: 'https://wa.me/5551992429974',
+      instagram: 'https://instagram.com',
+      facebook: 'https://facebook.com',
+      youtube: 'https://youtube.com',
+      email: 'mailto:elaine@email.com',
+    },
+  },
+  {
+    name: 'Artemio Soares Marques',
+    role: 'Membro Fundador',
+    img: 'assets/members/artemio/artemio.jpg',
+    url: 'mailto:marquesartemio@gmail.com',
+    socials: {
+      whatsapp: 'https://wa.me/5551992429974',
+      instagram: 'https://instagram.com',
+      facebook: 'https://facebook.com',
+      youtube: 'https://youtube.com',
+      email: 'mailto:elaine@email.com',
+    },
+  },
+  {
+    name: 'Alexandre Oliveira',
+    role: 'Membro Fundador',
+    img: 'assets/members/alexandre/alexandre.jpeg',
+    url: 'mailto:studioonearts@hotmail.com',
+    socials: {
+      whatsapp: 'https://wa.me/5551992429974',
+      instagram: 'https://instagram.com',
+      facebook: 'https://facebook.com',
+      youtube: 'https://youtube.com',
+      email: 'mailto:elaine@email.com',
+    },
+  },
+  {
+    name: 'Siomara Goulart Kronbauer',
+    role: 'Membro Fundadora',
+    img: 'assets/members/siomara/siomara.jpeg',
+    url: 'mailto:siokronbauer@hotmail.com',
+    socials: {
+      whatsapp: 'https://wa.me/5551992429974',
+      instagram: 'https://instagram.com',
+      facebook: 'https://facebook.com',
+      youtube: 'https://youtube.com',
+      email: 'mailto:elaine@email.com',
+    },
+  },
+  {
+    name: 'César Augusto Cougo',
+    role: 'Membro Fundador',
+    img: 'assets/members/cesar/cesar.jpeg',
+    url: 'mailto:cesarportoalegre@gmail.com',
+    socials: {
+      whatsapp: 'https://wa.me/5551992429974',
+      instagram: 'https://instagram.com',
+      facebook: 'https://facebook.com',
+      youtube: 'https://youtube.com',
+      email: 'mailto:elaine@email.com',
+    },
+  },
+  {
+    name: 'José Fernando Kronbauer',
+    role: 'Membro Fundador',
+    img: 'assets/members/zeze/zeze.jpeg',
+    url: 'mailto:zezekronbauer@gmail.com',
+    socials: {
+      whatsapp: 'https://wa.me/5551992429974',
+      instagram: 'https://instagram.com',
+      facebook: 'https://facebook.com',
+      youtube: 'https://youtube.com',
+      email: 'mailto:elaine@email.com',
+    },
+  },
 ];
 
-// --- função para gerar o HTML de cada card ---
-function buildCard(member) {
-  const wrapper = document.createElement('article');
-  wrapper.className = 'card van-tilt';
-  wrapper.innerHTML = `
-    <div class="thumb">
-      <a href="${member.url}">
-        <img src="${member.img}" alt="${member.name}" loading="lazy">
-      </a>
-    </div>
-    <div class="card-body">
-      <h3><a href="${member.url}">${member.name}</a></h3>
-      <p>${member.role}</p>
+// 2. Dicionário de Ícones
+const iconMap = {
+  whatsapp: 'fa-brands fa-whatsapp',
+  instagram: 'fa-brands fa-instagram',
+  facebook: 'fa-brands fa-facebook-f',
+  youtube: 'fa-brands fa-youtube',
+  linkedin: 'fa-brands fa-linkedin-in',
+  twitter: 'fa-brands fa-x-twitter',
+  email: 'fa-solid fa-envelope',
+};
 
-      <div class="social" aria-hidden="true">
-        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+// 3. Montar a Caixinha (Card) do Membro - AGORA COM ANIMAÇÃO NATIVA
+function buildCard(member, index) {
+  const wrapper = document.createElement('div');
+
+  // Aqui geramos a animação em cascata! Cada card entra 0.1s depois do anterior.
+  wrapper.style.opacity = '0';
+  wrapper.style.animation = `fadeInUpCard 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards`;
+  wrapper.style.animationDelay = `${index * 0.1}s`;
+
+  let socialsHTML = '';
+  if (member.socials) {
+    for (const [network, link] of Object.entries(member.socials)) {
+      const iconClass = iconMap[network] || 'fa-solid fa-link';
+      socialsHTML += `<li><a href="${link}" target="_blank" class="social-btn"><i class="${iconClass}"></i></a></li>`;
+    }
+  }
+
+  wrapper.innerHTML = `
+    <div class="team__single van-tilt">
+      <div class="team__single-thumb">
+        <a href="${member.url}">
+          <img src="${member.img}" alt="${member.name}" loading="lazy">
+        </a>
+        <div class="team__icons">
+          <div class="team__single-content__icon">
+            <i class="fa-solid fa-plus"></i>
+          </div>
+          <div class="team__single__thumb-social">
+            <ul>
+              ${socialsHTML}
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="team__single-content">
+        <h6><a href="${member.url}">${member.name}</a></h6>
+        <p>${member.role}</p>
       </div>
     </div>
-    <div class="plus" aria-hidden="true"><i class="fa-solid fa-plus"></i></div>
   `;
   return wrapper;
 }
 
-// --- renderiza no DOM ---
+// 4. Injetar na Tela e Inicializar Funções
 function renderMembers() {
   const grid = document.getElementById('teamGrid');
   if (!grid) return;
-  MEMBERS.forEach(m => {
-    const card = buildCard(m);
-    grid.appendChild(card);
+
+  grid.innerHTML = ''; // Garante que a grade está limpa
+
+  // Repare que passamos o 'index' (0, 1, 2...) para a função buildCard fazer a cascata
+  MEMBERS.forEach((m, index) => {
+    grid.appendChild(buildCard(m, index));
   });
 
-  // inicializa VanillaTilt nos cards
-  const tiltOptions = {
-    max: 8,
-    speed: 400,
-    glare: false,
-    "max-glare": 0.1,
-    scale: 1.02
-  };
+  // Previne conflitos no clique das redes
+  document.querySelectorAll('.social-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+    });
+  });
+
+  // Inicializa o efeito 3D
   const tiltEls = document.querySelectorAll('.van-tilt');
-  if (tiltEls.length) VanillaTilt.init(tiltEls, tiltOptions);
+  if (tiltEls.length && typeof VanillaTilt !== 'undefined') {
+    VanillaTilt.init(tiltEls, {
+      max: 6,
+      speed: 400,
+      glare: false,
+      scale: 1.02,
+    });
+  }
 }
 
-// --- init Swiper para banner slider ---
-function initSlider() {
-  if (!window.Swiper) return;
-  const swiper = new Swiper('.mySwiper', {
-    loop: true,
-    autoplay: { delay: 4000, disableOnInteraction: false },
-    slidesPerView: 1,
-    spaceBetween: 12,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true
-    }
-  });
-}
-
-// --- DOM ready ---
-document.addEventListener('DOMContentLoaded', () => {
-  renderMembers();
-  initSlider();
-});
+// Roda a mágica
+document.addEventListener('DOMContentLoaded', renderMembers);

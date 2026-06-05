@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Assessoria Técnica e Instalação | IPASG</title>
+    <meta
+      name="description"
+      content="Assessoria e instalação de projetos de saneamento ecológico, bioconstrução e permacultura pelo IPASG."
+    />
+
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+    <link rel="apple-touch-icon" href="assets/images/favicon.png" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/header.css" />
+    <link rel="stylesheet" href="assets/css/footer.css" />
+    <link rel="stylesheet" href="assets/css/assessoria.css" />
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <div class="topbar-left">
+          <a
+            href="https://www.google.com/maps/dir/-30.045851,-51.3116603/Mampituba,+RS,+95572-000/@-29.4229542,-50.2723278,10.5z/data=!4m9!4m8!1m1!4e1!1m5!1m1!1s0x952209266564baf7:0x136cba7824fdc408!2m2!1d-49.9359871!2d-29.21173?entry=ttu&g_ep=EgoyMDI1MDcwNi4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank"
+          >
+            <i class="fa-solid fa-location-dot"></i> Estrada Municipal, 885 –
+            Mampituba/RS
+          </a>
+          <a href="mailto:ipasg.rs@gmail.com">
+            <i class="fa-regular fa-envelope"></i> ipasg.rs@gmail.com
+          </a>
+        </div>
+        <div class="topbar-right">
+          <div class="social-links">
+            <a href="tel:+5551992429974" aria-label="Ligar"
+              ><i class="fa-solid fa-phone"></i
+            ></a>
+            <a
+              href="https://wa.me/5551992429974"
+              target="_blank"
+              aria-label="WhatsApp"
+              ><i class="fa-brands fa-whatsapp"></i
+            ></a>
+            <a
+              href="https://instagram.com/"
+              target="_blank"
+              aria-label="Instagram"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+            <a
+              href="https://www.facebook.com/"
+              target="_blank"
+              aria-label="Facebook"
+              ><i class="fa-brands fa-facebook-f"></i
+            ></a>
+            <a href="mailto:ipasg.rs@gmail.com" aria-label="Enviar E-mail"
+              ><i class="fa-solid fa-envelope"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <header class="site-header" role="banner">
+      <div class="container navwrap">
+        <div class="brand">
+          <a href="index.html" aria-label="IPASG Home" class="brand-link">
+            <img src="assets/images/logo/logo.png" alt="Logotipo do IPASG" />
+          </a>
+        </div>
+
+        <nav class="nav" role="navigation" aria-label="Main menu">
+          <div class="nav-item">
+            <a href="index.html"><i class="fa-solid fa-house"></i> Início</a>
+          </div>
+          <div class="nav-item dropdown">
+            <a href="#" aria-haspopup="true"
+              ><i class="fa-solid fa-leaf"></i> Sobre
+              <i class="fa-solid fa-caret-down caret"></i
+            ></a>
+            <div class="dropdown-menu">
+              <a href="sobre.html">História</a>
+              <a href="membros.html">Membros</a>
+            </div>
+          </div>
+          <div class="nav-item dropdown">
+            <a href="#" aria-haspopup="true"
+              ><i class="fa-solid fa-seedling"></i> Projetos
+              <i class="fa-solid fa-caret-down caret"></i
+            ></a>
+            <div class="dropdown-menu">
+              <a href="projetos.html?filter=all">Todos os projetos</a>
+              <a href="projetos.html?filter=permacultura">Permacultura</a>
+              <a href="projetos.html?filter=arte">Arte</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <a href="assessoria.html"
+              ><i class="fa-solid fa-handshake"></i> Assessoria</a
+            >
+          </div>
+          <div class="nav-item">
+            <a href="eventos.html"
+              ><i class="fa-solid fa-calendar-days"></i> Eventos</a
+            >
+          </div>
+          <div class="nav-item">
+            <a href="noticias.html"
+              ><i class="fa-solid fa-newspaper"></i> Notícias</a
+            >
+          </div>
+          <div class="nav-item">
+            <a href="materiais.html"
+              ><i class="fa-solid fa-book-open"></i> Materiais</a
+            >
+          </div>
+        </nav>
+
+        <div class="header-utilities">
+          <a href="apoie.html" class="btn-primary"
+            ><i class="fa-solid fa-heart"></i> Apoie</a
+          >
+          <button
+            id="mobileToggle"
+            class="mobile-toggle"
+            aria-label="Abrir menu"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section
+        class="page-banner"
+        style="
+          background: linear-gradient(
+            135deg,
+            var(--green-dark) 0%,
+            var(--green) 100%
+          );
+          color: #fff;
+          padding: 140px 0 80px;
+          margin-top: -92px;
+          text-align: center;
+        "
+      >
+        <div class="container">
+          <span
+            style="
+              display: inline-flex;
+              align-items: center;
+              gap: 8px;
+              font-weight: 700;
+              color: #8ce3bf;
+              text-transform: uppercase;
+              letter-spacing: 1px;
+              margin-bottom: 15px;
+            "
+            ><i class="fa-solid fa-tools"></i> Nossos Serviços</span
+          >
+          <h1
+            style="
+              font-size: clamp(38px, 6vw, 64px);
+              font-weight: 700;
+              margin-bottom: 16px;
+              letter-spacing: -1px;
+            "
+          >
+            Assessoria & Instalação
+          </h1>
+          <p
+            style="
+              font-size: 20px;
+              color: rgba(255, 255, 255, 0.85);
+              max-width: 600px;
+              margin: 0 auto;
+            "
+          >
+            Apoio técnico especializado para transformar o seu espaço de forma
+            ecológica, sustentável e regenerativa.
+          </p>
+        </div>
+      </section>
+
+      <section class="section bg-white fade-in-up">
+        <div class="container">
+          <div class="section-header">
+            <h2>Saneamento Ecológico</h2>
+            <p>
+              O Saneamento Ecológico foca na conservação da água e na proteção
+              dos recursos hídricos, viabilizando a reutilização eficiente de
+              todos os nutrientes contidos nos resíduos. É uma abordagem vital
+              para reduzir emissões de carbono e promover a sustentabilidade
+              ambiental.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section bg-light overflow-hidden">
+        <div class="container">
+          <div class="service-row fade-in-up">
+            <div class="service-image">
+              <img
+                src="assets/images/banner/m-one.png"
+                alt="Tanque de evapotranspiração"
+                loading="lazy"
+              />
+            </div>
+            <div class="service-content">
+              <span class="eyebrow"
+                ><i class="fa-solid fa-droplet"></i> Tratamento Doméstico</span
+              >
+              <h3>Tanque de Evapotranspiração (TEvap)</h3>
+              <p>
+                O TEvap é um sistema de tratamento simplificado baseado em solo
+                e plantas. Consiste em um tanque impermeável preenchido com
+                diferentes substratos e coberto por plantas de folhas largas,
+                como bananeiras e taiobas.
+              </p>
+              <p>
+                Ele funciona como câmara de digestão anaeróbia e banhado
+                construído, absorvendo totalmente o efluente e dispensando a
+                necessidade de pós-tratamento.
+              </p>
+            </div>
+          </div>
+
+          <div class="service-row reverse fade-in-up">
+            <div class="service-image">
+              <img
+                src="assets/images/banner/m-two.png"
+                alt="Fossa de Minhocas"
+                loading="lazy"
+              />
+            </div>
+            <div class="service-content">
+              <span class="eyebrow"
+                ><i class="fa-solid fa-worm"></i> Inovação e Baixo Custo</span
+              >
+              <h3>Fossa de Minhocas (Vermifiltro)</h3>
+              <p>
+                O Vermifiltro emula processos naturais que ultrapassam métodos
+                convencionais, destacando-se pelo custo reduzido de implantação
+                e necessidade mínima de manutenção.
+              </p>
+              <p>
+                Os efluentes são filtrados em camadas sucessivas, e a matéria
+                orgânica retida é digerida pelas minhocas. Um piso elevado na
+                base separa a matéria orgânica da água perfeitamente tratada.
+              </p>
+            </div>
+          </div>
+
+          <div class="service-row fade-in-up">
+            <div class="service-image">
+              <img
+                src="assets/images/banner/m-three.png"
+                alt="Banheiro Seco Compostável"
+                loading="lazy"
+              />
+            </div>
+            <div class="service-content">
+              <span class="eyebrow"
+                ><i class="fa-solid fa-leaf"></i> Zero Água</span
+              >
+              <h3>Banheiro Seco (Compostável)</h3>
+              <p>
+                Desempenha todas as funções de um banheiro convencional sem
+                depender de água, gerando compostos valiosos para fertilizar
+                agroflorestas e plantações.
+              </p>
+              <p>
+                Utilizando o calor solar para elevar a temperatura e eliminar
+                patógenos prejudiciais, o banheiro seco evita a contaminação de
+                águas e solo, sendo uma tecnologia social altamente flexível e
+                sustentável.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section bg-white fade-in-up">
+        <div class="container">
+          <header class="section-header">
+            <h2>Outras Especialidades</h2>
+            <p class="muted">
+              Nossa equipe atua no planejamento, design e instalação de diversas
+              tecnologias sociais.
+            </p>
+          </header>
+
+          <div class="expertise-grid">
+            <div class="expertise-card">
+              <i class="fa-solid fa-hammer"></i>
+              <h4>Bioconstrução</h4>
+              <p>
+                Construções sustentáveis utilizando terra crua, bambu, telhados
+                verdes e materiais locais, garantindo conforto térmico e
+                integração com a paisagem.
+              </p>
+            </div>
+            <div class="expertise-card">
+              <i class="fa-solid fa-seedling"></i>
+              <h4>Agroecologia</h4>
+              <p>
+                Design de sistemas agroflorestais (SAFs), hortas comunitárias e
+                mandalas, promovendo segurança alimentar e regeneração do solo.
+              </p>
+            </div>
+            <div class="expertise-card">
+              <i class="fa-solid fa-bug"></i>
+              <h4>Meliponicultura</h4>
+              <p>
+                Assessoria para implantação de meliponários (abelhas sem
+                ferrão), unindo educação ambiental, polinização de cultivos e
+                geração de renda.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section cta-section fade-in-up">
+        <div class="container text-center">
+          <h2
+            style="
+              color: #fff;
+              font-size: clamp(32px, 4vw, 42px);
+              margin-bottom: 20px;
+            "
+          >
+            Pronto para transformar seu espaço?
+          </h2>
+          <p
+            style="
+              color: rgba(255, 255, 255, 0.8);
+              font-size: 18px;
+              margin-bottom: 40px;
+              max-width: 600px;
+              margin-left: auto;
+              margin-right: auto;
+            "
+          >
+            Entre em contato com a nossa equipe para solicitar uma visita
+            técnica e orçamentos para a sua propriedade ou escola.
+          </p>
+          <div
+            style="
+              display: flex;
+              justify-content: center;
+              gap: 20px;
+              flex-wrap: wrap;
+            "
+          >
+            <a
+              href="https://wa.me/5551992429974"
+              target="_blank"
+              class="btn-primary"
+              style="
+                background: #fff;
+                color: var(--green-dark);
+                border-color: #fff;
+              "
+            >
+              <i class="fa-brands fa-whatsapp"></i> Chamar no WhatsApp
+            </a>
+            <a href="mailto:ipasg.rs@gmail.com" class="btn-ghost">
+              <i class="fa-regular fa-envelope"></i> Enviar E-mail
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <div class="footer-main-grid">
+          <div class="footer-widget">
+            <div class="footer-two__widget-logo">
+              <a href="index.html">
+                <img
+                  src="assets/images/logo-light.png"
+                  alt="IPASG"
+                  style="max-height: 80px"
+                  loading="lazy"
+                />
+              </a>
+            </div>
+            <p
+              style="
+                margin-top: 20px;
+                color: rgba(255, 255, 255, 0.72);
+                line-height: 1.7;
+              "
+            >
+              O IPASG é um instituto dedicado à permacultura, educação ambiental
+              e ao fortalecimento de comunidades por meio de projetos
+              socioambientais regenerativos.
+            </p>
+          </div>
+
+          <div class="footer-widget">
+            <h5>Transparência</h5>
+            <div class="footer-line">
+              <span class="large-line"></span><span class="small-line"></span>
+            </div>
+            <ul class="footer-list">
+              <li>
+                <a href="termos.html"
+                  ><i class="fa-solid fa-arrow-right"></i> Termos de Uso</a
+                >
+              </li>
+              <li>
+                <a href="privacidade.html"
+                  ><i class="fa-solid fa-arrow-right"></i> Política de
+                  Privacidade</a
+                >
+              </li>
+              <li>
+                <a href="cookies.html"
+                  ><i class="fa-solid fa-arrow-right"></i> Política de
+                  Cookies</a
+                >
+              </li>
+              <li>
+                <a href="lgpd.html"
+                  ><i class="fa-solid fa-arrow-right"></i> LGPD</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-widget footer-two__widget--contact">
+            <h5>Contato</h5>
+            <div class="footer-line">
+              <span class="large-line"></span><span class="small-line"></span>
+            </div>
+            <ul class="footer-list">
+              <li>
+                <a
+                  href="https://maps.app.goo.gl/Gr9pTNqz5FRNrjQw8"
+                  target="_blank"
+                >
+                  <i class="fa-solid fa-location-dot"></i> Estrada Municipal,
+                  885 – Mampituba/RS
+                </a>
+              </li>
+              <li>
+                <a href="mailto:ipasg.rs@gmail.com">
+                  <i class="fa-regular fa-envelope"></i> ipasg.rs@gmail.com
+                </a>
+              </li>
+            </ul>
+            <div class="footer-socials">
+              <a href="tel:+5551992429974" aria-label="Ligar"
+                ><i class="fa-solid fa-phone"></i
+              ></a>
+              <a
+                href="https://wa.me/5551992429974"
+                target="_blank"
+                aria-label="WhatsApp"
+                ><i class="fa-brands fa-whatsapp"></i
+              ></a>
+              <a
+                href="https://instagram.com/"
+                target="_blank"
+                aria-label="Instagram"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a
+                href="https://www.facebook.com/"
+                target="_blank"
+                aria-label="Facebook"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+              <a href="mailto:ipasg.rs@gmail.com" aria-label="Enviar E-mail"
+                ><i class="fa-solid fa-envelope"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="copyright-bar">
+          <div class="copyright-text">
+            <p>
+              © <span id="copyrightYear"></span>
+              <a href="index.html" style="color: #8ce3bf">IPASG</a>. Todos os
+              direitos reservados.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('copyrightYear').textContent =
+        new Date().getFullYear();
+    </script>
+    <script src="assets/js/menu.js"></script>
+    <script src="assets/js/animations.js"></script>
+  </body>
+</html>

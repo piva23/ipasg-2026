@@ -1,19 +1,20 @@
 /* =========================
-   FOOTER (PRO)
+   FOOTER (PRO & HARMONIZADO)
 ========================= */
 .site-footer {
-  margin-top: 80px;
-  background: #0b1410; /* Fundo um tom mais escuro e elegante */
+  margin-top: 60px;
+  /* Harmonizado com o fundo do Banner e textos do site */
+  background: var(--dark, #0f1724);
   color: rgba(255, 255, 255, 0.75);
-  padding-top: 90px;
-  padding-bottom: 40px;
+  padding-top: 80px;
+  padding-bottom: 30px;
 }
 
 .footer-main-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 80px; /* Mais respiro entre as colunas */
-  margin-bottom: 60px;
+  grid-template-columns: 1.5fr 1fr 1.2fr;
+  gap: 60px;
+  margin-bottom: 50px;
 }
 
 .footer-widget p {
@@ -30,7 +31,7 @@
   letter-spacing: -0.5px;
 }
 
-/* Detalhe visual das linhas animadas com brilho */
+/* Linhas decorativas */
 .footer-line {
   display: flex;
   gap: 6px;
@@ -41,7 +42,6 @@
   height: 3px;
   background: var(--green);
   border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(30, 139, 111, 0.4); /* Brilho sutil */
 }
 .small-line {
   width: 8px;
@@ -54,6 +54,7 @@
 .footer-list {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 .footer-list li {
   margin-bottom: 16px;
@@ -82,38 +83,8 @@
   transform: scale(1.1);
 }
 
-/* COPYRIGHT BAR */
-.copyright-bar {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  font-size: 15px;
-}
-
-.copyright-text p {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.footer-bottom-list {
-  display: flex;
-  gap: 24px;
-  list-style: none;
-  padding: 0;
-}
-.footer-bottom-list a {
-  color: rgba(255, 255, 255, 0.5);
-  transition: var(--transition);
-}
-.footer-bottom-list a:hover {
-  color: #ffffff;
-}
-
 /* =========================
-   ÍCONES SOCIAIS DO FOOTER
+   ÍCONES SOCIAIS DO FOOTER (VOLTARAM!)
 ========================= */
 .footer-socials {
   display: flex;
@@ -128,7 +99,7 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05); /* Fundo sutil */
+  background: rgba(255, 255, 255, 0.05); /* Fundo translúcido sutil */
   color: var(--green);
   font-size: 18px;
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -136,11 +107,11 @@
 }
 
 .footer-socials a i {
-  margin: 0 !important; /* Previne conflito com o estilo da lista */
+  margin: 0 !important;
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Micro-interação Premium */
+/* Hover Premium: Círculo verde, ícone branco e flutuação */
 .footer-socials a:hover {
   background: var(--green);
   color: #fff;
@@ -154,21 +125,30 @@
   transform: scale(1.1);
 }
 
+/* COPYRIGHT BAR */
+.copyright-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 25px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.copyright-text p {
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
 /* RESPONSIVE FOOTER */
-@media (max-width: 860px) {
+@media (max-width: 960px) {
   .footer-main-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 50px;
   }
 }
 
-@media (max-width: 600px) {
-  .copyright-bar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .footer-bottom-list {
-    flex-direction: column;
-    gap: 12px;
+@media (max-width: 700px) {
+  .footer-main-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
 }

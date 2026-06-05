@@ -1,12 +1,12 @@
-/* =========================
-   HERO / BANNER (PRO)
-========================= */
+/* ============================================================
+   HERO / BANNER (PRO - OTIMIZADO)
+============================================================ */
 .hero {
   position: relative;
-  height: calc(100svh - 92px);
+  height: calc(100svh - 92px); /* Altura exata da tela menos o Header */
   min-height: 550px;
   overflow: hidden;
-  background: #0f1724; /* Fundo escuro base para não piscar branco ao carregar */
+  background: #0f1724; /* Fundo base para carregamento */
 }
 
 .hero-slider {
@@ -20,7 +20,7 @@
   inset: 0;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 1s ease-in-out; /* Transição fotográfica suave */
+  transition: opacity 1s ease-in-out;
   will-change: opacity;
 }
 
@@ -37,14 +37,14 @@
   object-position: center;
 }
 
-/* Gradiente Escuro Otimizado: Tira o estouro de luz da imagem original */
+/* Gradiente Escuro para legibilidade do texto */
 .hero-slide::before {
   content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(
     90deg,
-    rgba(15, 23, 36, 0.8) 0%,
+    rgba(15, 23, 36, 0.85) 0%,
     rgba(15, 23, 36, 0.4) 50%,
     rgba(15, 23, 36, 0.1) 100%
   );
@@ -58,17 +58,18 @@
   left: 0;
   width: 53%;
   height: 100%;
-  background: #ffffff;
+  background: var(--white);
   transform: skewX(-12deg) translateX(-15%);
   opacity: 0.98;
-  z-index: 2;
-  box-shadow: 30px 0 60px rgba(0, 0, 0, 0.15); /* Sombra mais difusa e profissional */
+  z-index: 3; /* Garantido acima do gradiente */
+  box-shadow: 30px 0 60px rgba(0, 0, 0, 0.15);
+  will-change: transform;
 }
 
 /* CONTEÚDO DE TEXTO */
 .hero-content {
   position: absolute;
-  z-index: 5;
+  z-index: 6;
   top: 50%;
   left: 10%;
   transform: translateY(-50%);
@@ -108,7 +109,7 @@
 .lead {
   font-size: 18px;
   line-height: 1.8;
-  color: #475467; /* Cinza sofisticado para leitura */
+  color: #475467;
   margin-bottom: 38px;
 }
 
@@ -131,9 +132,9 @@
   color: var(--green);
 }
 
-/* =========================
+/* ============================================================
    CONTROLES DO SLIDER (SETAS E PONTOS)
-========================= */
+============================================================ */
 .hero-nav {
   position: absolute;
   inset: 0;
@@ -142,7 +143,7 @@
   justify-content: space-between;
   padding: 0 40px;
   z-index: 20;
-  pointer-events: none; /* Deixa o clique passar através da div... */
+  pointer-events: none;
 }
 
 .nav-btn {
@@ -150,20 +151,19 @@
   height: 56px;
   border-radius: 50%;
   border: none;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   color: var(--green);
   font-size: 18px;
   cursor: pointer;
-  pointer-events: auto; /* ...mas permite clicar no botão */
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  pointer-events: auto;
+  transition: var(--transition);
+  box-shadow: var(--shadow-md);
 }
 
 .nav-btn:hover {
   background: var(--green);
   color: #fff;
   transform: scale(1.08);
-  box-shadow: 0 12px 30px rgba(30, 139, 111, 0.3);
 }
 
 .hero-indicators {
@@ -190,9 +190,9 @@
   background: var(--green);
 }
 
-/* =========================
+/* ============================================================
    RESPONSIVO HERO
-========================= */
+============================================================ */
 @media (max-width: 960px) {
   .hero {
     height: auto;
@@ -203,7 +203,7 @@
     transform: skewX(-8deg) translateX(-10%);
   }
   .hero-nav {
-    display: none; /* Esconde as setas laterais em tablets/mobile para limpar a tela */
+    display: none;
   }
 }
 
@@ -221,10 +221,10 @@
     left: 20px;
     right: 20px;
     max-width: 100%;
-    top: 48%; /* Ajusta o texto mais pro meio na vertical */
+    top: 48%;
   }
   .hero-content h1 {
-    font-size: 42px;
+    font-size: 38px;
   }
   .hero-actions {
     flex-direction: column;

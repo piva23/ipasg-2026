@@ -13,6 +13,9 @@
       content="IPASG, permacultura, sustentabilidade, educação ambiental"
     />
 
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+    <link rel="apple-touch-icon" href="assets/images/favicon.png" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap"
       rel="stylesheet"
@@ -46,34 +49,31 @@
           </a>
         </div>
         <div class="topbar-right">
-          <div
-            class="social-links"
-            style="border-left: none; padding-left: 0; gap: 20px"
-          >
-            <a href="tel:+5551992429974" aria-label="Ligar para o IPASG">
-              <i class="fa-solid fa-phone"></i>
-            </a>
+          <div class="social-links">
+            <a href="tel:+5551992429974" aria-label="Ligar para o IPASG"
+              ><i class="fa-solid fa-phone"></i
+            ></a>
+            <a href="mailto:ipasg.rs@gmail.com" aria-label="Enviar E-mail"
+              ><i class="fa-solid fa-envelope"></i
+            ></a>
             <a
               href="https://wa.me/5551992429974"
               target="_blank"
               aria-label="Falar no WhatsApp"
-            >
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
+              ><i class="fa-brands fa-whatsapp"></i
+            ></a>
             <a
               href="https://instagram.com/"
               target="_blank"
               aria-label="Instagram"
-            >
-              <i class="fa-brands fa-instagram"></i>
-            </a>
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
             <a
               href="https://www.facebook.com/"
               target="_blank"
               aria-label="Facebook"
-            >
-              <i class="fa-brands fa-facebook-f"></i>
-            </a>
+              ><i class="fa-brands fa-facebook-f"></i
+            ></a>
           </div>
         </div>
       </div>
@@ -107,9 +107,9 @@
               <i class="fa-solid fa-caret-down caret"></i
             ></a>
             <div class="dropdown-menu">
-              <a href="projetos.html">Todos os projetos</a>
-              <a href="projetos/bioconstrucao.html">Permacultura</a>
-              <a href="projetos/meliponicultura.html">Arte</a>
+              <a href="projetos.html?filter=all">Todos os projetos</a>
+              <a href="projetos.html?filter=permacultura">Permacultura</a>
+              <a href="projetos.html?filter=arte">Arte</a>
             </div>
           </div>
           <div class="nav-item">
@@ -134,15 +134,8 @@
           </div>
         </nav>
 
-        <div
-          class="header-utilities"
-          style="display: flex; align-items: center; gap: 16px"
-        >
-          <a
-            href="apoie.html"
-            class="btn-primary"
-            style="min-height: 42px; padding: 0 20px; font-size: 14px; gap: 8px"
-          >
+        <div class="header-utilities">
+          <a href="apoie.html" class="btn-primary">
             <i class="fa-solid fa-heart"></i> Apoie
           </a>
           <button
@@ -162,7 +155,7 @@
           <article class="hero-slide active" data-index="0">
             <img
               class="hero-bg"
-              src="assets/images/banner/m-one.png"
+              src="assets/images/banner/1.jpeg"
               alt="Pessoas e ambiente em harmonia"
             />
             <div class="hero-diagonal"></div>
@@ -187,7 +180,7 @@
           <article class="hero-slide" data-index="1">
             <img
               class="hero-bg"
-              src="assets/images/banner/m-two.png"
+              src="assets/images/banner/2.png"
               alt="Natureza preservada"
             />
             <div class="hero-diagonal"></div>
@@ -208,7 +201,7 @@
           <article class="hero-slide" data-index="2">
             <img
               class="hero-bg"
-              src="assets/images/banner/m-three.png"
+              src="assets/images/banner/3.png"
               alt="Equipe trabalhando"
             />
             <div class="hero-diagonal"></div>
@@ -264,15 +257,7 @@
           </header>
 
           <div class="who-text text-center">
-            <p
-              class="muted"
-              style="
-                max-width: 860px;
-                margin: 0 auto 50px;
-                font-size: 18px;
-                line-height: 1.8;
-              "
-            >
+            <p class="lead" style="max-width: 860px; margin: 0 auto 50px">
               O IPASG atua como um agente de transformação socioambiental. Nosso
               trabalho é fundamentado na Permacultura, desenvolvendo soluções
               que cuidam da terra, cuidam das pessoas e garantem a partilha
@@ -281,39 +266,21 @@
 
             <div class="features features-full">
               <div class="feature text-left">
-                <h3>
-                  <i
-                    class="fa-solid fa-leaf"
-                    style="color: var(--green); margin-right: 6px"
-                  ></i>
-                  Agroecologia
-                </h3>
+                <h3><i class="fa-solid fa-leaf"></i> Agroecologia</h3>
                 <p class="muted">
                   Design de sistemas produtivos sustentáveis, hortas
                   comunitárias e promoção da segurança alimentar local.
                 </p>
               </div>
               <div class="feature text-left">
-                <h3>
-                  <i
-                    class="fa-solid fa-seedling"
-                    style="color: var(--green); margin-right: 6px"
-                  ></i>
-                  Educação Ambiental
-                </h3>
+                <h3><i class="fa-solid fa-seedling"></i> Educação Ambiental</h3>
                 <p class="muted">
                   Oficinas, cursos e vivências práticas para reconectar crianças
                   e adultos à conservação da natureza.
                 </p>
               </div>
               <div class="feature text-left">
-                <h3>
-                  <i
-                    class="fa-solid fa-hammer"
-                    style="color: var(--green); margin-right: 6px"
-                  ></i>
-                  Bioconstrução
-                </h3>
+                <h3><i class="fa-solid fa-hammer"></i> Bioconstrução</h3>
                 <p class="muted">
                   Tecnologias ecológicas para tratamento natural de resíduos e
                   moradias de baixo impacto ambiental.
@@ -321,11 +288,7 @@
               </div>
               <div class="feature text-left">
                 <h3>
-                  <i
-                    class="fa-solid fa-hands-holding-circle"
-                    style="color: var(--green); margin-right: 6px"
-                  ></i>
-                  Assessoria
+                  <i class="fa-solid fa-hands-holding-circle"></i> Assessoria
                 </h3>
                 <p class="muted">
                   Apoio técnico a escolas, associações e comunidades para a
@@ -423,11 +386,8 @@
             </div>
           </div>
 
-          <div style="text-align: center; margin-top: 40px">
-            <a
-              href="eventos.html"
-              class="btn-ghost"
-              style="color: var(--dark); border-color: var(--green-border)"
+          <div class="text-center" style="margin-top: 40px">
+            <a href="eventos.html" class="btn-primary"
               >Ver calendário completo</a
             >
           </div>
@@ -494,7 +454,7 @@
 
       <section class="section bg-white" id="parceiros">
         <div class="container">
-          <header class="section-header" style="margin-bottom: 30px">
+          <header class="section-header">
             <h2>Parceiros & Patrocinadores</h2>
             <p class="muted">Organizações e parceiros que caminham conosco.</p>
           </header>
@@ -557,26 +517,21 @@
       </section>
     </main>
 
-    <footer class="site-footer footer-three" role="contentinfo">
+    <footer class="site-footer" role="contentinfo">
       <div class="container">
         <div class="footer-main-grid">
           <div class="footer-widget">
-            <a href="index.html">
-              <img
-                src="assets/images/logo/logo-light.png"
-                alt="IPASG Logo Claro"
-                loading="lazy"
-                style="max-height: 80px; margin-bottom: 24px"
-              />
-            </a>
-            <p
-              style="
-                color: rgba(255, 255, 255, 0.72);
-                max-width: 420px;
-                line-height: 1.7;
-                font-size: 15px;
-              "
-            >
+            <div class="footer-two__widget-logo">
+              <a href="index.html">
+                <img
+                  src="assets/images/logo/logo-light.png"
+                  alt="IPASG"
+                  height="70"
+                  loading="lazy"
+                />
+              </a>
+            </div>
+            <p>
               O IPASG é um instituto dedicado à permacultura, educação ambiental
               e ao fortalecimento de comunidades por meio de projetos
               socioambientais regenerativos.
@@ -584,56 +539,78 @@
           </div>
 
           <div class="footer-widget">
-            <h5>Fale Conosco</h5>
+            <h5>Transparência</h5>
             <div class="footer-line">
-              <span class="large-line"></span>
-              <span class="small-line"></span>
-              <span class="small-line"></span>
+              <span class="large-line"></span><span class="small-line"></span>
             </div>
+            <ul class="footer-list">
+              <li>
+                <a href="termos.html"
+                  ><i class="fa-solid fa-arrow-right"></i> Termos de Uso</a
+                >
+              </li>
+              <li>
+                <a href="privacidade.html"
+                  ><i class="fa-solid fa-arrow-right"></i> Política de
+                  Privacidade</a
+                >
+              </li>
+              <li>
+                <a href="cookies.html"
+                  ><i class="fa-solid fa-arrow-right"></i> Política de
+                  Cookies</a
+                >
+              </li>
+              <li>
+                <a href="lgpd.html"
+                  ><i class="fa-solid fa-arrow-right"></i> LGPD</a
+                >
+              </li>
+            </ul>
+          </div>
 
-            <ul class="footer-list contact-list">
+          <div class="footer-widget footer-two__widget--contact">
+            <h5>Informações</h5>
+            <div class="footer-line">
+              <span class="large-line"></span><span class="small-line"></span>
+            </div>
+            <ul class="footer-list">
               <li>
                 <a
                   href="https://maps.app.goo.gl/Gr9pTNqz5FRNrjQw8"
                   target="_blank"
                 >
                   <i class="fa-solid fa-location-dot"></i> Estrada Municipal,
-                  885 – Rio da Invernada – Mampituba/RS
-                </a>
-              </li>
-              <li>
-                <a href="mailto:moradasustentavel@gmail.com">
-                  <i class="fa-regular fa-envelope"></i>
-                  moradasustentavel@gmail.com
+                  885 – Mampituba/RS
                 </a>
               </li>
             </ul>
 
             <div class="footer-socials">
-              <a href="tel:+5551992429974" aria-label="Ligar para o IPASG">
-                <i class="fa-solid fa-phone"></i>
-              </a>
+              <a href="tel:+5551992429974" aria-label="Ligar"
+                ><i class="fa-solid fa-phone"></i
+              ></a>
+              <a href="mailto:ipasg.rs@gmail.com" aria-label="Enviar E-mail"
+                ><i class="fa-solid fa-envelope"></i
+              ></a>
               <a
                 href="https://wa.me/5551992429974"
                 target="_blank"
-                aria-label="Falar no WhatsApp"
-              >
-                <i class="fa-brands fa-whatsapp"></i>
-              </a>
+                aria-label="WhatsApp"
+                ><i class="fa-brands fa-whatsapp"></i
+              ></a>
               <a
                 href="https://instagram.com/"
                 target="_blank"
                 aria-label="Instagram"
-              >
-                <i class="fa-brands fa-instagram"></i>
-              </a>
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
               <a
                 href="https://www.facebook.com/"
                 target="_blank"
                 aria-label="Facebook"
-              >
-                <i class="fa-brands fa-facebook-f"></i>
-              </a>
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
             </div>
           </div>
         </div>
@@ -641,18 +618,10 @@
         <div class="copyright-bar">
           <div class="copyright-text">
             <p>
-              © <span id="copyrightYear"></span>
-              <a href="index.html" style="color: #8ce3bf; font-weight: 600"
-                >IPASG</a
-              >. Todos os direitos reservados.
+              © <span id="copyrightYear"></span> <a href="index.html">IPASG</a>.
+              Todos os direitos reservados.
             </p>
           </div>
-          <ul class="footer-bottom-list">
-            <li><a href="termos-condicoes.html">Termos de Uso</a></li>
-            <li>
-              <a href="politica-privacidade.html">Política de Privacidade</a>
-            </li>
-          </ul>
         </div>
       </div>
     </footer>
@@ -663,5 +632,6 @@
     </script>
     <script src="assets/js/slider.js"></script>
     <script src="assets/js/menu.js"></script>
+    <script src="assets/js/animations.js"></script>
   </body>
 </html>

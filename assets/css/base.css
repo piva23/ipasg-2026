@@ -12,11 +12,12 @@ html {
 }
 
 body {
-  overflow-x: hidden; /* Mantido apenas no body para o sticky header funcionar */
+  /* Mantido apenas no body para o sticky header e animações funcionarem perfeitamente */
+  overflow-x: hidden;
   font-family: 'Outfit', sans-serif;
   background: #ffffff;
   color: #0f1724;
-  /* Deixa as fontes super nítidas como em sites de ponta */
+  /* Deixa as fontes super nítidas (Padrão Apple/Premium) */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
@@ -54,6 +55,7 @@ ul {
   --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+/* Acessibilidade para navegação por teclado */
 a:focus-visible,
 button:focus-visible {
   outline: 3px solid var(--green);
@@ -70,7 +72,7 @@ button:focus-visible {
   padding: 0 24px;
 }
 
-/* Espaçamento reduzido para as seções não ficarem vazias */
+/* Espaçamento dinâmico e elegante */
 .section {
   padding: 75px 0;
 }
@@ -98,7 +100,7 @@ button:focus-visible {
   text-align: left;
 }
 
-/* Cabeçalhos de Seção Centralizados e mais próximos do conteúdo */
+/* Cabeçalhos de Seção Centralizados */
 .section-header {
   margin: 0 auto 40px;
   max-width: 720px;
@@ -124,7 +126,8 @@ button:focus-visible {
    BUTTONS (PRO GLOW)
 ========================= */
 .btn-primary,
-.btn-ghost {
+.btn-ghost,
+.btn-ghost-dark {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -134,6 +137,8 @@ button:focus-visible {
   border-radius: 999px;
   font-weight: 600;
   font-size: 16px;
+  font-family: inherit; /* Garante a fonte caso seja usado na tag <button> */
+  cursor: pointer;
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
@@ -141,7 +146,7 @@ button:focus-visible {
   background: var(--green);
   color: #fff;
   border: 1px solid var(--green);
-  /* Sombra que usa a própria cor do botão, criando um "Glow" em vez de sombra cinza */
+  /* Sombra que usa a própria cor do botão (Glow Effect) */
   box-shadow: 0 8px 20px rgba(30, 139, 111, 0.25);
 }
 
@@ -152,9 +157,11 @@ button:focus-visible {
   box-shadow: 0 12px 25px rgba(30, 139, 111, 0.4);
 }
 
+/* Botão Ghost para fundos escuros (Hero) */
 .btn-ghost {
   border: 2px solid rgba(255, 255, 255, 0.5);
   color: #fff;
+  background: transparent;
 }
 
 .btn-ghost:hover {
@@ -163,15 +170,30 @@ button:focus-visible {
   transform: translateY(-3px);
 }
 
+/* Botão Ghost para fundos claros (Ex: Seção Eventos) */
+.btn-ghost-dark {
+  border: 2px solid var(--green-border);
+  color: var(--dark);
+  background: transparent;
+}
+
+.btn-ghost-dark:hover {
+  background: var(--green-light);
+  border-color: var(--green);
+  color: var(--green);
+  transform: translateY(-3px);
+}
+
 /* =========================
    RESPONSIVO BASE
 ========================= */
 @media (max-width: 700px) {
   .section {
-    padding: 50px 0; /* Ainda mais compacto no celular */
+    padding: 50px 0; /* Mais compacto no celular */
   }
   .btn-primary,
-  .btn-ghost {
-    width: 100%;
+  .btn-ghost,
+  .btn-ghost-dark {
+    width: 100%; /* Botões ocupam 100% no mobile */
   }
 }
