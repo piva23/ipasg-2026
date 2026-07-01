@@ -8,6 +8,9 @@
       name="description"
       content="Confira o calendário de vivências, cursos e mutirões do IPASG."
     />
+    <meta property="og:title" content="Eventos | IPASG" />
+    <meta property="og:description" content="Confira o calendário de vivências, cursos e mutirões do IPASG." />
+    <meta property="og:type" content="website" />
 
     <link rel="icon" type="image/png" href="assets/images/favicon.png" />
     <link rel="apple-touch-icon" href="assets/images/favicon.png" />
@@ -100,9 +103,9 @@
               <i class="fa-solid fa-caret-down caret"></i
             ></a>
             <div class="dropdown-menu">
-              <a href="projetos.html">Todos os projetos</a>
-              <a href="projetos/bioconstrucao.html">Permacultura</a>
-              <a href="projetos/meliponicultura.html">Arte</a>
+              <a href="projetos.html?filter=all">Todos os projetos</a>
+              <a href="projetos.html?filter=permacultura">Permacultura</a>
+              <a href="projetos.html?filter=arte">Arte</a>
             </div>
           </div>
           <div class="nav-item">
@@ -111,7 +114,7 @@
             >
           </div>
           <div class="nav-item">
-            <a href="eventos.html"
+            <a href="eventos.html" aria-current="page"
               ><i class="fa-solid fa-calendar-days"></i> Eventos</a
             >
           </div>
@@ -315,6 +318,7 @@
         new Date().getFullYear();
     </script>
     <script src="assets/js/menu.js"></script>
+    <script src="assets/js/eventos-data.js"></script>
     <script src="assets/js/eventos.js"></script>
   </body>
 </html>

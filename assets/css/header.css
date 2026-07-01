@@ -160,12 +160,14 @@
 }
 
 .nav-item > a:hover::after,
-.nav-item:hover > a::after {
+.nav-item:hover > a::after,
+.nav-item > a[aria-current="page"]::after {
   width: 100%;
 }
 
 .nav-item > a:hover,
-.nav-item:hover > a {
+.nav-item:hover > a,
+.nav-item > a[aria-current="page"] {
   color: var(--green);
 }
 
@@ -211,7 +213,8 @@
   transition: var(--transition);
 }
 
-.dropdown-menu a:hover {
+.dropdown-menu a:hover,
+.dropdown-menu a[aria-current="page"] {
   background: var(--green-light);
   color: var(--green);
   transform: translateX(5px);

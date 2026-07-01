@@ -3,7 +3,6 @@
 ========================= */
 .site-footer {
   margin-top: 60px;
-  /* Harmonizado com o fundo do Banner e textos do site */
   background: var(--dark, #0f1724);
   color: rgba(255, 255, 255, 0.75);
   padding-top: 80px;
@@ -31,7 +30,6 @@
   letter-spacing: -0.5px;
 }
 
-/* Linhas decorativas */
 .footer-line {
   display: flex;
   gap: 6px;
@@ -84,7 +82,7 @@
 }
 
 /* =========================
-   ÍCONES SOCIAIS DO FOOTER (VOLTARAM!)
+   ÍCONES SOCIAIS DO FOOTER
 ========================= */
 .footer-socials {
   display: flex;
@@ -99,7 +97,7 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05); /* Fundo translúcido sutil */
+  background: rgba(255, 255, 255, 0.05);
   color: var(--green);
   font-size: 18px;
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -111,7 +109,6 @@
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Hover Premium: Círculo verde, ícone branco e flutuação */
 .footer-socials a:hover {
   background: var(--green);
   color: #fff;

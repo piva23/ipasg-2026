@@ -12,24 +12,23 @@
   position: relative;
   overflow: hidden;
   background: var(--white);
-  border-radius: var(--radius-lg); /* Usando variável do base.css */
+  border-radius: var(--radius-lg);
   border: 1px solid var(--green-border);
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
   display: flex;
   flex-direction: column;
   height: 100%;
-  will-change: transform, box-shadow; /* Otimização de GPU */
+  will-change: transform, box-shadow;
 }
 
 .card:hover,
 .news-card:hover {
-  transform: translateY(-8px); /* Movimento levemente mais contido */
+  transform: translateY(-8px);
   box-shadow: var(--shadow-lg);
   border-color: var(--green);
 }
 
-/* Efeito Zoom In na imagem ao passar o mouse */
 .card img,
 .news-card img {
   width: 100%;
@@ -41,7 +40,7 @@
 
 .card:hover img,
 .news-card:hover img {
-  transform: scale(1.06); /* Zoom leve e elegante */
+  transform: scale(1.06);
 }
 
 .card h3 {
@@ -55,7 +54,7 @@
   margin: 0 24px 28px;
   line-height: 1.8;
   color: var(--muted);
-  flex-grow: 1; /* Empurra o conteúdo para baixo caso os textos tenham tamanhos diferentes */
+  flex-grow: 1;
 }
 
 /* ============================================================
@@ -63,7 +62,7 @@
 ============================================================ */
 .features-full {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 colunas esticadas */
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
 }
 
@@ -81,10 +80,9 @@
   transform: translateY(-6px);
   box-shadow: var(--shadow-md);
   border-color: var(--green-border);
-  background: var(--green-light); /* O fundo todo reage levemente */
+  background: var(--green-light);
 }
 
-/* Micro-interação Premium nos ícones */
 .feature h3 {
   display: flex;
   align-items: center;
@@ -138,7 +136,7 @@
 }
 
 .event-item:hover {
-  transform: translateX(6px); /* 6px é mais suave e luxuoso que 10px */
+  transform: translateX(6px);
   box-shadow: var(--shadow-md);
   background: var(--white);
   border-color: var(--green);
@@ -238,12 +236,12 @@
   color: var(--dark);
   transition: var(--transition);
   font-size: 15px;
-  margin-top: auto; /* Empurra o link para o final do card */
+  margin-top: auto;
 }
 
 .read-more:hover {
   color: var(--green);
-  gap: 14px; /* Anima a setinha com mais espaço */
+  gap: 14px;
 }
 
 /* ============================================================
@@ -254,7 +252,6 @@
   width: 100%;
   padding: 20px 0;
   white-space: nowrap;
-  /* Cria uma sombra gradual nas bordas para as logos "sumirem" nas laterais */
   mask-image: linear-gradient(
     to right,
     transparent,
@@ -275,13 +272,12 @@
   display: inline-flex;
   align-items: center;
   gap: 100px;
-  /* Animação que roda infinitamente para a esquerda */
   animation: scroll-marquee 30s linear infinite;
-  will-change: transform; /* Evita que os logos "tremam" no celular */
+  will-change: transform;
 }
 
 .partners-track:hover {
-  animation-play-state: paused; /* Pausa quando coloca o mouse em cima */
+  animation-play-state: paused;
 }
 
 .partners-track img {
@@ -302,7 +298,6 @@
     transform: translateX(0);
   }
   100% {
-    /* 50px é exatamente a metade do gap de 100px para loop perfeito sem pular */
     transform: translateX(calc(-50% - 50px));
   }
 }
@@ -333,7 +328,7 @@
     padding: 24px;
   }
   .event-date {
-    width: 100%; /* Data ocupa a largura toda no mobile */
+    width: 100%;
     height: auto;
     padding: 16px 0;
     flex-direction: row;

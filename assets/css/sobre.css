@@ -1,14 +1,12 @@
 /* =========================
    PÁGINA SOBRE NÓS
 ========================= */
-
-/* Banner de Página Leve e Elegante */
 .page-banner {
   background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 100%);
   color: #fff;
   padding: 100px 0 80px;
-  margin-top: -92px; /* Sobe para ficar por trás do header transparente */
-  padding-top: 160px; /* Compensa o espaço do header */
+  margin-top: -92px;
+  padding-top: 160px;
 }
 
 .page-banner h1 {
@@ -25,7 +23,6 @@
   margin: 0 auto;
 }
 
-/* Grid de História e Imagem */
 .history-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -33,9 +30,7 @@
   align-items: center;
 }
 
-.history-img {
-  position: relative;
-}
+.history-img { position: relative; }
 
 .history-img img {
   width: 100%;
@@ -45,7 +40,6 @@
   min-height: 400px;
 }
 
-/* Badge (Selo) flutuante de ano de fundação */
 .history-badge {
   position: absolute;
   bottom: -30px;
@@ -92,17 +86,11 @@
   margin-bottom: 20px;
 }
 
-/* ============================================================
-   AJUSTE DE CONTRASTE (SEÇÃO PILARES)
-============================================================ */
 #pilares.bg-light {
-  /* Fundo verde menta escurecido para criar contraste */
   background-color: #d1e8e2 !important;
-  /* Adicionando uma borda sutil no topo para separar ainda mais */
   border-top: 1px solid rgba(30, 139, 111, 0.1);
 }
 
-/* Grid dos Pilares */
 .pillars-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -114,7 +102,6 @@
   padding: 40px 30px;
   border-radius: 24px;
   border: 1px solid rgba(0, 0, 0, 0.03);
-  /* Sombra levemente intensificada por causa do fundo mais escuro */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   text-align: center;
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -158,68 +145,23 @@
   font-size: 16px;
 }
 
-/* Animações Leves via CSS */
-.fade-in-up {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease;
-}
-.fade-in-left {
-  opacity: 0;
-  transform: translateX(30px);
-  transition: all 0.8s ease;
-}
-.fade-in-right {
-  opacity: 0;
-  transform: translateX(-30px);
-  transition: all 0.8s ease;
-}
-
-.is-visible {
-  opacity: 1;
-  transform: translate(0);
-}
-
-.delay-1 {
-  transition-delay: 0.2s;
-}
-.delay-2 {
-  transition-delay: 0.4s;
-}
-.delay-3 {
-  transition-delay: 0.6s;
-}
+.fade-in-up { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+.fade-in-left { opacity: 0; transform: translateX(30px); transition: all 0.8s ease; }
+.fade-in-right { opacity: 0; transform: translateX(-30px); transition: all 0.8s ease; }
+.is-visible { opacity: 1; transform: translate(0); }
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+.delay-3 { transition-delay: 0.6s; }
 
 @keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-15px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
 }
 
-/* Responsividade Mobile Otimizada */
 @media (max-width: 960px) {
-  .history-grid {
-    grid-template-columns: 1fr;
-    gap: 50px;
-  }
-
-  .history-badge {
-    bottom: -20px;
-    right: 20px;
-    width: 110px;
-    height: 110px;
-  }
-  .history-badge strong {
-    font-size: 28px;
-  }
-
-  .pillars-grid {
-    grid-template-columns: 1fr;
-  }
+  .history-grid { grid-template-columns: 1fr; gap: 50px; }
+  .history-badge { bottom: -20px; right: 20px; width: 110px; height: 110px; }
+  .history-badge strong { font-size: 28px; }
+  .pillars-grid { grid-template-columns: 1fr; }
 }

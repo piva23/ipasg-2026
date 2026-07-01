@@ -1,0 +1,337 @@
+/* ============================================================
+   PÁGINA DE DETALHES DO MEMBRO (ALTO CONTRASTE / BLOCOS)
+============================================================ */
+
+/* Fundo de Alto Contraste (Verde Menta da pág. Sobre) */
+.member-profile-section {
+  background-color: #d1e8e2;
+  padding-top: 60px;
+  padding-bottom: 90px;
+  border-bottom: 1px solid rgba(30, 139, 111, 0.1);
+}
+
+.member-profile-grid {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* ================== BLOCO ESQUERDO (FOTO E CONTATO) ================== */
+.member-sidebar-card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  /* Sombra mais forte para saltar do fundo colorido */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.member-photo-wrapper {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.member-photo-wrapper img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  display: block;
+}
+
+.badge-fundador {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  background: var(--green);
+  color: var(--white);
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--shadow-sm);
+}
+
+.member-contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.member-contact-icons a {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--green-light);
+  color: var(--green);
+  border-radius: 50%;
+  font-size: 18px;
+  transition: var(--transition);
+}
+
+.member-contact-icons a:hover {
+  background: var(--green);
+  color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(30, 139, 111, 0.2);
+}
+
+.member-sidebar-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.member-sidebar-actions .btn-primary,
+.member-sidebar-actions .btn-ghost-dark {
+  width: 100%;
+}
+
+/* ================== BLOCO DIREITO (BIOGRAFIA E DADOS) ================== */
+.member-content-card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 50px 40px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08); /* Sombra mais forte */
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.member-content-card .eyebrow {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.member-content-card h1 {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 8px;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+.member-content-card .subtitle {
+  font-size: 18px;
+  color: var(--muted);
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+/* Tags de Habilidades */
+.member-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.member-tags .tag {
+  background: #fcfdfd;
+  border: 1px solid var(--green-border);
+  color: var(--dark);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.member-tags .tag i {
+  color: var(--green);
+  margin-right: 6px;
+}
+
+/* Biografia */
+.bio-text p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+.bio-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* ================== GRID DE ATUAÇÃO NO INSTITUTO ================== */
+.atuacao-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.atuacao-card {
+  background: #f8fbf9; /* Fundo super leve para dar contraste com a seção branca */
+  padding: 40px 30px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--green-border);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.atuacao-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--green);
+  background: #ffffff;
+}
+
+.atuacao-card .icon {
+  width: 60px;
+  height: 60px;
+  background: var(--green-light);
+  color: var(--green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin: 0 auto 20px;
+  transition: var(--transition);
+}
+
+.atuacao-card:hover .icon {
+  background: var(--green);
+  color: var(--white);
+  transform: scale(1.1);
+}
+
+.atuacao-card h3 {
+  font-size: 20px;
+  color: var(--dark);
+  margin-bottom: 12px;
+}
+
+.atuacao-card p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Cards de projetos (lista) */
+.projetos-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.projeto-link-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: var(--white);
+  border: 1px solid var(--green-border);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.projeto-link-card:hover {
+  transform: translateX(6px);
+  border-color: var(--green);
+  box-shadow: var(--shadow-md);
+}
+
+.projeto-link-card__icon {
+  width: 50px;
+  height: 50px;
+  background: var(--green-light);
+  color: var(--green);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.projeto-link-card:hover .projeto-link-card__icon {
+  background: var(--green);
+  color: #fff;
+}
+
+.projeto-link-card__info {
+  flex-grow: 1;
+}
+
+.projeto-link-card__info strong {
+  display: block;
+  font-size: 16px;
+  color: var(--dark);
+  margin-bottom: 4px;
+}
+
+.projeto-link-card__info p {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0;
+}
+
+.projeto-link-card__arrow {
+  color: var(--green);
+  font-size: 14px;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.projeto-link-card:hover .projeto-link-card__arrow {
+  transform: translateX(4px);
+}
+
+/* Eyebrow */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 16px;
+  background: var(--green-light);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--green);
+}
+
+/* ================== RESPONSIVO ================== */
+@media (max-width: 960px) {
+  .member-profile-grid {
+    grid-template-columns: 1fr;
+  }
+  .member-sidebar-card {
+    max-width: 450px;
+    margin: 0 auto;
+  }
+  .atuacao-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .member-profile-section {
+    padding-top: 30px; /* Reduz espaço extra no topo no mobile */
+  }
+  .member-content-card {
+    padding: 30px 20px;
+  }
+  .atuacao-grid {
+    grid-template-columns: 1fr;
+  }
+}

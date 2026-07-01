@@ -3,64 +3,31 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title id="page-title">Detalhes do Evento | IPASG</title>
-
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
+    <title id="page-title">Evento | IPASG</title>
+    <meta name="description" id="page-desc" content="Detalhes do evento IPASG." />
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="assets/css/base.css" />
     <link rel="stylesheet" href="assets/css/header.css" />
-    <link rel="stylesheet" href="assets/css/components.css" />
     <link rel="stylesheet" href="assets/css/footer.css" />
     <link rel="stylesheet" href="assets/css/eventos.css" />
+    <link rel="stylesheet" href="assets/css/evento-detalhe.css" />
   </head>
-
   <body>
     <div class="topbar">
       <div class="container topbar-inner">
         <div class="topbar-left">
-          <a
-            href="https://www.google.com/maps/dir/-30.045851,-51.3116603/Mampituba,+RS,+95572-000/@-29.4229542,-50.2723278,10.5z/data=!4m9!4m8!1m1!4e1!1m5!1m1!1s0x952209266564baf7:0x136cba7824fdc408!2m2!1d-49.9359871!2d-29.21173?entry=ttu&g_ep=EgoyMDI1MDcwNi4wIKXMDSoASAFQAw%3D%3D"
-            target="_blank"
-          >
-            <i class="fa-solid fa-location-dot"></i> Estrada Municipal, 885 –
-            Mampituba/RS
+          <a href="https://maps.app.goo.gl/Gr9pTNqz5FRNrjQw8" target="_blank">
+            <i class="fa-solid fa-location-dot"></i> Estrada Municipal, 885 – Mampituba/RS
           </a>
         </div>
         <div class="topbar-right">
-          <div
-            class="social-links"
-            style="border-left: none; padding-left: 0; gap: 20px"
-          >
-            <a href="tel:+5551992429974" aria-label="Ligar para o IPASG">
-              <i class="fa-solid fa-phone"></i>
-            </a>
-            <a
-              href="https://wa.me/5551992429974"
-              target="_blank"
-              aria-label="Falar no WhatsApp"
-            >
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
-            <a
-              href="https://instagram.com/"
-              target="_blank"
-              aria-label="Instagram"
-            >
-              <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a
-              href="https://www.facebook.com/"
-              target="_blank"
-              aria-label="Facebook"
-            >
-              <i class="fa-brands fa-facebook-f"></i>
-            </a>
+          <div class="social-links">
+            <a href="tel:+5551992429974" aria-label="Ligar"><i class="fa-solid fa-phone"></i></a>
+            <a href="https://wa.me/5551992429974" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://instagram.com/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
           </div>
         </div>
       </div>
@@ -73,131 +40,214 @@
             <img src="assets/images/logo/logo.png" alt="Logotipo do IPASG" />
           </a>
         </div>
-
         <nav class="nav" role="navigation" aria-label="Main menu">
-          <div class="nav-item">
-            <a href="index.html"><i class="fa-solid fa-house"></i> Início</a>
-          </div>
+          <div class="nav-item"><a href="index.html"><i class="fa-solid fa-house"></i> Início</a></div>
           <div class="nav-item dropdown">
-            <a href="#" aria-haspopup="true"
-              ><i class="fa-solid fa-leaf"></i> Sobre
-              <i class="fa-solid fa-caret-down caret"></i
-            ></a>
+            <a href="#" aria-haspopup="true"><i class="fa-solid fa-leaf"></i> Sobre <i class="fa-solid fa-caret-down caret"></i></a>
             <div class="dropdown-menu">
               <a href="sobre.html">História</a>
               <a href="membros.html">Membros</a>
             </div>
           </div>
           <div class="nav-item dropdown">
-            <a href="#" aria-haspopup="true"
-              ><i class="fa-solid fa-seedling"></i> Projetos
-              <i class="fa-solid fa-caret-down caret"></i
-            ></a>
+            <a href="#" aria-haspopup="true"><i class="fa-solid fa-seedling"></i> Projetos <i class="fa-solid fa-caret-down caret"></i></a>
             <div class="dropdown-menu">
-              <a href="projetos.html">Todos os projetos</a>
-              <a href="projetos/bioconstrucao.html">Permacultura</a>
-              <a href="projetos/meliponicultura.html">Arte</a>
+              <a href="projetos.html?filter=all">Todos os projetos</a>
+              <a href="projetos.html?filter=permacultura">Permacultura</a>
+              <a href="projetos.html?filter=arte">Arte</a>
             </div>
           </div>
-          <div class="nav-item">
-            <a href="assessoria.html"
-              ><i class="fa-solid fa-handshake"></i> Assessoria</a
-            >
-          </div>
-          <div class="nav-item">
-            <a href="eventos.html"
-              ><i class="fa-solid fa-calendar-days"></i> Eventos</a
-            >
-          </div>
-          <div class="nav-item">
-            <a href="noticias.html"
-              ><i class="fa-solid fa-newspaper"></i> Notícias</a
-            >
-          </div>
-          <div class="nav-item">
-            <a href="materiais.html"
-              ><i class="fa-solid fa-book-open"></i> Materiais</a
-            >
-          </div>
+          <div class="nav-item"><a href="assessoria.html"><i class="fa-solid fa-handshake"></i> Assessoria</a></div>
+          <div class="nav-item"><a href="eventos.html" aria-current="page"><i class="fa-solid fa-calendar-days"></i> Eventos</a></div>
+          <div class="nav-item"><a href="noticias.html"><i class="fa-solid fa-newspaper"></i> Notícias</a></div>
+          <div class="nav-item"><a href="materiais.html"><i class="fa-solid fa-book-open"></i> Materiais</a></div>
         </nav>
-
-        <div
-          class="header-utilities"
-          style="display: flex; align-items: center; gap: 16px"
-        >
-          <a
-            href="apoie.html"
-            class="btn-primary"
-            style="min-height: 42px; padding: 0 20px; font-size: 14px; gap: 8px"
-          >
-            <i class="fa-solid fa-heart"></i> Apoie
-          </a>
-          <button
-            id="mobileToggle"
-            class="mobile-toggle"
-            aria-label="Abrir menu"
-          >
-            <i class="fa-solid fa-bars"></i>
-          </button>
+        <div class="header-utilities">
+          <a href="apoie.html" class="btn-primary"><i class="fa-solid fa-heart"></i> Apoie</a>
+          <button id="mobileToggle" class="mobile-toggle" aria-label="Abrir menu"><i class="fa-solid fa-bars"></i></button>
         </div>
       </div>
     </header>
+
     <main>
+      <!-- BREADCRUMB -->
+      <div class="breadcrumb-bar">
+        <div class="container">
+          <nav aria-label="Localização">
+            <a href="index.html">Início</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <a href="eventos.html">Eventos</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span id="breadcrumb-title">Carregando...</span>
+          </nav>
+        </div>
+      </div>
+
       <section class="section">
         <div class="container">
-          <div class="event-details-grid">
-            <article class="event-content">
-              <img
-                id="event-image"
-                src="assets/images/placeholder.jpg"
-                alt="Evento"
-                style="border-radius: 24px; margin-bottom: 30px"
-              />
+          <!-- Loading state -->
+          <div id="loading-state" class="evento-loading">
+            <div class="loading-spinner"></div>
+            <p>Carregando evento...</p>
+          </div>
 
-              <h1 id="event-title">Carregando título...</h1>
-              <div
-                id="event-description"
-                class="muted"
-                style="font-size: 18px; line-height: 1.8"
-              >
-                <p>Carregando descrição do evento...</p>
+          <!-- Conteúdo do evento (hidden até carregar) -->
+          <div id="evento-content" class="event-details-grid" style="display:none;">
+            <article class="event-content">
+              <!-- Imagem -->
+              <div class="evento-thumb">
+                <img id="event-image" src="" alt="" loading="eager" />
+                <div class="evento-category-badge" id="event-badge">Evento</div>
+              </div>
+
+              <!-- Título e meta rápido (mobile) -->
+              <div class="evento-header">
+                <h1 id="event-title">Título do Evento</h1>
+                <div class="evento-meta-inline">
+                  <span><i class="fa-solid fa-calendar-days"></i> <span id="event-date-inline"></span></span>
+                  <span><i class="fa-solid fa-location-dot"></i> <span id="event-location-inline"></span></span>
+                </div>
+              </div>
+
+              <!-- Descrição longa -->
+              <div class="evento-body" id="event-description">
+                <p>Carregando descrição...</p>
+              </div>
+
+              <!-- Voltar -->
+              <div class="evento-back">
+                <a href="eventos.html" class="btn-ghost-dark">
+                  <i class="fa-solid fa-arrow-left"></i> Ver todos os eventos
+                </a>
               </div>
             </article>
 
+            <!-- Sidebar -->
             <aside class="event-sidebar">
               <div class="event-info-card">
-                <h5>Detalhes do Evento</h5>
+                <h5><i class="fa-solid fa-circle-info"></i> Detalhes do Evento</h5>
                 <ul class="event-meta-list">
                   <li>
-                    <i class="fa-solid fa-calendar-days"></i>
-                    <strong>Data:</strong> <span id="event-date">--</span>
+                    <div class="event-meta-icon"><i class="fa-solid fa-calendar-days"></i></div>
+                    <div><span class="meta-label">Data</span><strong id="event-date">–</strong></div>
                   </li>
                   <li>
-                    <i class="fa-solid fa-clock"></i> <strong>Horário:</strong>
-                    <span id="event-time">--</span>
+                    <div class="event-meta-icon"><i class="fa-solid fa-clock"></i></div>
+                    <div><span class="meta-label">Horário</span><strong id="event-time">–</strong></div>
                   </li>
                   <li>
-                    <i class="fa-solid fa-location-dot"></i>
-                    <strong>Local:</strong> <span id="event-location">--</span>
+                    <div class="event-meta-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <div><span class="meta-label">Local</span><strong id="event-location">–</strong></div>
+                  </li>
+                  <li id="event-price-li">
+                    <div class="event-meta-icon"><i class="fa-solid fa-tag"></i></div>
+                    <div><span class="meta-label">Investimento</span><strong id="event-price">–</strong></div>
+                  </li>
+                  <li id="event-vacancies-li">
+                    <div class="event-meta-icon"><i class="fa-solid fa-users"></i></div>
+                    <div><span class="meta-label">Vagas</span><strong id="event-vacancies">–</strong></div>
                   </li>
                 </ul>
-                <a
-                  href="#"
-                  id="event-register-link"
-                  class="btn-primary"
-                  style="width: 100%"
-                  >Inscrever-se</a
-                >
+
+                <div class="event-actions">
+                  <a href="#" id="event-register-link" class="btn-primary" target="_blank" rel="noopener">
+                    <i class="fa-solid fa-circle-check"></i> Inscrever-se
+                  </a>
+                  <a id="event-whatsapp-link" href="https://wa.me/5551992429974" target="_blank" class="btn-ghost-dark">
+                    <i class="fa-brands fa-whatsapp"></i> Tirar dúvidas
+                  </a>
+                </div>
+              </div>
+
+              <!-- Compartilhar -->
+              <div class="event-share">
+                <p class="share-label">Compartilhar evento</p>
+                <div class="share-btns">
+                  <button onclick="shareWhatsApp()" class="share-btn whatsapp" aria-label="Compartilhar no WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                  </button>
+                  <button onclick="shareFacebook()" class="share-btn facebook" aria-label="Compartilhar no Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                  </button>
+                  <button onclick="copyLink()" class="share-btn copy" aria-label="Copiar link">
+                    <i class="fa-solid fa-link"></i>
+                  </button>
+                </div>
               </div>
             </aside>
+          </div>
+
+          <!-- Evento não encontrado -->
+          <div id="not-found-state" style="display:none;" class="evento-not-found">
+            <i class="fa-solid fa-calendar-xmark"></i>
+            <h2>Evento não encontrado</h2>
+            <p>O evento que você procura não está disponível.</p>
+            <a href="eventos.html" class="btn-primary">Ver todos os eventos</a>
           </div>
         </div>
       </section>
     </main>
 
+    <div id="toast-link" class="toast" role="status" aria-live="polite">Link copiado! <i class="fa-solid fa-check"></i></div>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <div class="footer-main-grid">
+          <div class="footer-widget">
+            <div class="footer-two__widget-logo">
+              <a href="index.html"><img src="assets/images/logo/logo-light.png" alt="IPASG" height="70" loading="lazy" /></a>
+            </div>
+            <p>O IPASG é um instituto dedicado à permacultura, educação ambiental e ao fortalecimento de comunidades por meio de projetos socioambientais regenerativos.</p>
+          </div>
+          <div class="footer-widget">
+            <h5>Transparência</h5>
+            <div class="footer-line"><span class="large-line"></span><span class="small-line"></span></div>
+            <ul class="footer-list">
+              <li><a href="termos.html"><i class="fa-solid fa-arrow-right"></i> Termos de Uso</a></li>
+              <li><a href="privacidade.html"><i class="fa-solid fa-arrow-right"></i> Política de Privacidade</a></li>
+              <li><a href="cookies.html"><i class="fa-solid fa-arrow-right"></i> Política de Cookies</a></li>
+              <li><a href="lgpd.html"><i class="fa-solid fa-arrow-right"></i> LGPD</a></li>
+            </ul>
+          </div>
+          <div class="footer-widget footer-two__widget--contact">
+            <h5>Informações</h5>
+            <div class="footer-line"><span class="large-line"></span><span class="small-line"></span></div>
+            <ul class="footer-list">
+              <li><a href="https://maps.app.goo.gl/Gr9pTNqz5FRNrjQw8" target="_blank"><i class="fa-solid fa-location-dot"></i> Estrada Municipal, 885 – Mampituba/RS</a></li>
+            </ul>
+            <div class="footer-socials">
+              <a href="tel:+5551992429974" aria-label="Ligar"><i class="fa-solid fa-phone"></i></a>
+              <a href="mailto:ipasg.rs@gmail.com" aria-label="E-mail"><i class="fa-solid fa-envelope"></i></a>
+              <a href="https://wa.me/5551992429974" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+              <a href="https://instagram.com/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="copyright-bar">
+          <div class="copyright-text"><p>© <span id="copyrightYear"></span> <a href="index.html">IPASG</a>. Todos os direitos reservados.</p></div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/menu.js"></script>
+    <script src="assets/js/eventos-data.js"></script>
+    <script src="assets/js/evento-detalhe.js"></script>
     <script>
-      // Aqui seu JS consumirá o JSON e preencherá os IDs:
-      // document.getElementById('event-title').textContent = data.titulo;
+      document.getElementById('copyrightYear').textContent = new Date().getFullYear();
+      function shareWhatsApp() {
+        window.open('https://wa.me/?text=' + encodeURIComponent(document.title + ' – ' + window.location.href), '_blank');
+      }
+      function shareFacebook() {
+        window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank');
+      }
+      function copyLink() {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+          const t = document.getElementById('toast-link');
+          t.classList.add('show');
+          setTimeout(() => t.classList.remove('show'), 2800);
+        });
+      }
     </script>
   </body>
 </html>

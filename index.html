@@ -12,6 +12,10 @@
       name="keywords"
       content="IPASG, permacultura, sustentabilidade, educação ambiental"
     />
+    <meta property="og:title" content="IPASG — Instituto de Permacultura e Artes da Serra Geral" />
+    <meta property="og:description" content="Permacultura, educação ambiental e projetos regenerativos em Mampituba/RS." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/images/logo/logo.png" />
 
     <link rel="icon" type="image/png" href="assets/images/favicon.png" />
     <link rel="apple-touch-icon" href="assets/images/favicon.png" />
@@ -89,7 +93,7 @@
 
         <nav class="nav" role="navigation" aria-label="Main menu">
           <div class="nav-item">
-            <a href="index.html"><i class="fa-solid fa-house"></i> Início</a>
+            <a href="index.html" aria-current="page"><i class="fa-solid fa-house"></i> Início</a>
           </div>
           <div class="nav-item dropdown">
             <a href="#" aria-haspopup="true"
@@ -172,7 +176,7 @@
               </p>
               <div class="hero-actions">
                 <a class="btn-primary" href="projetos.html">Leia mais</a>
-                <a class="btn-ghost" href="about-us.html">Saiba mais</a>
+                <a class="btn-ghost" href="sobre.html">Saiba mais</a>
               </div>
             </div>
           </article>
@@ -193,7 +197,7 @@
               </p>
               <div class="hero-actions">
                 <a class="btn-primary" href="projetos.html">Ver projetos</a>
-                <a class="btn-ghost" href="contact-us.html">Contato</a>
+                <a class="btn-ghost" href="apoie.html">Contato</a>
               </div>
             </div>
           </article>
@@ -215,7 +219,7 @@
                 socioambiental.
               </p>
               <div class="hero-actions">
-                <a class="btn-primary" href="about-us.html">Conheça</a>
+                <a class="btn-primary" href="sobre.html">Conheça</a>
                 <a class="btn-ghost" href="projetos.html">Projetos</a>
               </div>
             </div>
@@ -360,31 +364,7 @@
             </p>
           </header>
 
-          <div class="events-list">
-            <div class="event-item">
-              <div class="event-date"><span>15</span> Nov</div>
-              <div class="event-info">
-                <h3>Mutirão de Bioconstrução</h3>
-                <p class="muted">
-                  <i class="fa-solid fa-location-dot"></i> Sede IPASG -
-                  Mampituba/RS
-                </p>
-              </div>
-              <a href="#" class="btn-ghost event-btn">Inscreva-se</a>
-            </div>
-
-            <div class="event-item">
-              <div class="event-date"><span>02</span> Dez</div>
-              <div class="event-info">
-                <h3>Oficina de Meliponicultura Básica</h3>
-                <p class="muted">
-                  <i class="fa-solid fa-location-dot"></i> Escola Municipal -
-                  Torres/RS
-                </p>
-              </div>
-              <a href="#" class="btn-ghost event-btn">Inscreva-se</a>
-            </div>
-          </div>
+          <div class="events-list" id="home-events-container"></div>
 
           <div class="text-center" style="margin-top: 40px">
             <a href="eventos.html" class="btn-primary"
@@ -413,7 +393,7 @@
               <div class="news-content">
                 <span class="news-date">10 Outubro, 2023</span>
                 <h3>IPASG aprova novo projeto de recuperação florestal</h3>
-                <a href="#" class="read-more"
+                <a href="noticias.html" class="read-more"
                   >Ler mais <i class="fa-solid fa-arrow-right"></i
                 ></a>
               </div>
@@ -428,7 +408,7 @@
               <div class="news-content">
                 <span class="news-date">28 Setembro, 2023</span>
                 <h3>Alunos da rede pública visitam a sede ecológica</h3>
-                <a href="#" class="read-more"
+                <a href="noticias.html" class="read-more"
                   >Ler mais <i class="fa-solid fa-arrow-right"></i
                 ></a>
               </div>
@@ -443,7 +423,7 @@
               <div class="news-content">
                 <span class="news-date">15 Agosto, 2023</span>
                 <h3>Como foi o nosso último curso de Saneamento</h3>
-                <a href="#" class="read-more"
+                <a href="noticias.html" class="read-more"
                   >Ler mais <i class="fa-solid fa-arrow-right"></i
                 ></a>
               </div>
@@ -461,56 +441,16 @@
 
           <div class="partners-wrapper">
             <div class="partners-track">
-              <img
-                src="assets/images/sponsor/one.png"
-                alt="Logotipo Parceiro 1"
-                loading="lazy"
-              />
-              <img
-                src="assets/images/sponsor/two.png"
-                alt="Logotipo Parceiro 2"
-                loading="lazy"
-              />
-              <img
-                src="assets/images/sponsor/three.png"
-                alt="Logotipo Parceiro 3"
-                loading="lazy"
-              />
-              <img
-                src="assets/images/sponsor/four.png"
-                alt="Logotipo Parceiro 4"
-                loading="lazy"
-              />
-              <img
-                src="assets/images/sponsor/five.png"
-                alt="Logotipo Parceiro 5"
-                loading="lazy"
-              />
-              <img
-                src="assets/images/sponsor/one.png"
-                alt="Logotipo Parceiro 1"
-                loading="lazy"
-              />
-              <img
-                src="assets/images/sponsor/two.png"
-                alt="Logotipo Parceiro 2"
-                loading="lazy"
-              />
-              <img
-                src="assets/images/sponsor/three.png"
-                alt="Logotipo Parceiro 3"
-                loading="lazy"
-              />
-              <img
-                src="assets/images/sponsor/four.png"
-                alt="Logotipo Parceiro 4"
-                loading="lazy"
-              />
-              <img
-                src="assets/images/sponsor/five.png"
-                alt="Logotipo Parceiro 5"
-                loading="lazy"
-              />
+              <img src="assets/images/sponsor/one.png" alt="Logotipo Parceiro 1" loading="lazy" />
+              <img src="assets/images/sponsor/two.png" alt="Logotipo Parceiro 2" loading="lazy" />
+              <img src="assets/images/sponsor/three.png" alt="Logotipo Parceiro 3" loading="lazy" />
+              <img src="assets/images/sponsor/four.png" alt="Logotipo Parceiro 4" loading="lazy" />
+              <img src="assets/images/sponsor/five.png" alt="Logotipo Parceiro 5" loading="lazy" />
+              <img src="assets/images/sponsor/one.png" alt="Logotipo Parceiro 1" loading="lazy" />
+              <img src="assets/images/sponsor/two.png" alt="Logotipo Parceiro 2" loading="lazy" />
+              <img src="assets/images/sponsor/three.png" alt="Logotipo Parceiro 3" loading="lazy" />
+              <img src="assets/images/sponsor/four.png" alt="Logotipo Parceiro 4" loading="lazy" />
+              <img src="assets/images/sponsor/five.png" alt="Logotipo Parceiro 5" loading="lazy" />
             </div>
           </div>
         </div>
@@ -633,5 +573,7 @@
     <script src="assets/js/slider.js"></script>
     <script src="assets/js/menu.js"></script>
     <script src="assets/js/animations.js"></script>
+    <script src="assets/js/eventos-data.js"></script>
+    <script src="assets/js/home-events.js"></script>
   </body>
 </html>

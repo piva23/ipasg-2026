@@ -1,13 +1,7 @@
 /* ============================================================
    PÁGINA DE EVENTOS (LISTA E DETALHE) - COM IMAGENS
 ============================================================ */
-
-/* --- LISTAGEM DE EVENTOS --- */
-.events-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
+.events-list { display: flex; flex-direction: column; gap: 20px; }
 
 .event-item {
   display: flex;
@@ -16,7 +10,7 @@
   background: var(--white);
   border: 1px solid var(--green-border);
   border-radius: var(--radius-lg);
-  padding: 16px 32px 16px 16px; /* Padding menor na esquerda por causa da imagem */
+  padding: 16px 32px 16px 16px;
   transition: var(--transition);
   box-shadow: var(--shadow-sm);
   will-change: transform;
@@ -29,27 +23,10 @@
   background: #fcfdfd;
 }
 
-/* === NOVA CAIXA DE IMAGEM === */
-.event-image {
-  width: 200px;
-  height: 130px;
-  flex-shrink: 0; /* Impede que a imagem seja esmagada pelo texto */
-  border-radius: var(--radius-md);
-  overflow: hidden;
-}
+.event-image { width: 200px; height: 130px; flex-shrink: 0; border-radius: var(--radius-md); overflow: hidden; }
+.event-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1); }
+.event-item:hover .event-image img { transform: scale(1.08); }
 
-.event-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.event-item:hover .event-image img {
-  transform: scale(1.08); /* Efeito Zoom na imagem no hover do evento */
-}
-
-/* Caixa de Data */
 .event-date {
   display: flex;
   flex-direction: column;
@@ -75,168 +52,45 @@
   box-shadow: 0 8px 20px rgba(30, 139, 111, 0.3);
 }
 
-.event-date .day {
-  font-size: 34px;
-  margin-bottom: 4px;
-}
+.event-date .day { font-size: 34px; margin-bottom: 4px; }
+.event-date .month { font-size: 14px; letter-spacing: 1px; }
 
-.event-date .month {
-  font-size: 14px;
-  letter-spacing: 1px;
-}
+.event-info { flex-grow: 1; }
+.event-info h3 { font-size: 22px; color: var(--dark); margin-bottom: 8px; letter-spacing: -0.5px; transition: var(--transition); }
+.event-item:hover .event-info h3 { color: var(--green-dark); }
+.event-info p { color: var(--muted); font-size: 15px; }
+.event-info p i { color: var(--green); margin-right: 8px; }
 
-/* Informações do Evento */
-.event-info {
-  flex-grow: 1;
-}
+.event-item .event-btn { margin-left: auto; min-width: 140px; }
+.event-item:hover .event-btn { background: var(--green); color: var(--white); border-color: var(--green); box-shadow: 0 8px 20px rgba(30, 139, 111, 0.25); }
 
-.event-info h3 {
-  font-size: 22px;
-  color: var(--dark);
-  margin-bottom: 8px;
-  letter-spacing: -0.5px;
-  transition: var(--transition);
-}
-
-.event-item:hover .event-info h3 {
-  color: var(--green-dark);
-}
-
-.event-info p {
-  color: var(--muted);
-  font-size: 15px;
-}
-
-.event-info p i {
-  color: var(--green);
-  margin-right: 8px;
-}
-
-/* Botão */
-.event-item .event-btn {
-  margin-left: auto;
-  min-width: 140px;
-}
-
-.event-item:hover .event-btn {
-  background: var(--green);
-  color: var(--white);
-  border-color: var(--green);
-  box-shadow: 0 8px 20px rgba(30, 139, 111, 0.25);
-}
-
-/* --- ANIMAÇÃO DE CASCATA --- */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* --- DETALHES DO EVENTO (Página Interna) --- */
-.event-details-grid {
-  display: grid;
-  grid-template-columns: 1fr 380px;
-  gap: 60px;
-  align-items: start;
-}
+.event-details-grid { display: grid; grid-template-columns: 1fr 380px; gap: 60px; align-items: start; }
 
-.event-content img {
-  border-radius: var(--radius-lg);
-  width: 100%;
-  box-shadow: var(--shadow-sm);
-}
+.event-content img { border-radius: var(--radius-lg); width: 100%; box-shadow: var(--shadow-sm); }
 
-.event-sidebar {
-  position: sticky;
-  top: 120px;
-}
+.event-sidebar { position: sticky; top: 120px; }
 
-.event-info-card {
-  background: var(--green-light);
-  padding: 35px 30px;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--green-border);
-}
+.event-info-card { background: var(--green-light); padding: 35px 30px; border-radius: var(--radius-lg); border: 1px solid var(--green-border); }
+.event-info-card h5 { font-size: 22px; margin-bottom: 24px; color: var(--dark); display: flex; align-items: center; gap: 10px; }
 
-.event-info-card h5 {
-  font-size: 22px;
-  margin-bottom: 24px;
-  color: var(--dark);
-}
+.event-meta-list { list-style: none; padding: 0; }
+.event-meta-list li { margin-bottom: 20px; display: flex; align-items: center; gap: 14px; color: var(--dark); font-weight: 600; }
+.event-meta-list li i { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: var(--white); border-radius: 50%; color: var(--green); font-size: 16px; box-shadow: var(--shadow-sm); }
 
-.event-meta-list {
-  list-style: none;
-  padding: 0;
-}
-
-.event-meta-list li {
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  color: var(--dark);
-  font-weight: 600;
-}
-
-.event-meta-list li i {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: var(--white);
-  border-radius: 50%;
-  color: var(--green);
-  font-size: 16px;
-  box-shadow: var(--shadow-sm);
-}
-
-/* ============================================================
-   RESPONSIVO
-============================================================ */
 @media (max-width: 960px) {
-  .event-details-grid {
-    grid-template-columns: 1fr;
-  }
-  .event-sidebar {
-    position: relative;
-    top: auto;
-  }
+  .event-details-grid { grid-template-columns: 1fr; }
+  .event-sidebar { position: relative; top: auto; }
 }
 
 @media (max-width: 768px) {
-  .event-item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-    padding: 20px; /* Padding igualado no mobile */
-  }
-
-  .event-image {
-    width: 100%;
-    height: 200px; /* Imagem fica larga e em destaque no celular */
-  }
-
-  .event-date {
-    width: 100%;
-    height: auto;
-    padding: 16px 0;
-    flex-direction: row;
-    gap: 12px;
-  }
-
-  .event-date .day {
-    margin-bottom: 0;
-    font-size: 28px;
-  }
-
-  .event-item .event-btn {
-    width: 100%;
-    margin-left: 0;
-  }
+  .event-item { flex-direction: column; align-items: flex-start; gap: 20px; padding: 20px; }
+  .event-image { width: 100%; height: 200px; }
+  .event-date { width: 100%; height: auto; padding: 16px 0; flex-direction: row; gap: 12px; }
+  .event-date .day { margin-bottom: 0; font-size: 28px; }
+  .event-item .event-btn { width: 100%; margin-left: 0; }
 }

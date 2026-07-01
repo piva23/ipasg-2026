@@ -1,184 +1,341 @@
 /* ============================================================
-   PÁGINA DE ASSESSORIA E SERVIÇOS TÉCNICOS
+   ASSESSORIA — CSS (REFEITO)
 ============================================================ */
 
-/* --- LAYOUT ZIG-ZAG (SERVIÇOS DE SANEAMENTO) --- */
-.service-row {
-  display: flex;
-  align-items: center;
-  gap: 60px;
-  margin-bottom: 80px;
-}
-
-.service-row:last-child {
-  margin-bottom: 0;
-}
-
-/* Classe para inverter a ordem no Computador (Efeito Zig-Zag) */
-.service-row.reverse {
-  flex-direction: row-reverse;
-}
-
-.service-image {
-  flex: 1;
-  position: relative;
-}
-
-/* Elemento decorativo atrás da imagem */
-.service-image::before {
-  content: '';
-  position: absolute;
-  top: 20px;
-  left: -20px;
-  width: 100%;
-  height: 100%;
-  background: var(--green-light);
-  border-radius: var(--radius-lg);
-  z-index: 0;
-  transition: transform 0.5s ease;
-}
-
-.service-row.reverse .service-image::before {
-  left: 20px; /* Muda a decoração de lado na linha invertida */
-}
-
-.service-image img {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-  object-fit: cover;
-  min-height: 380px;
-}
-
-.service-content {
-  flex: 1;
-}
-
-.service-content h3 {
-  font-size: 32px;
-  color: var(--dark);
-  margin-bottom: 20px;
-  letter-spacing: -0.5px;
-  line-height: 1.2;
-}
-
-.service-content p {
-  font-size: 16px;
-  color: var(--muted);
-  line-height: 1.8;
-  margin-bottom: 20px;
-}
-
-/* --- CARDS OUTRAS ESPECIALIDADES --- */
-.expertise-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-}
-
-.expertise-card {
-  background: var(--white);
-  padding: 40px 30px;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--green-border);
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition);
-  text-align: center;
-}
-
-.expertise-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--green);
-}
-
-.expertise-card i {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 70px;
-  height: 70px;
-  margin: 0 auto 24px;
-  background: var(--green-light);
-  color: var(--green);
-  border-radius: 50%;
-  font-size: 28px;
-  transition: var(--transition);
-}
-
-.expertise-card:hover i {
-  background: var(--green);
-  color: var(--white);
-  transform: rotate(-10deg) scale(1.1);
-}
-
-.expertise-card h4 {
-  font-size: 22px;
-  color: var(--dark);
-  margin-bottom: 16px;
-}
-
-.expertise-card p {
-  color: var(--muted);
-  line-height: 1.7;
-}
-
-/* --- BANNER CTA (CHAMADA PARA AÇÃO FINAL) --- */
-.cta-section {
-  background: var(--green-dark);
-  margin-top: 40px;
-  border-radius: var(--radius-lg);
-  /* Centraliza no container */
-  max-width: var(--container);
-  margin-left: auto;
-  margin-right: auto;
+/* ── Banner ── */
+.assessoria-banner {
+  background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 100%);
+  color: #fff;
+  padding: 160px 0 90px;
+  margin-top: -92px;
   position: relative;
   overflow: hidden;
 }
 
-/* Padrão decorativo sutil no fundo do CTA */
-.cta-section::after {
+.assessoria-banner::after {
   content: '';
   position: absolute;
-  top: -50%;
-  right: -10%;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(
-    circle,
-    rgba(140, 227, 191, 0.15) 0%,
-    transparent 70%
-  );
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: var(--white);
+  clip-path: ellipse(55% 100% at 50% 100%);
+}
+
+.assessoria-banner__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.banner-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #8ce3bf;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 20px;
+}
+
+.assessoria-banner h1 {
+  font-size: clamp(36px, 5vw, 58px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+}
+
+.assessoria-banner p.lead {
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.82);
+  margin-bottom: 36px;
+}
+
+.banner-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+.assessoria-banner .btn-primary {
+  background: #fff;
+  color: var(--green-dark);
+  border-color: #fff;
+}
+
+.assessoria-banner .btn-primary:hover {
+  background: #8ce3bf;
+  border-color: #8ce3bf;
+}
+
+/* Stats no banner */
+.banner-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.banner-stat {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  transition: var(--transition);
+}
+
+.banner-stat:hover {
+  background: rgba(255,255,255,0.18);
+  transform: translateY(-4px);
+}
+
+.banner-stat strong {
+  display: block;
+  font-size: 42px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.banner-stat span {
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.4;
+}
+
+/* ── Como funciona (processo) ── */
+.processo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  position: relative;
+}
+
+.processo-grid::before {
+  content: '';
+  position: absolute;
+  top: 36px;
+  left: calc(12.5% + 8px);
+  width: calc(75% - 16px);
+  height: 2px;
+  background: var(--green-border);
+  z-index: 0;
+}
+
+.processo-step { position: relative; z-index: 1; text-align: center; }
+
+.processo-step__num {
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
-  pointer-events: none;
+  background: var(--white);
+  border: 3px solid var(--green-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--green);
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
 }
 
-/* --- RESPONSIVIDADE --- */
-@media (max-width: 960px) {
-  .service-row,
-  .service-row.reverse {
-    flex-direction: column;
-    gap: 40px;
-  }
-
-  .service-image::before {
-    top: 15px;
-    left: 15px !important;
-  }
-
-  .expertise-grid {
-    grid-template-columns: 1fr 1fr;
-  }
+.processo-step:hover .processo-step__num {
+  background: var(--green);
+  color: #fff;
+  border-color: var(--green);
+  transform: scale(1.1);
+  box-shadow: 0 8px 24px rgba(30,139,111,0.3);
 }
 
-@media (max-width: 600px) {
-  .expertise-grid {
-    grid-template-columns: 1fr;
-  }
+.processo-step h4 { font-size: 16px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+.processo-step p  { font-size: 14px; color: var(--muted); line-height: 1.6; }
 
-  .cta-section {
-    border-radius: 0;
-  }
+/* ── Cards de serviço (saneamento) ── */
+.servicos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.servico-card {
+  background: var(--white);
+  border: 1px solid var(--green-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.servico-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--green);
+}
+
+.servico-card__thumb { position: relative; height: 200px; overflow: hidden; }
+.servico-card__thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease; }
+.servico-card:hover .servico-card__thumb img { transform: scale(1.06); }
+
+.servico-card__body {
+  padding: 28px 26px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.servico-card__icon {
+  width: 52px;
+  height: 52px;
+  background: var(--green-light);
+  color: var(--green);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 16px;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.servico-card:hover .servico-card__icon { background: var(--green); color: #fff; }
+
+.servico-card__body h3 { font-size: 20px; font-weight: 700; color: var(--dark); margin-bottom: 10px; line-height: 1.3; }
+.servico-card__body p  { font-size: 15px; color: var(--muted); line-height: 1.7; flex-grow: 1; margin-bottom: 20px; }
+
+.servico-card__tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+
+.servico-tag {
+  padding: 4px 12px;
+  background: var(--green-light);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--green-dark);
+}
+
+/* ── Especialidades ── */
+.especialidades-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.especialidade-card {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  background: var(--white);
+  border: 1px solid var(--green-border);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.especialidade-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--green); }
+
+.especialidade-card__icon {
+  width: 56px;
+  height: 56px;
+  background: var(--green-light);
+  color: var(--green);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.especialidade-card:hover .especialidade-card__icon { background: var(--green); color: #fff; }
+
+.especialidade-card h4 { font-size: 17px; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+.especialidade-card p  { font-size: 14px; color: var(--muted); line-height: 1.65; margin: 0; }
+
+/* ── Depoimento ── */
+.depoimento-section { background: var(--green-dark); padding: 80px 0; }
+
+.depoimento-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+
+.depoimento-icon { font-size: 40px; color: #8ce3bf; margin-bottom: 24px; }
+
+.depoimento-text {
+  font-size: clamp(18px, 2.5vw, 24px);
+  line-height: 1.7;
+  color: rgba(255,255,255,0.9);
+  font-style: italic;
+  margin-bottom: 32px;
+}
+
+.depoimento-autor { display: flex; align-items: center; justify-content: center; gap: 14px; }
+
+.depoimento-autor img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255,255,255,0.3);
+}
+
+.depoimento-autor__info strong { display: block; color: #fff; font-size: 15px; }
+.depoimento-autor__info span   { font-size: 13px; color: rgba(255,255,255,0.6); }
+
+/* ── CTA final ── */
+.assessoria-cta {
+  background: var(--green-light);
+  border-radius: var(--radius-lg);
+  padding: 60px 48px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: center;
+  border: 1px solid var(--green-border);
+}
+
+.assessoria-cta h2 { font-size: clamp(24px, 3vw, 34px); color: var(--dark); margin-bottom: 10px; letter-spacing: -0.5px; }
+.assessoria-cta p  { font-size: 16px; color: var(--muted); line-height: 1.7; margin: 0; }
+
+.assessoria-cta__actions { display: flex; flex-direction: column; gap: 12px; flex-shrink: 0; }
+
+/* animações */
+.fade-in-up { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+.is-visible  { opacity: 1; transform: translate(0); }
+.delay-1 { transition-delay: 0.15s; }
+.delay-2 { transition-delay: 0.30s; }
+.delay-3 { transition-delay: 0.45s; }
+.delay-4 { transition-delay: 0.60s; }
+
+/* ── Responsivo ── */
+@media (max-width: 1024px) {
+  .assessoria-banner__inner { grid-template-columns: 1fr; gap: 48px; }
+  .banner-stats { grid-template-columns: repeat(4, 1fr); }
+  .processo-grid { grid-template-columns: repeat(2, 1fr); }
+  .processo-grid::before { display: none; }
+  .servicos-grid { grid-template-columns: 1fr 1fr; }
+  .especialidades-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .assessoria-banner { padding: 140px 0 80px; }
+  .assessoria-banner::after { display: none; }
+  .banner-stats { grid-template-columns: repeat(2, 1fr); }
+  .servicos-grid { grid-template-columns: 1fr; }
+  .especialidades-grid { grid-template-columns: 1fr; }
+  .assessoria-cta { grid-template-columns: 1fr; padding: 36px 28px; }
+  .assessoria-cta__actions { flex-direction: row; flex-wrap: wrap; }
+}
+
+@media (max-width: 480px) {
+  .banner-stats { grid-template-columns: 1fr 1fr; }
+  .processo-grid { grid-template-columns: 1fr; }
 }

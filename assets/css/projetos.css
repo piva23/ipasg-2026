@@ -1,15 +1,7 @@
 /* ============================================================
    PÁGINA DE PROJETOS E FILTROS
 ============================================================ */
-
-/* --- BOTÕES DE FILTRO --- */
-.projetos-filter {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 50px;
-}
+.projetos-filter { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-bottom: 50px; }
 
 .filter-btn {
   background: var(--white);
@@ -19,31 +11,16 @@
   font-size: 15px;
   font-weight: 600;
   padding: 12px 28px;
-  border-radius: 50px; /* Estilo pílula */
+  border-radius: 50px;
   cursor: pointer;
   transition: var(--transition);
   box-shadow: var(--shadow-sm);
 }
 
-.filter-btn:hover {
-  border-color: var(--green);
-  color: var(--green);
-  transform: translateY(-2px);
-}
+.filter-btn:hover { border-color: var(--green); color: var(--green); transform: translateY(-2px); }
+.filter-btn.active { background: var(--green); color: var(--white); border-color: var(--green); box-shadow: 0 8px 20px rgba(30, 139, 111, 0.3); }
 
-.filter-btn.active {
-  background: var(--green);
-  color: var(--white);
-  border-color: var(--green);
-  box-shadow: 0 8px 20px rgba(30, 139, 111, 0.3);
-}
-
-/* --- GRID E CARDS DE PROJETOS --- */
-.projetos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 30px;
-}
+.projetos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
 
 .projeto-card {
   background: var(--white);
@@ -58,32 +35,12 @@
   will-change: transform, box-shadow;
 }
 
-.projeto-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--green);
-}
+.projeto-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); border-color: var(--green); }
 
-/* Container da Imagem Fixo */
-.projeto-thumb {
-  position: relative;
-  width: 100%;
-  height: 240px;
-  overflow: hidden;
-}
+.projeto-thumb { position: relative; width: 100%; height: 240px; overflow: hidden; }
+.projeto-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1); }
+.projeto-card:hover .projeto-thumb img { transform: scale(1.08); }
 
-.projeto-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.projeto-card:hover .projeto-thumb img {
-  transform: scale(1.08); /* Zoom ao passar o mouse */
-}
-
-/* Etiqueta da Categoria (Badge) flutuante */
 .projeto-tag {
   position: absolute;
   top: 20px;
@@ -100,62 +57,20 @@
   box-shadow: var(--shadow-sm);
 }
 
-/* Área de Texto Flexível */
-.projeto-content {
-  padding: 32px 28px;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1; /* Preenche a caixa inteira forçando botões a alinharem */
-}
+.projeto-content { padding: 32px 28px; display: flex; flex-direction: column; flex-grow: 1; }
+.projeto-content h3 { font-size: 24px; color: var(--dark); margin-bottom: 12px; letter-spacing: -0.5px; line-height: 1.3; }
+.projeto-content h3 a { transition: var(--transition); }
+.projeto-content h3 a:hover { color: var(--green); }
+.projeto-content p { color: var(--muted); line-height: 1.7; font-size: 16px; margin-bottom: 24px; flex-grow: 1; }
 
-.projeto-content h3 {
-  font-size: 24px;
-  color: var(--dark);
-  margin-bottom: 12px;
-  letter-spacing: -0.5px;
-  line-height: 1.3;
-}
+.read-more-btn { align-self: flex-start; min-height: 46px; padding: 0 20px; font-size: 15px; width: auto; }
 
-.projeto-content h3 a {
-  transition: var(--transition);
-}
-
-.projeto-content h3 a:hover {
-  color: var(--green);
-}
-
-.projeto-content p {
-  color: var(--muted);
-  line-height: 1.7;
-  font-size: 16px;
-  margin-bottom: 24px;
-  flex-grow: 1; /* Empurra o botão para a base sempre */
-}
-
-/* Botão Link */
-.read-more-btn {
-  align-self: flex-start;
-  min-height: 46px;
-  padding: 0 20px;
-  font-size: 15px;
-  width: auto;
-}
-
-/* --- ANIMAÇÃO CASCATA --- */
 @keyframes fadeInUpCard {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsivo */
-@media (max-width: 768px) {
-  .projetos-grid {
-    grid-template-columns: 1fr;
-  }
-}
+.fade-in-up { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+.is-visible { opacity: 1; transform: translate(0); }
+
+@media (max-width: 768px) { .projetos-grid { grid-template-columns: 1fr; } }

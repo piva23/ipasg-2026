@@ -4,6 +4,9 @@
 ========================================== */
 
 // 1. Nosso Banco de Dados Simulado
+// NOTA: Elaine já possui página de detalhe completa (team-elaine.html).
+// Para os demais membros, basta duplicar team-elaine.html, renomear o arquivo
+// (ex: team-leandro.html) e trocar a "url" abaixo pelo novo arquivo.
 const MEMBERS = [
   {
     name: 'Elaine Regina dos Santos',
@@ -11,11 +14,10 @@ const MEMBERS = [
     img: 'assets/members/elaine/elaine.jpg',
     url: 'team-elaine.html',
     socials: {
-      whatsapp: 'https://wa.me/5551992429974',
-      instagram: 'https://instagram.com',
-      facebook: 'https://facebook.com',
-      youtube: 'https://youtube.com',
-      email: 'mailto:elaine@email.com',
+      whatsapp: 'https://wa.me/5551999680605',
+      instagram: 'https://instagram.com/elaineregina.65',
+      facebook: 'https://facebook.com/elaine.reginaa',
+      email: 'mailto:elaineregina.65@gmail.com',
     },
   },
   {

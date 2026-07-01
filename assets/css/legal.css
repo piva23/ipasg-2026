@@ -1,0 +1,242 @@
+/* ============================================================
+   PÁGINAS LEGAIS (TERMOS, PRIVACIDADE, COOKIES, LGPD)
+============================================================ */
+
+.legal-banner {
+  background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 100%);
+  color: #fff;
+  padding: 140px 0 80px;
+  margin-top: -92px;
+  text-align: center;
+}
+
+.banner-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: #8ce3bf;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.legal-banner h1 {
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 700;
+  margin-bottom: 14px;
+  letter-spacing: -1px;
+}
+
+.legal-banner p {
+  font-size: 18px;
+  color: rgba(255,255,255,0.85);
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* Container */
+.legal-container {
+  max-width: 860px;
+}
+
+/* Navegação entre páginas legais */
+.legal-nav {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--green-border);
+}
+
+.legal-nav__link {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--green-border);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+  transition: var(--transition);
+}
+
+.legal-nav__link:hover,
+.legal-nav__link.active {
+  background: var(--green);
+  color: #fff;
+  border-color: var(--green);
+}
+
+/* Conteúdo legal */
+.legal-content {
+  max-width: 100%;
+}
+
+.legal-updated {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 36px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legal-updated::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--green);
+  border-radius: 50%;
+}
+
+.legal-content h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--dark);
+  margin: 40px 0 14px;
+  letter-spacing: -0.3px;
+}
+
+.legal-content h2:first-of-type {
+  margin-top: 0;
+}
+
+.legal-content p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.legal-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.legal-content ul li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--muted);
+  padding-left: 4px;
+}
+
+.legal-content ul li::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--green);
+  border-radius: 50%;
+  margin-top: 9px;
+  flex-shrink: 0;
+}
+
+.legal-content a {
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: var(--transition);
+}
+
+.legal-content a:hover {
+  color: var(--green-dark);
+}
+
+/* Tabela de cookies */
+.cookie-table {
+  border: 1px solid var(--green-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.cookie-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 0;
+  border-bottom: 1px solid var(--green-border);
+}
+
+.cookie-row:last-child {
+  border-bottom: none;
+}
+
+.cookie-row.header {
+  background: var(--green);
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+}
+
+.cookie-row span {
+  padding: 14px 18px;
+  font-size: 15px;
+  color: var(--muted);
+  border-right: 1px solid var(--green-border);
+}
+
+.cookie-row.header span {
+  color: #fff;
+  border-right-color: rgba(255,255,255,0.2);
+}
+
+.cookie-row span:last-child {
+  border-right: none;
+}
+
+/* Box DPO (LGPD) */
+.dpo-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background: var(--green-light);
+  border: 1px solid var(--green-border);
+  border-radius: var(--radius-md);
+  padding: 24px 28px;
+  margin: 20px 0;
+}
+
+.dpo-box > i {
+  font-size: 32px;
+  color: var(--green);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.dpo-box strong {
+  display: block;
+  font-size: 16px;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+
+.dpo-box p {
+  font-size: 15px;
+  color: var(--muted);
+  margin: 0 0 4px;
+}
+
+@media (max-width: 600px) {
+  .cookie-row {
+    grid-template-columns: 1fr;
+  }
+  .cookie-row span {
+    border-right: none;
+    border-bottom: 1px solid var(--green-border);
+    padding: 10px 16px;
+  }
+  .cookie-row span:last-child {
+    border-bottom: none;
+  }
+  .legal-nav {
+    gap: 6px;
+  }
+}
