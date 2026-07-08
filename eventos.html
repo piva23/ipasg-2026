@@ -8,9 +8,6 @@
       name="description"
       content="Confira o calendário de vivências, cursos e mutirões do IPASG."
     />
-    <meta property="og:title" content="Eventos | IPASG" />
-    <meta property="og:description" content="Confira o calendário de vivências, cursos e mutirões do IPASG." />
-    <meta property="og:type" content="website" />
 
     <link rel="icon" type="image/png" href="assets/images/favicon.png" />
     <link rel="apple-touch-icon" href="assets/images/favicon.png" />
@@ -30,6 +27,10 @@
     <link rel="stylesheet" href="assets/css/eventos.css" />
   </head>
   <body>
+    <div id="pageLoader" class="page-loader" aria-hidden="true">
+      <div class="page-loader__spinner"></div>
+    </div>
+
     <div class="topbar">
       <div class="container topbar-inner">
         <div class="topbar-left">
@@ -320,5 +321,6 @@
     <script src="assets/js/menu.js"></script>
     <script src="assets/js/eventos-data.js"></script>
     <script src="assets/js/eventos.js"></script>
+    <script src="assets/js/loader.js"></script>
   </body>
 </html>

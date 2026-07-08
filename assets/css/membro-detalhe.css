@@ -1,10 +1,50 @@
 /* ============================================================
+   PALETA DE CORES TEMÁTICA (TONS DE VERDE)
+============================================================ */
+:root {
+  --green-primary: #1e8b6f; /* Verde Principal (Botões e Ícones) */
+  --green-light: #eaf4f1; /* Verde Menta Suave (Fundo de quebra) */
+  --green-dark: #0f4a3b; /* Verde Floresta Profundo (Fundo de alto contraste) */
+  --green-accent: #a0d2c4; /* Verde Água (Texto sobre fundo escuro) */
+}
+
+/* Classes utilitárias para as seções */
+.bg-green-light {
+  background-color: var(--green-light);
+}
+
+.bg-green-dark {
+  background-color: var(--green-dark);
+  color: #ffffff;
+}
+
+.bg-green-dark h2 {
+  color: #ffffff !important;
+}
+
+.bg-green-dark p.muted,
+.bg-green-dark .muted {
+  color: var(--green-accent) !important;
+}
+
+.bg-green-dark .btn-primary {
+  background-color: #ffffff;
+  color: var(--green-dark);
+}
+
+.bg-green-dark .btn-primary:hover {
+  background-color: var(--green-light);
+}
+
+/* ============================================================
    PÁGINA DE DETALHES DO MEMBRO (ALTO CONTRASTE / BLOCOS)
 ============================================================ */
 
 /* Fundo de Alto Contraste (Verde Menta da pág. Sobre) */
 .member-profile-section {
-  background-color: #d1e8e2;
+  background-color: var(
+    --green-light
+  ); /* Alterado para a nova variável suave */
   padding-top: 60px;
   padding-bottom: 90px;
   border-bottom: 1px solid rgba(30, 139, 111, 0.1);
@@ -45,7 +85,7 @@
   position: absolute;
   bottom: 15px;
   left: 15px;
-  background: var(--green);
+  background: var(--green-primary); /* Usando o tom principal */
   color: var(--white);
   padding: 8px 16px;
   border-radius: 50px;
@@ -71,14 +111,14 @@
   align-items: center;
   justify-content: center;
   background: var(--green-light);
-  color: var(--green);
+  color: var(--green-primary); /* Ajustado para o tom principal */
   border-radius: 50%;
   font-size: 18px;
   transition: var(--transition);
 }
 
 .member-contact-icons a:hover {
-  background: var(--green);
+  background: var(--green-primary); /* Ajustado */
   color: var(--white);
   transform: translateY(-3px);
   box-shadow: 0 6px 15px rgba(30, 139, 111, 0.2);
@@ -108,7 +148,7 @@
   display: inline-block;
   font-size: 14px;
   font-weight: 700;
-  color: var(--green);
+  color: var(--green-primary); /* Ajustado */
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 12px;
@@ -151,7 +191,7 @@
 }
 
 .member-tags .tag i {
-  color: var(--green);
+  color: var(--green-primary); /* Ajustado */
   margin-right: 6px;
 }
 
@@ -175,7 +215,7 @@
 }
 
 .atuacao-card {
-  background: #f8fbf9; /* Fundo super leve para dar contraste com a seção branca */
+  background: #ffffff; /* Fundo forçado para branco para saltar no fundo verde leve */
   padding: 40px 30px;
   border-radius: var(--radius-lg);
   border: 1px solid var(--green-border);
@@ -187,7 +227,7 @@
 .atuacao-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-md);
-  border-color: var(--green);
+  border-color: var(--green-primary); /* Ajustado */
   background: #ffffff;
 }
 
@@ -195,7 +235,7 @@
   width: 60px;
   height: 60px;
   background: var(--green-light);
-  color: var(--green);
+  color: var(--green-primary); /* Ajustado */
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -206,7 +246,7 @@
 }
 
 .atuacao-card:hover .icon {
-  background: var(--green);
+  background: var(--green-primary); /* Ajustado */
   color: var(--white);
   transform: scale(1.1);
 }
@@ -244,7 +284,7 @@
 
 .projeto-link-card:hover {
   transform: translateX(6px);
-  border-color: var(--green);
+  border-color: var(--green-primary); /* Ajustado */
   box-shadow: var(--shadow-md);
 }
 
@@ -252,7 +292,7 @@
   width: 50px;
   height: 50px;
   background: var(--green-light);
-  color: var(--green);
+  color: var(--green-primary); /* Ajustado */
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -263,7 +303,7 @@
 }
 
 .projeto-link-card:hover .projeto-link-card__icon {
-  background: var(--green);
+  background: var(--green-primary); /* Ajustado */
   color: #fff;
 }
 
@@ -285,7 +325,7 @@
 }
 
 .projeto-link-card__arrow {
-  color: var(--green);
+  color: var(--green-primary); /* Ajustado */
   font-size: 14px;
   transition: var(--transition);
   flex-shrink: 0;
@@ -307,7 +347,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  color: var(--green);
+  color: var(--green-primary); /* Ajustado */
 }
 
 /* ================== RESPONSIVO ================== */
