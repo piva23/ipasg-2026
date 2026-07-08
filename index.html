@@ -12,8 +12,14 @@
       name="keywords"
       content="IPASG, permacultura, sustentabilidade, educação ambiental"
     />
-    <meta property="og:title" content="IPASG — Instituto de Permacultura e Artes da Serra Geral" />
-    <meta property="og:description" content="Permacultura, educação ambiental e projetos regenerativos em Mampituba/RS." />
+    <meta
+      property="og:title"
+      content="IPASG — Instituto de Permacultura e Artes da Serra Geral"
+    />
+    <meta
+      property="og:description"
+      content="Permacultura, educação ambiental e projetos regenerativos em Mampituba/RS."
+    />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="assets/images/logo/logo.png" />
 
@@ -35,12 +41,18 @@
     <link rel="stylesheet" href="assets/css/header.css" />
     <link rel="stylesheet" href="assets/css/hero.css" />
     <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/eventos.css" />
     <link rel="stylesheet" href="assets/css/footer.css" />
 
     <meta name="theme-color" content="#1e8b6f" />
   </head>
 
   <body>
+    <!-- PRELOADER -->
+    <div id="pageLoader" class="page-loader" aria-hidden="true">
+      <div class="page-loader__spinner"></div>
+    </div>
+
     <div class="topbar">
       <div class="container topbar-inner">
         <div class="topbar-left">
@@ -93,7 +105,9 @@
 
         <nav class="nav" role="navigation" aria-label="Main menu">
           <div class="nav-item">
-            <a href="index.html" aria-current="page"><i class="fa-solid fa-house"></i> Início</a>
+            <a href="index.html" aria-current="page"
+              ><i class="fa-solid fa-house"></i> Início</a
+            >
           </div>
           <div class="nav-item dropdown">
             <a href="#" aria-haspopup="true"
@@ -165,14 +179,9 @@
             <div class="hero-diagonal"></div>
             <div class="hero-content">
               <p class="eyebrow">CONHEÇA</p>
-              <h1>
-                20 ANOS<br /><span
-                  >gerando impacto socioambiental positivo</span
-                >
-              </h1>
+              <h1>IPASG<br /><span>Impacto socioambiental positivo</span></h1>
               <p class="lead">
-                Atuamos com permacultura, educação ambiental e projetos
-                regenerativos que fortalecem comunidades e preservam a natureza.
+                Atuamos com projetos regenerativos que preservam a natureza.
               </p>
               <div class="hero-actions">
                 <a class="btn-primary" href="projetos.html">Leia mais</a>
@@ -190,10 +199,9 @@
             <div class="hero-diagonal"></div>
             <div class="hero-content">
               <p class="eyebrow">PROJETOS</p>
-              <h1>Projetos que transformam<br /><span>comunidades</span></h1>
+              <h1>Soluções que transformam<br /><span>comunidades</span></h1>
               <p class="lead">
-                Soluções de agroecologia, manejo de água e recuperação
-                ambiental.
+                Agroecologia, manejo de água e recuperação ambiental.
               </p>
               <div class="hero-actions">
                 <a class="btn-primary" href="projetos.html">Ver projetos</a>
@@ -214,10 +222,7 @@
               <h1>
                 Oficinas e capacitações<br /><span>para todas as idades</span>
               </h1>
-              <p class="lead">
-                Programas em escolas e comunidades para fortalecer a consciência
-                socioambiental.
-              </p>
+              <p class="lead">Programas em escolas e comunidades.</p>
               <div class="hero-actions">
                 <a class="btn-primary" href="sobre.html">Conheça</a>
                 <a class="btn-ghost" href="projetos.html">Projetos</a>
@@ -315,7 +320,7 @@
           </header>
 
           <div class="cards-grid">
-            <article class="card">
+            <a class="card" href="projetos/meliponicultura.html">
               <img
                 src="assets/images/difference/thumb-lg-two.png"
                 alt="Estruturas em madeira para Meliponicultura"
@@ -326,8 +331,11 @@
                 Criação e manejo de abelhas nativas sem ferrão. Uma ferramenta
                 poderosa para polinização e geração de renda.
               </p>
-            </article>
-            <article class="card">
+              <span class="card-more"
+                >Saiba mais <i class="fa-solid fa-arrow-right"></i
+              ></span>
+            </a>
+            <a class="card" href="projetos/saneamento.html">
               <img
                 src="assets/images/banner/m-four.png"
                 alt="Sistema de filtragem natural"
@@ -338,8 +346,11 @@
                 Implementação de sistemas como Bacias de Evapotranspiração para
                 o tratamento e reúso seguro da água.
               </p>
-            </article>
-            <article class="card">
+              <span class="card-more"
+                >Saiba mais <i class="fa-solid fa-arrow-right"></i
+              ></span>
+            </a>
+            <a class="card" href="projetos/bioconstrucao.html">
               <img
                 src="assets/images/banner/m-five.png"
                 alt="Casa sustentável"
@@ -350,7 +361,16 @@
                 Uso de terra, bambu e materiais locais para criar estruturas com
                 eficiência térmica e mínimo impacto.
               </p>
-            </article>
+              <span class="card-more"
+                >Saiba mais <i class="fa-solid fa-arrow-right"></i
+              ></span>
+            </a>
+          </div>
+
+          <div class="text-center" style="margin-top: 40px">
+            <a href="projetos.html" class="btn-primary"
+              >Ver todos os projetos</a
+            >
           </div>
         </div>
       </section>
@@ -441,16 +461,56 @@
 
           <div class="partners-wrapper">
             <div class="partners-track">
-              <img src="assets/images/sponsor/one.png" alt="Logotipo Parceiro 1" loading="lazy" />
-              <img src="assets/images/sponsor/two.png" alt="Logotipo Parceiro 2" loading="lazy" />
-              <img src="assets/images/sponsor/three.png" alt="Logotipo Parceiro 3" loading="lazy" />
-              <img src="assets/images/sponsor/four.png" alt="Logotipo Parceiro 4" loading="lazy" />
-              <img src="assets/images/sponsor/five.png" alt="Logotipo Parceiro 5" loading="lazy" />
-              <img src="assets/images/sponsor/one.png" alt="Logotipo Parceiro 1" loading="lazy" />
-              <img src="assets/images/sponsor/two.png" alt="Logotipo Parceiro 2" loading="lazy" />
-              <img src="assets/images/sponsor/three.png" alt="Logotipo Parceiro 3" loading="lazy" />
-              <img src="assets/images/sponsor/four.png" alt="Logotipo Parceiro 4" loading="lazy" />
-              <img src="assets/images/sponsor/five.png" alt="Logotipo Parceiro 5" loading="lazy" />
+              <img
+                src="assets/images/sponsor/one.png"
+                alt="Logotipo Parceiro 1"
+                loading="lazy"
+              />
+              <img
+                src="assets/images/sponsor/two.png"
+                alt="Logotipo Parceiro 2"
+                loading="lazy"
+              />
+              <img
+                src="assets/images/sponsor/three.png"
+                alt="Logotipo Parceiro 3"
+                loading="lazy"
+              />
+              <img
+                src="assets/images/sponsor/four.png"
+                alt="Logotipo Parceiro 4"
+                loading="lazy"
+              />
+              <img
+                src="assets/images/sponsor/five.png"
+                alt="Logotipo Parceiro 5"
+                loading="lazy"
+              />
+              <img
+                src="assets/images/sponsor/one.png"
+                alt="Logotipo Parceiro 1"
+                loading="lazy"
+              />
+              <img
+                src="assets/images/sponsor/two.png"
+                alt="Logotipo Parceiro 2"
+                loading="lazy"
+              />
+              <img
+                src="assets/images/sponsor/three.png"
+                alt="Logotipo Parceiro 3"
+                loading="lazy"
+              />
+              <img
+                src="assets/images/sponsor/four.png"
+                alt="Logotipo Parceiro 4"
+                loading="lazy"
+              />
+              <img
+                src="assets/images/sponsor/five.png"
+                alt="Logotipo Parceiro 5"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>
@@ -575,5 +635,6 @@
     <script src="assets/js/animations.js"></script>
     <script src="assets/js/eventos-data.js"></script>
     <script src="assets/js/home-events.js"></script>
+    <script src="assets/js/loader.js"></script>
   </body>
 </html>
