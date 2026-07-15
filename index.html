@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="pt-BR">
+﻿<!doctype html>
+<html lang="pt-BR" data-theme="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -12,16 +12,6 @@
       name="keywords"
       content="IPASG, permacultura, sustentabilidade, educação ambiental"
     />
-    <meta
-      property="og:title"
-      content="IPASG — Instituto de Permacultura e Artes da Serra Geral"
-    />
-    <meta
-      property="og:description"
-      content="Permacultura, educação ambiental e projetos regenerativos em Mampituba/RS."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="assets/images/logo/logo.png" />
 
     <link rel="icon" type="image/png" href="assets/images/favicon.png" />
     <link rel="apple-touch-icon" href="assets/images/favicon.png" />
@@ -37,22 +27,21 @@
       referrerpolicy="no-referrer"
     />
 
+    <link rel="stylesheet" href="assets/css/colors.css" />
     <link rel="stylesheet" href="assets/css/base.css" />
     <link rel="stylesheet" href="assets/css/header.css" />
     <link rel="stylesheet" href="assets/css/hero.css" />
     <link rel="stylesheet" href="assets/css/components.css" />
-    <link rel="stylesheet" href="assets/css/eventos.css" />
     <link rel="stylesheet" href="assets/css/footer.css" />
+    <link rel="stylesheet" href="assets/css/theme.css" />
 
     <meta name="theme-color" content="#1e8b6f" />
   </head>
 
   <body>
-    <!-- PRELOADER -->
     <div id="pageLoader" class="page-loader" aria-hidden="true">
       <div class="page-loader__spinner"></div>
     </div>
-
     <div class="topbar">
       <div class="container topbar-inner">
         <div class="topbar-left">
@@ -60,7 +49,7 @@
             href="https://www.google.com/maps/dir/-30.045851,-51.3116603/Mampituba,+RS,+95572-000/@-29.4229542,-50.2723278,10.5z/data=!4m9!4m8!1m1!4e1!1m5!1m1!1s0x952209266564baf7:0x136cba7824fdc408!2m2!1d-49.9359871!2d-29.21173?entry=ttu&g_ep=EgoyMDI1MDcwNi4wIKXMDSoASAFQAw%3D%3D"
             target="_blank"
           >
-            <i class="fa-solid fa-location-dot"></i> Estrada Municipal, 885 –
+            <i class="fa-solid fa-location-dot"></i> Estrada Municipal, 885 —
             Mampituba/RS
           </a>
         </div>
@@ -99,13 +88,17 @@
       <div class="container navwrap">
         <div class="brand">
           <a href="index.html" aria-label="IPASG Home" class="brand-link">
-            <img src="assets/images/logo/logo.png" alt="Logotipo do IPASG" />
+            <img
+              src="assets/images/logo/logo.png"
+              data-dark-src="assets/images/logo/logo-light.png"
+              alt="Logotipo do IPASG"
+            />
           </a>
         </div>
 
         <nav class="nav" role="navigation" aria-label="Main menu">
           <div class="nav-item">
-            <a href="index.html" aria-current="page"
+            <a href="index.html" class="active"
               ><i class="fa-solid fa-house"></i> Início</a
             >
           </div>
@@ -153,6 +146,14 @@
         </nav>
 
         <div class="header-utilities">
+          <button
+            id="themeToggle"
+            class="theme-toggle"
+            aria-label="Alternar tema claro/escuro"
+          >
+            <i class="fa-solid fa-moon"></i>
+            <i class="fa-solid fa-sun"></i>
+          </button>
           <a href="apoie.html" class="btn-primary">
             <i class="fa-solid fa-heart"></i> Apoie
           </a>
@@ -179,9 +180,14 @@
             <div class="hero-diagonal"></div>
             <div class="hero-content">
               <p class="eyebrow">CONHEÇA</p>
-              <h1>IPASG<br /><span>Impacto socioambiental positivo</span></h1>
+              <h1>
+                20 ANOS<br /><span
+                  >gerando impacto socioambiental positivo</span
+                >
+              </h1>
               <p class="lead">
-                Atuamos com projetos regenerativos que preservam a natureza.
+                Atuamos com permacultura, educação ambiental e projetos
+                regenerativos que fortalecem comunidades e preservam a natureza.
               </p>
               <div class="hero-actions">
                 <a class="btn-primary" href="projetos.html">Leia mais</a>
@@ -199,13 +205,14 @@
             <div class="hero-diagonal"></div>
             <div class="hero-content">
               <p class="eyebrow">PROJETOS</p>
-              <h1>Soluções que transformam<br /><span>comunidades</span></h1>
+              <h1>Projetos que transformam<br /><span>comunidades</span></h1>
               <p class="lead">
-                Agroecologia, manejo de água e recuperação ambiental.
+                Soluções de agroecologia, manejo de água e recuperação
+                ambiental.
               </p>
               <div class="hero-actions">
                 <a class="btn-primary" href="projetos.html">Ver projetos</a>
-                <a class="btn-ghost" href="apoie.html">Contato</a>
+                <a class="btn-ghost" href="assessoria.html">Contato</a>
               </div>
             </div>
           </article>
@@ -222,7 +229,10 @@
               <h1>
                 Oficinas e capacitações<br /><span>para todas as idades</span>
               </h1>
-              <p class="lead">Programas em escolas e comunidades.</p>
+              <p class="lead">
+                Programas em escolas e comunidades para fortalecer a consciência
+                socioambiental.
+              </p>
               <div class="hero-actions">
                 <a class="btn-primary" href="sobre.html">Conheça</a>
                 <a class="btn-ghost" href="projetos.html">Projetos</a>
@@ -320,7 +330,7 @@
           </header>
 
           <div class="cards-grid">
-            <a class="card" href="projetos/meliponicultura.html">
+            <article class="card">
               <img
                 src="assets/images/difference/thumb-lg-two.png"
                 alt="Estruturas em madeira para Meliponicultura"
@@ -331,11 +341,8 @@
                 Criação e manejo de abelhas nativas sem ferrão. Uma ferramenta
                 poderosa para polinização e geração de renda.
               </p>
-              <span class="card-more"
-                >Saiba mais <i class="fa-solid fa-arrow-right"></i
-              ></span>
-            </a>
-            <a class="card" href="projetos/saneamento.html">
+            </article>
+            <article class="card">
               <img
                 src="assets/images/banner/m-four.png"
                 alt="Sistema de filtragem natural"
@@ -346,11 +353,8 @@
                 Implementação de sistemas como Bacias de Evapotranspiração para
                 o tratamento e reúso seguro da água.
               </p>
-              <span class="card-more"
-                >Saiba mais <i class="fa-solid fa-arrow-right"></i
-              ></span>
-            </a>
-            <a class="card" href="projetos/bioconstrucao.html">
+            </article>
+            <article class="card">
               <img
                 src="assets/images/banner/m-five.png"
                 alt="Casa sustentável"
@@ -361,16 +365,7 @@
                 Uso de terra, bambu e materiais locais para criar estruturas com
                 eficiência térmica e mínimo impacto.
               </p>
-              <span class="card-more"
-                >Saiba mais <i class="fa-solid fa-arrow-right"></i
-              ></span>
-            </a>
-          </div>
-
-          <div class="text-center" style="margin-top: 40px">
-            <a href="projetos.html" class="btn-primary"
-              >Ver todos os projetos</a
-            >
+            </article>
           </div>
         </div>
       </section>
@@ -384,7 +379,31 @@
             </p>
           </header>
 
-          <div class="events-list" id="home-events-container"></div>
+          <div class="events-list">
+            <div class="event-item">
+              <div class="event-date"><span>15</span> Nov</div>
+              <div class="event-info">
+                <h3>Mutirão de Bioconstrução</h3>
+                <p class="muted">
+                  <i class="fa-solid fa-location-dot"></i> Sede IPASG -
+                  Mampituba/RS
+                </p>
+              </div>
+              <a href="eventos.html" class="btn-ghost event-btn">Inscreva-se</a>
+            </div>
+
+            <div class="event-item">
+              <div class="event-date"><span>02</span> Dez</div>
+              <div class="event-info">
+                <h3>Oficina de Meliponicultura Básica</h3>
+                <p class="muted">
+                  <i class="fa-solid fa-location-dot"></i> Escola Municipal -
+                  Torres/RS
+                </p>
+              </div>
+              <a href="eventos.html" class="btn-ghost event-btn">Inscreva-se</a>
+            </div>
+          </div>
 
           <div class="text-center" style="margin-top: 40px">
             <a href="eventos.html" class="btn-primary"
@@ -581,7 +600,7 @@
                   target="_blank"
                 >
                   <i class="fa-solid fa-location-dot"></i> Estrada Municipal,
-                  885 – Mampituba/RS
+                  885 — Mampituba/RS
                 </a>
               </li>
             </ul>
@@ -626,6 +645,10 @@
       </div>
     </footer>
 
+    <button id="backToTop" class="back-to-top" aria-label="Voltar ao topo">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
     <script>
       document.getElementById('copyrightYear').textContent =
         new Date().getFullYear();
@@ -633,8 +656,10 @@
     <script src="assets/js/slider.js"></script>
     <script src="assets/js/menu.js"></script>
     <script src="assets/js/animations.js"></script>
-    <script src="assets/js/eventos-data.js"></script>
-    <script src="assets/js/home-events.js"></script>
-    <script src="assets/js/loader.js"></script>
+    <script src="assets/js/theme.js"></script>
+      <script src="assets/js/loader.js"></script>
   </body>
 </html>
+
+
+

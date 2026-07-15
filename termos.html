@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="pt-BR">
+﻿<!doctype html>
+<html lang="pt-BR" data-theme="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -11,12 +11,18 @@
     <link rel="stylesheet" href="assets/css/header.css" />
     <link rel="stylesheet" href="assets/css/footer.css" />
     <link rel="stylesheet" href="assets/css/legal.css" />
+      <link rel="stylesheet" href="assets/css/colors.css" />
+    <link rel="stylesheet" href="assets/css/theme.css" />
+    <meta name="theme-color" content="#1e8b6f" />
   </head>
   <body>
+    <div id="pageLoader" class="page-loader" aria-hidden="true">
+      <div class="page-loader__spinner"></div>
+    </div>
     <div class="topbar">
       <div class="container topbar-inner">
         <div class="topbar-left">
-          <a href="https://maps.app.goo.gl/Gr9pTNqz5FRNrjQw8" target="_blank"><i class="fa-solid fa-location-dot"></i> Estrada Municipal, 885 – Mampituba/RS</a>
+          <a href="https://maps.app.goo.gl/Gr9pTNqz5FRNrjQw8" target="_blank"><i class="fa-solid fa-location-dot"></i> Estrada Municipal, 885 — Mampituba/RS</a>
           <a href="mailto:ipasg.rs@gmail.com"><i class="fa-regular fa-envelope"></i> ipasg.rs@gmail.com</a>
         </div>
         <div class="topbar-right">
@@ -85,7 +91,7 @@
                 <p class="legal-updated">Última atualização: Janeiro de 2025</p>
 
                 <h2>1. Aceitação dos termos</h2>
-                <p>Ao acessar e utilizar o site do IPASG – Instituto de Permacultura e Artes da Serra Geral – você concorda com os presentes Termos de Uso. Caso não concorde com qualquer disposição, pedimos que não utilize nossos serviços digitais.</p>
+                <p>Ao acessar e utilizar o site do IPASG — Instituto de Permacultura e Artes da Serra Geral — você concorda com os presentes Termos de Uso. Caso não concorde com qualquer disposição, pedimos que não utilize nossos serviços digitais.</p>
 
                 <h2>2. Sobre o IPASG</h2>
                 <p>O IPASG é uma organização sem fins lucrativos dedicada à promoção da permacultura, educação ambiental, artes integradas e saberes ancestrais, com sede em Mampituba/RS.</p>
@@ -100,7 +106,7 @@
                 </ul>
 
                 <h2>4. Propriedade intelectual</h2>
-                <p>Todo o conteúdo publicado neste site – textos, imagens, vídeos, logotipos e materiais educativos – é de propriedade do IPASG ou de seus parceiros, protegido pela legislação brasileira de direitos autorais (Lei nº 9.610/98).</p>
+                <p>Todo o conteúdo publicado neste site — textos, imagens, vídeos, logotipos e materiais educativos — é de propriedade do IPASG ou de seus parceiros, protegido pela legislação brasileira de direitos autorais (Lei nº 9.610/98).</p>
 
                 <h2>5. Isenção de responsabilidade</h2>
                 <p>O IPASG não se responsabiliza por danos decorrentes do uso inadequado das informações disponibilizadas, de falhas técnicas ou de links externos que eventualmente sejam acessados por meio do site.</p>
@@ -138,7 +144,7 @@
             <h5>Informações</h5>
             <div class="footer-line"><span class="large-line"></span><span class="small-line"></span></div>
             <ul class="footer-list">
-              <li><a href="https://maps.app.goo.gl/Gr9pTNqz5FRNrjQw8" target="_blank"><i class="fa-solid fa-location-dot"></i> Estrada Municipal, 885 – Mampituba/RS</a></li>
+              <li><a href="https://maps.app.goo.gl/Gr9pTNqz5FRNrjQw8" target="_blank"><i class="fa-solid fa-location-dot"></i> Estrada Municipal, 885 — Mampituba/RS</a></li>
             </ul>
             <div class="footer-socials">
               <a href="tel:+5551992429974" aria-label="Ligar"><i class="fa-solid fa-phone"></i></a>
@@ -156,5 +162,12 @@
     </footer>
     <script>document.getElementById('copyrightYear').textContent = new Date().getFullYear();</script>
     <script src="assets/js/menu.js"></script>
+      <button id="backToTop" class="back-to-top" aria-label="Voltar ao topo">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+    <script src="assets/js/loader.js"></script>
+    <script src="assets/js/theme.js"></script>
   </body>
 </html>
+
+

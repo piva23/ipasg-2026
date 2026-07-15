@@ -1,6 +1,59 @@
 /* =========================
    PÁGINA DE MEMBROS (PRO)
 ========================= */
+.members-banner {
+  margin-top: -92px;
+  padding: 140px 0 80px;
+  text-align: center;
+  color: #fff;
+  background:
+    linear-gradient(135deg, rgba(15, 74, 59, 0.98) 0%, rgba(30, 139, 111, 0.98) 100%),
+    radial-gradient(circle at top, rgba(140, 227, 191, 0.2), transparent 45%);
+}
+
+.members-banner .container {
+  max-width: 900px;
+}
+
+.members-banner__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: #8ce3bf;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.members-banner h1 {
+  font-size: clamp(38px, 6vw, 64px);
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+  line-height: 1.05;
+}
+
+.members-banner p {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.team-intro {
+  max-width: 780px;
+  margin-bottom: 34px;
+}
+
+.team-intro h2 {
+  margin-bottom: 12px;
+}
+
+.team-intro p {
+  font-size: 17px;
+}
+
 .team-section { padding-bottom: 100px; }
 
 .team-grid {
@@ -136,5 +189,14 @@
 }
 
 @media (max-width: 600px) {
+  .members-banner {
+    margin-top: -78px;
+    padding: 118px 0 60px;
+  }
+
+  .members-banner p {
+    font-size: 17px;
+  }
+
   .team-grid { grid-template-columns: 1fr; }
 }

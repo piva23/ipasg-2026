@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="pt-BR">
+﻿<!doctype html>
+<html lang="pt-BR" data-theme="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -16,13 +16,19 @@
     <link rel="stylesheet" href="assets/css/header.css" />
     <link rel="stylesheet" href="assets/css/footer.css" />
     <link rel="stylesheet" href="assets/css/apoie.css" />
+      <link rel="stylesheet" href="assets/css/colors.css" />
+    <link rel="stylesheet" href="assets/css/theme.css" />
+    <meta name="theme-color" content="#1e8b6f" />
   </head>
   <body>
+    <div id="pageLoader" class="page-loader" aria-hidden="true">
+      <div class="page-loader__spinner"></div>
+    </div>
     <div class="topbar">
       <div class="container topbar-inner">
         <div class="topbar-left">
           <a href="https://www.google.com/maps/dir/-30.045851,-51.3116603/Mampituba,+RS,+95572-000/@-29.4229542,-50.2723278,10.5z/data=!4m9!4m8!1m1!4e1!1m5!1m1!1s0x952209266564baf7:0x136cba7824fdc408!2m2!1d-49.9359871!2d-29.21173?entry=ttu&g_ep=EgoyMDI1MDcwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
-            <i class="fa-solid fa-location-dot"></i> Estrada Municipal, 885 – Mampituba/RS
+            <i class="fa-solid fa-location-dot"></i> Estrada Municipal, 885 — Mampituba/RS
           </a>
           <a href="mailto:ipasg.rs@gmail.com"><i class="fa-regular fa-envelope"></i> ipasg.rs@gmail.com</a>
         </div>
@@ -124,7 +130,7 @@
             <p class="muted">Escolha a forma que faz mais sentido para você ou sua organização.</p>
           </header>
           <div class="apoio-grid">
-            <!-- DOAÇÃO -->
+            <!-- DOA�?�fO -->
             <div class="apoio-card destaque fade-in-up">
               <div class="apoio-card__header">
                 <div class="apoio-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
@@ -236,7 +242,7 @@
             <h5>Informações</h5>
             <div class="footer-line"><span class="large-line"></span><span class="small-line"></span></div>
             <ul class="footer-list">
-              <li><a href="https://maps.app.goo.gl/Gr9pTNqz5FRNrjQw8" target="_blank"><i class="fa-solid fa-location-dot"></i> Estrada Municipal, 885 – Mampituba/RS</a></li>
+              <li><a href="https://maps.app.goo.gl/Gr9pTNqz5FRNrjQw8" target="_blank"><i class="fa-solid fa-location-dot"></i> Estrada Municipal, 885 — Mampituba/RS</a></li>
             </ul>
             <div class="footer-socials">
               <a href="tel:+5551992429974" aria-label="Ligar"><i class="fa-solid fa-phone"></i></a>
@@ -267,5 +273,13 @@
     </script>
     <script src="assets/js/menu.js"></script>
     <script src="assets/js/animations.js"></script>
+      <button id="backToTop" class="back-to-top" aria-label="Voltar ao topo">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+    <script src="assets/js/loader.js"></script>
+    <script src="assets/js/theme.js"></script>
   </body>
 </html>
+
+
+

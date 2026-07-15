@@ -22,11 +22,6 @@
   will-change: transform, box-shadow;
 }
 
-/* Cards que também são links (Projetos em Destaque) */
-a.card {
-  color: inherit;
-}
-
 .card:hover,
 .news-card:hover {
   transform: translateY(-8px);
@@ -62,21 +57,6 @@ a.card {
   flex-grow: 1;
 }
 
-.card .card-more {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin: 0 24px 24px;
-  font-weight: 700;
-  color: var(--green);
-  font-size: 15px;
-  transition: var(--transition);
-}
-
-.card:hover .card-more {
-  gap: 14px;
-}
-
 /* ============================================================
    WHO WE ARE (O QUE FAZEMOS - FULL WIDTH)
 ============================================================ */
@@ -87,11 +67,11 @@ a.card {
 }
 
 .feature {
-  /* Fundo levemente diferenciado da seção para melhorar o contraste */
-  background: var(--bg-alt, #f6f8f7);
+  background: var(--white);
   padding: 32px 28px;
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  /* CORRIGIDO: usava rgba(0,0,0,0.03) fixo, sumia no dark mode */
+  border: 1px solid var(--divider);
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
   will-change: transform;
@@ -119,13 +99,12 @@ a.card {
   justify-content: center;
   width: 48px;
   height: 48px;
-  background: var(--white);
+  background: var(--green-light);
   color: var(--green) !important;
   border-radius: var(--radius-md);
   margin-right: 14px !important;
   font-size: 20px;
   transition: var(--transition);
-  box-shadow: var(--shadow-sm);
 }
 
 .feature:hover h3 i {
@@ -136,8 +115,7 @@ a.card {
 }
 
 /* ============================================================
-   LISTA DE EVENTOS (fallback genérico — eventos.css sobrescreve
-   com o layout com imagem quando carregado)
+   LISTA DE EVENTOS
 ============================================================ */
 .events-list {
   display: flex;
@@ -170,9 +148,9 @@ a.card {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: var(--white);
-  border: 2px solid var(--green-light);
-  color: var(--green);
+  background: var(--green-light);
+  border: 2px solid var(--green-border);
+  color: var(--green-dark);
   min-width: 95px;
   height: 95px;
   border-radius: var(--radius-md);
@@ -311,9 +289,19 @@ a.card {
   cursor: pointer;
 }
 
+html[data-theme='dark'] .partners-track img {
+  /* No dark mode, logos muito escuras (pretas/transparentes) somem —
+     um leve "invert" ajuda a manter visibilidade sem distorcer cor no hover */
+  filter: grayscale(100%) opacity(0.6) invert(0.85);
+}
+
 .partners-track img:hover {
   filter: grayscale(0%) opacity(1);
   transform: scale(1.08);
+}
+
+html[data-theme='dark'] .partners-track img:hover {
+  filter: grayscale(0%) opacity(1) invert(0);
 }
 
 @keyframes scroll-marquee {

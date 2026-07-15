@@ -1,12 +1,12 @@
-<!doctype html>
-<html lang="pt-BR">
+﻿<!doctype html>
+<html lang="pt-BR" data-theme="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Elaine Regina dos Santos | Equipe IPASG</title>
     <meta
       name="description"
-      content="Conheça Elaine Regina dos Santos, membro fundadora do IPASG – Produtora cultural, atriz, bonequeira e educadora ambiental."
+      content="Conheça Elaine Regina dos Santos, membro fundadora do IPASG — Produtora cultural, atriz, bonequeira e educadora ambiental."
     />
     <meta
       property="og:title"
@@ -32,10 +32,12 @@
       referrerpolicy="no-referrer"
     />
 
+    <link rel="stylesheet" href="assets/css/colors.css" />
     <link rel="stylesheet" href="assets/css/base.css" />
     <link rel="stylesheet" href="assets/css/header.css" />
     <link rel="stylesheet" href="assets/css/footer.css" />
     <link rel="stylesheet" href="assets/css/membro-detalhe.css" />
+    <link rel="stylesheet" href="assets/css/theme.css" />
 
     <meta name="theme-color" content="#1e8b6f" />
   </head>
@@ -50,7 +52,7 @@
       <div class="container topbar-inner">
         <div class="topbar-left">
           <a href="https://maps.app.goo.gl/Gr9pTNqz5FRNrjQw8" target="_blank">
-            <i class="fa-solid fa-location-dot"></i> Estrada Municipal, 885 –
+            <i class="fa-solid fa-location-dot"></i> Estrada Municipal, 885 —
             Mampituba/RS
           </a>
           <a href="mailto:ipasg.rs@gmail.com">
@@ -89,7 +91,11 @@
       <div class="container navwrap">
         <div class="brand">
           <a href="index.html" aria-label="IPASG Home" class="brand-link">
-            <img src="assets/images/logo/logo.png" alt="Logotipo do IPASG" />
+            <img
+              src="assets/images/logo/logo.png"
+              data-dark-src="assets/images/logo/logo-light.png"
+              alt="Logotipo do IPASG"
+            />
           </a>
         </div>
         <nav class="nav" role="navigation" aria-label="Main menu">
@@ -139,6 +145,9 @@
           </div>
         </nav>
         <div class="header-utilities">
+          <!-- Botão de tema temporariamente oculto (ficou estranho aqui,
+               ajustamos visual num próximo momento). O dark mode automático
+               (via preferência do sistema) continua funcionando normal. -->
           <a href="apoie.html" class="btn-primary"
             ><i class="fa-solid fa-heart"></i> Apoie</a
           >
@@ -268,7 +277,7 @@
                 >
                   <i
                     class="fa-solid fa-address-card"
-                    style="color: var(--green-primary); margin-right: 6px"
+                    style="color: var(--green); margin-right: 6px"
                   ></i>
                   <strong>Registros Profissionais:</strong> DRT 4994/RS (Atriz)
                   | CEPC 9650 (Produtora Cultural Sedac/RS) | Sindicatos:
@@ -459,7 +468,7 @@
                   target="_blank"
                 >
                   <i class="fa-solid fa-location-dot"></i> Estrada Municipal,
-                  885 – Mampituba/RS
+                  885 — Mampituba/RS
                 </a>
               </li>
             </ul>
@@ -504,11 +513,19 @@
       </div>
     </footer>
 
+    <button id="backToTop" class="back-to-top" aria-label="Voltar ao topo">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
     <script>
       document.getElementById('copyrightYear').textContent =
         new Date().getFullYear();
     </script>
     <script src="assets/js/menu.js"></script>
     <script src="assets/js/loader.js"></script>
+    <script src="assets/js/theme.js"></script>
   </body>
 </html>
+
+
+

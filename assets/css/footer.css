@@ -3,8 +3,8 @@
 ========================= */
 .site-footer {
   margin-top: 60px;
-  background: var(--dark, #0f1724);
-  color: rgba(255, 255, 255, 0.75);
+  background: var(--footer-bg);
+  color: var(--footer-text);
   padding-top: 80px;
   padding-bottom: 30px;
 }
@@ -30,6 +30,7 @@
   letter-spacing: -0.5px;
 }
 
+/* Linhas decorativas */
 .footer-line {
   display: flex;
   gap: 6px;

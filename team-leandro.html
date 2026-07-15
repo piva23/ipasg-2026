@@ -1,0 +1,475 @@
+﻿<!doctype html>
+<html lang="pt-BR" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Leandro Nunes | Equipe IPASG</title>
+    <meta
+      name="description"
+      content="Conheça Leandro Nunes, produtor cultural, músico e especialista em sustentabilidade do IPASG."
+    />
+    <meta property="og:title" content="Leandro Nunes | Equipe IPASG" />
+    <meta
+      property="og:description"
+      content="Produtor cultural, licenciado em Música e Ciências Biológicas, técnico em Meio Ambiente e atuante em permacultura, meliponicultura e educação ambiental."
+    />
+    <meta property="og:type" content="profile" />
+
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+    <link rel="apple-touch-icon" href="assets/images/favicon.png" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="assets/css/colors.css" />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/header.css" />
+    <link rel="stylesheet" href="assets/css/footer.css" />
+    <link rel="stylesheet" href="assets/css/membro-detalhe.css" />
+    <link rel="stylesheet" href="assets/css/theme.css" />
+
+    <meta name="theme-color" content="#1e8b6f" />
+  </head>
+
+  <body>
+    <div id="pageLoader" class="page-loader" aria-hidden="true">
+      <div class="page-loader__spinner"></div>
+    </div>
+
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <div class="topbar-left">
+          <a href="https://maps.app.goo.gl/Gr9pTNqz5FRNrjQw8" target="_blank">
+            <i class="fa-solid fa-location-dot"></i> Estrada Municipal, 885 -
+            Mampituba/RS
+          </a>
+          <a href="mailto:ipasg.rs@gmail.com">
+            <i class="fa-regular fa-envelope"></i> ipasg.rs@gmail.com
+          </a>
+        </div>
+        <div class="topbar-right">
+          <div class="social-links">
+            <a href="tel:+5551992429974" aria-label="Ligar"
+              ><i class="fa-solid fa-phone"></i
+            ></a>
+            <a
+              href="https://wa.me/5551992429974"
+              target="_blank"
+              aria-label="WhatsApp"
+              ><i class="fa-brands fa-whatsapp"></i
+            ></a>
+            <a
+              href="https://instagram.com/"
+              target="_blank"
+              aria-label="Instagram"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+            <a
+              href="https://www.facebook.com/"
+              target="_blank"
+              aria-label="Facebook"
+              ><i class="fa-brands fa-facebook-f"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <header class="site-header" role="banner">
+      <div class="container navwrap">
+        <div class="brand">
+          <a href="index.html" aria-label="IPASG Home" class="brand-link">
+            <img
+              src="assets/images/logo/logo.png"
+              data-dark-src="assets/images/logo/logo-light.png"
+              alt="Logotipo do IPASG"
+            />
+          </a>
+        </div>
+        <nav class="nav" role="navigation" aria-label="Main menu">
+          <div class="nav-item">
+            <a href="index.html"><i class="fa-solid fa-house"></i> Início</a>
+          </div>
+          <div class="nav-item dropdown">
+            <a href="#" aria-haspopup="true"
+              ><i class="fa-solid fa-leaf"></i> Sobre
+              <i class="fa-solid fa-caret-down caret"></i
+            ></a>
+            <div class="dropdown-menu">
+              <a href="sobre.html">História</a>
+              <a href="membros.html" aria-current="page">Membros</a>
+            </div>
+          </div>
+          <div class="nav-item dropdown">
+            <a href="#" aria-haspopup="true"
+              ><i class="fa-solid fa-seedling"></i> Projetos
+              <i class="fa-solid fa-caret-down caret"></i
+            ></a>
+            <div class="dropdown-menu">
+              <a href="projetos.html?filter=all">Todos os projetos</a>
+              <a href="projetos.html?filter=permacultura">Permacultura</a>
+              <a href="projetos.html?filter=arte">Arte</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <a href="assessoria.html"
+              ><i class="fa-solid fa-handshake"></i> Assessoria</a
+            >
+          </div>
+          <div class="nav-item">
+            <a href="eventos.html"
+              ><i class="fa-solid fa-calendar-days"></i> Eventos</a
+            >
+          </div>
+          <div class="nav-item">
+            <a href="noticias.html"
+              ><i class="fa-solid fa-newspaper"></i> Notícias</a
+            >
+          </div>
+          <div class="nav-item">
+            <a href="materiais.html"
+              ><i class="fa-solid fa-book-open"></i> Materiais</a
+            >
+          </div>
+        </nav>
+        <div class="header-utilities">
+          <a href="apoie.html" class="btn-primary"
+            ><i class="fa-solid fa-heart"></i> Apoie</a
+          >
+          <button
+            id="mobileToggle"
+            class="mobile-toggle"
+            aria-label="Abrir menu"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section member-profile-section bg-white">
+        <div class="container">
+          <div class="member-profile-grid">
+            <aside class="member-sidebar-card">
+              <div class="member-photo-wrapper">
+                <img
+                  src="assets/members/leandro/leandro.jpg"
+                  alt="Foto de Leandro Nunes"
+                  loading="eager"
+                />
+                <div class="badge-fundador">
+                  <i class="fa-solid fa-award"></i> Membro Fundador
+                </div>
+              </div>
+
+              <div class="member-contact-icons">
+                <a
+                  href="https://instagram.com/leonunes65"
+                  target="_blank"
+                  aria-label="Instagram"
+                  ><i class="fa-brands fa-instagram"></i
+                ></a>
+              </div>
+
+              <div class="member-sidebar-actions">
+                <a href="membros.html" class="btn-ghost-dark">
+                  <i class="fa-solid fa-arrow-left"></i> Voltar para membros
+                </a>
+              </div>
+            </aside>
+
+            <article class="member-content-card">
+              <span class="eyebrow"
+                ><i class="fa-solid fa-people-roof"></i> Equipe IPASG</span
+              >
+              <h1>Leandro Nunes</h1>
+              <h2 class="subtitle">
+                Produtor Cultural · Música · Sustentabilidade
+              </h2>
+
+              <div class="member-tags">
+                <span class="tag"
+                  ><i class="fa-solid fa-music"></i> Música</span
+                >
+                <span class="tag"
+                  ><i class="fa-solid fa-leaf"></i> Permacultura</span
+                >
+                <span class="tag"
+                  ><i class="fa-solid fa-bee"></i> Meliponicultura</span
+                >
+                <span class="tag"
+                  ><i class="fa-solid fa-seedling"></i> Educação Ambiental</span
+                >
+              </div>
+
+              <div class="bio-text">
+                <p>
+                  Leandro Nunes é produtor cultural, licenciado em Música e em
+                  Ciências Biológicas, técnico em Meio Ambiente e possui
+                  formação em Permacultura e Meliponicultura.
+                </p>
+                <p>
+                  Também tem pós-graduação em Imunologia e Microbiologia e atua
+                  como especialista em projetos voltados à cultura, educação
+                  ambiental e práticas sustentáveis.
+                </p>
+                <p>
+                  Possui 18 anos de experiência na área de áudio, com atuação em
+                  operação, gravação e sonoplastia, tendo trabalhado na RBS
+                  Rádios e na Faculdade de Música do IPA. Atualmente integra a
+                  equipe da Morada Sustentável.
+                </p>
+                <p>
+                  Entre os projetos em que atuou estão
+                  <em>Voando com as Abelhas</em>, <em>Semear</em>,
+                  <em>A Voz da Aldeia</em> e <em>Encontros no Seu Portão</em>.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section bg-green-light">
+        <div class="container" style="max-width: 1000px">
+          <header class="section-header">
+            <h2>Atuação no Instituto</h2>
+            <p class="muted">
+              As principais frentes que recebem o trabalho e a energia do
+              Leandro no IPASG.
+            </p>
+          </header>
+
+          <div class="atuacao-grid">
+            <div class="atuacao-card">
+              <div class="icon"><i class="fa-solid fa-music"></i></div>
+              <h3>Produção Musical</h3>
+              <p>
+                Contribui com criação, gravação e organização sonora de
+                conteúdos artísticos e educativos.
+              </p>
+            </div>
+
+            <div class="atuacao-card">
+              <div class="icon"><i class="fa-solid fa-leaf"></i></div>
+              <h3>Permacultura</h3>
+              <p>
+                Atua em projetos que conectam manejo sustentável, autonomia e
+                cuidado com o território.
+              </p>
+            </div>
+
+            <div class="atuacao-card">
+              <div class="icon">
+                <i class="fa-solid fa-bee"></i>
+              </div>
+              <h3>Meliponicultura</h3>
+              <p>
+                Compartilha conhecimento técnico e ambiental ligado às abelhas
+                nativas e à biodiversidade.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section bg-white">
+        <div class="container" style="max-width: 900px">
+          <header
+            class="section-header"
+            style="text-align: left; max-width: 100%; margin-bottom: 32px"
+          >
+            <h2>Áreas relacionadas</h2>
+          </header>
+          <div class="projetos-list">
+            <a href="projetos.html?filter=permacultura" class="projeto-link-card">
+              <div class="projeto-link-card__icon">
+                <i class="fa-solid fa-leaf"></i>
+              </div>
+              <div class="projeto-link-card__info">
+                <strong>Práticas sustentáveis</strong>
+                <p>
+                  Ações que aproximam cultivo, ecologia e autonomia comunitária.
+                </p>
+              </div>
+              <i class="fa-solid fa-arrow-right projeto-link-card__arrow"></i>
+            </a>
+            <a href="projetos.html?filter=arte" class="projeto-link-card">
+              <div class="projeto-link-card__icon">
+                <i class="fa-solid fa-music"></i>
+              </div>
+              <div class="projeto-link-card__info">
+                <strong>Produção sonora</strong>
+                <p>
+                  Registros, gravações e paisagens sonoras em projetos culturais.
+                </p>
+              </div>
+              <i class="fa-solid fa-arrow-right projeto-link-card__arrow"></i>
+            </a>
+            <a href="sobre.html" class="projeto-link-card">
+              <div class="projeto-link-card__icon">
+                <i class="fa-solid fa-seedling"></i>
+              </div>
+              <div class="projeto-link-card__info">
+                <strong>Educação ambiental</strong>
+                <p>
+                  Formação e experiência aplicadas ao cuidado com o ambiente.
+                </p>
+              </div>
+              <i class="fa-solid fa-arrow-right projeto-link-card__arrow"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section bg-green-dark">
+        <div class="container">
+          <header class="section-header">
+            <h2>Conheça a equipe</h2>
+            <p class="muted">
+              Pessoas comprometidas com um futuro mais equilibrado e
+              regenerativo.
+            </p>
+          </header>
+          <div class="text-center">
+            <a href="membros.html" class="btn-primary">
+              <i class="fa-solid fa-people-roof"></i> Ver todos os membros
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <div class="footer-main-grid">
+          <div class="footer-widget">
+            <div class="footer-two__widget-logo">
+              <a href="index.html">
+                <img
+                  src="assets/images/logo/logo-light.png"
+                  alt="IPASG"
+                  height="70"
+                  loading="lazy"
+                />
+              </a>
+            </div>
+            <p>
+              O IPASG é um instituto dedicado à permacultura, educação ambiental
+              e ao fortalecimento de comunidades por meio de projetos
+              socioambientais regenerativos.
+            </p>
+          </div>
+
+          <div class="footer-widget">
+            <h5>Transparência</h5>
+            <div class="footer-line">
+              <span class="large-line"></span><span class="small-line"></span>
+            </div>
+            <ul class="footer-list">
+              <li>
+                <a href="termos.html"
+                  ><i class="fa-solid fa-arrow-right"></i> Termos de Uso</a
+                >
+              </li>
+              <li>
+                <a href="privacidade.html"
+                  ><i class="fa-solid fa-arrow-right"></i> Política de
+                  Privacidade</a
+                >
+              </li>
+              <li>
+                <a href="cookies.html"
+                  ><i class="fa-solid fa-arrow-right"></i> Política de
+                  Cookies</a
+                >
+              </li>
+              <li>
+                <a href="lgpd.html"
+                  ><i class="fa-solid fa-arrow-right"></i> LGPD</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-widget footer-two__widget--contact">
+            <h5>Informações</h5>
+            <div class="footer-line">
+              <span class="large-line"></span><span class="small-line"></span>
+            </div>
+            <ul class="footer-list">
+              <li>
+                <a
+                  href="https://maps.app.goo.gl/Gr9pTNqz5FRNrjQw8"
+                  target="_blank"
+                >
+                  <i class="fa-solid fa-location-dot"></i> Estrada Municipal,
+                  885 - Mampituba/RS
+                </a>
+              </li>
+            </ul>
+
+            <div class="footer-socials">
+              <a href="tel:+5551992429974" aria-label="Ligar"
+                ><i class="fa-solid fa-phone"></i
+              ></a>
+              <a href="mailto:ipasg.rs@gmail.com" aria-label="Enviar E-mail"
+                ><i class="fa-solid fa-envelope"></i
+              ></a>
+              <a
+                href="https://wa.me/5551992429974"
+                target="_blank"
+                aria-label="WhatsApp"
+                ><i class="fa-brands fa-whatsapp"></i
+              ></a>
+              <a
+                href="https://instagram.com/"
+                target="_blank"
+                aria-label="Instagram"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a
+                href="https://www.facebook.com/"
+                target="_blank"
+                aria-label="Facebook"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="copyright-bar">
+          <div class="copyright-text">
+            <p>
+              © <span id="copyrightYear"></span> <a href="index.html">IPASG</a>.
+              Todos os direitos reservados.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Voltar ao topo">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script>
+      document.getElementById('copyrightYear').textContent =
+        new Date().getFullYear();
+    </script>
+    <script src="assets/js/menu.js"></script>
+    <script src="assets/js/loader.js"></script>
+    <script src="assets/js/theme.js"></script>
+  </body>
+</html>
+
+

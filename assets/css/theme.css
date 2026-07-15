@@ -1,0 +1,420 @@
+/* ============================================================
+   THEME.CSS
+   Depende de colors.css (variáveis) já carregado antes.
+   Contém: overrides de superfícies fixas no dark mode,
+   botão de tema, botão voltar ao topo, loading skeleton
+   e componentes de paginação/calendário reutilizáveis.
+============================================================ */
+
+body,
+.site-header,
+.card,
+.news-card,
+.team__single,
+.material-card,
+.event-item,
+.sidebar-widget,
+.dropdown-menu,
+.pillar-card,
+.expertise-card,
+.projeto-card,
+.feature,
+.filter-btn,
+.event-card {
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease;
+}
+
+html[data-theme='dark'] body {
+  background: #101c16;
+  color: #eaf4ee;
+}
+
+html[data-theme='dark'] .team__single,
+html[data-theme='dark'] .team__single-content {
+  background-color: #16241d;
+}
+html[data-theme='dark'] .pillar-card {
+  background: #16241d;
+  border-color: rgba(255, 255, 255, 0.05);
+}
+html[data-theme='dark'] #pilares.bg-light {
+  background-color: var(--surface-2) !important;
+}
+
+html[data-theme='dark'] .site-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* BOTÃO DE ALTERNAR TEMA
+   Temporariamente OCULTO em todas as páginas — o visual ainda não
+   está redondo o suficiente. O dark mode automático (via preferência
+   do sistema, em theme.js) continua funcionando normalmente; só a
+   troca manual fica escondida por enquanto. */
+.theme-toggle {
+  display: none !important;
+}
+
+.theme-toggle-inner,
+.theme-toggle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--green-border);
+  background: var(--green-light);
+  color: var(--green);
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+.theme-toggle:hover {
+  background: var(--green);
+  color: #fff;
+  transform: translateY(-2px);
+}
+.theme-toggle .fa-sun {
+  display: none;
+}
+html[data-theme='dark'] .theme-toggle .fa-moon {
+  display: none;
+}
+html[data-theme='dark'] .theme-toggle .fa-sun {
+  display: inline-block;
+}
+
+/* BOTÃO VOLTAR AO TOPO */
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  background: var(--green);
+  color: #fff;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  z-index: 900;
+}
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.back-to-top:hover {
+  background: var(--green-dark);
+  transform: translateY(-4px);
+}
+@media (max-width: 700px) {
+  .back-to-top {
+    right: 16px;
+    bottom: 16px;
+    width: 46px;
+    height: 46px;
+    font-size: 16px;
+  }
+}
+
+/* LOADING SKELETON */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: var(--green-light);
+  border-radius: var(--radius-md);
+}
+.skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  animation: skeleton-shine 1.4s infinite;
+}
+html[data-theme='dark'] .skeleton::after {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
+}
+@keyframes skeleton-shine {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.skeleton-card {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  padding: 16px 32px 16px 16px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--green-border);
+  margin-bottom: 20px;
+}
+.skeleton-img {
+  width: 200px;
+  height: 130px;
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+}
+.skeleton-lines {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.skeleton-line {
+  height: 14px;
+  border-radius: 6px;
+  background: var(--green-light);
+}
+.skeleton-line.short {
+  width: 40%;
+}
+.skeleton-line.medium {
+  width: 70%;
+}
+
+/* PAGINAÇÃO */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+.pagination button {
+  min-width: 44px;
+  height: 44px;
+  padding: 0 14px;
+  border-radius: 50px;
+  border: 1px solid var(--green-border);
+  background: var(--white);
+  color: var(--dark);
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.pagination button:hover:not(:disabled) {
+  border-color: var(--green);
+  color: var(--green);
+  transform: translateY(-2px);
+}
+.pagination button.active {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(30, 139, 111, 0.3);
+}
+.pagination button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ALTERNADOR LISTA / CALENDÁRIO */
+.eventos-view-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+.view-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 26px;
+  border-radius: 50px;
+  border: 1px solid var(--green-border);
+  background: var(--white);
+  color: var(--muted);
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.view-toggle-btn:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+.view-toggle-btn.active {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(30, 139, 111, 0.3);
+}
+
+/* CALENDÁRIO DE EVENTOS */
+.calendar-wrap {
+  background: var(--white);
+  border: 1px solid var(--green-border);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  box-shadow: var(--shadow-sm);
+  max-width: 720px;
+  margin: 0 auto 40px;
+}
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.calendar-header h3 {
+  font-size: 22px;
+  color: var(--dark);
+  text-transform: capitalize;
+}
+.calendar-nav-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--green-border);
+  background: var(--green-light);
+  color: var(--green);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.calendar-nav-btn:hover {
+  background: var(--green);
+  color: #fff;
+}
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  text-align: center;
+}
+.calendar-weekday {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-bottom: 10px;
+}
+.calendar-day {
+  position: relative;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dark);
+  cursor: default;
+  background: transparent;
+}
+.calendar-day.empty {
+  visibility: hidden;
+}
+.calendar-day.today {
+  border: 2px solid var(--green-border);
+}
+.calendar-day.has-event {
+  cursor: pointer;
+  background: var(--green-light);
+}
+.calendar-day.has-event:hover {
+  background: var(--green);
+  color: #fff;
+}
+.calendar-day.selected {
+  background: var(--green);
+  color: #fff;
+}
+.calendar-day .dot {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--green);
+}
+.calendar-day.has-event:hover .dot,
+.calendar-day.selected .dot {
+  background: #fff;
+}
+.calendar-filter-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 30px;
+  color: var(--muted);
+  font-size: 15px;
+}
+.calendar-filter-note button {
+  border: none;
+  background: none;
+  color: var(--green);
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+}
+@media (max-width: 600px) {
+  .calendar-wrap {
+    padding: 20px 14px;
+  }
+  .calendar-day {
+    font-size: 12px;
+  }
+}
+
+/* ============================================================
+   CORREÇÕES DE CONTRASTE NO DARK MODE
+   Alguns elementos usam "var(--white)" como texto branco fixo
+   sobre fundo verde (badges, ícones em hover). Como --white
+   passa a ser uma superfície escura no dark mode, esses casos
+   precisam forçar branco de verdade.
+============================================================ */
+html[data-theme='dark'] .news-category,
+html[data-theme='dark'] .cat-btn.active,
+html[data-theme='dark'] .filter-btn.active,
+html[data-theme='dark'] .feature:hover h3 i {
+  color: #ffffff !important;
+}
+
+/* Número do dia nos cards de evento: verde-escuro sobre verde-escuro
+   ficava ilegível — usa um verde-menta claro no dark mode */
+html[data-theme='dark'] .event-date {
+  color: #8ce3bf;
+}
+
+/* Hover do calendário/paginação: o verde padrão fica muito saturado
+   e "claro" sobre o fundo escuro — usa o verde mais escuro da marca */
+html[data-theme='dark'] .calendar-day.has-event:hover,
+html[data-theme='dark'] .calendar-day.selected,
+html[data-theme='dark'] .calendar-nav-btn:hover,
+html[data-theme='dark'] .pagination button.active,
+html[data-theme='dark'] .view-toggle-btn.active {
+  background: var(--green-dark);
+  border-color: var(--green-dark);
+}

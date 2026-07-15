@@ -1,164 +1,104 @@
-# IPASG — Site Completo
+# IPASG — site institucional
 
-## Estrutura de arquivos
+Este repositório contém o site institucional do IPASG, construído como um conjunto de páginas estáticas em HTML, CSS e JavaScript.
+
+## Estado atual do app
+
+- Site publicado em estrutura estática, sem backend e sem build.
+- Navegação principal, rodapé, loader e botão de voltar ao topo já estão integrados nas páginas.
+- O tema está fixado em `light`; o botão de troca foi ocultado para evitar ativação automática do dark theme.
+- Há páginas principais de conteúdo, páginas legais e páginas individuais de membros da equipe.
+- Os dados dinâmicos do site ficam centralizados em `assets/js/`, principalmente em:
+  - `assets/js/membros.js`
+  - `assets/js/projetos.js`
+  - `assets/js/eventos-data.js`
+  - `assets/js/noticias.js`
+  - `assets/js/materiais.js`
+- O conteúdo dos membros também está organizado em `assets/members/nome-do-membro/`.
+- O site já usa fontes, ícones e estilos compartilhados para manter padrão visual entre as páginas.
+- Parte do conteúdo ainda pode conter ajustes de texto, contraste e dados reais antes da publicação final.
+
+## Estrutura principal
 
 ```
 ipasg/
-├── index.html                  ← Página inicial
-├── sobre.html                  ← História do instituto
-├── membros.html                ← Grade de membros
-├── team-elaine.html            ← Detalhe da Elaine (template para os demais)
-├── projetos.html               ← Listagem com filtros
-├── assessoria.html             ← Serviços e assessoria
-├── eventos.html                ← Calendário de eventos
-├── evento-detalhe.html         ← Detalhe do evento (lê ?evento=slug da URL)
-├── noticias.html               ← Blog / notícias
-├── materiais.html              ← Downloads e recursos
-├── apoie.html                  ← Página de doação e apoio
-├── termos.html                 ← Termos de uso
-├── privacidade.html            ← Política de privacidade
-├── cookies.html                ← Política de cookies
-├── lgpd.html                   ← LGPD
-├── sitemap.xml                 ← Mapa do site para SEO
-├── robots.txt                  ← Instruções para robôs de busca
-│
-├── projetos/
-│   ├── saneamento.html
-│   ├── meliponicultura.html
-│   ├── dancas-circulares.html
-│   ├── bioconstrucao.html
-│   ├── oficinas-culturais.html
-│   └── hortas.html
-│
+├── index.html
+├── sobre.html
+├── membros.html
+├── assessoria.html
+├── projetos.html
+├── eventos.html
+├── noticias.html
+├── materiais.html
+├── apoie.html
+├── termos.html
+├── privacidade.html
+├── cookies.html
+├── lgpd.html
+├── sitemap.xml
+├── robots.txt
+├── team-*.html
 ├── assets/
 │   ├── css/
-│   │   ├── base.css            ← Variáveis, reset, botões, utilitários
-│   │   ├── header.css          ← Topbar + navegação + mobile
-│   │   ├── hero.css            ← Slider da home
-│   │   ├── footer.css          ← Rodapé
-│   │   ├── components.css      ← Cards, eventos, parceiros (reutilizáveis)
-│   │   ├── sobre.css           ← Página história
-│   │   ├── membros.css         ← Grid de membros
-│   │   ├── membro-detalhe.css  ← Página individual de membro
-│   │   ├── projetos.css        ← Grade de projetos + filtros
-│   │   ├── projeto-detalhe.css ← Página individual de projeto
-│   │   ├── assessoria.css      ← Serviços
-│   │   ├── eventos.css         ← Lista e detalhe de eventos
-│   │   ├── evento-detalhe.css  ← Página individual de evento
-│   │   ├── noticias.css        ← Blog com sidebar
-│   │   ├── materiais.css       ← Downloads
-│   │   ├── apoie.css           ← Página de apoio/doação
-│   │   ├── legal.css           ← Termos, privacidade, cookies, LGPD
-│   │   └── projeto-detalhe.css ← Subpáginas de projeto
-│   │
-│   └── js/
-│       ├── menu.js             ← Header inteligente + menu mobile
-│       ├── slider.js           ← Slider do hero
-│       ├── animations.js       ← Animações de entrada (IntersectionObserver)
-│       ├── eventos-data.js     ← ⭐ FONTE DE DADOS DOS EVENTOS
-│       ├── eventos.js          ← Renderiza lista de eventos
-│       ├── evento-detalhe.js   ← Popula página de detalhe do evento
-│       ├── home-events.js      ← Mostra 2 próximos eventos na home
-│       ├── membros.js          ← ⭐ FONTE DE DADOS DOS MEMBROS
-│       ├── projetos.js         ← ⭐ FONTE DE DADOS DOS PROJETOS
-│       ├── noticias.js         ← ⭐ FONTE DE DADOS DAS NOTÍCIAS
-│       └── materiais.js        ← ⭐ FONTE DE DADOS DOS MATERIAIS
+│   ├── js/
+│   ├── images/
+│   └── members/
+└── projetos/
 ```
 
----
+## Como o conteúdo é organizado
 
-## Como gerenciar o conteúdo (sem tocar no HTML)
+### Membros
 
-### Adicionar um novo evento
+As páginas de membro seguem uma estrutura padrão, com:
 
-Abra `assets/js/eventos-data.js` e adicione um objeto ao array `EVENTOS_DATA`:
+- banner com nome e função
+- tags de atuação
+- biografia
+- atuação no instituto
+- áreas de contribuição
+- CTA para conhecer a equipe
 
-```js
-{
-  slug: 'nome-do-evento',           // ← identificador único na URL
-  img: 'assets/images/banner/m-one.png',
-  dia: '15',
-  mes: 'Mar',
-  mesCompleto: 'março',
-  ano: '2026',
-  horario: '09h às 12h',
-  titulo: 'Nome do Evento',
-  categoria: 'Permacultura',
-  local: 'Cidade/RS',
-  endereco: 'Endereço completo',
-  preco: 'R$ 50',
-  vagas: '20 vagas',
-  linkInscricao: 'https://wa.me/5551992429974',
-  descricaoCurta: 'Uma frase resumo.',
-  descricaoCompleta: `<p>Descrição longa em HTML...</p>`,
-},
-```
+Os dados base de cada membro ficam em `assets/js/membros.js`, e os arquivos completos estão em `assets/members/nome-do-membro/`.
 
-O evento aparecerá automaticamente na listagem e na página de detalhe.
+### Projetos
 
----
+Os projetos são listados a partir de `assets/js/projetos.js` e podem abrir páginas individuais em `projetos/`.
 
-### Criar página de membro novo
+### Eventos
 
-1. Duplique o arquivo `team-elaine.html`
-2. Renomeie para `team-[nome].html` (ex: `team-leandro.html`)
-3. Edite os textos, foto e links dentro do HTML
-4. No arquivo `assets/js/membros.js`, altere o campo `url` do membro correspondente para apontar para o novo arquivo
+Os eventos usam `assets/js/eventos-data.js` como fonte principal e alimentam a listagem e a página de detalhe.
 
----
+### Notícias e materiais
 
-### Adicionar um projeto novo
+As seções de notícias e materiais também seguem abordagem centralizada em JavaScript, o que facilita atualização de conteúdo sem mexer em toda a estrutura HTML.
 
-Abra `assets/js/projetos.js` e adicione ao array `PROJETOS_DATA`:
+## O que já foi padronizado
 
-```js
-{
-  id: 7,
-  category: 'permacultura',        // ou 'arte'
-  tag: 'Permacultura',
-  title: 'Nome do Projeto',
-  desc: 'Descrição curta.',
-  img: 'assets/images/banner/m-one.png',
-  link: 'projetos/nome-do-projeto.html',
-},
-```
+- `colors.css` e `theme.css` foram adicionados ao fluxo visual.
+- Loader de página está presente.
+- Botão de voltar ao topo está presente.
+- Cabeçalho e rodapé estão replicados nas páginas principais.
+- As páginas de membros já seguem um modelo consistente.
 
-Depois crie o arquivo `projetos/nome-do-projeto.html` (copie um existente e edite).
+## Próximos ajustes confirmados
 
----
-
-### Adicionar uma notícia
-
-Abra `assets/js/noticias.js` e adicione ao array `NOTICIAS_DATA`:
-
-```js
-{
-  id: 5,
-  title: 'Título da Notícia',
-  date: '15 Janeiro, 2026',
-  category: 'Permacultura',
-  img: 'assets/images/banner/m-one.png',
-  link: 'noticia-detalhe.html',
-},
-```
-
----
+- Melhorar o contraste entre os blocos das páginas.
+- Revisar o fundo branco muito claro em partes do layout.
+- Melhorar a navegação mobile. Incluir o voltar para cima na versão mobile.
+- Atualizar o site com dados completamente reais.
+- Confirmar cor do Footer #146b54 ou #0f1724 (Atual)
 
 ## Antes de publicar
 
-1. **Substitua o domínio** em `sitemap.xml` (`https://ipasg.org.br`) pelo domínio real
-2. **Preencha o CNPJ/dados bancários** em `apoie.html`
-3. **Atualize os links do Instagram e Facebook** nos headers/footers (buscar `instagram.com/` e `facebook.com/`)
-4. **Adicione as imagens reais** na pasta `assets/images/`
-5. **Complete os textos** em `team-elaine.html` (bio, área de formação, ano de início)
-6. **Crie as demais páginas** de membros duplicando `team-elaine.html`
+- Revisar todos os textos finais.
+- Trocar quaisquer dados de exemplo por informações reais.
+- Conferir imagens e links externos.
+- Validar a experiência mobile em todas as páginas.
 
----
+## Dependências externas
 
-## Dependências externas (CDN — sem instalação)
+- Google Fonts — tipografia
+- Font Awesome — ícones
 
-- **Google Fonts** — Outfit (tipografia)
-- **Font Awesome 6.5** — Ícones
-- **Vanilla Tilt 1.7** — Efeito 3D nos cards de membros
-
-Nenhum framework, nenhum build, nenhuma dependência npm. Abra o `index.html` no navegador e funciona.
+O projeto segue sem framework e sem pipeline de build. Basta abrir as páginas HTML no navegador.

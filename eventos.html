@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="pt-BR">
+﻿<!doctype html>
+<html lang="pt-BR" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,16 +21,18 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
 
+    <link rel="stylesheet" href="assets/css/colors.css" />
     <link rel="stylesheet" href="assets/css/base.css" />
     <link rel="stylesheet" href="assets/css/header.css" />
     <link rel="stylesheet" href="assets/css/footer.css" />
     <link rel="stylesheet" href="assets/css/eventos.css" />
+    <link rel="stylesheet" href="assets/css/theme.css" />
+    <meta name="theme-color" content="#1e8b6f" />
   </head>
   <body>
     <div id="pageLoader" class="page-loader" aria-hidden="true">
       <div class="page-loader__spinner"></div>
     </div>
-
     <div class="topbar">
       <div class="container topbar-inner">
         <div class="topbar-left">
@@ -38,11 +40,8 @@
             href="https://www.google.com/maps/dir/-30.045851,-51.3116603/Mampituba,+RS,+95572-000/@-29.4229542,-50.2723278,10.5z/data=!4m9!4m8!1m1!4e1!1m5!1m1!1s0x952209266564baf7:0x136cba7824fdc408!2m2!1d-49.9359871!2d-29.21173?entry=ttu&g_ep=EgoyMDI1MDcwNi4wIKXMDSoASAFQAw%3D%3D"
             target="_blank"
           >
-            <i class="fa-solid fa-location-dot"></i> Estrada Municipal, 885 –
+            <i class="fa-solid fa-location-dot"></i> Estrada Municipal, 885 —
             Mampituba/RS
-          </a>
-          <a href="mailto:ipasg.rs@gmail.com">
-            <i class="fa-regular fa-envelope"></i> ipasg.rs@gmail.com
           </a>
         </div>
         <div class="topbar-right">
@@ -80,7 +79,11 @@
       <div class="container navwrap">
         <div class="brand">
           <a href="index.html" aria-label="IPASG Home" class="brand-link">
-            <img src="assets/images/logo/logo.png" alt="Logotipo do IPASG" />
+            <img
+              src="assets/images/logo/logo.png"
+              data-dark-src="assets/images/logo/logo-light.png"
+              alt="Logotipo do IPASG"
+            />
           </a>
         </div>
 
@@ -104,9 +107,9 @@
               <i class="fa-solid fa-caret-down caret"></i
             ></a>
             <div class="dropdown-menu">
-              <a href="projetos.html?filter=all">Todos os projetos</a>
-              <a href="projetos.html?filter=permacultura">Permacultura</a>
-              <a href="projetos.html?filter=arte">Arte</a>
+              <a href="projetos.html">Todos os projetos</a>
+              <a href="projetos/bioconstrucao.html">Permacultura</a>
+              <a href="projetos/meliponicultura.html">Arte</a>
             </div>
           </div>
           <div class="nav-item">
@@ -115,7 +118,7 @@
             >
           </div>
           <div class="nav-item">
-            <a href="eventos.html" aria-current="page"
+            <a href="eventos.html" class="active"
               ><i class="fa-solid fa-calendar-days"></i> Eventos</a
             >
           </div>
@@ -132,6 +135,14 @@
         </nav>
 
         <div class="header-utilities">
+          <button
+            id="themeToggle"
+            class="theme-toggle"
+            aria-label="Alternar tema claro/escuro"
+          >
+            <i class="fa-solid fa-moon"></i>
+            <i class="fa-solid fa-sun"></i>
+          </button>
           <a href="apoie.html" class="btn-primary"
             ><i class="fa-solid fa-heart"></i> Apoie</a
           >
@@ -200,7 +211,49 @@
 
       <section class="section bg-light">
         <div class="container" style="max-width: 900px">
+          <div class="eventos-view-toggle">
+            <button id="viewListBtn" class="view-toggle-btn active">
+              <i class="fa-solid fa-list"></i> Lista
+            </button>
+            <button id="viewCalendarBtn" class="view-toggle-btn">
+              <i class="fa-solid fa-calendar-days"></i> Calendário
+            </button>
+          </div>
+
+          <!-- CALENDÁRIO -->
+          <div id="calendarWrap" class="calendar-wrap" style="display: none">
+            <div class="calendar-header">
+              <button
+                id="calendarPrevMonth"
+                class="calendar-nav-btn"
+                aria-label="Mês anterior"
+              >
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+              <h3 id="calendarMonthLabel">--</h3>
+              <button
+                id="calendarNextMonth"
+                class="calendar-nav-btn"
+                aria-label="Próximo mês"
+              >
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+            </div>
+            <div id="calendarGrid" class="calendar-grid"></div>
+          </div>
+
+          <!-- AVISO DE FILTRO POR DATA -->
+          <div
+            id="calendarFilterNote"
+            class="calendar-filter-note"
+            style="display: none"
+          ></div>
+
+          <!-- LISTA DE EVENTOS -->
           <div class="events-list" id="event-container"></div>
+
+          <!-- PAGINA�?�fO -->
+          <div id="eventPagination" class="pagination"></div>
         </div>
       </section>
     </main>
@@ -269,7 +322,7 @@
                   target="_blank"
                 >
                   <i class="fa-solid fa-location-dot"></i> Estrada Municipal,
-                  885 – Mampituba/RS
+                  885 — Mampituba/RS
                 </a>
               </li>
             </ul>
@@ -314,6 +367,10 @@
       </div>
     </footer>
 
+    <button id="backToTop" class="back-to-top" aria-label="Voltar ao topo">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
     <script>
       document.getElementById('copyrightYear').textContent =
         new Date().getFullYear();
@@ -321,6 +378,7 @@
     <script src="assets/js/menu.js"></script>
     <script src="assets/js/eventos-data.js"></script>
     <script src="assets/js/eventos.js"></script>
+    <script src="assets/js/theme.js"></script>
     <script src="assets/js/loader.js"></script>
   </body>
 </html>

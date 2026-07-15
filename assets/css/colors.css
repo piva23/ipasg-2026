@@ -1,0 +1,77 @@
+/* ============================================================
+   PALETA DE CORES DO SITE — IPASG
+   Altere as cores aqui e o site inteiro se atualiza.
+   Este arquivo deve ser importado ANTES do base.css
+============================================================ */
+
+:root {
+  /* --- Cores principais da marca --- */
+  --green: #1e8b6f;
+  --green-dark: #146b54;
+  --green-light: #edf8f2;
+  --green-border: #dcefe4;
+
+  /* --- Neutros / texto --- */
+  --dark: #0f1724;
+  --muted: #556275;
+  --white: #ffffff;
+
+  /* --- Sombras --- */
+  --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.12);
+
+  /* --- Raios de borda --- */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  /* --- Layout --- */
+  --container: 1220px;
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  /* --- Superfícies das seções (mais contraste entre blocos) --- */
+  --surface-1: #ffffff; /* .bg-white */
+  --surface-2: #eef6f1; /* .bg-light — mais contraste que antes */
+  --surface-border: rgba(0, 0, 0, 0.07);
+
+  /* --- Cores de apoio (categorias, tipos de arquivo, etc.) --- */
+  --accent-red: #e74c3c;
+  --accent-blue: #2e86c1;
+  --accent-yellow: #f4b400;
+
+  /* --- Header / Footer / Divisores --- */
+  --header-bg: rgba(255, 255, 255, 0.95);
+  --header-bg-scrolled: rgba(255, 255, 255, 0.85);
+  --footer-bg: #0f1724;
+  --footer-text: rgba(255, 255, 255, 0.75);
+  --divider: rgba(0, 0, 0, 0.06);
+}
+
+/* ============================================================
+   TEMA DARK — "Verde-noite"
+   Sobrescreve só o necessário; o resto do site já usa as
+   variáveis acima, então herda automaticamente.
+============================================================ */
+html[data-theme='dark'] {
+  --dark: #eaf4ee;
+  --muted: #a9c2b7;
+  --white: #17251e;
+  --green-light: #1c3128;
+  --green-border: #2a4438;
+
+  --surface-1: #16241d;
+  --surface-2: #1c2e25; /* mais claro que surface-1 = contraste visível */
+  --surface-border: rgba(255, 255, 255, 0.07);
+
+  --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.45);
+
+  /* Header / Footer / Divisores no dark mode */
+  --header-bg: rgba(16, 28, 22, 0.95);
+  --header-bg-scrolled: rgba(16, 28, 22, 0.88);
+  /* --footer-bg e --footer-text ficam FIXOS (mesma cor nos dois temas) —
+     definidos só no :root acima, não sobrescrevemos aqui de propósito */
+  --divider: rgba(255, 255, 255, 0.09);
+}

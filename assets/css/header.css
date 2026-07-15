@@ -35,7 +35,6 @@
   color: #8ce3bf;
 }
 
-/* Ícones Sociais (Limpos e sem borda) */
 .social-links {
   display: flex;
   align-items: center;
@@ -49,31 +48,31 @@
 
 .social-links a:hover {
   color: #8ce3bf;
-  transform: translateY(-2px); /* Efeito Pro de levitar o ícone */
+  transform: translateY(-2px);
 }
 
 /* =========================
    SMART HEADER & NAV (PRO)
+   Agora 100% orientado por variáveis — segue o tema
+   automaticamente (claro/escuro) sem overrides soltos.
 ========================= */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  /* Fundo inicial mais limpo */
-  background: rgba(255, 255, 255, 0.95);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--divider);
   transition:
     transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
     background 0.3s ease,
     box-shadow 0.3s ease;
 }
 
-/* Quando rola a página, aplica o Glassmorphism (efeito vidro) */
 .site-header.scrolled {
-  background: rgba(255, 255, 255, 0.85);
+  background: var(--header-bg-scrolled);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow-sm);
 }
 
 .site-header.scroll-down {
@@ -93,7 +92,6 @@
   transition: height 0.3s ease;
 }
 
-/* Header diminui levemente ao rolar (efeito premium) */
 .site-header.scrolled .navwrap {
   height: 76px;
 }
@@ -117,11 +115,12 @@
   height: 50px;
 }
 
-/* NAVEGAÇÃO DESKTOP */
+/* NAVEGAÇÃO DESKTOP — sem background próprio, herda do header */
 .nav {
   display: flex;
   align-items: center;
   gap: 16px;
+  background: transparent;
 }
 
 .nav-item {
@@ -146,7 +145,6 @@
   transition: var(--transition);
 }
 
-/* Hover Moderno: Linha animada embaixo do texto */
 .nav-item > a::after {
   content: '';
   position: absolute;
@@ -160,14 +158,12 @@
 }
 
 .nav-item > a:hover::after,
-.nav-item:hover > a::after,
-.nav-item > a[aria-current="page"]::after {
+.nav-item:hover > a::after {
   width: 100%;
 }
 
 .nav-item > a:hover,
-.nav-item:hover > a,
-.nav-item > a[aria-current="page"] {
+.nav-item:hover > a {
   color: var(--green);
 }
 
@@ -182,16 +178,16 @@
   top: calc(100% + 10px);
   left: -10px;
   min-width: 240px;
-  background: #fff;
+  background: var(--white);
   border-radius: 16px;
   padding: 16px 12px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-lg);
   opacity: 0;
   visibility: hidden;
   transform: translateY(15px);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   z-index: 50;
-  border: 1px solid rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--divider);
 }
 
 .dropdown:hover .dropdown-menu,
@@ -213,8 +209,7 @@
   transition: var(--transition);
 }
 
-.dropdown-menu a:hover,
-.dropdown-menu a[aria-current="page"] {
+.dropdown-menu a:hover {
   background: var(--green-light);
   color: var(--green);
   transform: translateX(5px);
@@ -238,7 +233,6 @@
   gap: 16px;
 }
 
-/* Otimização do botão 'Apoie' para caber perfeitamente no menu */
 .header-utilities .btn-primary {
   min-height: 42px;
   padding: 0 20px;
@@ -284,6 +278,7 @@
     justify-content: center;
   }
 
+  /* Só o menu MOBILE (painel deslizante) tem fundo próprio */
   .nav {
     display: flex;
     flex-direction: column;
@@ -294,7 +289,7 @@
     width: 320px;
     max-width: 100%;
     height: calc(100vh - 92px);
-    background: #ffffff;
+    background: var(--white);
     box-shadow: -15px 0 40px rgba(0, 0, 0, 0.08);
     padding: 30px 24px;
     transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -313,7 +308,7 @@
 
   .nav-item {
     width: 100%;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    border-bottom: 1px solid var(--divider);
   }
 
   .nav-item > a {
@@ -325,7 +320,7 @@
 
   .nav-item > a::after {
     display: none;
-  } /* Remove a linha do hover no mobile */
+  }
 
   .dropdown {
     padding-bottom: 0;
