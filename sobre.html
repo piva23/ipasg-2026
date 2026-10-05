@@ -10,6 +10,9 @@
     <meta property="og:type" content="website" />
     <link rel="icon" type="image/png" href="assets/images/favicon.png" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap"
       rel="stylesheet"
@@ -19,12 +22,13 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
 
+    <link rel="stylesheet" href="assets/css/colors.css" />
     <link rel="stylesheet" href="assets/css/base.css" />
     <link rel="stylesheet" href="assets/css/header.css" />
     <link rel="stylesheet" href="assets/css/components.css" />
     <link rel="stylesheet" href="assets/css/footer.css" />
     <link rel="stylesheet" href="assets/css/sobre.css" />
-      <link rel="stylesheet" href="assets/css/colors.css" />
+      
     <link rel="stylesheet" href="assets/css/theme.css" />
     <meta name="theme-color" content="#1e8b6f" />
   </head>
@@ -32,109 +36,60 @@
     <div id="pageLoader" class="page-loader" aria-hidden="true">
       <div class="page-loader__spinner"></div>
     </div>
-    <div class="topbar">
+            <div class="topbar">
       <div class="container topbar-inner">
         <div class="topbar-left">
-          <a
-            href="https://www.google.com/maps/dir/-30.045851,-51.3116603/Mampituba,+RS,+95572-000/@-29.4229542,-50.2723278,10.5z/data=!4m9!4m8!1m1!4e1!1m5!1m1!1s0x952209266564baf7:0x136cba7824fdc408!2m2!1d-49.9359871!2d-29.21173?entry=ttu&g_ep=EgoyMDI1MDcwNi4wIKXMDSoASAFQAw%3D%3D"
-            target="_blank"
-          >
-            <i class="fa-solid fa-location-dot"></i> Estrada Municipal, 885 —
-            Mampituba/RS
+          <a href="https://maps.app.goo.gl/Gr9pTNqz5FRNrjQw8" target="_blank">
+            <i class="fa-solid fa-location-dot"></i> Estrada Municipal, 885 — Mampituba/RS
           </a>
         </div>
         <div class="topbar-right">
           <div class="social-links">
-            <a href="tel:+5551992429974" aria-label="Ligar para o IPASG"
-              ><i class="fa-solid fa-phone"></i
-            ></a>
-            <a
-              href="https://wa.me/5551992429974"
-              target="_blank"
-              aria-label="Falar no WhatsApp"
-              ><i class="fa-brands fa-whatsapp"></i
-            ></a>
-            <a
-              href="https://instagram.com/"
-              target="_blank"
-              aria-label="Instagram"
-              ><i class="fa-brands fa-instagram"></i
-            ></a>
-            <a
-              href="https://www.facebook.com/"
-              target="_blank"
-              aria-label="Facebook"
-              ><i class="fa-brands fa-facebook-f"></i
-            ></a>
+            <a href="tel:+5551992429974" aria-label="Ligar para o IPASG"><i class="fa-solid fa-phone"></i></a>
+            <a href="mailto:ipasg.rs@gmail.com" aria-label="Enviar E-mail"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://wa.me/5551992429974" target="_blank" aria-label="Falar no WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://instagram.com/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
           </div>
         </div>
       </div>
     </div>
+    </div>
+    </div>
 
-    <header class="site-header" role="banner">
+            <header class="site-header" role="banner">
       <div class="container navwrap">
         <div class="brand">
           <a href="index.html" aria-label="IPASG Home" class="brand-link">
-            <img src="assets/images/logo/logo.png" alt="Logotipo do IPASG" />
+            <img src="assets/images/logo/logo.png" data-dark-src="assets/images/logo/logo-light.png" alt="Logotipo do IPASG" />
           </a>
         </div>
 
         <nav class="nav" role="navigation" aria-label="Main menu">
           <div class="nav-item">
-            <a href="index.html"><i class="fa-solid fa-house"></i> Início</a>
+            <a href="index.html" id="nav-inicio" ><i class="fa-solid fa-house"></i> Início</a>
           </div>
           <div class="nav-item dropdown">
-            <a href="#" aria-haspopup="true"
-              ><i class="fa-solid fa-leaf"></i> Sobre
-              <i class="fa-solid fa-caret-down caret"></i
-            ></a>
+            <a href="#" aria-haspopup="true" id="nav-sobre" class="active"><i class="fa-solid fa-leaf"></i> Sobre <i class="fa-solid fa-caret-down caret"></i></a>
             <div class="dropdown-menu">
-              <a href="sobre.html" aria-current="page">História</a>
+              <a href="sobre.html">História</a>
               <a href="membros.html">Membros</a>
             </div>
           </div>
-          <div class="nav-item dropdown">
-            <a href="#" aria-haspopup="true"
-              ><i class="fa-solid fa-seedling"></i> Projetos
-              <i class="fa-solid fa-caret-down caret"></i
-            ></a>
-            <div class="dropdown-menu">
-              <a href="projetos.html?filter=all">Todos os projetos</a>
-              <a href="projetos.html?filter=permacultura">Permacultura</a>
-              <a href="projetos.html?filter=arte">Arte</a>
-            </div>
+          <div class="nav-item">
+            <a href="projetos.html" id="nav-projetos" ><i class="fa-solid fa-seedling"></i> Projetos</a>
           </div>
           <div class="nav-item">
-            <a href="assessoria.html"
-              ><i class="fa-solid fa-handshake"></i> Assessoria</a
-            >
+            <a href="assessoria.html" id="nav-assessoria" ><i class="fa-solid fa-handshake"></i> Assessoria</a>
           </div>
           <div class="nav-item">
-            <a href="eventos.html"
-              ><i class="fa-solid fa-calendar-days"></i> Eventos</a
-            >
-          </div>
-          <div class="nav-item">
-            <a href="noticias.html"
-              ><i class="fa-solid fa-newspaper"></i> Notícias</a
-            >
-          </div>
-          <div class="nav-item">
-            <a href="materiais.html"
-              ><i class="fa-solid fa-book-open"></i> Materiais</a
-            >
+            <a href="eventos.html" id="nav-eventos" ><i class="fa-solid fa-calendar-days"></i> Eventos</a>
           </div>
         </nav>
 
         <div class="header-utilities">
-          <a href="apoie.html" class="btn-primary">
-            <i class="fa-solid fa-heart"></i> Apoie
-          </a>
-          <button
-            id="mobileToggle"
-            class="mobile-toggle"
-            aria-label="Abrir menu"
-          >
+          <a href="apoie.html" class="btn-primary" id="nav-apoie"><i class="fa-solid fa-heart"></i> Apoie</a>
+          <button id="mobileToggle" class="mobile-toggle" aria-label="Abrir menu">
             <i class="fa-solid fa-bars"></i>
           </button>
         </div>

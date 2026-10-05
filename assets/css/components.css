@@ -191,6 +191,17 @@
   border-color: var(--green-border);
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .event-item:hover .event-btn {
   background: var(--green);
   color: var(--white);
@@ -353,3 +364,260 @@ html[data-theme='dark'] .partners-track img:hover {
     width: 100%;
   }
 }
+
+
+
+}
+
+
+/* ============================================================
+   PROJETOS CARDS PRO - ALTURA FIXA E DESIGN IMPECÁVEL
+============================================================ */
+.projeto-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--green-border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 460px; /* Altura fixa para alinhar todos os cards */
+  transition: var(--transition);
+}
+
+.projeto-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--green);
+}
+
+.projeto-thumb {
+  position: relative;
+  width: 100%;
+  height: 200px; /* Thumbnail com altura fixa */
+  flex-shrink: 0;
+  overflow: hidden;
+  background: var(--surface-2);
+}
+
+.projeto-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.projeto-card:hover .projeto-thumb img {
+  transform: scale(1.05);
+}
+
+.projeto-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  text-transform: uppercase;
+}
+
+.tag-modelo-1 { background: var(--green); color: #ffffff; }
+.tag-modelo-2 { background: var(--ochre); color: #ffffff; }
+.tag-modelo-3 { background: #c2410c; color: #ffffff; }
+.tag-modelo-4 { background: #0f766e; color: #ffffff; }
+
+.projeto-content {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+.projeto-content h3 {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 8px;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 2.7em; /* Alinhamento uniforme de títulos */
+}
+
+.projeto-content h3 a {
+  color: var(--dark);
+  transition: var(--transition);
+}
+
+.projeto-content h3 a:hover {
+  color: var(--green);
+}
+
+.projeto-content p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+
+.read-more,
+.read-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--green);
+  transition: var(--transition);
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.read-more i,
+.read-more-btn i {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.read-more:hover,
+.read-more-btn:hover {
+  color: var(--green-dark);
+  gap: 12px;
+}
+
+.read-more:hover i,
+.read-more-btn:hover i {
+  transform: translateX(4px);
+}
+
+/* ============================================================
+   BOTÃO DE VOLTAR MODERNO (.back-btn)
+============================================================ */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: 1.5px solid var(--green-border);
+  background: #ffffff;
+  color: var(--dark);
+  font-size: 14.5px;
+  font-weight: 600;
+  transition: var(--transition);
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+}
+
+.back-btn:hover {
+  background: var(--green-light);
+  border-color: var(--green);
+  color: var(--green);
+  transform: translateX(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.back-btn i {
+  transition: transform 0.3s ease;
+}
+
+.back-btn:hover i {
+  transform: translateX(-3px);
+}
+
+
+/* ============================================================
+   CARROSSEL HORIZONTAL DE PROJETOS — SETAS LATERAIS & SEM SCROLLBAR
+============================================================ */
+.projetos-slider-wrap {
+  position: relative;
+  width: 100%;
+  padding: 0 54px;
+}
+
+#homeProjetosGrid {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 10px 4px 24px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+#homeProjetosGrid::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+  width: 0;
+  height: 0;
+}
+
+#homeProjetosGrid .projeto-card {
+  flex: 0 0 340px;
+  min-width: 340px;
+  max-width: 340px;
+  scroll-snap-align: start;
+}
+
+.slider-btn.btn-side,
+.slider-btn.btn-prev,
+.slider-btn.btn-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--green-border);
+  background: var(--surface-1);
+  color: var(--green);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.slider-btn.btn-prev { left: 0; }
+.slider-btn.btn-next { right: 0; }
+
+.slider-btn.btn-side:hover {
+  background: var(--green);
+  color: #ffffff;
+  border-color: var(--green);
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: var(--shadow-hover);
+}
+
+@media (max-width: 768px) {
+  .projetos-slider-wrap {
+    padding: 0;
+  }
+  .slider-btn.btn-side {
+    display: none;
+  }
+  #homeProjetosGrid .projeto-card {
+    flex: 0 0 280px;
+    min-width: 280px;
+    max-width: 280px;
+  }
+}
+
+

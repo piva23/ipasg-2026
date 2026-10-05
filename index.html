@@ -16,6 +16,9 @@
     <link rel="icon" type="image/png" href="assets/images/favicon.png" />
     <link rel="apple-touch-icon" href="assets/images/favicon.png" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap"
       rel="stylesheet"
@@ -32,6 +35,7 @@
     <link rel="stylesheet" href="assets/css/header.css" />
     <link rel="stylesheet" href="assets/css/hero.css" />
     <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/eventos.css" />
     <link rel="stylesheet" href="assets/css/footer.css" />
     <link rel="stylesheet" href="assets/css/theme.css" />
 
@@ -42,126 +46,60 @@
     <div id="pageLoader" class="page-loader" aria-hidden="true">
       <div class="page-loader__spinner"></div>
     </div>
-    <div class="topbar">
+            <div class="topbar">
       <div class="container topbar-inner">
         <div class="topbar-left">
-          <a
-            href="https://www.google.com/maps/dir/-30.045851,-51.3116603/Mampituba,+RS,+95572-000/@-29.4229542,-50.2723278,10.5z/data=!4m9!4m8!1m1!4e1!1m5!1m1!1s0x952209266564baf7:0x136cba7824fdc408!2m2!1d-49.9359871!2d-29.21173?entry=ttu&g_ep=EgoyMDI1MDcwNi4wIKXMDSoASAFQAw%3D%3D"
-            target="_blank"
-          >
-            <i class="fa-solid fa-location-dot"></i> Estrada Municipal, 885 —
-            Mampituba/RS
+          <a href="https://maps.app.goo.gl/Gr9pTNqz5FRNrjQw8" target="_blank">
+            <i class="fa-solid fa-location-dot"></i> Estrada Municipal, 885 — Mampituba/RS
           </a>
         </div>
         <div class="topbar-right">
           <div class="social-links">
-            <a href="tel:+5551992429974" aria-label="Ligar para o IPASG"
-              ><i class="fa-solid fa-phone"></i
-            ></a>
-            <a href="mailto:ipasg.rs@gmail.com" aria-label="Enviar E-mail"
-              ><i class="fa-solid fa-envelope"></i
-            ></a>
-            <a
-              href="https://wa.me/5551992429974"
-              target="_blank"
-              aria-label="Falar no WhatsApp"
-              ><i class="fa-brands fa-whatsapp"></i
-            ></a>
-            <a
-              href="https://instagram.com/"
-              target="_blank"
-              aria-label="Instagram"
-              ><i class="fa-brands fa-instagram"></i
-            ></a>
-            <a
-              href="https://www.facebook.com/"
-              target="_blank"
-              aria-label="Facebook"
-              ><i class="fa-brands fa-facebook-f"></i
-            ></a>
+            <a href="tel:+5551992429974" aria-label="Ligar para o IPASG"><i class="fa-solid fa-phone"></i></a>
+            <a href="mailto:ipasg.rs@gmail.com" aria-label="Enviar E-mail"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://wa.me/5551992429974" target="_blank" aria-label="Falar no WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://instagram.com/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
           </div>
         </div>
       </div>
     </div>
+    </div>
+    </div>
 
-    <header class="site-header" role="banner">
+            <header class="site-header" role="banner">
       <div class="container navwrap">
         <div class="brand">
           <a href="index.html" aria-label="IPASG Home" class="brand-link">
-            <img
-              src="assets/images/logo/logo.png"
-              data-dark-src="assets/images/logo/logo-light.png"
-              alt="Logotipo do IPASG"
-            />
+            <img src="assets/images/logo/logo.png" data-dark-src="assets/images/logo/logo-light.png" alt="Logotipo do IPASG" />
           </a>
         </div>
 
         <nav class="nav" role="navigation" aria-label="Main menu">
           <div class="nav-item">
-            <a href="index.html" class="active"
-              ><i class="fa-solid fa-house"></i> Início</a
-            >
+            <a href="index.html" id="nav-inicio" class="active" aria-current="page"><i class="fa-solid fa-house"></i> Início</a>
           </div>
           <div class="nav-item dropdown">
-            <a href="#" aria-haspopup="true"
-              ><i class="fa-solid fa-leaf"></i> Sobre
-              <i class="fa-solid fa-caret-down caret"></i
-            ></a>
+            <a href="#" aria-haspopup="true" id="nav-sobre" ><i class="fa-solid fa-leaf"></i> Sobre <i class="fa-solid fa-caret-down caret"></i></a>
             <div class="dropdown-menu">
               <a href="sobre.html">História</a>
               <a href="membros.html">Membros</a>
             </div>
           </div>
-          <div class="nav-item dropdown">
-            <a href="#" aria-haspopup="true"
-              ><i class="fa-solid fa-seedling"></i> Projetos
-              <i class="fa-solid fa-caret-down caret"></i
-            ></a>
-            <div class="dropdown-menu">
-              <a href="projetos.html?filter=all">Todos os projetos</a>
-              <a href="projetos.html?filter=permacultura">Permacultura</a>
-              <a href="projetos.html?filter=arte">Arte</a>
-            </div>
+          <div class="nav-item">
+            <a href="projetos.html" id="nav-projetos" ><i class="fa-solid fa-seedling"></i> Projetos</a>
           </div>
           <div class="nav-item">
-            <a href="assessoria.html"
-              ><i class="fa-solid fa-handshake"></i> Assessoria</a
-            >
+            <a href="assessoria.html" id="nav-assessoria" ><i class="fa-solid fa-handshake"></i> Assessoria</a>
           </div>
           <div class="nav-item">
-            <a href="eventos.html"
-              ><i class="fa-solid fa-calendar-days"></i> Eventos</a
-            >
-          </div>
-          <div class="nav-item">
-            <a href="noticias.html"
-              ><i class="fa-solid fa-newspaper"></i> Notícias</a
-            >
-          </div>
-          <div class="nav-item">
-            <a href="materiais.html"
-              ><i class="fa-solid fa-book-open"></i> Materiais</a
-            >
+            <a href="eventos.html" id="nav-eventos" ><i class="fa-solid fa-calendar-days"></i> Eventos</a>
           </div>
         </nav>
 
         <div class="header-utilities">
-          <button
-            id="themeToggle"
-            class="theme-toggle"
-            aria-label="Alternar tema claro/escuro"
-          >
-            <i class="fa-solid fa-moon"></i>
-            <i class="fa-solid fa-sun"></i>
-          </button>
-          <a href="apoie.html" class="btn-primary">
-            <i class="fa-solid fa-heart"></i> Apoie
-          </a>
-          <button
-            id="mobileToggle"
-            class="mobile-toggle"
-            aria-label="Abrir menu"
-          >
+          <a href="apoie.html" class="btn-primary" id="nav-apoie"><i class="fa-solid fa-heart"></i> Apoie</a>
+          <button id="mobileToggle" class="mobile-toggle" aria-label="Abrir menu">
             <i class="fa-solid fa-bars"></i>
           </button>
         </div>
@@ -169,103 +107,49 @@
     </header>
 
     <main>
-      <section class="hero" aria-label="Destaque principal">
-        <div class="hero-slider" id="heroSlider" aria-live="polite">
-          <article class="hero-slide active" data-index="0">
-            <img
-              class="hero-bg"
-              src="assets/images/banner/1.jpeg"
-              alt="Pessoas e ambiente em harmonia"
-            />
-            <div class="hero-diagonal"></div>
-            <div class="hero-content">
-              <p class="eyebrow">CONHEÇA</p>
-              <h1>
-                20 ANOS<br /><span
-                  >gerando impacto socioambiental positivo</span
-                >
-              </h1>
-              <p class="lead">
-                Atuamos com permacultura, educação ambiental e projetos
-                regenerativos que fortalecem comunidades e preservam a natureza.
-              </p>
-              <div class="hero-actions">
-                <a class="btn-primary" href="projetos.html">Leia mais</a>
-                <a class="btn-ghost" href="sobre.html">Saiba mais</a>
-              </div>
+      <section class="hero-v2" aria-label="Destaque principal">
+        <img class="hero-v2-bg" src="assets/images/banner/1.jpeg" alt="Pessoas e ambiente em harmonia IPASG" />
+        <div class="hero-v2-overlay"></div>
+        <div class="container hero-v2-container">
+          <div class="hero-v2-content">
+            <span class="hero-v2-badge"><i class="fa-solid fa-seedling"></i> Instituto Criado em 2025 • Serra Geral</span>
+            <h1><span>gerando impacto socioambiental positivo</span></h1>
+            <p class="lead-v2">
+              O IPASG nasceu em 2025 em Mampituba/RS com o propósito de unir permacultura, educação prática, bioconstrução e tecnologias sociais para transformar comunidades.
+            </p>
+            <div class="hero-v2-actions">
+              <a href="projetos.html" class="btn-primary"><i class="fa-solid fa-seedling"></i> Ver Nossos Projetos</a>
+              <a href="sobre.html" class="btn-ghost" style="color:#fff; border-color:rgba(255,255,255,0.4);"><i class="fa-solid fa-circle-info"></i> Conheça o IPASG</a>
             </div>
-          </article>
-
-          <article class="hero-slide" data-index="1">
-            <img
-              class="hero-bg"
-              src="assets/images/banner/2.png"
-              alt="Natureza preservada"
-            />
-            <div class="hero-diagonal"></div>
-            <div class="hero-content">
-              <p class="eyebrow">PROJETOS</p>
-              <h1>Projetos que transformam<br /><span>comunidades</span></h1>
-              <p class="lead">
-                Soluções de agroecologia, manejo de água e recuperação
-                ambiental.
-              </p>
-              <div class="hero-actions">
-                <a class="btn-primary" href="projetos.html">Ver projetos</a>
-                <a class="btn-ghost" href="assessoria.html">Contato</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="hero-slide" data-index="2">
-            <img
-              class="hero-bg"
-              src="assets/images/banner/3.png"
-              alt="Equipe trabalhando"
-            />
-            <div class="hero-diagonal"></div>
-            <div class="hero-content">
-              <p class="eyebrow">EDUCAÇÃO</p>
-              <h1>
-                Oficinas e capacitações<br /><span>para todas as idades</span>
-              </h1>
-              <p class="lead">
-                Programas em escolas e comunidades para fortalecer a consciência
-                socioambiental.
-              </p>
-              <div class="hero-actions">
-                <a class="btn-primary" href="sobre.html">Conheça</a>
-                <a class="btn-ghost" href="projetos.html">Projetos</a>
-              </div>
-            </div>
-          </article>
+          </div>
         </div>
 
-        <div class="hero-nav">
-          <button id="prevHero" class="nav-btn" aria-label="Slide anterior">
-            <i class="fa-solid fa-chevron-left"></i>
-          </button>
-          <button id="nextHero" class="nav-btn" aria-label="Próximo slide">
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
-        </div>
-
-        <div class="hero-indicators" id="heroIndicators">
-          <button
-            class="indicator active"
-            data-slide="0"
-            aria-label="Ir para slide 1"
-          ></button>
-          <button
-            class="indicator"
-            data-slide="1"
-            aria-label="Ir para slide 2"
-          ></button>
-          <button
-            class="indicator"
-            data-slide="2"
-            aria-label="Ir para slide 3"
-          ></button>
+        <div class="hero-v2-stats-ribbon">
+          <div class="container">
+            <div class="hero-v2-stats-grid">
+              <div class="hero-v2-stat-item">
+                <div class="hero-v2-stat-icon"><i class="fa-solid fa-award"></i></div>
+                <div>
+                  <div class="hero-v2-stat-number">Criado em 2025</div>
+                  <div class="hero-v2-stat-label">Foco em regeneração e futuro</div>
+                </div>
+              </div>
+              <div class="hero-v2-stat-item">
+                <div class="hero-v2-stat-icon"><i class="fa-solid fa-tree"></i></div>
+                <div>
+                  <div class="hero-v2-stat-number">Serra Geral</div>
+                  <div class="hero-v2-stat-label">Atuação em Mampituba e região</div>
+                </div>
+              </div>
+              <div class="hero-v2-stat-item">
+                <div class="hero-v2-stat-icon"><i class="fa-solid fa-users"></i></div>
+                <div>
+                  <div class="hero-v2-stat-number">Permacultura</div>
+                  <div class="hero-v2-stat-label">Educação, arte e ecologia</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -329,43 +213,10 @@
             </p>
           </header>
 
-          <div class="cards-grid">
-            <article class="card">
-              <img
-                src="assets/images/difference/thumb-lg-two.png"
-                alt="Estruturas em madeira para Meliponicultura"
-                loading="lazy"
-              />
-              <h3>Meliponicultura</h3>
-              <p class="muted">
-                Criação e manejo de abelhas nativas sem ferrão. Uma ferramenta
-                poderosa para polinização e geração de renda.
-              </p>
-            </article>
-            <article class="card">
-              <img
-                src="assets/images/banner/m-four.png"
-                alt="Sistema de filtragem natural"
-                loading="lazy"
-              />
-              <h3>Saneamento Ecológico</h3>
-              <p class="muted">
-                Implementação de sistemas como Bacias de Evapotranspiração para
-                o tratamento e reúso seguro da água.
-              </p>
-            </article>
-            <article class="card">
-              <img
-                src="assets/images/banner/m-five.png"
-                alt="Casa sustentável"
-                loading="lazy"
-              />
-              <h3>Bioconstrução</h3>
-              <p class="muted">
-                Uso de terra, bambu e materiais locais para criar estruturas com
-                eficiência térmica e mínimo impacto.
-              </p>
-            </article>
+          <div class="projetos-slider-wrap">
+            <button id="slideLeft" class="slider-btn btn-side btn-prev" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+            <div id="homeProjetosGrid"></div>
+            <button id="slideRight" class="slider-btn btn-side btn-next" aria-label="Próximo"><i class="fa-solid fa-chevron-right"></i></button>
           </div>
         </div>
       </section>
@@ -379,99 +230,15 @@
             </p>
           </header>
 
-          <div class="events-list">
-            <div class="event-item">
-              <div class="event-date"><span>15</span> Nov</div>
-              <div class="event-info">
-                <h3>Mutirão de Bioconstrução</h3>
-                <p class="muted">
-                  <i class="fa-solid fa-location-dot"></i> Sede IPASG -
-                  Mampituba/RS
-                </p>
-              </div>
-              <a href="eventos.html" class="btn-ghost event-btn">Inscreva-se</a>
-            </div>
-
-            <div class="event-item">
-              <div class="event-date"><span>02</span> Dez</div>
-              <div class="event-info">
-                <h3>Oficina de Meliponicultura Básica</h3>
-                <p class="muted">
-                  <i class="fa-solid fa-location-dot"></i> Escola Municipal -
-                  Torres/RS
-                </p>
-              </div>
-              <a href="eventos.html" class="btn-ghost event-btn">Inscreva-se</a>
-            </div>
-          </div>
+          <div class="events-list" id="home-events-container"></div>
 
           <div class="text-center" style="margin-top: 40px">
-            <a href="eventos.html" class="btn-primary"
-              >Ver calendário completo</a
-            >
+            <a href="eventos.html" class="btn-primary">Ver calendário completo</a>
           </div>
         </div>
       </section>
 
-      <section class="section bg-green-light" id="noticias">
-        <div class="container">
-          <header class="section-header">
-            <h2>Últimas Notícias</h2>
-            <p class="muted">
-              Acompanhe as novidades e atualizações do nosso instituto.
-            </p>
-          </header>
-
-          <div class="cards-grid">
-            <article class="news-card">
-              <img
-                src="assets/images/banner/m-two.png"
-                alt="Noticia 1"
-                loading="lazy"
-              />
-              <div class="news-content">
-                <span class="news-date">10 Outubro, 2023</span>
-                <h3>IPASG aprova novo projeto de recuperação florestal</h3>
-                <a href="noticias.html" class="read-more"
-                  >Ler mais <i class="fa-solid fa-arrow-right"></i
-                ></a>
-              </div>
-            </article>
-
-            <article class="news-card">
-              <img
-                src="assets/images/banner/m-three.png"
-                alt="Noticia 2"
-                loading="lazy"
-              />
-              <div class="news-content">
-                <span class="news-date">28 Setembro, 2023</span>
-                <h3>Alunos da rede pública visitam a sede ecológica</h3>
-                <a href="noticias.html" class="read-more"
-                  >Ler mais <i class="fa-solid fa-arrow-right"></i
-                ></a>
-              </div>
-            </article>
-
-            <article class="news-card">
-              <img
-                src="assets/images/banner/m-one.png"
-                alt="Noticia 3"
-                loading="lazy"
-              />
-              <div class="news-content">
-                <span class="news-date">15 Agosto, 2023</span>
-                <h3>Como foi o nosso último curso de Saneamento</h3>
-                <a href="noticias.html" class="read-more"
-                  >Ler mais <i class="fa-solid fa-arrow-right"></i
-                ></a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section bg-white" id="parceiros">
+      <section class="section bg-light" id="parceiros">
         <div class="container">
           <header class="section-header">
             <h2>Parceiros & Patrocinadores</h2>
@@ -653,6 +420,9 @@
       document.getElementById('copyrightYear').textContent =
         new Date().getFullYear();
     </script>
+    <script src="assets/js/projetos.js"></script>
+    <script src="assets/js/eventos-data.js"></script>
+    <script src="assets/js/home-events.js"></script>
     <script src="assets/js/slider.js"></script>
     <script src="assets/js/menu.js"></script>
     <script src="assets/js/animations.js"></script>

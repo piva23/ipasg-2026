@@ -1,8 +1,6 @@
 /* ==========================================
-   home-events.js
-   Mostra os 3 próximos eventos na Home, reaproveitando
-   o mesmo layout com imagem usado em eventos.html
-   (depende de eventos-data.js estar carregado antes)
+   home-events.js — IPASG PRO
+   Exibe os próximos eventos na Home com imagens e mês em texto
 ========================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -20,16 +18,20 @@ document.addEventListener('DOMContentLoaded', () => {
     div.style.animation = `fadeInUp 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards`;
     div.style.animationDelay = `${index * 0.1}s`;
 
+    const mesTexto = evento.mesAbrev || (typeof MES_ABREV !== 'undefined' ? MES_ABREV[evento.mes] : evento.mes);
+
     div.innerHTML = `
       <div class="event-image">
-        <img src="${evento.img}" alt="${evento.titulo}" loading="lazy" />
+        <a href="${evento.link}">
+          <img src="${evento.img}" alt="${evento.titulo}" loading="lazy" width="200" height="130" />
+        </a>
       </div>
       <div class="event-date">
-        <span class="day">${evento.dia}</span>
-        <span class="month">${evento.mes}</span>
+        <span class="day">${String(evento.dia).padStart(2, '0')}</span>
+        <span class="month">${mesTexto}</span>
       </div>
       <div class="event-info">
-        <h3 class="event-title">${evento.titulo}</h3>
+        <h3 class="event-title"><a href="${evento.link}">${evento.titulo}</a></h3>
         <p class="muted event-loc">
           <i class="fa-solid fa-location-dot"></i> ${evento.local}
         </p>

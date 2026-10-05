@@ -70,7 +70,7 @@ const MEMBERS = [
     },
   },
   {
-    name: 'Patr√≠cia Berg',
+    name: 'Patr√cia Berg',
     role: 'Membro Fundadora',
     img: 'assets/members/patricia/patricia.jpeg',
     url: 'team-patricia.html',
@@ -222,7 +222,7 @@ function buildCard(member, index) {
     <div class="team__single van-tilt">
       <div class="team__single-thumb">
         <a href="${member.url}">
-          <img src="${member.img}" alt="${member.name}" loading="lazy">
+          <img src="${member.img}" alt="${member.name}" loading="lazy" width="320" height="400">
         </a>
         <div class="team__icons">
           <div class="team__single-content__icon">

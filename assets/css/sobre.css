@@ -86,11 +86,6 @@
   margin-bottom: 20px;
 }
 
-#pilares.bg-light {
-  background-color: #d1e8e2 !important;
-  border-top: 1px solid rgba(30, 139, 111, 0.1);
-}
-
 .pillars-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

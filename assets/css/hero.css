@@ -1,13 +1,15 @@
+
 /* ============================================================
-   HERO / BANNER (PRO - OTIMIZADO)
-   OBS: O hero é intencionalmente fixo (não muda no dark mode).
-   É uma foto full-bleed com painel diagonal branco por cima —
-   deixamos sempre igual pra não perder legibilidade do texto.
+   HERO / BANNER (OCUPA EXATAMENTE A ALTURA DISPONÍVEL DA TELA)
+   --chrome-h é medido em JS (topbar + header reais);
+   o fallback é a soma teórica: topbar ~42px + header 92px.
+   svh = viewport estável no carregamento (sem "pulo" ao recolher
+   a barra do navegador em mobile).
 ============================================================ */
 .hero {
   position: relative;
-  height: calc(100svh - 92px);
-  min-height: 550px;
+  height: calc(100svh - var(--chrome-h, 134px));
+  min-height: 440px;
   overflow: hidden;
   background: #0f1724;
 }
@@ -23,7 +25,7 @@
   inset: 0;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 1.2s ease-in-out;
   will-change: opacity;
 }
 
@@ -38,6 +40,13 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+  background-color: #0f1724;
+  transform: scale(1.06);
+  transition: transform 8s ease-out;
+}
+
+.hero-slide.active .hero-bg {
+  transform: scale(1);
 }
 
 .hero-slide::before {
@@ -53,7 +62,6 @@
   z-index: 1;
 }
 
-/* OVERLAY DIAGONAL — sempre branco, independente do tema */
 .hero-diagonal {
   position: absolute;
   top: 0;
@@ -68,7 +76,6 @@
   will-change: transform;
 }
 
-/* CONTEÚDO DE TEXTO — cor sempre escura (fica sobre o painel branco) */
 .hero-content {
   position: absolute;
   z-index: 6;
@@ -78,14 +85,17 @@
   width: 100%;
   max-width: 540px;
   color: #0f1724;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 20px;
-  padding: 6px 16px;
+  margin-bottom: 14px;
+  padding: 5px 14px;
   background: var(--green-light);
   border-radius: 999px;
   font-size: 12px;
@@ -93,15 +103,21 @@
   text-transform: uppercase;
   letter-spacing: 1.5px;
   color: var(--green);
+  width: fit-content;
 }
 
 .hero-content h1 {
-  font-size: clamp(38px, 5vw, 68px);
-  line-height: 1.08;
+  font-size: clamp(34px, 4.2vw, 54px);
+  line-height: 1.1;
   font-weight: 700;
-  margin-bottom: 22px;
+  margin-bottom: 16px;
   color: #0f1724;
   letter-spacing: -1px;
+  min-height: calc(1.1em * 2);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .hero-content h1 span {
@@ -109,10 +125,15 @@
 }
 
 .lead {
-  font-size: 18px;
-  line-height: 1.8;
+  font-size: 16.5px;
+  line-height: 1.65;
   color: #475467;
-  margin-bottom: 38px;
+  margin-bottom: 26px;
+  min-height: calc(1.65em * 2);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .hero-actions {
@@ -134,9 +155,6 @@
   color: var(--green);
 }
 
-/* ============================================================
-   CONTROLES DO SLIDER (SETAS E PONTOS) — sempre iguais
-============================================================ */
 .hero-nav {
   position: absolute;
   inset: 0;
@@ -149,13 +167,13 @@
 }
 
 .nav-btn {
-  width: 56px;
-  height: 56px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   border: none;
   background: rgba(255, 255, 255, 0.95);
   color: var(--green);
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
   pointer-events: auto;
   transition: var(--transition);
@@ -171,70 +189,546 @@
 .hero-indicators {
   position: absolute;
   left: 10%;
-  bottom: 40px;
+  bottom: 24px;
   display: flex;
-  gap: 12px;
+  gap: 10px;
   z-index: 20;
 }
 
 .indicator {
-  width: 30px;
+  width: 28px;
   height: 4px;
   border-radius: 4px;
   border: none;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.15);
   cursor: pointer;
   transition: var(--transition);
 }
 
 .indicator.active {
-  width: 50px;
+  width: 46px;
   background: var(--green);
 }
 
 /* ============================================================
-   RESPONSIVO HERO
+   HERO OPÇÃO 2: IMAGEM ESTÁTICA COM IMPACTO & STATS RIBBON
 ============================================================ */
+.hero-v2 {
+  position: relative;
+  height: calc(100svh - var(--chrome-h, 134px));
+  min-height: 440px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  background: #0d1a15;
+  color: #ffffff;
+}
+
+.hero-v2-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+}
+
+.hero-v2-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    135deg,
+    rgba(13, 26, 21, 0.92) 0%,
+    rgba(15, 23, 36, 0.85) 45%,
+    rgba(30, 139, 111, 0.65) 100%
+  );
+}
+
+.hero-v2-container {
+  position: relative;
+  z-index: 3;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.hero-v2-content {
+  max-width: 760px;
+}
+
+.hero-v2-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: rgba(30, 139, 111, 0.25);
+  border: 1px solid rgba(30, 139, 111, 0.5);
+  color: #52e3b6;
+  font-size: 12.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+}
+
+.hero-v2 h1 {
+  font-size: clamp(32px, 4.2vw, 52px);
+  font-weight: 800;
+  line-height: 1.12;
+  color: #ffffff;
+  margin-bottom: 14px;
+  letter-spacing: -1px;
+}
+
+.hero-v2 h1 span {
+  color: #52e3b6;
+}
+
+.hero-v2 p.lead-v2 {
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: #d1d5db;
+  margin-bottom: 22px;
+  max-width: 640px;
+}
+
+.hero-v2-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero-v2-stats-ribbon {
+  position: relative;
+  z-index: 4;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 12px 0;
+}
+
+.hero-v2-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.hero-v2-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.hero-v2-stat-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(30, 139, 111, 0.25);
+  border: 1px solid rgba(30, 139, 111, 0.5);
+  color: #52e3b6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  flex-shrink: 0;
+}
+
+.hero-v2-stat-number {
+  font-size: 21px;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.hero-v2-stat-label {
+  font-size: 12px;
+  color: #9ca3af;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+/* ============================================================
+   HERO OPÇÃO 3: SPLIT GRID MODERNO
+============================================================ */
+.hero-v3 {
+  height: calc(100svh - var(--chrome-h, 134px));
+  min-height: 440px;
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  background: linear-gradient(135deg, #d9ebe2 0%, #c5e2d5 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-v3-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.hero-v3-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: var(--green-light);
+  border: 1px solid var(--green-border);
+  color: var(--green);
+  font-size: 12.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+}
+
+.hero-v3 h1 {
+  font-size: clamp(30px, 3.8vw, 46px);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--dark);
+  margin-bottom: 14px;
+  letter-spacing: -1px;
+}
+
+.hero-v3 h1 span {
+  color: var(--green);
+}
+
+.hero-v3 p.lead-v3 {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+.hero-v3-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.hero-v3-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid var(--green-border);
+  color: var(--dark);
+  font-size: 12.5px;
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+}
+
+.hero-v3-media {
+  position: relative;
+}
+
+.hero-v3-img-frame {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+  border: 4px solid #ffffff;
+}
+
+.hero-v3-img-frame img {
+  width: 100%;
+  height: 310px;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-v3-floating-card {
+  position: absolute;
+  bottom: -14px;
+  left: -14px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 12px 16px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--green-border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 250px;
+}
+
+.hero-v3-card-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--green);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.hero-v3-card-text h4 {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 2px;
+}
+
+.hero-v3-card-text p {
+  font-size: 11.5px;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* ============================================================
+   HERO OPÇÃO 4: MINIMALISTA ESCURO DE ALTO IMPACTO
+============================================================ */
+.hero-v4 {
+  position: relative;
+  height: calc(100svh - var(--chrome-h, 134px));
+  min-height: 440px;
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  background: radial-gradient(circle at top center, #1b4d3e 0%, #0b1713 75%);
+  color: #ffffff;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-v4-bg-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.15;
+  background-image: radial-gradient(#52e3b6 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+.hero-v4-content {
+  max-width: 820px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-v4-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 16px;
+  border-radius: 999px;
+  background: rgba(82, 227, 182, 0.12);
+  border: 1px solid rgba(82, 227, 182, 0.3);
+  color: #52e3b6;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.hero-v4 h1 {
+  font-size: clamp(30px, 4.2vw, 48px);
+  font-weight: 800;
+  line-height: 1.12;
+  color: #ffffff;
+  margin-bottom: 14px;
+  letter-spacing: -1.2px;
+}
+
+.hero-v4 h1 span {
+  background: linear-gradient(135deg, #52e3b6 0%, #1e8b6f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-v4 p.lead-v4 {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #9ca3af;
+  margin-bottom: 22px;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-v4-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.hero-v4-features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 16px;
+  text-align: left;
+}
+
+.hero-v4-feature-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 14px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.hero-v4-feature-card:hover {
+  background: rgba(82, 227, 182, 0.08);
+  border-color: rgba(82, 227, 182, 0.3);
+  transform: translateY(-3px);
+}
+
+.hero-v4-feature-icon {
+  font-size: 20px;
+  color: #52e3b6;
+  margin-bottom: 8px;
+}
+
+.hero-v4-feature-card h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 3px;
+}
+
+.hero-v4-feature-card p {
+  font-size: 12px;
+  color: #9ca3af;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* RESPONSIVO PARA VARIANTES DE HERO (TELA PEQUENA)
+   Altura exata também no mobile: topbar sai do fluxo (display:none),
+   então o fallback do --chrome-h é só o header (92px); com o JS ativo
+   o valor é sempre o medido real. */
 @media (max-width: 960px) {
-  .hero {
-    height: auto;
-    min-height: 680px;
+  .hero, .hero-v2, .hero-v3, .hero-v4 {
+    height: calc(100svh - var(--chrome-h, 92px));
+    min-height: 0;
+    padding: 24px 0;
   }
-  .hero-diagonal {
-    width: 85%;
-    transform: skewX(-8deg) translateX(-10%);
+  .hero-v3-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
-  .hero-nav {
-    display: none;
+  .hero-v4-features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* TELA CURTA: compacta o conteúdo para caber na altura exata
+   (em vez de estourar a dobra ou ser cortado). */
+@media (max-height: 700px) {
+  .hero, .hero-v2, .hero-v3, .hero-v4 {
+    min-height: 0;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  .hero-v2-badge {
+    margin-bottom: 8px;
+    padding: 4px 12px;
+    font-size: 11px;
+  }
+  .hero-v2 h1 {
+    font-size: clamp(26px, 3.4vw, 38px);
+    margin-bottom: 8px;
+  }
+  .hero-v2 p.lead-v2 {
+    font-size: 14.5px;
+    margin-bottom: 14px;
+    -webkit-line-clamp: 2;
+  }
+  .hero-v2-actions .btn-primary,
+  .hero-v2-actions .btn-ghost {
+    min-height: 44px;
+    font-size: 14.5px;
+  }
+  .hero-v2-stats-ribbon {
+    padding: 8px 0;
+  }
+  .hero-v2-stat-number {
+    font-size: 17px;
+  }
+  .hero-v2-stat-label {
+    font-size: 11px;
+  }
+  .hero-v2-stat-icon {
+    width: 34px;
+    height: 34px;
+    font-size: 15px;
+  }
+  .hero-v3-img-frame img {
+    height: 190px;
+  }
+  .hero-v4-features-grid {
+    margin-top: 8px;
   }
 }
 
 @media (max-width: 700px) {
-  .hero {
-    min-height: 100svh;
-    height: 100svh;
+  .hero-v2-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
-  .hero-diagonal {
-    width: 140%;
-    transform: skewX(-5deg) translateX(-15%);
-    opacity: 0.97;
+  .hero-v4-features-grid {
+    grid-template-columns: 1fr;
   }
-  .hero-content {
-    left: 20px;
-    right: 20px;
+  .hero-v3-floating-card {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    margin-top: -15px;
     max-width: 100%;
-    top: 48%;
   }
-  .hero-content h1 {
-    font-size: 38px;
-  }
-  .hero-actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .hero-indicators {
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 30px;
-  }
+}
+
+
+/* DARK MODE SUPPORT FOR HERO V3 */
+[data-theme="dark"] .hero-v3 {
+  background: linear-gradient(135deg, #142e25 0%, #0b1c16 100%);
+}
+[data-theme="dark"] .hero-v3 h1 {
+  color: #ffffff;
+}
+[data-theme="dark"] .hero-v3 p.lead-v3 {
+  color: #d1d5db;
+}
+[data-theme="dark"] .hero-v3-chip {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+[data-theme="dark"] .hero-v3-img-frame {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+[data-theme="dark"] .hero-v3-floating-card {
+  background: #142e25;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+[data-theme="dark"] .hero-v3-card-text h4 {
+  color: #ffffff;
+}
+[data-theme="dark"] .hero-v3-card-text p {
+  color: #9ca3af;
 }

@@ -12,6 +12,9 @@
     <link rel="icon" type="image/png" href="assets/images/favicon.png" />
     <link rel="apple-touch-icon" href="assets/images/favicon.png" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap"
       rel="stylesheet"
@@ -33,124 +36,60 @@
     <div id="pageLoader" class="page-loader" aria-hidden="true">
       <div class="page-loader__spinner"></div>
     </div>
-    <div class="topbar">
+            <div class="topbar">
       <div class="container topbar-inner">
         <div class="topbar-left">
-          <a
-            href="https://www.google.com/maps/dir/-30.045851,-51.3116603/Mampituba,+RS,+95572-000/@-29.4229542,-50.2723278,10.5z/data=!4m9!4m8!1m1!4e1!1m5!1m1!1s0x952209266564baf7:0x136cba7824fdc408!2m2!1d-49.9359871!2d-29.21173?entry=ttu&g_ep=EgoyMDI1MDcwNi4wIKXMDSoASAFQAw%3D%3D"
-            target="_blank"
-          >
-            <i class="fa-solid fa-location-dot"></i> Estrada Municipal, 885 —
-            Mampituba/RS
+          <a href="https://maps.app.goo.gl/Gr9pTNqz5FRNrjQw8" target="_blank">
+            <i class="fa-solid fa-location-dot"></i> Estrada Municipal, 885 — Mampituba/RS
           </a>
         </div>
         <div class="topbar-right">
           <div class="social-links">
-            <a href="tel:+5551992429974" aria-label="Ligar para o IPASG"
-              ><i class="fa-solid fa-phone"></i
-            ></a>
-            <a
-              href="https://wa.me/5551992429974"
-              target="_blank"
-              aria-label="Falar no WhatsApp"
-              ><i class="fa-brands fa-whatsapp"></i
-            ></a>
-            <a
-              href="https://instagram.com/"
-              target="_blank"
-              aria-label="Instagram"
-              ><i class="fa-brands fa-instagram"></i
-            ></a>
-            <a
-              href="https://www.facebook.com/"
-              target="_blank"
-              aria-label="Facebook"
-              ><i class="fa-brands fa-facebook-f"></i
-            ></a>
-            <a href="mailto:ipasg.rs@gmail.com" aria-label="Enviar E-mail"
-              ><i class="fa-solid fa-envelope"></i
-            ></a>
+            <a href="tel:+5551992429974" aria-label="Ligar para o IPASG"><i class="fa-solid fa-phone"></i></a>
+            <a href="mailto:ipasg.rs@gmail.com" aria-label="Enviar E-mail"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://wa.me/5551992429974" target="_blank" aria-label="Falar no WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://instagram.com/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
           </div>
         </div>
       </div>
     </div>
+    </div>
+    </div>
 
-    <header class="site-header" role="banner">
+            <header class="site-header" role="banner">
       <div class="container navwrap">
         <div class="brand">
           <a href="index.html" aria-label="IPASG Home" class="brand-link">
-            <img
-              src="assets/images/logo/logo.png"
-              data-dark-src="assets/images/logo/logo-light.png"
-              alt="Logotipo do IPASG"
-            />
+            <img src="assets/images/logo/logo.png" data-dark-src="assets/images/logo/logo-light.png" alt="Logotipo do IPASG" />
           </a>
         </div>
 
         <nav class="nav" role="navigation" aria-label="Main menu">
           <div class="nav-item">
-            <a href="index.html"><i class="fa-solid fa-house"></i> Início</a>
+            <a href="index.html" id="nav-inicio" ><i class="fa-solid fa-house"></i> Início</a>
           </div>
           <div class="nav-item dropdown">
-            <a href="#" aria-haspopup="true"
-              ><i class="fa-solid fa-leaf"></i> Sobre
-              <i class="fa-solid fa-caret-down caret"></i
-            ></a>
+            <a href="#" aria-haspopup="true" id="nav-sobre" ><i class="fa-solid fa-leaf"></i> Sobre <i class="fa-solid fa-caret-down caret"></i></a>
             <div class="dropdown-menu">
               <a href="sobre.html">História</a>
               <a href="membros.html">Membros</a>
             </div>
           </div>
-          <div class="nav-item dropdown">
-            <a href="#" aria-haspopup="true"
-              ><i class="fa-solid fa-seedling"></i> Projetos
-              <i class="fa-solid fa-caret-down caret"></i
-            ></a>
-            <div class="dropdown-menu">
-              <a href="projetos.html">Todos os projetos</a>
-              <a href="projetos/bioconstrucao.html">Permacultura</a>
-              <a href="projetos/meliponicultura.html">Arte</a>
-            </div>
+          <div class="nav-item">
+            <a href="projetos.html" id="nav-projetos" ><i class="fa-solid fa-seedling"></i> Projetos</a>
           </div>
           <div class="nav-item">
-            <a href="assessoria.html"
-              ><i class="fa-solid fa-handshake"></i> Assessoria</a
-            >
+            <a href="assessoria.html" id="nav-assessoria" ><i class="fa-solid fa-handshake"></i> Assessoria</a>
           </div>
           <div class="nav-item">
-            <a href="eventos.html" class="active"
-              ><i class="fa-solid fa-calendar-days"></i> Eventos</a
-            >
-          </div>
-          <div class="nav-item">
-            <a href="noticias.html"
-              ><i class="fa-solid fa-newspaper"></i> Notícias</a
-            >
-          </div>
-          <div class="nav-item">
-            <a href="materiais.html"
-              ><i class="fa-solid fa-book-open"></i> Materiais</a
-            >
+            <a href="eventos.html" id="nav-eventos" class="active"><i class="fa-solid fa-calendar-days"></i> Eventos</a>
           </div>
         </nav>
 
         <div class="header-utilities">
-          <button
-            id="themeToggle"
-            class="theme-toggle"
-            aria-label="Alternar tema claro/escuro"
-          >
-            <i class="fa-solid fa-moon"></i>
-            <i class="fa-solid fa-sun"></i>
-          </button>
-          <a href="apoie.html" class="btn-primary"
-            ><i class="fa-solid fa-heart"></i> Apoie</a
-          >
-          <button
-            id="mobileToggle"
-            class="mobile-toggle"
-            aria-label="Abrir menu"
-          >
+          <a href="apoie.html" class="btn-primary" id="nav-apoie"><i class="fa-solid fa-heart"></i> Apoie</a>
+          <button id="mobileToggle" class="mobile-toggle" aria-label="Abrir menu">
             <i class="fa-solid fa-bars"></i>
           </button>
         </div>
@@ -158,102 +97,50 @@
     </header>
 
     <main>
-      <section
-        class="page-banner"
-        style="
-          background: linear-gradient(
-            135deg,
-            var(--green-dark) 0%,
-            var(--green) 100%
-          );
-          color: #fff;
-          padding: 140px 0 80px;
-          margin-top: -92px;
-          text-align: center;
-        "
-      >
-        <div class="container">
-          <span
-            style="
-              display: inline-flex;
-              align-items: center;
-              gap: 8px;
-              font-weight: 700;
-              color: #8ce3bf;
-              text-transform: uppercase;
-              letter-spacing: 1px;
-              margin-bottom: 15px;
-            "
-            ><i class="fa-solid fa-calendar-days"></i> Agenda IPASG</span
-          >
-          <h1
-            style="
-              font-size: clamp(38px, 6vw, 64px);
-              font-weight: 700;
-              margin-bottom: 16px;
-              letter-spacing: -1px;
-            "
-          >
-            Próximos Eventos
-          </h1>
-          <p
-            style="
-              font-size: 20px;
-              color: rgba(255, 255, 255, 0.85);
-              max-width: 600px;
-              margin: 0 auto;
-            "
-          >
-            Participe das nossas vivências, cursos e mutirões de regeneração.
+      <!-- HEADER DA PÁGINA -->
+      <section class="section bg-white" style="padding: 50px 0 30px;">
+        <div class="container text-center">
+          <span class="eyebrow" style="margin: 0 auto 14px;"><i class="fa-solid fa-calendar-days"></i> Agenda & Eventos</span>
+          <h1 style="font-size: clamp(32px, 4.5vw, 48px); font-weight: 800; margin-bottom: 14px;">Próximos Eventos IPASG</h1>
+          <p class="lead" style="max-width: 720px; margin: 0 auto;">
+            Participe de nossas oficinas, mutirões, cursos práticos e vivências socioambientais na Serra Geral.
           </p>
         </div>
       </section>
 
-      <section class="section bg-light">
-        <div class="container" style="max-width: 900px">
-          <div class="eventos-view-toggle">
-            <button id="viewListBtn" class="view-toggle-btn active">
-              <i class="fa-solid fa-list"></i> Lista
-            </button>
-            <button id="viewCalendarBtn" class="view-toggle-btn">
-              <i class="fa-solid fa-calendar-days"></i> Calendário
-            </button>
-          </div>
-
-          <!-- CALENDÁRIO -->
-          <div id="calendarWrap" class="calendar-wrap" style="display: none">
-            <div class="calendar-header">
-              <button
-                id="calendarPrevMonth"
-                class="calendar-nav-btn"
-                aria-label="Mês anterior"
-              >
-                <i class="fa-solid fa-chevron-left"></i>
-              </button>
-              <h3 id="calendarMonthLabel">--</h3>
-              <button
-                id="calendarNextMonth"
-                class="calendar-nav-btn"
-                aria-label="Próximo mês"
-              >
-                <i class="fa-solid fa-chevron-right"></i>
-              </button>
+      <!-- BARRA DE CONTROLES (BUSCA, FILTRO E ORDENAÇÃO) + LISTA -->
+      <section class="section bg-light" style="padding: 40px 0 80px;">
+        <div class="container" style="max-width: 1060px;">
+          
+          <div class="events-controls-bar">
+            <div class="event-search-box">
+              <i class="fa-solid fa-magnifying-glass event-search-icon"></i>
+              <input type="text" id="eventSearch" class="event-search-input" placeholder="Buscar por título, local ou palavra-chave..." />
             </div>
-            <div id="calendarGrid" class="calendar-grid"></div>
-          </div>
 
-          <!-- AVISO DE FILTRO POR DATA -->
-          <div
-            id="calendarFilterNote"
-            class="calendar-filter-note"
-            style="display: none"
-          ></div>
+            <div class="event-filters-group">
+              <select id="eventCategoryFilter" class="event-select-filter">
+                <option value="ALL">Todas as Categorias</option>
+                <option value="Permacultura">Permacultura</option>
+                <option value="Agroecologia">Agroecologia</option>
+                <option value="Saneamento Ecológico">Saneamento Ecológico</option>
+                <option value="Artes Integradas">Artes Integradas</option>
+              </select>
+
+              <select id="eventSortOrder" class="event-select-filter">
+                <option value="DATE_ASC">Mais Próximos Primeiro</option>
+                <option value="DATE_DESC">Mais Distantes Primeiro</option>
+                <option value="TITLE_ASC">Nome (A-Z)</option>
+              </select>
+            </div>
+          </div>
 
           <!-- LISTA DE EVENTOS -->
           <div class="events-list" id="event-container"></div>
 
-          <!-- PAGINA�?�fO -->
+          <!-- PAGINAÇÃO -->
           <div id="eventPagination" class="pagination"></div>
+
         </div>
       </section>
     </main>

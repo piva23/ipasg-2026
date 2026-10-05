@@ -1,14 +1,26 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="pt-BR" data-theme="light">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title id="page-title">Detalhes do Evento | IPASG</title>
-    <meta name="description" content="Detalhes do evento IPASG" />
+    <meta
+      name="description"
+      content="Confira as informações completas, data, programação e inscrições para os eventos e vivências do IPASG."
+    />
+    <meta property="og:title" content="Detalhes do Evento | IPASG" />
+    <meta
+      property="og:description"
+      content="Informações completas, data, programação e inscrições para os eventos e vivências do IPASG."
+    />
+    <meta property="og:type" content="event" />
 
     <link rel="icon" type="image/png" href="assets/images/favicon.png" />
     <link rel="apple-touch-icon" href="assets/images/favicon.png" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap"
       rel="stylesheet"
@@ -17,60 +29,36 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+
     <link rel="stylesheet" href="assets/css/colors.css" />
     <link rel="stylesheet" href="assets/css/base.css" />
     <link rel="stylesheet" href="assets/css/header.css" />
-    <link rel="stylesheet" href="assets/css/components.css" />
     <link rel="stylesheet" href="assets/css/footer.css" />
     <link rel="stylesheet" href="assets/css/eventos.css" />
+    <link rel="stylesheet" href="assets/css/evento-detalhe.css" />
     <link rel="stylesheet" href="assets/css/theme.css" />
-      <meta name="theme-color" content="#1e8b6f" />
+    <meta name="theme-color" content="#1e8b6f" />
   </head>
 
   <body>
     <div id="pageLoader" class="page-loader" aria-hidden="true">
       <div class="page-loader__spinner"></div>
     </div>
+
     <div class="topbar">
       <div class="container topbar-inner">
         <div class="topbar-left">
-          <a
-            href="https://www.google.com/maps/dir/-30.045851,-51.3116603/Mampituba,+RS,+95572-000/@-29.4229542,-50.2723278,10.5z/data=!4m9!4m8!1m1!4e1!1m5!1m1!1s0x952209266564baf7:0x136cba7824fdc408!2m2!1d-49.9359871!2d-29.21173?entry=ttu&g_ep=EgoyMDI1MDcwNi4wIKXMDSoASAFQAw%3D%3D"
-            target="_blank"
-          >
-            <i class="fa-solid fa-location-dot"></i> Estrada Municipal, 885 —
-            Mampituba/RS
+          <a href="https://maps.app.goo.gl/Gr9pTNqz5FRNrjQw8" target="_blank">
+            <i class="fa-solid fa-location-dot"></i> Estrada Municipal, 885 — Mampituba/RS
           </a>
         </div>
         <div class="topbar-right">
-          <div
-            class="social-links"
-            style="border-left: none; padding-left: 0; gap: 20px"
-          >
-            <a href="tel:+5551992429974" aria-label="Ligar para o IPASG">
-              <i class="fa-solid fa-phone"></i>
-            </a>
-            <a
-              href="https://wa.me/5551992429974"
-              target="_blank"
-              aria-label="Falar no WhatsApp"
-            >
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
-            <a
-              href="https://instagram.com/"
-              target="_blank"
-              aria-label="Instagram"
-            >
-              <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a
-              href="https://www.facebook.com/"
-              target="_blank"
-              aria-label="Facebook"
-            >
-              <i class="fa-brands fa-facebook-f"></i>
-            </a>
+          <div class="social-links">
+            <a href="tel:+5551992429974" aria-label="Ligar para o IPASG"><i class="fa-solid fa-phone"></i></a>
+            <a href="mailto:ipasg.rs@gmail.com" aria-label="Enviar E-mail"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://wa.me/5551992429974" target="_blank" aria-label="Falar no WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://instagram.com/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
           </div>
         </div>
       </div>
@@ -80,85 +68,35 @@
       <div class="container navwrap">
         <div class="brand">
           <a href="index.html" aria-label="IPASG Home" class="brand-link">
-            <img
-              src="assets/images/logo/logo.png"
-              data-dark-src="assets/images/logo/logo-light.png"
-              alt="Logotipo do IPASG"
-            />
+            <img src="assets/images/logo/logo.png" data-dark-src="assets/images/logo/logo-light.png" alt="Logotipo do IPASG" width="400" height="140" />
           </a>
         </div>
 
         <nav class="nav" role="navigation" aria-label="Main menu">
           <div class="nav-item">
-            <a href="index.html"><i class="fa-solid fa-house"></i> Início</a>
+            <a href="index.html" id="nav-inicio"><i class="fa-solid fa-house"></i> Início</a>
           </div>
           <div class="nav-item dropdown">
-            <a href="#" aria-haspopup="true"
-              ><i class="fa-solid fa-leaf"></i> Sobre
-              <i class="fa-solid fa-caret-down caret"></i
-            ></a>
+            <a href="#" aria-haspopup="true" id="nav-sobre"><i class="fa-solid fa-leaf"></i> Sobre <i class="fa-solid fa-caret-down caret"></i></a>
             <div class="dropdown-menu">
               <a href="sobre.html">História</a>
               <a href="membros.html">Membros</a>
             </div>
           </div>
-          <div class="nav-item dropdown">
-            <a href="#" aria-haspopup="true"
-              ><i class="fa-solid fa-seedling"></i> Projetos
-              <i class="fa-solid fa-caret-down caret"></i
-            ></a>
-            <div class="dropdown-menu">
-              <a href="projetos.html">Todos os projetos</a>
-              <a href="projetos/bioconstrucao.html">Permacultura</a>
-              <a href="projetos/meliponicultura.html">Arte</a>
-            </div>
+          <div class="nav-item">
+            <a href="projetos.html" id="nav-projetos"><i class="fa-solid fa-seedling"></i> Projetos</a>
           </div>
           <div class="nav-item">
-            <a href="assessoria.html"
-              ><i class="fa-solid fa-handshake"></i> Assessoria</a
-            >
+            <a href="assessoria.html" id="nav-assessoria"><i class="fa-solid fa-handshake"></i> Assessoria</a>
           </div>
           <div class="nav-item">
-            <a href="eventos.html" class="active"
-              ><i class="fa-solid fa-calendar-days"></i> Eventos</a
-            >
-          </div>
-          <div class="nav-item">
-            <a href="noticias.html"
-              ><i class="fa-solid fa-newspaper"></i> Notícias</a
-            >
-          </div>
-          <div class="nav-item">
-            <a href="materiais.html"
-              ><i class="fa-solid fa-book-open"></i> Materiais</a
-            >
+            <a href="eventos.html" id="nav-eventos" class="active" aria-current="page"><i class="fa-solid fa-calendar-days"></i> Eventos</a>
           </div>
         </nav>
 
-        <div
-          class="header-utilities"
-          style="display: flex; align-items: center; gap: 16px"
-        >
-          <button
-            id="themeToggle"
-            class="theme-toggle"
-            aria-label="Alternar tema claro/escuro"
-          >
-            <i class="fa-solid fa-moon"></i>
-            <i class="fa-solid fa-sun"></i>
-          </button>
-          <a
-            href="apoie.html"
-            class="btn-primary"
-            style="min-height: 42px; padding: 0 20px; font-size: 14px; gap: 8px"
-          >
-            <i class="fa-solid fa-heart"></i> Apoie
-          </a>
-          <button
-            id="mobileToggle"
-            class="mobile-toggle"
-            aria-label="Abrir menu"
-          >
+        <div class="header-utilities">
+          <a href="apoie.html" class="btn-primary" id="nav-apoie"><i class="fa-solid fa-heart"></i> Apoie</a>
+          <button id="mobileToggle" class="mobile-toggle" aria-label="Abrir menu">
             <i class="fa-solid fa-bars"></i>
           </button>
         </div>
@@ -166,136 +104,185 @@
     </header>
 
     <main>
-      <section class="section">
+      <!-- HERO DO EVENTO -->
+      <section id="eventHero" class="section event-hero bg-white">
         <div class="container">
-          <a
-            href="eventos.html"
-            class="btn-ghost-dark"
-            style="margin-bottom: 30px; display: inline-flex"
-          >
-            <i class="fa-solid fa-arrow-left"></i> Voltar para Eventos
+          <a href="eventos.html" class="btn-ghost-dark event-hero__back">
+            <i class="fa-solid fa-arrow-left"></i> Voltar para a lista de eventos
           </a>
 
-          <!-- SKELETON DE CARREGAMENTO -->
-          <div id="eventoLoading">
-            <div
-              class="skeleton"
-              style="
-                width: 100%;
-                height: 380px;
-                border-radius: 24px;
-                margin-bottom: 30px;
-              "
-            ></div>
-            <div
-              class="skeleton-line skeleton"
-              style="height: 32px; width: 60%; margin-bottom: 20px"
-            ></div>
-            <div
-              class="skeleton-line skeleton"
-              style="height: 16px; width: 90%; margin-bottom: 10px"
-            ></div>
-            <div
-              class="skeleton-line skeleton"
-              style="height: 16px; width: 80%"
-            ></div>
+          <span id="event-category" class="event-category-tag">
+            <i class="fa-solid fa-tag"></i> Carregando...
+          </span>
+
+          <h1 id="event-title" class="event-hero__title">Carregando evento...</h1>
+
+          <div class="event-hero__meta">
+            <span>
+              <i class="fa-solid fa-calendar-days"></i>
+              <span id="event-hero-date">--</span>
+            </span>
+            <span>
+              <i class="fa-solid fa-location-dot"></i>
+              <span id="event-hero-location">--</span>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTEÚDO PRINCIPAL DO EVENTO -->
+      <section class="section bg-light event-detail-section">
+        <div class="container event-detail-container">
+          <div id="eventoLoading" class="evento-loading">
+            <div class="loading-spinner"></div>
+            <p class="muted">Carregando detalhes do evento...</p>
           </div>
 
-          <!-- CONTEÚDO REAL (preenchido via JS) -->
-          <div
-            id="eventoConteudo"
-            class="event-details-grid"
-            style="display: none"
-          >
-            <article class="event-content">
-              <img
-                id="event-image"
-                src=""
-                alt="Evento"
-                style="border-radius: 24px; margin-bottom: 20px"
-              />
+          <div id="eventoNaoEncontrado" class="evento-not-found" style="display: none;">
+            <i class="fa-solid fa-calendar-xmark"></i>
+            <h2>Evento não encontrado</h2>
+            <p>O evento que você procura não foi localizado ou já foi concluído.</p>
+            <a href="eventos.html" class="btn-primary">
+              <i class="fa-solid fa-arrow-left"></i> Ver todos os eventos
+            </a>
+          </div>
 
-              <div
-                id="event-gallery"
-                style="
-                  display: flex;
-                  gap: 12px;
-                  margin-bottom: 30px;
-                  overflow-x: auto;
-                "
-              ></div>
+          <div id="eventoConteudo" class="event-details-grid" style="display: none;">
+            <!-- COLUNA PRINCIPAL -->
+            <article class="event-content-main">
+              <div class="event-main-image-wrap">
+                <img
+                  id="event-image"
+                  alt="Imagem do evento"
+                  class="event-main-img"
+                  width="1120"
+                  height="440"
+                />
+              </div>
 
-              <span class="eyebrow" id="event-category">Categoria</span>
-              <h1 id="event-title" style="margin-top: 12px">
-                Carregando título...
-              </h1>
-              <p
-                id="event-summary"
-                class="muted"
-                style="font-size: 18px; margin: 16px 0 26px"
-              ></p>
-              <div
-                id="event-description"
-                class="muted"
-                style="font-size: 17px; line-height: 1.9; white-space: pre-line"
-              ></div>
+              <div class="event-body-card">
+                <h2 class="event-section-subtitle">
+                  <i class="fa-solid fa-align-left"></i> Sobre o evento
+                </h2>
+                <p id="event-summary" class="event-summary-lead"></p>
+                <div id="event-description" class="event-description-text"></div>
+
+                <div class="event-highlights-box">
+                  <h3 class="event-highlights-title">
+                    <i class="fa-solid fa-circle-check"></i> O que você vai aprender &amp; vivenciar
+                  </h3>
+                  <ul class="event-highlights-list">
+                    <li><i class="fa-solid fa-check"></i> Prática guiada com facilitadores de ampla experiência no IPASG;</li>
+                    <li><i class="fa-solid fa-check"></i> Metodologia mão na massa e troca ativa de saberes comunitários;</li>
+                    <li><i class="fa-solid fa-check"></i> Certificado de participação socioambiental mediante solicitação;</li>
+                    <li><i class="fa-solid fa-check"></i> Ambiente imersivo em plena Mata Atlântica e Serra Geral.</li>
+                  </ul>
+                </div>
+
+                <!-- GALERIA DE FOTOS -->
+                <div id="event-gallery-wrap" class="event-gallery-wrap" style="display: none;">
+                  <h3 class="event-section-subtitle">
+                    <i class="fa-regular fa-images"></i> Galeria do evento
+                  </h3>
+                  <div id="event-gallery" class="event-gallery-grid"></div>
+                </div>
+
+                <!-- COMPARTILHAMENTO -->
+                <div class="event-share-bar">
+                  <span class="event-share-label">
+                    <i class="fa-solid fa-share-nodes"></i> Compartilhe este evento
+                  </span>
+                  <div class="event-share-links">
+                    <a id="share-wa" href="#" target="_blank" rel="noopener" class="share-btn share-btn--wa" aria-label="Compartilhar no WhatsApp">
+                      <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <a id="share-fb" href="#" target="_blank" rel="noopener" class="share-btn share-btn--fb" aria-label="Compartilhar no Facebook">
+                      <i class="fa-brands fa-facebook-f"></i> Facebook
+                    </a>
+                  </div>
+                </div>
+              </div>
             </article>
 
+            <!-- COLUNA LATERAL (SIDEBAR DE INFORMAÇÕES) -->
             <aside class="event-sidebar">
               <div class="event-info-card">
-                <h5>Detalhes do Evento</h5>
+                <h2 class="event-info-card-header">
+                  <i class="fa-solid fa-circle-info"></i> Informações &amp; inscrição
+                </h2>
+
                 <ul class="event-meta-list">
                   <li>
-                    <i class="fa-solid fa-calendar-days"></i>
-                    <span><strong>Data:</strong> <span id="event-date">--</span></span>
+                    <span class="event-meta-icon"><i class="fa-solid fa-calendar-day"></i></span>
+                    <div>
+                      <span class="meta-label">Data</span>
+                      <span id="event-date">--</span>
+                    </div>
                   </li>
                   <li>
-                    <i class="fa-solid fa-clock"></i>
-                    <span><strong>Horário:</strong> <span id="event-time">--</span></span>
+                    <span class="event-meta-icon"><i class="fa-solid fa-clock"></i></span>
+                    <div>
+                      <span class="meta-label">Horário</span>
+                      <span id="event-time">--</span>
+                    </div>
                   </li>
                   <li>
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span><strong>Local:</strong> <span id="event-location">--</span></span>
+                    <span class="event-meta-icon"><i class="fa-solid fa-location-dot"></i></span>
+                    <div>
+                      <span class="meta-label">Local</span>
+                      <span id="event-location">--</span>
+                    </div>
                   </li>
                   <li>
-                    <i class="fa-solid fa-map-pin"></i>
-                    <span><strong>Endereço:</strong> <span id="event-address">--</span></span>
+                    <span class="event-meta-icon"><i class="fa-solid fa-map-pin"></i></span>
+                    <div>
+                      <span class="meta-label">Endereço</span>
+                      <span id="event-address">--</span>
+                    </div>
                   </li>
                   <li>
-                    <i class="fa-solid fa-users"></i>
-                    <span><strong>Vagas:</strong> <span id="event-vagas">--</span></span>
+                    <span class="event-meta-icon"><i class="fa-solid fa-users"></i></span>
+                    <div>
+                      <span class="meta-label">Vagas</span>
+                      <span id="event-vagas">--</span>
+                    </div>
                   </li>
                   <li>
-                    <i class="fa-solid fa-ticket"></i>
-                    <span><strong>Valor:</strong> <span id="event-valor">--</span></span>
+                    <span class="event-meta-icon"><i class="fa-solid fa-ticket"></i></span>
+                    <div>
+                      <span class="meta-label">Investimento</span>
+                      <span id="event-valor" class="event-price-tag">--</span>
+                    </div>
                   </li>
                 </ul>
+
                 <a
+                  id="event-register-link"
                   href="https://wa.me/5551992429974"
                   target="_blank"
-                  id="event-register-link"
-                  class="btn-primary"
-                  style="width: 100%"
-                  >Inscrever-se</a
+                  rel="noopener"
+                  class="btn-primary event-register-btn"
                 >
+                  <i class="fa-brands fa-whatsapp"></i> Garanta sua vaga via WhatsApp
+                </a>
+
+                <div class="event-organizer-box">
+                  <i class="fa-solid fa-shield-heart"></i>
+                  <p>
+                    Organizado por
+                    <strong>IPASG — Instituto de Permacultura e Artes da Serra Geral</strong>
+                  </p>
+                </div>
               </div>
             </aside>
           </div>
 
-          <!-- ESTADO: EVENTO NÃO ENCONTRADO -->
-          <div
-            id="eventoNaoEncontrado"
-            style="display: none; text-align: center; padding: 60px 0"
-          >
-            <i
-              class="fa-solid fa-calendar-xmark"
-              style="font-size: 48px; color: var(--green); margin-bottom: 20px"
-            ></i>
-            <h2 style="margin-bottom: 16px">Evento não encontrado</h2>
-            <p class="muted" style="margin-bottom: 30px">
-              O evento que você procura não existe ou foi removido.
-            </p>
-            <a href="eventos.html" class="btn-primary">Ver todos os eventos</a>
+          <!-- OUTROS EVENTOS -->
+          <div id="relatedEventsWrap" class="related-events-wrap" style="display: none;">
+            <h2 class="related-events-title">
+              <i class="fa-solid fa-calendar-plus"></i> Outras vivências e oficinas
+            </h2>
+            <div id="related-events-container" class="events-list"></div>
           </div>
         </div>
       </section>
@@ -310,6 +297,7 @@
                 <img
                   src="assets/images/logo/logo-light.png"
                   alt="IPASG"
+                  width="200"
                   height="70"
                   loading="lazy"
                 />
@@ -422,9 +410,6 @@
     <script src="assets/js/eventos-data.js"></script>
     <script src="assets/js/evento-detalhe.js"></script>
     <script src="assets/js/theme.js"></script>
-      <script src="assets/js/loader.js"></script>
+    <script src="assets/js/loader.js"></script>
   </body>
 </html>
-
-
-

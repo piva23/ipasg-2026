@@ -1,7 +1,7 @@
 /* ============================================================
    THEME.CSS
    Depende de colors.css (variáveis) já carregado antes.
-   Contém: overrides de superfícies fixas no dark mode,
+   Contém: overrides de superfcies fixas no dark mode,
    botão de tema, botão voltar ao topo, loading skeleton
    e componentes de paginação/calendário reutilizáveis.
 ============================================================ */
@@ -40,10 +40,6 @@ html[data-theme='dark'] .pillar-card {
   background: #16241d;
   border-color: rgba(255, 255, 255, 0.05);
 }
-html[data-theme='dark'] #pilares.bg-light {
-  background-color: var(--surface-2) !important;
-}
-
 html[data-theme='dark'] .site-footer {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -53,9 +49,7 @@ html[data-theme='dark'] .site-footer {
    está redondo o suficiente. O dark mode automático (via preferência
    do sistema, em theme.js) continua funcionando normalmente; só a
    troca manual fica escondida por enquanto. */
-.theme-toggle {
-  display: none !important;
-}
+/* Theme toggle active */
 
 .theme-toggle-inner,
 .theme-toggle {
@@ -391,8 +385,8 @@ html[data-theme='dark'] .skeleton::after {
 /* ============================================================
    CORREÇÕES DE CONTRASTE NO DARK MODE
    Alguns elementos usam "var(--white)" como texto branco fixo
-   sobre fundo verde (badges, ícones em hover). Como --white
-   passa a ser uma superfície escura no dark mode, esses casos
+   sobre fundo verde (badges, cones em hover). Como --white
+   passa a ser uma superfcie escura no dark mode, esses casos
    precisam forçar branco de verdade.
 ============================================================ */
 html[data-theme='dark'] .news-category,
@@ -403,8 +397,9 @@ html[data-theme='dark'] .feature:hover h3 i {
 }
 
 /* Número do dia nos cards de evento: verde-escuro sobre verde-escuro
-   ficava ilegível — usa um verde-menta claro no dark mode */
-html[data-theme='dark'] .event-date {
+   ficava ilegvel — usa um verde-menta claro no dark mode */
+html[data-theme='dark'] .event-date,
+html[data-theme='dark'] .event-date .day {
   color: #8ce3bf;
 }
 
@@ -418,3 +413,7 @@ html[data-theme='dark'] .view-toggle-btn.active {
   background: var(--green-dark);
   border-color: var(--green-dark);
 }
+
+
+/* BOTÃO DE ALTERNAR TEMA DESCONTINUADO */
+/* Theme toggle active */

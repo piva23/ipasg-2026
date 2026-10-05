@@ -1,308 +1,202 @@
 /* ==========================================
-   eventos.js
-   Listagem de eventos com paginação + calendário
-   + loading skeleton.
-   Depende de eventos-data.js (EVENTOS_DATA, MES_ABREV)
-   carregado ANTES deste arquivo.
+   eventos.js — IPASG PRO
+   Renderização em lista com Busca, Filtro, Ordenação e Paginação
 ========================================== */
 
-(function () {
-  const ITEMS_PER_PAGE = 6;
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.getElementById('event-container');
+  const paginationEl = document.getElementById('eventPagination');
+  const searchInput = document.getElementById('eventSearch');
+  const categoryFilter = document.getElementById('eventCategoryFilter');
+  const sortOrderSelect = document.getElementById('eventSortOrder');
 
-  let state = {
-    view: 'lista', // 'lista' | 'calendario'
-    page: 1,
-    selectedDate: null, // { dia, mes, ano } quando filtrado pelo calendário
-    calendarMonth: new Date().getMonth(),
-    calendarYear: new Date().getFullYear(),
-  };
+  if (!container || typeof EVENTOS_DATA === 'undefined') return;
 
-  function eventDate(evento) {
-    return new Date(evento.ano, evento.mes, evento.dia);
+  const ITEMS_PER_PAGE = 4;
+  let currentPage = 1;
+  let currentFilteredEvents = [...EVENTOS_DATA];
+
+  function getMonthName(mesIndex) {
+    if (typeof MES_ABREV !== 'undefined' && MES_ABREV[mesIndex]) {
+      return MES_ABREV[mesIndex];
+    }
+    return String(mesIndex);
   }
 
-  function sortedEvents() {
-    return [...EVENTOS_DATA].sort((a, b) => eventDate(a) - eventDate(b));
-  }
-
-  function filteredEvents() {
-    const all = sortedEvents();
-    if (!state.selectedDate) return all;
-    const { dia, mes, ano } = state.selectedDate;
-    return all.filter(e => e.dia === dia && e.mes === mes && e.ano === ano);
-  }
-
-  /* ---------- CARD DE EVENTO ---------- */
-  function buildEventItem(evento, index) {
+  function renderEventItem(evento, index) {
     const div = document.createElement('div');
     div.className = 'event-item';
-    div.style.opacity = '0';
-    div.style.animation =
-      'fadeInUp 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards';
-    div.style.animationDelay = `${index * 0.08}s`;
+
+    const mesTexto = evento.mesAbrev || getMonthName(evento.mes);
 
     div.innerHTML = `
       <div class="event-image">
-        <img src="${evento.img}" alt="${evento.titulo}" loading="lazy" />
+        <a href="${evento.link}">
+          <img src="${evento.img}" alt="${evento.titulo}" loading="lazy" />
+        </a>
       </div>
       <div class="event-date">
         <span class="day">${String(evento.dia).padStart(2, '0')}</span>
-        <span class="month">${MES_ABREV[evento.mes]}</span>
+        <span class="month">${mesTexto}</span>
       </div>
       <div class="event-info">
-        <h3 class="event-title">${evento.titulo}</h3>
-        <p class="muted event-loc">
-          <i class="fa-solid fa-location-dot"></i> ${evento.local}
+        <span class="event-category-badge"><i class="fa-solid fa-tag"></i> ${evento.categoria}</span>
+        <h3 class="event-title"><a href="${evento.link}">${evento.titulo}</a></h3>
+        <p class="muted event-meta">
+          <span><i class="fa-solid fa-location-dot"></i> ${evento.local}</span>
+          <span><i class="fa-regular fa-clock"></i> ${evento.horarioInicio} às ${evento.horarioFim}</span>
+          <span><i class="fa-solid fa-ticket"></i> ${evento.valor}</span>
         </p>
+        <p class="muted" style="font-size: 14px; margin-top: 6px; line-height: 1.5;">${evento.resumo}</p>
       </div>
-      <a href="${evento.link}" class="btn-ghost-dark event-btn">Detalhes</a>
+      <div class="event-actions">
+        <a href="${evento.link}" class="btn-ghost-dark event-btn"><i class="fa-solid fa-circle-info"></i> Detalhes</a>
+      </div>
     `;
     return div;
   }
 
-  /* ---------- SKELETON (LOADING) ---------- */
-  function renderSkeleton(container, count = 4) {
+  function filterAndSortEvents() {
+    const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+    const selectedCat = categoryFilter ? categoryFilter.value : 'ALL';
+    const selectedSort = sortOrderSelect ? sortOrderSelect.value : 'DATE_ASC';
+
+    currentFilteredEvents = EVENTOS_DATA.filter(evt => {
+      const matchQuery = !query || 
+        evt.titulo.toLowerCase().includes(query) || 
+        evt.local.toLowerCase().includes(query) ||
+        evt.resumo.toLowerCase().includes(query) ||
+        evt.categoria.toLowerCase().includes(query);
+
+      const matchCat = selectedCat === 'ALL' || evt.categoria === selectedCat;
+
+      return matchQuery && matchCat;
+    });
+
+    // Sort events
+    if (selectedSort === 'DATE_ASC') {
+      currentFilteredEvents.sort((a, b) => {
+        const dateA = new Date(a.ano, a.mes, a.dia);
+        const dateB = new Date(b.ano, b.mes, b.dia);
+        return dateA - dateB;
+      });
+    } else if (selectedSort === 'DATE_DESC') {
+      currentFilteredEvents.sort((a, b) => {
+        const dateA = new Date(a.ano, a.mes, a.dia);
+        const dateB = new Date(b.ano, b.mes, b.dia);
+        return dateB - dateA;
+      });
+    } else if (selectedSort === 'TITLE_ASC') {
+      currentFilteredEvents.sort((a, b) => a.titulo.localeCompare(b.titulo));
+    }
+
+    currentPage = 1;
+    renderPage();
+  }
+
+  function renderPage() {
     container.innerHTML = '';
-    for (let i = 0; i < count; i++) {
-      const sk = document.createElement('div');
-      sk.className = 'skeleton-card skeleton';
-      sk.innerHTML = `
-        <div class="skeleton-img skeleton"></div>
-        <div class="skeleton-lines">
-          <div class="skeleton-line short skeleton"></div>
-          <div class="skeleton-line medium skeleton"></div>
-          <div class="skeleton-line short skeleton"></div>
+    const totalItems = currentFilteredEvents.length;
+
+    if (totalItems === 0) {
+      container.innerHTML = `
+        <div style="text-align: center; padding: 50px 20px; background: #ffffff; border-radius: var(--radius-lg); border: 1px solid var(--green-border);">
+          <i class="fa-solid fa-calendar-xmark" style="font-size: 42px; color: var(--muted); margin-bottom: 16px;"></i>
+          <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 8px;">Nenhum evento encontrado</h3>
+          <p class="muted" style="margin-bottom: 20px;">Tente buscar por outros termos ou selecione outra categoria.</p>
+          <button id="resetFiltersBtn" class="btn-ghost-dark"><i class="fa-solid fa-rotate-left"></i> Limpar Filtros</button>
         </div>
       `;
-      container.appendChild(sk);
-    }
-  }
-
-  /* ---------- PAGINAÇÃO ---------- */
-  function renderPagination(container, totalItems) {
-    container.innerHTML = '';
-    const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
-    if (totalPages <= 1) return;
-
-    const prev = document.createElement('button');
-    prev.innerHTML = '<i class="fa-solid fa-chevron-left"></i>';
-    prev.disabled = state.page === 1;
-    prev.setAttribute('aria-label', 'Página anterior');
-    prev.addEventListener('click', () => changePage(state.page - 1));
-    container.appendChild(prev);
-
-    for (let p = 1; p <= totalPages; p++) {
-      const btn = document.createElement('button');
-      btn.textContent = p;
-      if (p === state.page) btn.classList.add('active');
-      btn.addEventListener('click', () => changePage(p));
-      container.appendChild(btn);
-    }
-
-    const next = document.createElement('button');
-    next.innerHTML = '<i class="fa-solid fa-chevron-right"></i>';
-    next.disabled = state.page === totalPages;
-    next.setAttribute('aria-label', 'Próxima página');
-    next.addEventListener('click', () => changePage(state.page + 1));
-    container.appendChild(next);
-  }
-
-  function changePage(page) {
-    state.page = page;
-    renderList(true);
-    document
-      .getElementById('event-container')
-      .scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-
-  /* ---------- RENDER DA LISTA ---------- */
-  function renderList(withLoading) {
-    const container = document.getElementById('event-container');
-    const paginationEl = document.getElementById('eventPagination');
-    if (!container) return;
-
-    const data = filteredEvents();
-    const start = (state.page - 1) * ITEMS_PER_PAGE;
-    const pageItems = data.slice(start, start + ITEMS_PER_PAGE);
-
-    function paint() {
-      container.innerHTML = '';
-
-      if (pageItems.length === 0) {
-        container.innerHTML = `<p class="muted" style="text-align:center; padding:40px;">Nenhum evento encontrado para esta data.</p>`;
-      } else {
-        pageItems.forEach((evento, index) => {
-          container.appendChild(buildEventItem(evento, index));
+      if (paginationEl) paginationEl.innerHTML = '';
+      
+      const resetBtn = document.getElementById('resetFiltersBtn');
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          if (searchInput) searchInput.value = '';
+          if (categoryFilter) categoryFilter.value = 'ALL';
+          if (sortOrderSelect) sortOrderSelect.value = 'DATE_ASC';
+          filterAndSortEvents();
         });
       }
-      renderPagination(paginationEl, data.length);
-    }
-
-    if (withLoading) {
-      renderSkeleton(container, Math.min(pageItems.length || 3, 4));
-      paginationEl.innerHTML = '';
-      setTimeout(paint, 450);
-    } else {
-      paint();
-    }
-  }
-
-  /* ---------- FILTRO PELO CALENDÁRIO ---------- */
-  function renderFilterNote() {
-    const note = document.getElementById('calendarFilterNote');
-    if (!note) return;
-
-    if (!state.selectedDate) {
-      note.style.display = 'none';
-      note.innerHTML = '';
       return;
     }
 
-    const { dia, mes, ano } = state.selectedDate;
-    note.style.display = 'flex';
-    note.innerHTML = `
-      Mostrando eventos de <strong>${dia} de ${MES_NOME[mes]} de ${ano}</strong>
-      <button id="clearDateFilter">Limpar filtro</button>
-    `;
-    document.getElementById('clearDateFilter').addEventListener('click', () => {
-      state.selectedDate = null;
-      state.page = 1;
-      renderFilterNote();
-      renderList(true);
-      renderCalendar();
+    const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const endIndex = Math.min(startIndex + ITEMS_PER_PAGE, totalItems);
+    const pageItems = currentFilteredEvents.slice(startIndex, endIndex);
+
+    pageItems.forEach((evento, index) => {
+      container.appendChild(renderEventItem(evento, index));
     });
+
+    renderPagination(totalPages);
   }
 
-  /* ---------- CALENDÁRIO ---------- */
-  const WEEKDAYS = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
+  function renderPagination(totalPages) {
+    if (!paginationEl) return;
+    paginationEl.innerHTML = '';
 
-  function renderCalendar() {
-    const wrap = document.getElementById('calendarWrap');
-    if (!wrap) return;
+    if (totalPages <= 1) return;
 
-    const { calendarMonth, calendarYear } = state;
-    const monthLabel = document.getElementById('calendarMonthLabel');
-    monthLabel.textContent = `${MES_NOME[calendarMonth]} de ${calendarYear}`;
-
-    const grid = document.getElementById('calendarGrid');
-    grid.innerHTML = '';
-
-    WEEKDAYS.forEach(w => {
-      const el = document.createElement('div');
-      el.className = 'calendar-weekday';
-      el.textContent = w;
-      grid.appendChild(el);
-    });
-
-    const firstDay = new Date(calendarYear, calendarMonth, 1).getDay();
-    const daysInMonth = new Date(calendarYear, calendarMonth + 1, 0).getDate();
-    const today = new Date();
-
-    const eventsThisMonth = EVENTOS_DATA.filter(
-      e => e.mes === calendarMonth && e.ano === calendarYear
-    );
-
-    for (let i = 0; i < firstDay; i++) {
-      const empty = document.createElement('div');
-      empty.className = 'calendar-day empty';
-      grid.appendChild(empty);
-    }
-
-    for (let d = 1; d <= daysInMonth; d++) {
-      const dayEl = document.createElement('div');
-      dayEl.className = 'calendar-day';
-      dayEl.textContent = d;
-
-      const hasEvent = eventsThisMonth.some(e => e.dia === d);
-      const isToday =
-        d === today.getDate() &&
-        calendarMonth === today.getMonth() &&
-        calendarYear === today.getFullYear();
-      const isSelected =
-        state.selectedDate &&
-        state.selectedDate.dia === d &&
-        state.selectedDate.mes === calendarMonth &&
-        state.selectedDate.ano === calendarYear;
-
-      if (isToday) dayEl.classList.add('today');
-      if (hasEvent) {
-        dayEl.classList.add('has-event');
-        const dot = document.createElement('span');
-        dot.className = 'dot';
-        dayEl.appendChild(dot);
-        dayEl.addEventListener('click', () => {
-          state.selectedDate = { dia: d, mes: calendarMonth, ano: calendarYear };
-          state.page = 1;
-          renderFilterNote();
-          renderList(true);
-          renderCalendar();
-          switchView('lista');
-        });
+    // Previous Button
+    const prevBtn = document.createElement('button');
+    prevBtn.className = `page-btn ${currentPage === 1 ? 'disabled' : ''}`;
+    prevBtn.innerHTML = '<i class="fa-solid fa-chevron-left"></i>';
+    prevBtn.addEventListener('click', () => {
+      if (currentPage > 1) {
+        currentPage--;
+        renderPage();
+        scrollToTopList();
       }
-      if (isSelected) dayEl.classList.add('selected');
+    });
+    paginationEl.appendChild(prevBtn);
 
-      grid.appendChild(dayEl);
+    // Page Number Buttons
+    for (let i = 1; i <= totalPages; i++) {
+      const pBtn = document.createElement('button');
+      pBtn.className = `page-btn ${i === currentPage ? 'active' : ''}`;
+      pBtn.textContent = i;
+      pBtn.addEventListener('click', () => {
+        currentPage = i;
+        renderPage();
+        scrollToTopList();
+      });
+      paginationEl.appendChild(pBtn);
+    }
+
+    // Next Button
+    const nextBtn = document.createElement('button');
+    nextBtn.className = `page-btn ${currentPage === totalPages ? 'disabled' : ''}`;
+    nextBtn.innerHTML = '<i class="fa-solid fa-chevron-right"></i>';
+    nextBtn.addEventListener('click', () => {
+      if (currentPage < totalPages) {
+        currentPage++;
+        renderPage();
+        scrollToTopList();
+      }
+    });
+    paginationEl.appendChild(nextBtn);
+  }
+
+  function scrollToTopList() {
+    const controls = document.querySelector('.events-controls-bar');
+    if (controls) {
+      controls.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
 
-  function changeCalendarMonth(delta) {
-    let m = state.calendarMonth + delta;
-    let y = state.calendarYear;
-    if (m < 0) {
-      m = 11;
-      y -= 1;
-    } else if (m > 11) {
-      m = 0;
-      y += 1;
-    }
-    state.calendarMonth = m;
-    state.calendarYear = y;
-    renderCalendar();
+  // Event Listeners
+  if (searchInput) {
+    searchInput.addEventListener('input', filterAndSortEvents);
+  }
+  if (categoryFilter) {
+    categoryFilter.addEventListener('change', filterAndSortEvents);
+  }
+  if (sortOrderSelect) {
+    sortOrderSelect.addEventListener('change', filterAndSortEvents);
   }
 
-  /* ---------- ALTERNAR LISTA / CALENDÁRIO ---------- */
-  function switchView(view) {
-    state.view = view;
-    const listBtn = document.getElementById('viewListBtn');
-    const calBtn = document.getElementById('viewCalendarBtn');
-    const calendarWrap = document.getElementById('calendarWrap');
-    const listWrap = document.getElementById('event-container');
-    const paginationEl = document.getElementById('eventPagination');
-
-    if (view === 'calendario') {
-      listBtn.classList.remove('active');
-      calBtn.classList.add('active');
-      calendarWrap.style.display = 'block';
-      listWrap.style.display = 'none';
-      paginationEl.style.display = 'none';
-    } else {
-      calBtn.classList.remove('active');
-      listBtn.classList.add('active');
-      calendarWrap.style.display = 'none';
-      listWrap.style.display = 'flex';
-      paginationEl.style.display = 'flex';
-    }
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const container = document.getElementById('event-container');
-    if (!container) return; // não é a página de eventos
-
-    renderList(true);
-    renderCalendar();
-    renderFilterNote();
-    switchView('lista');
-
-    const listBtn = document.getElementById('viewListBtn');
-    const calBtn = document.getElementById('viewCalendarBtn');
-    if (listBtn) listBtn.addEventListener('click', () => switchView('lista'));
-    if (calBtn) calBtn.addEventListener('click', () => switchView('calendario'));
-
-    const prevMonthBtn = document.getElementById('calendarPrevMonth');
-    const nextMonthBtn = document.getElementById('calendarNextMonth');
-    if (prevMonthBtn)
-      prevMonthBtn.addEventListener('click', () => changeCalendarMonth(-1));
-    if (nextMonthBtn)
-      nextMonthBtn.addEventListener('click', () => changeCalendarMonth(1));
-  });
-})();
+  // Initial Render
+  filterAndSortEvents();
+});

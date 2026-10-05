@@ -85,6 +85,7 @@ As seções de notícias e materiais também seguem abordagem centralizada em Ja
 
 - Melhorar o contraste entre os blocos das páginas.
 - Revisar o fundo branco muito claro em partes do layout.
+- Ajustar Hero à página inicial
 - Melhorar a navegação mobile. Incluir o voltar para cima na versão mobile.
 - Atualizar o site com dados completamente reais.
 - Confirmar cor do Footer #146b54 ou #0f1724 (Atual)

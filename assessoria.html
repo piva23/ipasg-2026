@@ -19,6 +19,9 @@
     <meta property="og:type" content="website" />
     <link rel="icon" type="image/png" href="assets/images/favicon.png" />
     <link rel="apple-touch-icon" href="assets/images/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap"
       rel="stylesheet"
@@ -40,107 +43,60 @@
       <div class="page-loader__spinner"></div>
     </div>
 
-    <div class="topbar">
+            <div class="topbar">
       <div class="container topbar-inner">
         <div class="topbar-left">
           <a href="https://maps.app.goo.gl/Gr9pTNqz5FRNrjQw8" target="_blank">
-            <i class="fa-solid fa-location-dot"></i> Estrada Municipal, 885 —
-            Mampituba/RS
+            <i class="fa-solid fa-location-dot"></i> Estrada Municipal, 885 — Mampituba/RS
           </a>
         </div>
         <div class="topbar-right">
           <div class="social-links">
-            <a href="tel:+5551992429974" aria-label="Ligar"
-              ><i class="fa-solid fa-phone"></i
-            ></a>
-            <a
-              href="https://wa.me/5551992429974"
-              target="_blank"
-              aria-label="WhatsApp"
-              ><i class="fa-brands fa-whatsapp"></i
-            ></a>
-            <a
-              href="https://instagram.com/"
-              target="_blank"
-              aria-label="Instagram"
-              ><i class="fa-brands fa-instagram"></i
-            ></a>
-            <a
-              href="https://www.facebook.com/"
-              target="_blank"
-              aria-label="Facebook"
-              ><i class="fa-brands fa-facebook-f"></i
-            ></a>
-            <a href="mailto:ipasg.rs@gmail.com" aria-label="E-mail"
-              ><i class="fa-solid fa-envelope"></i
-            ></a>
+            <a href="tel:+5551992429974" aria-label="Ligar para o IPASG"><i class="fa-solid fa-phone"></i></a>
+            <a href="mailto:ipasg.rs@gmail.com" aria-label="Enviar E-mail"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://wa.me/5551992429974" target="_blank" aria-label="Falar no WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://instagram.com/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
           </div>
         </div>
       </div>
     </div>
+    </div>
+    </div>
 
-    <header class="site-header" role="banner">
+            <header class="site-header" role="banner">
       <div class="container navwrap">
         <div class="brand">
           <a href="index.html" aria-label="IPASG Home" class="brand-link">
-            <img src="assets/images/logo/logo.png" alt="Logotipo do IPASG" />
+            <img src="assets/images/logo/logo.png" data-dark-src="assets/images/logo/logo-light.png" alt="Logotipo do IPASG" />
           </a>
         </div>
+
         <nav class="nav" role="navigation" aria-label="Main menu">
           <div class="nav-item">
-            <a href="index.html"><i class="fa-solid fa-house"></i> Início</a>
+            <a href="index.html" id="nav-inicio" ><i class="fa-solid fa-house"></i> Início</a>
           </div>
           <div class="nav-item dropdown">
-            <a href="#" aria-haspopup="true"
-              ><i class="fa-solid fa-leaf"></i> Sobre
-              <i class="fa-solid fa-caret-down caret"></i
-            ></a>
+            <a href="#" aria-haspopup="true" id="nav-sobre" ><i class="fa-solid fa-leaf"></i> Sobre <i class="fa-solid fa-caret-down caret"></i></a>
             <div class="dropdown-menu">
               <a href="sobre.html">História</a>
               <a href="membros.html">Membros</a>
             </div>
           </div>
-          <div class="nav-item dropdown">
-            <a href="#" aria-haspopup="true"
-              ><i class="fa-solid fa-seedling"></i> Projetos
-              <i class="fa-solid fa-caret-down caret"></i
-            ></a>
-            <div class="dropdown-menu">
-              <a href="projetos.html?filter=all">Todos os projetos</a>
-              <a href="projetos.html?filter=permacultura">Permacultura</a>
-              <a href="projetos.html?filter=arte">Arte</a>
-            </div>
+          <div class="nav-item">
+            <a href="projetos.html" id="nav-projetos" ><i class="fa-solid fa-seedling"></i> Projetos</a>
           </div>
           <div class="nav-item">
-            <a href="assessoria.html" aria-current="page"
-              ><i class="fa-solid fa-handshake"></i> Assessoria</a
-            >
+            <a href="assessoria.html" id="nav-assessoria" class="active"><i class="fa-solid fa-handshake"></i> Assessoria</a>
           </div>
           <div class="nav-item">
-            <a href="eventos.html"
-              ><i class="fa-solid fa-calendar-days"></i> Eventos</a
-            >
-          </div>
-          <div class="nav-item">
-            <a href="noticias.html"
-              ><i class="fa-solid fa-newspaper"></i> Notícias</a
-            >
-          </div>
-          <div class="nav-item">
-            <a href="materiais.html"
-              ><i class="fa-solid fa-book-open"></i> Materiais</a
-            >
+            <a href="eventos.html" id="nav-eventos" ><i class="fa-solid fa-calendar-days"></i> Eventos</a>
           </div>
         </nav>
+
         <div class="header-utilities">
-          <a href="apoie.html" class="btn-primary"
-            ><i class="fa-solid fa-heart"></i> Apoie</a
-          >
-          <button
-            id="mobileToggle"
-            class="mobile-toggle"
-            aria-label="Abrir menu"
-          >
+          <a href="apoie.html" class="btn-primary" id="nav-apoie"><i class="fa-solid fa-heart"></i> Apoie</a>
+          <button id="mobileToggle" class="mobile-toggle" aria-label="Abrir menu">
             <i class="fa-solid fa-bars"></i>
           </button>
         </div>
@@ -576,11 +532,6 @@
                 >
                   <i class="fa-solid fa-location-dot"></i> Estrada Municipal,
                   885 — Mampituba/RS
-                </a>
-              </li>
-              <li>
-                <a href="mailto:ipasg.rs@gmail.com">
-                  <i class="fa-regular fa-envelope"></i> ipasg.rs@gmail.com
                 </a>
               </li>
             </ul>
