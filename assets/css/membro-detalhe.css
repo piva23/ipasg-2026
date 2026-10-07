@@ -78,7 +78,13 @@
   width: 100%;
   aspect-ratio: 4/5;
   object-fit: cover;
+  object-position: center top;
   display: block;
+}
+
+/* Siomara: mesma correção de enquadramento da grade (ver membros.css) */
+.member-photo-wrapper img[src*="siomara"] {
+  object-position: 50% 20%;
 }
 
 .badge-fundador {

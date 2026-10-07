@@ -96,7 +96,7 @@ const NOTICIAS_DATA = [
     dateShort: '02 Jul, 2023',
     category: 'Eventos',
     author: 'Equipe IPASG',
-    img: 'assets/images/difference/thumb-lg-two.png',
+    img: 'assets/images/difference/thumb-lg-two.jpg',
     resumo: 'A oficina de meliponicultura organizada pelo IPASG reuniu agricultores e entusiastas das abelhas nativas, com demonstrações práticas de manejo e multiplicação de colônias.',
     descricaoCompleta: `
       <p>A oficina de Meliponicultura organizada pelo IPASG reuniu mais de 30 participantes — entre agricultores familiares, apicultores e entusiastas das abelhas nativas sem ferrão — para um dia completo de aprendizado prático sobre o manejo e a conservação das meliponíneas.</p>

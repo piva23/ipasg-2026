@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Pausa o slider automático quando a aba não está vis�vel, evitando
+  // Pausa o slider automático quando a aba não está visível, evitando
   // "pulos" acumulados de slide quando o usuário volta pra aba.
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {

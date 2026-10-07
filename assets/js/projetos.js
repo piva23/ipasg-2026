@@ -31,7 +31,7 @@ const PROJETOS_DATA = [
     tag: 'Biodiversidade',
     title: 'Meliponicultura',
     desc: 'Criação e manejo sustentável de abelhas nativas sem ferrão, auxiliando na polinização e conservação ambiental.',
-    img: 'assets/images/difference/thumb-lg-two.png',
+    img: 'assets/images/difference/thumb-lg-two.jpg',
     link: 'projetos/meliponicultura.html',
   },
   {

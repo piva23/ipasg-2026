@@ -159,12 +159,6 @@
   transition: var(--transition);
 }
 
-.event-item:hover .event-date {
-  background: var(--green);
-  color: var(--white);
-  border-color: var(--green);
-}
-
 .event-date span {
   font-size: 34px;
   margin-bottom: 4px;

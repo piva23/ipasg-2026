@@ -36,8 +36,8 @@ const EVENTOS_DATA = [
   },
   {
     id: 2,
-    img: 'assets/images/difference/thumb-lg-two.png',
-    galeria: ['assets/images/difference/thumb-lg-two.png'],
+    img: 'assets/images/difference/thumb-lg-two.jpg',
+    galeria: ['assets/images/difference/thumb-lg-two.jpg'],
     dia: 2,
     mes: 11,
     mesAbrev: 'DEZ',
@@ -136,8 +136,8 @@ const EVENTOS_DATA = [
   },
   {
     id: 7,
-    img: 'assets/images/banner/2.png',
-    galeria: ['assets/images/banner/2.png'],
+    img: 'assets/images/banner/2.jpg',
+    galeria: ['assets/images/banner/2.jpg'],
     dia: 12,
     mes: 4,
     mesAbrev: 'MAI',

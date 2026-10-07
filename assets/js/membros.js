@@ -33,7 +33,7 @@ const MEMBERS = [
   {
     name: 'Felipe Piva',
     role: 'Membro Fundador',
-    img: 'assets/members/felipe/felipe.png',
+    img: 'assets/members/felipe/felipe.jpg',
     url: 'team-felipe.html',
     socials: {
       whatsapp: 'https://wa.me/5551992429974',
@@ -70,7 +70,7 @@ const MEMBERS = [
     },
   },
   {
-    name: 'Patr√cia Berg',
+    name: 'Patr√≠cia Berg',
     role: 'Membro Fundadora',
     img: 'assets/members/patricia/patricia.jpeg',
     url: 'team-patricia.html',

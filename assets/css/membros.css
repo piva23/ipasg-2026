@@ -89,7 +89,14 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
   transition: transform 0.5s ease;
+}
+
+/* Siomara: foto mais alta que a caixa 4:5 — janela um pouco abaixo do topo
+   para tirar o excesso de parede acima da cabeça e subir o rosto no card */
+.team__single-thumb img[src*="siomara"] {
+  object-position: 50% 20%;
 }
 
 .team__single-thumb > a::before {
