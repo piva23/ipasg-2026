@@ -316,12 +316,15 @@ body.menu-open {
 
   /* Só o menu MOBILE (painel deslizante) tem fundo próprio.
      visibility:hidden impede que links fora da tela entrem no Tab;
-     a delay em visibility deixa o slide-out terminar antes de ocultar. */
+     a delay em visibility deixa o slide-out terminar antes de ocultar.
+     margin:0 zera o margin:0 24px do .nav desktop — sem isso o
+     right:0 do painel fixo resolvia 24px à esquerda da borda. */
   .nav {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     position: fixed;
+    margin: 0;
     top: 93px;
     right: -100%;
     width: 320px;
@@ -397,16 +400,17 @@ body.menu-open {
       padding 0.35s ease, visibility 0s 0s;
   }
 
-  /* CTA Apoie no rodapé do painel */
+  /* CTA Apoie no rodapé do painel.
+     menu.js clona #nav-apoie (a.btn-primary) e cola a classe aqui:
+     o seletor precisa atingir o próprio nó, e display:block (antes)
+     derrubava o inline-flex centralizado do .btn-primary — texto
+     ficava alinhado à esquerda dentro da pílula. */
   .nav-mobile-cta {
-    display: block;
+    display: inline-flex;
+    justify-content: center;
     width: 100%;
     margin-top: auto;
     padding-top: 24px;
-  }
-
-  .nav-mobile-cta .btn-primary {
-    width: 100%;
   }
 
   /* Botão "voltar ao topo" não flutua sobre o backdrop */
