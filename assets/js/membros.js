@@ -24,7 +24,7 @@ const MEMBERS = [
     url: 'team-leandro.html',
     socials: {
       whatsapp: 'https://wa.me/5551992429974',
-      instagram: 'https://instagram.com/leonunes65',
+      instagram: 'https://instagram.com/leonunes.65',
       facebook: 'https://facebook.com',
       youtube: 'https://youtube.com',
       email: 'mailto:',
