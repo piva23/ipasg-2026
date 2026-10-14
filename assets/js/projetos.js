@@ -132,7 +132,7 @@ function renderProjetosGrid(targetId, filter = 'all', limit = 0) {
 
   if (list.length === 0) {
     grid.innerHTML =
-      '<p style="grid-column:1/-1;text-align:center;color:var(--earth,#8a7a66);padding:24px 0;">Nenhum projeto nesta categoria no momento.</p>';
+      '<p class="muted" style="grid-column:1/-1;text-align:center;padding:40px;">Nenhum projeto nesta categoria no momento.</p>';
     return;
   }
 
@@ -173,6 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const filterBtns = document.querySelectorAll('.filter-btn');
     filterBtns.forEach(btn => {
       if (btn.getAttribute('data-filter') === initialFilter) {
+        filterBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
       }
 
