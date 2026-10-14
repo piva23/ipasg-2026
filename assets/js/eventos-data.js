@@ -16,8 +16,8 @@ const MES_ABREV = [
 const EVENTOS_DATA = [
   {
     id: 1,
-    img: 'assets/images/banner/m-two.png',
-    galeria: ['assets/images/banner/m-two.png'],
+    img: 'assets/images/banner/m-three.png',
+    galeria: ['assets/images/banner/m-three.png'],
     dia: 15,
     mes: 10,
     mesAbrev: 'NOV',
@@ -36,8 +36,8 @@ const EVENTOS_DATA = [
   },
   {
     id: 2,
-    img: 'assets/images/difference/thumb-lg-two.jpg',
-    galeria: ['assets/images/difference/thumb-lg-two.jpg'],
+    img: 'assets/images/banner/m-two.png',
+    galeria: ['assets/images/banner/m-two.png'],
     dia: 2,
     mes: 11,
     mesAbrev: 'DEZ',

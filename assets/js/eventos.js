@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!container || typeof EVENTOS_DATA === 'undefined') return;
 
-  const ITEMS_PER_PAGE = 4;
+  const ITEMS_PER_PAGE = 8;
   let currentPage = 1;
   let currentFilteredEvents = [...EVENTOS_DATA];
 
