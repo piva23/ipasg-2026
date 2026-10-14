@@ -4,8 +4,10 @@
 ========================================== */
 
 const PROJETOS_DATA = [
+  // --- Templates ocultos (remover hidden:true para reativar) ---
   {
     id: 1,
+    hidden: true,
     category: 'permacultura',
     model: 'modelo-1',
     tag: 'Permacultura',
@@ -16,6 +18,7 @@ const PROJETOS_DATA = [
   },
   {
     id: 2,
+    hidden: true,
     category: 'permacultura',
     model: 'modelo-1',
     tag: 'Bioconstrução',
@@ -26,6 +29,7 @@ const PROJETOS_DATA = [
   },
   {
     id: 3,
+    hidden: true,
     category: 'biodiversidade',
     model: 'modelo-2',
     tag: 'Biodiversidade',
@@ -36,6 +40,7 @@ const PROJETOS_DATA = [
   },
   {
     id: 4,
+    hidden: true,
     category: 'biodiversidade',
     model: 'modelo-2',
     tag: 'Agroecologia',
@@ -46,6 +51,7 @@ const PROJETOS_DATA = [
   },
   {
     id: 5,
+    hidden: true,
     category: 'arte',
     model: 'modelo-3',
     tag: 'Artes Integradas',
@@ -56,6 +62,7 @@ const PROJETOS_DATA = [
   },
   {
     id: 6,
+    hidden: true,
     category: 'saude',
     model: 'modelo-4',
     tag: 'Vivências & Saúde',
@@ -63,6 +70,26 @@ const PROJETOS_DATA = [
     desc: 'Resgate de saberes ancestrais e fortalecimento de vínculos comunitários através do movimento e da arte.',
     img: 'assets/images/banner/m-one.png',
     link: 'projetos/dancas-circulares.html',
+  },
+  {
+    id: 7,
+    category: 'permacultura',
+    model: 'modelo-1',
+    tag: 'Permacultura',
+    title: 'Semear — Tecendo Saberes Populares',
+    desc: 'Cultivando vida, preservando saberes e fortalecendo comunidades em Mampituba/RS. Há 30 anos, a Farmacinha Violeta mantém viva a tradição do cuidado com plantas medicinais.',
+    img: 'assets/images/projetos/semear-01.jpg',
+    link: 'projetos/semear.html',
+  },
+  {
+    id: 8,
+    category: 'apoiados',
+    model: 'modelo-5',
+    tag: 'Projetos Apoiados',
+    title: 'Tekoa Ayvu — A Voz da Aldeia',
+    desc: 'Uma celebração viva da cultura Mbyá Guarani.',
+    img: 'assets/images/projetos/tekoa-ayvu-capa.jpg',
+    link: 'projetos/tekoa-ayvu.html',
   },
 ];
 
@@ -94,11 +121,19 @@ function renderProjetosGrid(targetId, filter = 'all', limit = 0) {
   grid.innerHTML = '';
 
   let list = PROJETOS_DATA.filter(
-    p => filter === 'all' || p.category === filter || p.model === filter
+    p =>
+      (filter === 'all' || p.category === filter || p.model === filter) &&
+      !p.hidden
   );
 
   if (limit > 0) {
     list = list.slice(0, limit);
+  }
+
+  if (list.length === 0) {
+    grid.innerHTML =
+      '<p style="grid-column:1/-1;text-align:center;color:var(--earth,#8a7a66);padding:24px 0;">Nenhum projeto nesta categoria no momento.</p>';
+    return;
   }
 
   list.forEach((projeto, index) => {

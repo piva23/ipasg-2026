@@ -69,6 +69,7 @@
 .badge-modelo-2 { background: var(--ochre-light); color: var(--earth); border: 1px solid #fde68a; }
 .badge-modelo-3 { background: #ffedd5; color: #c75c2e; border: 1px solid #fed7aa; }
 .badge-modelo-4 { background: #ccfbf1; color: #0d9488; border: 1px solid #99f6e4; }
+.badge-modelo-5 { background: #e7efe9; color: #2e5646; border: 1px solid #b7d0c0; }
 
 .projeto-hero-content h1 {
   font-size: clamp(32px, 4vw, 48px);
