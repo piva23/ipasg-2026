@@ -3,6 +3,11 @@
    Integrado com colors.css, base.css, header.css e footer.css
 ============================================================ */
 
+/* BARRA "VOLTAR" SIMPLES (estilo membros) */
+.projeto-back-bar {
+  padding: 24px 0 0;
+}
+
 /* BREADCRUMB BAR */
 .breadcrumb-bar {
   background: var(--surface-2);
@@ -103,6 +108,23 @@
 
 .projeto-hero-image:hover img {
   transform: scale(1.03);
+}
+
+/* HERO COM FOTO VERTICAL — sem corte (object-fit: contain) */
+.projeto-hero-image--portrait {
+  background: var(--surface-2);
+  padding: 14px;
+}
+
+.projeto-hero-image--portrait img {
+  display: block;
+  height: auto;
+  max-height: 480px;
+  width: auto;
+  max-width: 100%;
+  margin: 0 auto;
+  object-fit: contain;
+  border-radius: var(--radius-md);
 }
 
 /* PROJETO MAIN GRID */
