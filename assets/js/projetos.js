@@ -97,6 +97,9 @@ function buildProjetoCard(projeto, index) {
   const card = document.createElement('article');
   card.className = 'card projeto-card';
   card.setAttribute('data-model', projeto.model);
+  if (projeto.category === 'apoiados') {
+    card.classList.add('apoiado');
+  }
 
   card.innerHTML = `
     <div class="projeto-thumb">

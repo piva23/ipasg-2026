@@ -37,4 +37,13 @@
 .fade-in-up { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
 .is-visible { opacity: 1; transform: translate(0); }
 
-@media (max-width: 768px) { .projetos-grid { grid-template-columns: 1fr; } }
+@media (max-width: 768px) {
+  .projetos-grid { grid-template-columns: 1fr; }
+  .projetos-filter { gap: 8px; }
+  .filter-btn { padding: 10px 20px; font-size: 14px; }
+}
+
+@media (max-width: 520px) {
+  .projetos-filter { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .filter-btn { width: 100%; text-align: center; padding: 10px 8px; }
+}

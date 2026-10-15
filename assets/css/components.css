@@ -376,7 +376,7 @@ html[data-theme='dark'] .partners-track img:hover {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  height: 460px; /* Altura fixa para alinhar todos os cards */
+  min-height: 460px; /* Altura mínima; cresce se o texto for longo */
   transition: var(--transition);
 }
 
@@ -426,6 +426,15 @@ html[data-theme='dark'] .partners-track img:hover {
 .tag-modelo-4 { background: #0f766e; color: #ffffff; }
 .tag-modelo-5 { background: #2e5646; color: #ffffff; }
 
+/* Projetos Apoiados — destaque só de cor (mesmo layout) */
+.projeto-card.apoiado {
+  border-color: #2e5646;
+}
+
+.projeto-card.apoiado:hover {
+  border-color: #2e5646;
+}
+
 .projeto-content {
   padding: 22px;
   display: flex;
@@ -440,11 +449,6 @@ html[data-theme='dark'] .partners-track img:hover {
   color: var(--dark);
   margin-bottom: 8px;
   line-height: 1.35;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  height: 2.7em; /* Alinhamento uniforme de títulos */
 }
 
 .projeto-content h3 a {
@@ -461,10 +465,6 @@ html[data-theme='dark'] .partners-track img:hover {
   color: var(--muted);
   line-height: 1.6;
   margin-bottom: 16px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
   flex: 1;
 }
 
