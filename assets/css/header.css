@@ -445,3 +445,12 @@ body.menu-open {
     display: none;
   }
 }
+
+/* ============================================================
+   CTA "APOIE" OCULTO (pedido do cliente — página apoie.html
+   continua no ar; só o botão do header/menu some)
+============================================================ */
+#nav-apoie,
+.nav-mobile-cta {
+  display: none;
+}
