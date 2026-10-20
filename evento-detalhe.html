@@ -104,13 +104,18 @@
     </header>
 
     <main>
+      <!-- BARRA "VOLTAR" (padrão projeto) -->
+      <div class="event-back-bar">
+        <div class="container">
+          <a href="eventos.html" class="btn-ghost-dark">
+            <i class="fa-solid fa-arrow-left"></i> Voltar para Eventos
+          </a>
+        </div>
+      </div>
+
       <!-- HERO DO EVENTO -->
       <section id="eventHero" class="section event-hero bg-white">
         <div class="container">
-          <a href="eventos.html" class="btn-ghost-dark event-hero__back">
-            <i class="fa-solid fa-arrow-left"></i> Voltar para a lista de eventos
-          </a>
-
           <span id="event-category" class="event-category-tag">
             <i class="fa-solid fa-tag"></i> Carregando...
           </span>
@@ -187,19 +192,11 @@
                   <div id="event-gallery" class="event-gallery-grid"></div>
                 </div>
 
-                <!-- COMPARTILHAMENTO -->
+                <!-- COMPARTILHAMENTO (botão único) -->
                 <div class="event-share-bar">
-                  <span class="event-share-label">
-                    <i class="fa-solid fa-share-nodes"></i> Compartilhe este evento
-                  </span>
-                  <div class="event-share-links">
-                    <a id="share-wa" href="#" target="_blank" rel="noopener" class="share-btn share-btn--wa" aria-label="Compartilhar no WhatsApp">
-                      <i class="fa-brands fa-whatsapp"></i> WhatsApp
-                    </a>
-                    <a id="share-fb" href="#" target="_blank" rel="noopener" class="share-btn share-btn--fb" aria-label="Compartilhar no Facebook">
-                      <i class="fa-brands fa-facebook-f"></i> Facebook
-                    </a>
-                  </div>
+                  <button type="button" id="share-btn" class="btn-ghost-dark event-share-btn" aria-label="Compartilhar este evento">
+                    <i class="fa-solid fa-share-nodes"></i> Compartilhar
+                  </button>
                 </div>
               </div>
             </article>

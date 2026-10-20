@@ -78,7 +78,7 @@ const PROJETOS_DATA = [
     tag: 'Permacultura',
     title: 'Semear — Tecendo Saberes Populares',
     desc: 'Cultivando vida, preservando saberes e fortalecendo comunidades em Mampituba/RS. Há 30 anos, a Farmacinha Violeta mantém viva a tradição do cuidado com plantas medicinais.',
-    img: 'assets/images/projetos/semear-01.jpg',
+    img: 'assets/images/projetos/fundo-casa-banner-card.jpg',
     link: 'projetos/semear.html',
   },
   {
@@ -87,7 +87,7 @@ const PROJETOS_DATA = [
     model: 'modelo-5',
     tag: 'Projetos Apoiados',
     title: 'Tekoa Ayvu — A Voz da Aldeia',
-    desc: 'Uma celebração viva da cultura Mbyá Guarani.',
+    desc: 'Uma celebração viva da cultura Mbyá Guarani. Em oficinas e vivências nas aldeias Tekoa Pekurity e Tekoa Jate’i Mirim, mestres compartilham saberes ancestrais, artesanato e música.',
     img: 'assets/images/projetos/tekoa-ayvu-capa.jpg',
     link: 'projetos/tekoa-ayvu.html',
   },

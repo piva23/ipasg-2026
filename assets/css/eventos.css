@@ -23,12 +23,12 @@
 
 .event-search-input {
   width: 100%;
-  padding: 11px 16px 11px 42px;
+  padding: 8px 14px 8px 38px;
   border-radius: 999px;
   border: 1.5px solid var(--green-border);
   background: #ffffff;
   color: var(--dark);
-  font-size: 14px;
+  font-size: 13px;
   font-family: inherit;
   transition: var(--transition);
 }
@@ -56,12 +56,12 @@
 }
 
 .event-select-filter {
-  padding: 10px 18px;
+  padding: 7px 14px;
   border-radius: 999px;
   border: 1.5px solid var(--green-border);
   background: #ffffff;
   color: var(--dark);
-  font-size: 13.5px;
+  font-size: 12.5px;
   font-weight: 600;
   font-family: inherit;
   cursor: pointer;
@@ -207,10 +207,35 @@
 }
 
 .event-btn {
-  min-height: 44px;
-  padding: 0 22px;
-  font-size: 14px;
+  min-height: 36px;
+  padding: 0 16px;
+  font-size: 13px;
 }
+
+/* SEÇÃO — separação entre próximos e realizados */
+.events-section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 28px 0 16px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.events-section-header:first-child { margin-top: 0; }
+
+.events-section-header i { color: var(--green); font-size: 16px; }
+
+.events-section-header.events-section-header--past i { color: var(--muted); }
+
+/* Eventos já realizados — continuam coloridos, apenas mais fraquinhos */
+.event-item--past { opacity: 0.85; }
+
+.event-item--past .event-date .day,
+.event-item--past .event-date .month { color: var(--muted); }
+
+.event-item--past:hover { opacity: 1; }
 
 /* PAGINAÇÃO */
 .pagination {
@@ -222,13 +247,13 @@
 }
 
 .page-btn {
-  width: 42px;
-  height: 42px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   border: 1.5px solid var(--green-border);
   background: #ffffff;
   color: var(--dark);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   cursor: pointer;
   transition: var(--transition);

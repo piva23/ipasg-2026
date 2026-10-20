@@ -20,7 +20,14 @@
 .filter-btn:hover { border-color: var(--green); color: var(--green); transform: translateY(-2px); }
 .filter-btn.active { background: var(--green); color: var(--white); border-color: var(--green); box-shadow: 0 8px 20px rgba(30, 139, 111, 0.3); }
 
-.projetos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
+/* auto-fit + faixa máxima: cards crescem até 400px e o conjunto
+   fica centralizado mesmo com 1 ou 2 projetos visíveis */
+.projetos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
+  justify-content: center;
+  gap: 30px;
+}
 
 /* Cards: estilos de .projeto-card/.projeto-thumb/.projeto-content/
    .projeto-tag vêm de components.css (mesma fonte da index) para os

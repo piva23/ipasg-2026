@@ -13,11 +13,15 @@
   padding: 40px 0 34px;
 }
 
-.event-hero__back {
+/* BARRA "VOLTAR" — mesmo padrão das páginas de projeto */
+.event-back-bar {
+  padding: 24px 0 0;
+}
+
+.event-back-bar .btn-ghost-dark {
   min-height: 44px;
   font-size: 14px;
   padding: 0 22px;
-  margin-bottom: 26px;
 }
 
 .event-category-tag {
@@ -256,61 +260,19 @@
   box-shadow: var(--shadow-md);
 }
 
-/* --- COMPARTILHAMENTO --- */
+/* --- COMPARTILHAMENTO (botão único — Web Share API + fallback) --- */
 .event-share-bar {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
+  justify-content: flex-end;
   margin-top: 34px;
   padding-top: 24px;
   border-top: 1px solid var(--green-border);
 }
 
-.event-share-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
+.event-share-btn {
+  min-height: 46px;
   font-size: 14.5px;
-  font-weight: 700;
-  color: var(--dark);
-}
-
-.event-share-label i {
-  color: var(--green);
-}
-
-.event-share-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.share-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  min-height: 44px;
-  padding: 0 20px;
-  border-radius: var(--radius-full);
-  font-size: 14px;
-  font-weight: 600;
-  color: #ffffff;
-  transition: var(--transition);
-}
-
-.share-btn--wa {
-  background: #25d366;
-}
-
-.share-btn--fb {
-  background: #1877f2;
-}
-
-.share-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
+  padding: 0 22px;
 }
 
 /* ------------------------------------------------------------
@@ -470,11 +432,6 @@
 
   .event-info-card {
     padding: 22px 18px;
-  }
-
-  .event-share-bar {
-    flex-direction: column;
-    align-items: flex-start;
   }
 
   .event-gallery-grid {

@@ -9,7 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   container.innerHTML = '';
 
-  const proximosEventos = EVENTOS_DATA.slice(0, 3);
+  // Na Home mostramos apenas o PRÓXIMO evento (o futuro mais próximo).
+  // Se não houver evento futuro, exibimos o mais recente já realizado.
+  const hoje = new Date();
+  hoje.setHours(0, 0, 0, 0);
+  const dataDo = e => new Date(e.ano, e.mes, e.dia);
+  const futuros = EVENTOS_DATA.filter(e => dataDo(e) >= hoje).sort((a, b) => dataDo(a) - dataDo(b));
+  const passados = EVENTOS_DATA.filter(e => dataDo(e) < hoje).sort((a, b) => dataDo(b) - dataDo(a));
+  const proximosEventos = (futuros.length ? futuros : passados).slice(0, 1);
 
   proximosEventos.forEach((evento, index) => {
     const div = document.createElement('div');

@@ -39,7 +39,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const mesNome = typeof MES_NOME !== 'undefined' ? MES_NOME[evento.mes] : evento.mes;
   const dataFormatada = `${String(evento.dia).padStart(2, '0')} de ${mesNome} de ${evento.ano}`;
-  const paginaEvento = `${window.location.origin}${window.location.pathname}?id=${evento.id}`;
+  // URL canônica do evento (compatível também com file://, onde origin é "null")
+  const baseUrl = (window.location.origin && window.location.origin !== 'null')
+    ? `${window.location.origin}${window.location.pathname}`
+    : window.location.href.split('?')[0].split('#')[0];
+  const paginaEvento = `${baseUrl}?id=${evento.id}`;
 
   /* --- SEO --- */
   document.title = `${evento.titulo} | IPASG`;
@@ -105,20 +109,52 @@ document.addEventListener('DOMContentLoaded', () => {
     galleryWrap.style.display = 'block';
   }
 
-  /* --- COMPARTILHAMENTO --- */
-  const shareWa = document.getElementById('share-wa');
-  if (shareWa) {
-    const texto = encodeURIComponent(
-      `Confira o evento "${evento.titulo}" (${dataFormatada}) — ${paginaEvento}`
-    );
-    shareWa.href = `https://wa.me/?text=${texto}`;
-  }
+  /* --- COMPARTILHAMENTO (botão único: Web Share API → cópia do link) --- */
+  const shareBtn = document.getElementById('share-btn');
+  if (shareBtn) {
+    const shareData = {
+      title: `${evento.titulo} | IPASG`,
+      text: `Confira o evento "${evento.titulo}" (${dataFormatada}) — IPASG`,
+      url: paginaEvento,
+    };
 
-  const shareFb = document.getElementById('share-fb');
-  if (shareFb) {
-    shareFb.href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-      paginaEvento
-    )}`;
+    const feedback = msg => {
+      const original = shareBtn.innerHTML;
+      shareBtn.innerHTML = `<i class="fa-solid fa-check"></i> ${msg}`;
+      setTimeout(() => { shareBtn.innerHTML = original; }, 2200);
+    };
+
+    const copiarLink = async () => {
+      try {
+        await navigator.clipboard.writeText(paginaEvento);
+        feedback('Link copiado!');
+      } catch (err) {
+        // Fallback para contextos sem Clipboard API (ex.: http antigo)
+        const ta = document.createElement('textarea');
+        ta.value = paginaEvento;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          document.execCommand('copy');
+          feedback('Link copiado!');
+        } catch (e) { /* sem suporte a cópia */ }
+        document.body.removeChild(ta);
+      }
+    };
+
+    shareBtn.addEventListener('click', async () => {
+      if (navigator.share) {
+        try {
+          await navigator.share(shareData);
+        } catch (err) {
+          /* usuário cancelou a folha de compartilhamento */
+        }
+      } else {
+        copiarLink();
+      }
+    });
   }
 
   /* --- EVENTOS RELACIONADOS --- */

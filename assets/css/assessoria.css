@@ -157,9 +157,12 @@
 .processo-step p  { font-size: 14px; color: var(--muted); line-height: 1.6; }
 
 /* ── Cards de serviço (saneamento) ── */
+/* auto-fit + faixa máxima: 3 cards por linha no container (1192px),
+   centralizados, com colunas iguais */
 .servicos-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 375px));
+  justify-content: center;
   gap: 28px;
 }
 
@@ -180,42 +183,63 @@
   border-color: var(--green);
 }
 
-.servico-card__thumb { position: relative; height: 200px; overflow: hidden; }
+/* Foto maior (4:3) com véu sutil na base para profundidade */
+.servico-card__thumb {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--surface-2);
+}
+
+.servico-card__thumb::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 38%;
+  background: linear-gradient(180deg, rgba(15, 23, 36, 0) 0%, rgba(15, 23, 36, 0.28) 100%);
+  pointer-events: none;
+}
+
 .servico-card__thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease; }
 .servico-card:hover .servico-card__thumb img { transform: scale(1.06); }
 
 .servico-card__body {
-  padding: 28px 26px;
+  position: relative;
+  padding: 0 26px 28px;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
 
+/* Ícone flutuando sobre a borda da foto (badge profissional) */
 .servico-card__icon {
-  width: 52px;
-  height: 52px;
-  background: var(--green-light);
-  color: var(--green);
-  border-radius: 14px;
+  width: 54px;
+  height: 54px;
+  background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+  color: #fff;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 22px;
-  margin-bottom: 16px;
+  margin: -27px 0 18px;
+  border: 3px solid var(--white);
+  box-shadow: 0 8px 18px rgba(30, 139, 111, 0.35);
   transition: var(--transition);
   flex-shrink: 0;
 }
 
-.servico-card:hover .servico-card__icon { background: var(--green); color: #fff; }
+.servico-card:hover .servico-card__icon { transform: translateY(-3px) scale(1.04); }
 
 .servico-card__body h3 { font-size: 20px; font-weight: 700; color: var(--dark); margin-bottom: 10px; line-height: 1.3; }
-.servico-card__body p  { font-size: 15px; color: var(--muted); line-height: 1.7; flex-grow: 1; margin-bottom: 20px; }
+.servico-card__body p  { font-size: 15px; color: var(--muted); line-height: 1.75; flex-grow: 1; margin-bottom: 22px; }
 
-.servico-card__tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+.servico-card__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
 
 .servico-tag {
-  padding: 4px 12px;
+  padding: 5px 14px;
   background: var(--green-light);
+  border: 1px solid var(--green-border);
   border-radius: 999px;
   font-size: 12px;
   font-weight: 600;
@@ -225,7 +249,8 @@
 /* ── Especialidades ── */
 .especialidades-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 375px));
+  justify-content: center;
   gap: 24px;
 }
 
@@ -321,16 +346,16 @@
   .banner-stats { grid-template-columns: repeat(4, 1fr); }
   .processo-grid { grid-template-columns: repeat(2, 1fr); }
   .processo-grid::before { display: none; }
-  .servicos-grid { grid-template-columns: 1fr 1fr; }
-  .especialidades-grid { grid-template-columns: 1fr 1fr; }
+  /* grids de cards usam auto-fit + centralização (sem colunas fixas) */
 }
 
 @media (max-width: 768px) {
   .assessoria-banner { padding: 140px 0 80px; }
   .assessoria-banner::after { display: none; }
   .banner-stats { grid-template-columns: repeat(2, 1fr); }
-  .servicos-grid { grid-template-columns: 1fr; }
-  .especialidades-grid { grid-template-columns: 1fr; }
+  /* uma coluna por vez, com largura máxima e centralizada */
+  .servicos-grid,
+  .especialidades-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
   .assessoria-cta { grid-template-columns: 1fr; padding: 36px 28px; }
   .assessoria-cta__actions { flex-direction: row; flex-wrap: wrap; }
 }
@@ -338,4 +363,5 @@
 @media (max-width: 480px) {
   .banner-stats { grid-template-columns: 1fr 1fr; }
   .processo-grid { grid-template-columns: 1fr; }
+  .servico-card__body { padding: 0 22px 24px; }
 }

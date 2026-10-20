@@ -50,6 +50,11 @@
   border-bottom: 1px solid rgba(30, 139, 111, 0.1);
 }
 
+/* Container da página do membro um pouco mais largo que o padrão */
+.member-profile-section .container {
+  max-width: 1360px;
+}
+
 .member-profile-grid {
   display: grid;
   grid-template-columns: 360px 1fr;
@@ -207,6 +212,8 @@
   font-size: 16px;
   line-height: 1.8;
   margin-bottom: 18px;
+  text-align: justify;
+  hyphens: auto;
 }
 
 .bio-text p:last-child {

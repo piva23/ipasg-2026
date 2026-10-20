@@ -361,15 +361,13 @@ html[data-theme='dark'] .partners-track img:hover {
 
 
 
-}
-
 
 /* ============================================================
    PROJETOS CARDS PRO - ALTURA FIXA E DESIGN IMPECÁVEL
 ============================================================ */
 .projeto-card {
   position: relative;
-  background: #ffffff;
+  background: var(--white);
   border-radius: var(--radius-lg);
   border: 1px solid var(--green-border);
   box-shadow: var(--shadow-sm);
@@ -389,7 +387,7 @@ html[data-theme='dark'] .partners-track img:hover {
 .projeto-thumb {
   position: relative;
   width: 100%;
-  height: 200px; /* Thumbnail com altura fixa */
+  height: 240px; /* Thumbnail mais alta para destacar a foto */
   flex-shrink: 0;
   overflow: hidden;
   background: var(--surface-2);
@@ -433,6 +431,17 @@ html[data-theme='dark'] .partners-track img:hover {
 
 .projeto-card.apoiado:hover {
   border-color: #2e5646;
+}
+
+/* Capa dos apoiados em retrato (flyer): mostra inteira e centralizada,
+   sobre a própria cor de fundo do flyer — nada de texto cortado. */
+.projeto-card.apoiado .projeto-thumb {
+  background: #c5bfaf;
+}
+
+.projeto-card.apoiado .projeto-thumb img {
+  object-fit: contain;
+  object-position: center;
 }
 
 .projeto-content {
@@ -553,6 +562,10 @@ html[data-theme='dark'] .partners-track img:hover {
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE/Edge */
+  /* Cards centralizados quando cabem; se transbordarem, alinha no início
+     (fallback para navegadores sem suporte a "safe") */
+  justify-content: center;
+  justify-content: safe center;
 }
 
 #homeProjetosGrid::-webkit-scrollbar {
@@ -562,9 +575,10 @@ html[data-theme='dark'] .partners-track img:hover {
 }
 
 #homeProjetosGrid .projeto-card {
-  flex: 0 0 340px;
-  min-width: 340px;
-  max-width: 340px;
+  flex: 0 0 380px;
+  min-width: 380px;
+  max-width: 380px;
+  height: auto; /* permite align-items:stretch igualar as alturas */
   scroll-snap-align: start;
 }
 

@@ -23,11 +23,7 @@ const MEMBERS = [
     img: 'assets/members/leandro/leandro.jpg',
     url: 'team-leandro.html',
     socials: {
-      whatsapp: 'https://wa.me/5551992429974',
       instagram: 'https://instagram.com/leonunes.65',
-      facebook: 'https://facebook.com',
-      youtube: 'https://youtube.com',
-      email: 'mailto:',
     },
   },
   {
@@ -36,11 +32,7 @@ const MEMBERS = [
     img: 'assets/members/felipe/felipe.jpg',
     url: 'team-felipe.html',
     socials: {
-      whatsapp: 'https://wa.me/5551992429974',
       instagram: 'https://instagram.com/pivafelipe_',
-      facebook: 'https://facebook.com',
-      youtube: 'https://youtube.com',
-      email: 'mailto:',
     },
   },
   {
@@ -196,27 +188,47 @@ const iconMap = {
   facebook: 'fa-brands fa-facebook-f',
   youtube: 'fa-brands fa-youtube',
   linkedin: 'fa-brands fa-linkedin-in',
-  twitter: 'fa-brands fa-x-twitter',
+  twitter: 'fa-solid fa-seedling',
   email: 'fa-solid fa-envelope',
   website: 'fa-solid fa-globe',
 };
 
-// 3. Montar a Caixinha (Card) do Membro - AGORA COM ANIMAÇÃO NATIVA
+// Ordem da gestão atual (aparecem primeiro, com badge) — o restante
+// segue em ordem alfabética.
+const ORDEM_GESTAO = [
+  'Elaine Regina dos Santos',
+  'Leandro Nunes',
+  'Caroline Falero',
+  'Felipe Piva',
+  'Jorge Herrmann',
+];
+
+// 3. Montar a Caixinha (Card) do Membro
 function buildCard(member, index) {
   const wrapper = document.createElement('div');
 
-  // Aqui geramos a animação em cascata! Cada card entra 0.1s depois do anterior.
-  wrapper.style.opacity = '0';
-  wrapper.style.animation = `fadeInUpCard 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards`;
-  wrapper.style.animationDelay = `${index * 0.1}s`;
+  // Cascata sutil no desktop (index >= 0); no mobile os cards
+  // aparecem direto, sem animação em fila de espera.
+  if (index !== null && index !== undefined) {
+    wrapper.style.opacity = '0';
+    wrapper.style.animation = 'fadeInUpCard 0.5s ease forwards';
+    wrapper.style.animationDelay = `${Math.min(index * 0.06, 0.36)}s`;
+  }
 
   let socialsHTML = '';
   if (member.socials) {
     for (const [network, link] of Object.entries(member.socials)) {
+      // WhatsApp fica oculto para todos os membros (contato via institucional).
+      if (network === 'whatsapp') continue;
+      if (!link) continue;
       const iconClass = iconMap[network] || 'fa-solid fa-link';
       socialsHTML += `<li><a href="${link}" target="_blank" class="social-btn"><i class="${iconClass}"></i></a></li>`;
     }
   }
+
+  const gestaoBadge = ORDEM_GESTAO.includes(member.name)
+    ? ' <span class="gestao-badge" title="Gestão atual" aria-label="Gestão atual"><i class="fa-solid fa-star" aria-hidden="true"></i></span>'
+    : '';
 
   wrapper.innerHTML = `
     <div class="team__single van-tilt">
@@ -237,7 +249,7 @@ function buildCard(member, index) {
       </div>
       <div class="team__single-content">
         <h6><a href="${member.url}">${member.name}</a></h6>
-        <p>${member.role}</p>
+        <p>${member.role}${gestaoBadge}</p>
       </div>
     </div>
   `;
@@ -251,9 +263,22 @@ function renderMembers() {
 
   grid.innerHTML = ''; // Garante que a grade está limpa
 
-  // Repare que passamos o 'index' (0, 1, 2...) para a função buildCard fazer a cascata
-  MEMBERS.forEach((m, index) => {
-    grid.appendChild(buildCard(m, index));
+  // Ordem: gestão atual primeiro (na ordem definida), depois o restante
+  // em ordem alfabética (pt-BR)
+  const posicao = nome => {
+    const i = ORDEM_GESTAO.indexOf(nome);
+    return i === -1 ? ORDEM_GESTAO.length : i;
+  };
+  const ordemAlfabetica = [...MEMBERS].sort((a, b) => {
+    const dif = posicao(a.name) - posicao(b.name);
+    return dif !== 0 ? dif : a.name.localeCompare(b.name, 'pt-BR');
+  });
+
+  // Em telas pequenas não usamos a animação em cascata
+  const isMobile = window.matchMedia('(max-width: 600px)').matches;
+
+  ordemAlfabetica.forEach((m, index) => {
+    grid.appendChild(buildCard(m, isMobile ? null : index));
   });
 
   // Previne conflitos no clique das redes
@@ -263,9 +288,10 @@ function renderMembers() {
     });
   });
 
-  // Inicializa o efeito 3D
+  // Efeito 3D apenas em dispositivos com mouse (não em toque)
+  const isTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches;
   const tiltEls = document.querySelectorAll('.van-tilt');
-  if (tiltEls.length && typeof VanillaTilt !== 'undefined') {
+  if (!isTouch && tiltEls.length && typeof VanillaTilt !== 'undefined') {
     VanillaTilt.init(tiltEls, {
       max: 6,
       speed: 400,

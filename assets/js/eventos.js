@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ITEMS_PER_PAGE = 8;
   let currentPage = 1;
   let currentFilteredEvents = [...EVENTOS_DATA];
+  let currentSort = 'DATE_ASC';
 
   function getMonthName(mesIndex) {
     if (typeof MES_ABREV !== 'undefined' && MES_ABREV[mesIndex]) {
@@ -23,9 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
     return String(mesIndex);
   }
 
-  function renderEventItem(evento, index) {
+  function renderEventItem(evento, past) {
     const div = document.createElement('div');
-    div.className = 'event-item';
+    div.className = 'event-item' + (past ? ' event-item--past' : '');
 
     const mesTexto = evento.mesAbrev || getMonthName(evento.mes);
 
@@ -74,22 +75,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Sort events
+    const hoje = new Date();
+    hoje.setHours(0, 0, 0, 0);
+    const dataDo = e => new Date(e.ano, e.mes, e.dia);
+    const ehFuturo = e => dataDo(e) >= hoje;
+
     if (selectedSort === 'DATE_ASC') {
+      // Mais próximos primeiro: eventos futuros (mais próximo primeiro),
+      // depois os já realizados (mais recente primeiro).
       currentFilteredEvents.sort((a, b) => {
-        const dateA = new Date(a.ano, a.mes, a.dia);
-        const dateB = new Date(b.ano, b.mes, b.dia);
-        return dateA - dateB;
+        const futA = ehFuturo(a), futB = ehFuturo(b);
+        if (futA !== futB) return futA ? -1 : 1;
+        return futA ? dataDo(a) - dataDo(b) : dataDo(b) - dataDo(a);
       });
     } else if (selectedSort === 'DATE_DESC') {
+      // Inverso do "mais próximos": realizados primeiro (mais antigo
+      // primeiro) e, no fim, os futuros (mais distante primeiro).
       currentFilteredEvents.sort((a, b) => {
-        const dateA = new Date(a.ano, a.mes, a.dia);
-        const dateB = new Date(b.ano, b.mes, b.dia);
-        return dateB - dateA;
+        const futA = ehFuturo(a), futB = ehFuturo(b);
+        if (futA !== futB) return futA ? 1 : -1;
+        return futA ? dataDo(b) - dataDo(a) : dataDo(a) - dataDo(b);
       });
     } else if (selectedSort === 'TITLE_ASC') {
-      currentFilteredEvents.sort((a, b) => a.titulo.localeCompare(b.titulo));
+      currentFilteredEvents.sort((a, b) => a.titulo.localeCompare(b.titulo, 'pt-BR'));
     }
 
+    currentSort = selectedSort;
     currentPage = 1;
     renderPage();
   }
@@ -126,11 +137,42 @@ document.addEventListener('DOMContentLoaded', () => {
     const endIndex = Math.min(startIndex + ITEMS_PER_PAGE, totalItems);
     const pageItems = currentFilteredEvents.slice(startIndex, endIndex);
 
-    pageItems.forEach((evento, index) => {
-      container.appendChild(renderEventItem(evento, index));
-    });
+    // Ordenação por nome: lista alfabética plana, sem seções por data.
+    if (currentSort === 'TITLE_ASC') {
+      pageItems.forEach(evt => container.appendChild(renderEventItem(evt, false)));
+      renderPagination(totalPages);
+      return;
+    }
+
+    // Seções por data: próximos (futuros) e já realizados.
+    const hoje = new Date();
+    hoje.setHours(0, 0, 0, 0);
+    const dataDo = e => new Date(e.ano, e.mes, e.dia);
+    const futuros = pageItems.filter(e => dataDo(e) >= hoje);
+    const passados = pageItems.filter(e => dataDo(e) < hoje);
+
+    if (futuros.length) {
+      container.appendChild(
+        sectionHeader('Próximos Eventos', 'fa-calendar-check', false)
+      );
+      futuros.forEach(evt => container.appendChild(renderEventItem(evt, false)));
+    }
+
+    if (passados.length) {
+      container.appendChild(
+        sectionHeader('Eventos Realizados', 'fa-clock-rotate-left', true)
+      );
+      passados.forEach(evt => container.appendChild(renderEventItem(evt, true)));
+    }
 
     renderPagination(totalPages);
+  }
+
+  function sectionHeader(titulo, icone, isPast) {
+    const h = document.createElement('h2');
+    h.className = 'events-section-header' + (isPast ? ' events-section-header--past' : '');
+    h.innerHTML = `<i class="fa-solid ${icone}"></i> ${titulo}`;
+    return h;
   }
 
   function renderPagination(totalPages) {
