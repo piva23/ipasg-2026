@@ -85,7 +85,7 @@ const EVENTOS_DATA = [
     ano: 2026,
     horarioInicio: '09:00',
     horarioFim: '17:00',
-    titulo: 'Lançamento do Projeto Semear',
+    titulo: 'Lançamento Semear',
     categoria: 'Permacultura',
     local: 'Farmacinha Violeta — Mampituba/RS',
     endereco: 'Estrada Municipal, 885 — Mampituba/RS',

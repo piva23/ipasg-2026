@@ -55,6 +55,7 @@
   line-height: 1.7;
   color: rgba(255,255,255,0.82);
   margin-bottom: 36px;
+  text-align: justify;
 }
 
 .banner-actions { display: flex; gap: 14px; flex-wrap: wrap; }
@@ -154,7 +155,7 @@
 }
 
 .processo-step h4 { font-size: 16px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
-.processo-step p  { font-size: 14px; color: var(--muted); line-height: 1.6; }
+.processo-step p  { font-size: 14px; color: var(--muted); line-height: 1.6; text-align: justify; }
 
 /* ── Cards de serviço (saneamento) ── */
 /* auto-fit + faixa máxima: 3 cards por linha no container (1192px),

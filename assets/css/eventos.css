@@ -2,6 +2,7 @@
    EVENTOS.CSS — IPASG LISTA PRO & CONTROLES
 ============================================================ */
 .events-controls-bar {
+  display: none; /* oculto por padrão; ative se quiser */
   background: #ffffff;
   border: 1px solid var(--green-border);
   border-radius: var(--radius-lg);
@@ -174,11 +175,13 @@
   font-weight: 700;
   color: var(--dark);
   line-height: 1.3;
+  text-align: justify;
 }
 
 .event-title a {
   color: var(--dark);
   transition: var(--transition);
+  text-align: justify;
 }
 
 .event-title a:hover {
@@ -192,18 +195,21 @@
   font-size: 13.5px;
   color: var(--muted);
   flex-wrap: wrap;
+  text-align: justify;
 }
 
 .event-meta span {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  text-align: justify;
 }
 
-.event-actions {
+.event-info {
   display: flex;
-  align-items: center;
-  gap: 12px;
+  flex-direction: column;
+  gap: 6px;
+  text-align: justify;
 }
 
 .event-btn {
