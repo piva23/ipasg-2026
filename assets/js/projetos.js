@@ -88,7 +88,7 @@ const PROJETOS_DATA = [
     tag: 'Projetos Apoiados',
     title: 'Tekoa Ayvu — A Voz da Aldeia',
     desc: 'Uma celebração viva da cultura Mbyá Guarani. Em oficinas e vivências nas aldeias Tekoa Pekurity e Tekoa Jate’i Mirim, mestres compartilham saberes ancestrais, artesanato e música.',
-    img: 'assets/images/projetos/tekoa-ayvu-capa.jpg',
+    img: 'assets/images/projetos/tekoa-ayvu-card.jpg',
     link: 'projetos/tekoa-ayvu.html',
   },
 ];

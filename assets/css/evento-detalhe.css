@@ -18,10 +18,14 @@
   padding: 24px 0 0;
 }
 
+/* Botão voltar: só o ícone da seta, em círculo compacto */
 .event-back-bar .btn-ghost-dark {
+  width: 44px;
+  height: 44px;
   min-height: 44px;
-  font-size: 14px;
-  padding: 0 22px;
+  font-size: 15px;
+  padding: 0;
+  border-radius: var(--radius-full);
 }
 
 .event-category-tag {
@@ -126,6 +130,16 @@
   color: var(--muted);
   max-width: 460px;
   margin: 0 auto 26px;
+}
+
+/* Botão de volta (só o ícone da seta) no estado "não encontrado" */
+.evento-not-found .btn-primary {
+  width: 44px;
+  height: 44px;
+  min-height: 44px;
+  padding: 0;
+  font-size: 15px;
+  border-radius: var(--radius-full);
 }
 
 /* ------------------------------------------------------------

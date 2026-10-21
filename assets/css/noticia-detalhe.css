@@ -213,6 +213,16 @@
 /* ── Botão voltar ── */
 .noticia-back { margin-top: 28px; }
 
+/* Botão voltar: só o ícone da seta, em círculo compacto */
+.noticia-back .btn-ghost-dark {
+  width: 44px;
+  height: 44px;
+  min-height: 44px;
+  padding: 0;
+  font-size: 15px;
+  border-radius: var(--radius-full);
+}
+
 /* ── Sidebar ── */
 .noticia-sidebar {
   position: sticky;

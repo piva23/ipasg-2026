@@ -8,6 +8,22 @@
   padding: 24px 0 0;
 }
 
+/* Botão voltar: só o ícone da seta, em círculo compacto */
+.projeto-back-bar .btn-ghost-dark {
+  width: 44px;
+  height: 44px;
+  min-height: 44px;
+  padding: 0;
+  font-size: 15px;
+  border-width: 1px;
+  border-radius: var(--radius-full);
+  background: transparent;
+}
+
+.projeto-back-bar .btn-ghost-dark:hover {
+  transform: none;
+}
+
 /* BREADCRUMB BAR */
 .breadcrumb-bar {
   background: var(--surface-2);
@@ -405,6 +421,54 @@
   color: var(--dark);
 }
 
+/* FICHA DO PROJETO — faixa horizontal de largura total, entre o título e o "Sobre" */
+.projeto-ficha {
+  background: var(--surface-1);
+  border: 1px solid var(--divider);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 24px 30px;
+  margin: 6px 0 0;
+}
+
+.projeto-ficha .ficha-heading {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--muted);
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.projeto-ficha .meta-list {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 18px 46px;
+  justify-content: center;
+}
+
+.projeto-ficha .meta-item {
+  align-items: center;
+  gap: 12px;
+}
+
+.projeto-ficha .meta-item label,
+.projeto-ficha .meta-item span {
+  text-align: center;
+}
+
+.projeto-ficha .meta-item i {
+  margin-top: 0;
+}
+
+/* Artigo em coluna única — medida de leitura confortável, centralizado */
+.projeto-article--single {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 40px 0 64px;
+}
+
 /* RESPONSIVIDADE */
 @media (max-width: 960px) {
   .projeto-hero-inner {
@@ -416,5 +480,19 @@
   }
   .projeto-stats {
     grid-template-columns: 1fr;
+  }
+  .projeto-ficha .meta-list {
+    gap: 16px 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .projeto-ficha {
+    padding: 20px;
+  }
+  .projeto-ficha .meta-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
   }
 }

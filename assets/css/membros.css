@@ -191,6 +191,7 @@
 .team__icons { position: absolute; bottom: -22px; right: 24px; z-index: 4; }
 
 .team__single-content__icon {
+  position: relative;
   width: 44px;
   height: 44px;
   border-radius: 50%;
@@ -204,7 +205,21 @@
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.team__single-content__icon i { font-size: 16px; transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); }
+/* Dois ícones empilhados: a mudinha (repouso) desabrocha em flor (hover). */
+.team__single-content__icon i {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.team__single-content__icon .icon-plant { opacity: 1; transform: scale(1); }
+.team__single-content__icon .icon-flower { opacity: 0; transform: scale(0.4) rotate(-45deg); }
+
+.team__single:hover .team__single-content__icon .icon-plant { opacity: 0; transform: scale(0.4); }
+.team__single:hover .team__single-content__icon .icon-flower { opacity: 1; transform: scale(1) rotate(0deg); }
 
 .team__single__thumb-social {
   position: absolute;
@@ -243,7 +258,6 @@
 .team__single:hover .team__single-content h6 a { color: #fff; }
 .team__single:hover .team__single-content p { color: #8ce3bf; }
 .team__single:hover .team__single-content__icon { background-color: #8ce3bf; color: var(--green-dark); }
-.team__single:hover .team__single-content__icon i { transform: rotate(45deg); }
 .team__single:hover .team__single__thumb-social { opacity: 1; visibility: visible; pointer-events: all; transform: translateY(0px); }
 
 @keyframes fadeInUpCard {

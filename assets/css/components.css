@@ -424,23 +424,26 @@ html[data-theme='dark'] .partners-track img:hover {
 .tag-modelo-4 { background: #0f766e; color: #ffffff; }
 .tag-modelo-5 { background: #2e5646; color: #ffffff; }
 
-/* Projetos Apoiados — destaque só de cor (mesmo layout) */
+/* Projetos Apoiados — destaque só de cor (mesmo layout), sem borda em repouso.
+   No hover, o verde volta igual aos demais cards (regra explícita, já que
+   .projeto-card.apoiado tem a mesma especificidade de .projeto-card:hover
+   e viria depois, anulando o hover). */
 .projeto-card.apoiado {
-  border-color: #2e5646;
+  border-color: transparent;
 }
 
 .projeto-card.apoiado:hover {
-  border-color: #2e5646;
+  border-color: var(--green);
 }
 
-/* Capa dos apoiados em retrato (flyer): mostra inteira e centralizada,
-   sobre a própria cor de fundo do flyer — nada de texto cortado. */
+/* Capa dos apoiados: imagem horizontal na proporção exata do card
+   (1140x720 ≈ 380x240), preenche toda a miniatura sem cortes. */
 .projeto-card.apoiado .projeto-thumb {
   background: #c5bfaf;
 }
 
 .projeto-card.apoiado .projeto-thumb img {
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
 }
 

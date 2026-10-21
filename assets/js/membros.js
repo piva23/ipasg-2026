@@ -43,9 +43,7 @@ const MEMBERS = [
     socials: {
       whatsapp: 'https://wa.me/5551992429974',
       instagram: 'https://instagram.com/abayomifalero',
-      facebook: 'https://facebook.com',
-      youtube: 'https://youtube.com',
-      email: 'mailto:',
+      facebook: 'https://facebook.com/carolinefalero',
     },
   },
   {
@@ -238,7 +236,8 @@ function buildCard(member, index) {
         </a>
         <div class="team__icons">
           <div class="team__single-content__icon">
-            <i class="fa-solid fa-plus"></i>
+            <i class="fa-solid fa-seedling icon-plant" aria-hidden="true"></i>
+            <i class="fa-solid fa-spa icon-flower" aria-hidden="true"></i>
           </div>
           <div class="team__single__thumb-social">
             <ul>
