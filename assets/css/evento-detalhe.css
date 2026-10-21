@@ -147,7 +147,7 @@
 ------------------------------------------------------------ */
 .event-details-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 340px;
+  grid-template-columns: 1fr;
   gap: 32px;
   align-items: start;
 }
@@ -203,6 +203,7 @@
   font-size: 16.5px;
   line-height: 1.8;
   color: var(--muted);
+  text-align: justify;
 }
 
 /* --- DESTAQUES --- */
