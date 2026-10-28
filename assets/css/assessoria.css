@@ -39,24 +39,27 @@
   color: #8ce3bf;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  margin-bottom: 20px;
+  margin-bottom: 12px; /* reduzi de 20px para 12px */
 }
 
 .assessoria-banner h1 {
   font-size: clamp(36px, 5vw, 58px);
   font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -1px;
-  margin-bottom: 20px;
+  line-height: 1.15; /* levemente maior */
+  letter-spacing: -0.5px;
+  margin-bottom: 16px; /* reduzi de 20px para 16px */
 }
 
 .assessoria-banner p.lead {
   font-size: 18px;
   line-height: 1.7;
   color: rgba(255,255,255,0.82);
-  margin-bottom: 36px;
+  margin-bottom: 28px; /* reduzi de 36px para 28px */
   text-align: justify;
 }
+
+/* Stats do hero estão ocultos até os dados serem fornecidos */
+.banner-stats { display: none; }
 
 .banner-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 
@@ -80,17 +83,17 @@
 
 .banner-stat {
   background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.2); /* aumento levemente o border para melhorar contraste */
   border-radius: var(--radius-lg);
-  padding: 28px 24px;
+  padding: 24px 20px; /* reduzi um pouco o padding */
   text-align: center;
   backdrop-filter: blur(8px);
   transition: var(--transition);
 }
 
 .banner-stat:hover {
-  background: rgba(255,255,255,0.18);
-  transform: translateY(-4px);
+  background: rgba(255,255,255,0.15);
+  transform: translateY(-3px); /* reduzi de 4px para 3px */
 }
 
 .banner-stat strong {
@@ -99,12 +102,12 @@
   font-weight: 700;
   color: #fff;
   line-height: 1;
-  margin-bottom: 6px;
+  margin-bottom: 4px; /* reduzi de 6px para 4px */
 }
 
 .banner-stat span {
   font-size: 14px;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255,255,255,0.8); /* clarifiquei um pouco o branco */
   line-height: 1.4;
 }
 
@@ -119,11 +122,12 @@
 .processo-grid::before {
   content: '';
   position: absolute;
-  top: 36px;
+  top: 28px;
   left: calc(12.5% + 8px);
   width: calc(75% - 16px);
-  height: 2px;
+  height: 1px;
   background: var(--green-border);
+  opacity: 0.5;
   z-index: 0;
 }
 
@@ -252,7 +256,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 375px));
   justify-content: center;
-  gap: 24px;
+  gap: 32px; /* aumento o gap para respirar mais */
 }
 
 .especialidade-card {
@@ -289,7 +293,7 @@
 .especialidade-card p  { font-size: 14px; color: var(--muted); line-height: 1.65; margin: 0; }
 
 /* ── Depoimento ── */
-.depoimento-section { background: var(--green-dark); padding: 80px 0; }
+.depoimento-section { display: none; }
 
 .depoimento-inner { max-width: 760px; margin: 0 auto; text-align: center; }
 
