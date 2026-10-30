@@ -17,8 +17,8 @@ const MES_ABREV = [
 const EVENTOS_DATA = [
   {
     id: 1,
-    img: 'assets/images/banner/m-three.png',
-    galeria: ['assets/images/banner/m-three.png'],
+    img: 'assets/images/eventos/bioconstrucao-tijolos.png',
+    galeria: ['assets/images/eventos/bioconstrucao-tijolos.png'],
     dia: 14,
     mes: 5,
     mesAbrev: 'JUN',
@@ -37,8 +37,8 @@ const EVENTOS_DATA = [
   },
   {
     id: 2,
-    img: 'assets/images/banner/m-two.png',
-    galeria: ['assets/images/banner/m-two.png'],
+    img: 'assets/images/eventos/meliponicultura-oficina.png',
+    galeria: ['assets/images/eventos/meliponicultura-oficina.png'],
     dia: 9,
     mes: 7,
     mesAbrev: 'AGO',

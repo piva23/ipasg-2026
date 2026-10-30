@@ -11,11 +11,14 @@
 ------------------------------------------------------------ */
 .event-hero {
   padding: 40px 0 34px;
+  /* remove as bordas do bg-white para o hero ficar fluido */
+  border-top: none;
+  border-bottom: none;
 }
 
 /* BARRA "VOLTAR" — mesmo padrão das páginas de projeto */
 .event-back-bar {
-  padding: 24px 0 0;
+  padding: 16px 0 0;
 }
 
 /* Botão voltar: só o ícone da seta, em círculo compacto */
@@ -84,6 +87,8 @@
 ------------------------------------------------------------ */
 .event-detail-section {
   padding: 40px 0 80px;
+  /* remove a borda superior para ficar fluido com o hero */
+  border-top: none;
 }
 
 .event-detail-container {
