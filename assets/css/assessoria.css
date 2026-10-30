@@ -2,25 +2,25 @@
    ASSESSORIA — CSS (REFEITO)
 ============================================================ */
 
-/* ── Banner ── */
+/* ── Banner (full-viewport, como o hero do index) ── */
 .assessoria-banner {
   background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 100%);
   color: #fff;
-  padding: 160px 0 90px;
-  margin-top: -92px;
+  height: calc(100svh - var(--chrome-h, 134px));
+  min-height: 440px;
+  display: flex;
+  align-items: center;
   position: relative;
   overflow: hidden;
 }
 
-.assessoria-banner::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
+/* remove o canto curvado inferior — o banner ocupa toda a viewport */
+.assessoria-banner::after { display: none; }
+
+.assessoria-banner .container {
   width: 100%;
-  height: 60px;
-  background: var(--white);
-  clip-path: ellipse(55% 100% at 50% 100%);
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .assessoria-banner__inner {
@@ -347,6 +347,7 @@
 
 /* ── Responsivo ── */
 @media (max-width: 1024px) {
+  .assessoria-banner { height: calc(100svh - var(--chrome-h, 134px)); }
   .assessoria-banner__inner { grid-template-columns: 1fr; gap: 48px; }
   .banner-stats { grid-template-columns: repeat(4, 1fr); }
   .processo-grid { grid-template-columns: repeat(2, 1fr); }
@@ -354,8 +355,12 @@
   /* grids de cards usam auto-fit + centralização (sem colunas fixas) */
 }
 
+@media (max-width: 960px) {
+  .assessoria-banner { height: calc(100svh - var(--chrome-h, 92px)); min-height: 0; padding: 24px 0; }
+}
+
 @media (max-width: 768px) {
-  .assessoria-banner { padding: 140px 0 80px; }
+  .assessoria-banner { height: calc(100svh - var(--chrome-h, 92px)); min-height: 0; padding: 24px 0; }
   .assessoria-banner::after { display: none; }
   .banner-stats { grid-template-columns: repeat(2, 1fr); }
   /* uma coluna por vez, com largura máxima e centralizada */
@@ -366,6 +371,7 @@
 }
 
 @media (max-width: 480px) {
+  .assessoria-banner { height: calc(100svh - var(--chrome-h, 92px)); min-height: 0; }
   .banner-stats { grid-template-columns: 1fr 1fr; }
   .processo-grid { grid-template-columns: 1fr; }
   .servico-card__body { padding: 0 22px 24px; }
