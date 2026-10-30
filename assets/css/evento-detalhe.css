@@ -25,7 +25,13 @@
   min-height: 44px;
   font-size: 15px;
   padding: 0;
+  border-width: 1px;
   border-radius: var(--radius-full);
+  background: transparent;
+}
+
+.event-back-bar .btn-ghost-dark:hover {
+  transform: none;
 }
 
 .event-category-tag {
@@ -81,7 +87,7 @@
 }
 
 .event-detail-container {
-  max-width: 1120px;
+  /* usa o container padrão do projeto (--container: 1240px) */
 }
 
 .evento-loading {

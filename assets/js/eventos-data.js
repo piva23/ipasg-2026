@@ -57,8 +57,8 @@ const EVENTOS_DATA = [
   },
   {
     id: 3,
-    img: 'assets/images/banner/m-one.png',
-    galeria: ['assets/images/banner/m-one.png'],
+    img: 'assets/images/eventos/rodadas-dancas-circulares.jpg',
+    galeria: ['assets/images/eventos/rodadas-dancas-circulares.jpg'],
     dia: 26,
     mes: 8,
     mesAbrev: 'SET',
