@@ -53,7 +53,6 @@ const MEMBERS = [
     url: 'team-antonio.html',
     socials: {
       whatsapp: 'https://wa.me/5551992429974',
-      instagram: 'https://instagram.com/',
     },
   },
   {
@@ -93,7 +92,6 @@ const MEMBERS = [
     url: 'team-alexandre.html',
     socials: {
       whatsapp: 'https://wa.me/5551992429974',
-      instagram: 'https://instagram.com/',
       website: 'http://www.studiooneartes.com',
     },
   },
