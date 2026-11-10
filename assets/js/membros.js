@@ -191,10 +191,12 @@ const iconMap = {
   website: 'fa-solid fa-globe',
 };
 
-// Ordem da gestão atual (aparecem primeiro, com badge) — o restante
+// Ordem da diretoria atual (aparecem primeiro, com badge) — o restante
 // segue em ordem alfabética.
 const ORDEM_GESTAO = [
   'Elaine Regina dos Santos',
+  'Zezé Kronbauer',
+  'Alexandre Oliveira',
   'Leandro Nunes',
   'Caroline Falero',
   'Felipe Piva',
@@ -225,7 +227,7 @@ function buildCard(member, index) {
   }
 
   const gestaoBadge = ORDEM_GESTAO.includes(member.name)
-    ? ' <span class="gestao-badge" title="Gestão atual" aria-label="Gestão atual"><i class="fa-solid fa-star" aria-hidden="true"></i></span>'
+    ? ' <span class="gestao-badge" title="Diretoria atual" aria-label="Diretoria atual"><i class="fa-solid fa-star" aria-hidden="true"></i></span>'
     : '';
 
   wrapper.innerHTML = `
