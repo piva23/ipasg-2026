@@ -16,16 +16,25 @@
   border-bottom: none;
 }
 
-/* BARRA "VOLTAR" — mesmo padrão das páginas de projeto */
-.event-back-bar {
-  padding: 16px 0 0;
+/* Botão voltar na MESMA LINHA do título, alinhado bem à direita
+   (evita uma linha só para o botão, ocupando altura da página) */
+.event-hero__row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
 }
 
-/* Botão voltar: só o ícone da seta, em círculo compacto */
-.event-back-bar .btn-ghost-dark {
+.event-hero__row .event-hero__title {
+  margin-top: 16px; /* mesmo respiro do badge acima */
+}
+
+.event-back-btn {
+  flex-shrink: 0;
   width: 44px;
   height: 44px;
   min-height: 44px;
+  margin-top: 16px;
   font-size: 15px;
   padding: 0;
   border-width: 1px;
@@ -33,7 +42,7 @@
   background: transparent;
 }
 
-.event-back-bar .btn-ghost-dark:hover {
+.event-back-btn:hover {
   transform: none;
 }
 
