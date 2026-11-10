@@ -12,10 +12,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!container || typeof EVENTOS_DATA === 'undefined') return;
 
+  /* ----------------------------------------------------------
+     SEÇÃO "PRÓXIMOS EVENTOS" OCULTA — uso futuro.
+     Liberar alterando MOSTRAR_PROXIMOS para true.
+  ---------------------------------------------------------- */
+  const MOSTRAR_PROXIMOS = false;
+
   const ITEMS_PER_PAGE = 8;
   let currentPage = 1;
   let currentFilteredEvents = [...EVENTOS_DATA];
   let currentSort = 'DATE_ASC';
+
+  const dataDo = e => new Date(e.ano, e.mes, e.dia);
+  function getHoje() {
+    const d = new Date();
+    d.setHours(0, 0, 0, 0);
+    return d;
+  }
 
   function getMonthName(mesIndex) {
     if (typeof MES_ABREV !== 'undefined' && MES_ABREV[mesIndex]) {
@@ -26,33 +39,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function renderEventItem(evento, past) {
     const div = document.createElement('div');
-    div.className = 'event-item' + (past ? ' event-item--past' : '');
+    div.className =
+      'event-item' +
+      (past ? ' event-item--past' : '') +
+      (evento.link ? '' : ' event-item--nolink');
 
     const mesTexto = evento.mesAbrev || getMonthName(evento.mes);
 
+    // Eventos do histórico importado não têm página de detalhe:
+    // ficam sem âncora na imagem, no título e sem botão "Detalhes".
+    const link = evento.link || '';
+    const imagem = link
+      ? `<a href="${link}"><img src="${evento.img}" alt="${evento.titulo}" loading="lazy" /></a>`
+      : `<img src="${evento.img}" alt="${evento.titulo}" loading="lazy" />`;
+    const titulo = link
+      ? `<h3 class="event-title"><a href="${link}">${evento.titulo}</a></h3>`
+      : `<h3 class="event-title">${evento.titulo}</h3>`;
+    const valor = evento.valor
+      ? `<span><i class="fa-solid fa-ticket"></i> ${evento.valor}</span>`
+      : '';
+    const acoes = link
+      ? `<div class="event-actions">
+           <a href="${link}" class="btn-ghost-dark event-btn"><i class="fa-solid fa-circle-info"></i> Detalhes</a>
+         </div>`
+      : '';
+
     div.innerHTML = `
-      <div class="event-image">
-        <a href="${evento.link}">
-          <img src="${evento.img}" alt="${evento.titulo}" loading="lazy" />
-        </a>
-      </div>
+      <div class="event-image">${imagem}</div>
       <div class="event-date">
         <span class="day">${String(evento.dia).padStart(2, '0')}</span>
         <span class="month">${mesTexto}</span>
       </div>
       <div class="event-info">
         <span class="event-category-badge"><i class="fa-solid fa-tag"></i> ${evento.categoria}</span>
-        <h3 class="event-title"><a href="${evento.link}">${evento.titulo}</a></h3>
+        ${titulo}
         <p class="muted event-meta">
           <span><i class="fa-solid fa-location-dot"></i> ${evento.local}</span>
           <span><i class="fa-regular fa-clock"></i> ${evento.horarioInicio} às ${evento.horarioFim}</span>
-          <span><i class="fa-solid fa-ticket"></i> ${evento.valor}</span>
+          ${valor}
         </p>
-        <p class="muted" style="font-size: 14px; margin-top: 6px; line-height: 1.5;">${evento.resumo}</p>
+        <p class="muted" style="font-size: 14px; margin-top: 6px; line-height: 1.5;">${evento.resumo || ''}</p>
       </div>
-      <div class="event-actions">
-        <a href="${evento.link}" class="btn-ghost-dark event-btn"><i class="fa-solid fa-circle-info"></i> Detalhes</a>
-      </div>
+      ${acoes}
     `;
     return div;
   }
@@ -61,6 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
     const selectedCat = categoryFilter ? categoryFilter.value : 'ALL';
     const selectedSort = sortOrderSelect ? sortOrderSelect.value : 'DATE_ASC';
+    const hoje = getHoje();
 
     currentFilteredEvents = EVENTOS_DATA.filter(evt => {
       const matchQuery = !query || 
@@ -71,13 +100,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const matchCat = selectedCat === 'ALL' || evt.categoria === selectedCat;
 
-      return matchQuery && matchCat;
+      // Enquanto a seção de próximos estiver oculta, os eventos futuros
+      // saem do cálculo (senão ocupariam vaga na paginação sem aparecer).
+      const matchVisib = MOSTRAR_PROXIMOS || dataDo(evt) < hoje;
+
+      return matchQuery && matchCat && matchVisib;
     });
 
     // Sort events
-    const hoje = new Date();
-    hoje.setHours(0, 0, 0, 0);
-    const dataDo = e => new Date(e.ano, e.mes, e.dia);
     const ehFuturo = e => dataDo(e) >= hoje;
 
     if (selectedSort === 'DATE_ASC') {
@@ -144,14 +174,12 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Seções por data: próximos (futuros) e já realizados.
-    const hoje = new Date();
-    hoje.setHours(0, 0, 0, 0);
-    const dataDo = e => new Date(e.ano, e.mes, e.dia);
+    // Seções por data: próximos (futuros) e anteriores (já realizados).
+    const hoje = getHoje();
     const futuros = pageItems.filter(e => dataDo(e) >= hoje);
     const passados = pageItems.filter(e => dataDo(e) < hoje);
 
-    if (futuros.length) {
+    if (MOSTRAR_PROXIMOS && futuros.length) {
       container.appendChild(
         sectionHeader('Próximos Eventos', 'fa-calendar-check', false)
       );
@@ -160,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (passados.length) {
       container.appendChild(
-        sectionHeader('Eventos Realizados', 'fa-clock-rotate-left', true)
+        sectionHeader('Eventos Anteriores', 'fa-clock-rotate-left', true)
       );
       passados.forEach(evt => container.appendChild(renderEventItem(evt, true)));
     }
@@ -222,10 +250,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function scrollToTopList() {
-    const controls = document.querySelector('.events-controls-bar');
-    if (controls) {
-      controls.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    // A barra de controles pode estar oculta; nesse caso rola para a lista.
+    const controles = document.querySelector('.events-controls-bar');
+    const alvo =
+      controles && controles.offsetParent !== null ? controles : container;
+    const y = alvo.getBoundingClientRect().top + window.scrollY - 90;
+    window.scrollTo({ top: y, behavior: 'smooth' });
   }
 
   // Event Listeners

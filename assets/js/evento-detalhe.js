@@ -162,7 +162,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const relatedContainer = document.getElementById('related-events-container');
 
   if (relatedWrap && relatedContainer) {
-    const relacionados = EVENTOS_DATA.filter(e => e.id !== evento.id).slice(0, 3);
+    // Só eventos com página de detalhe (o histórico importado não tem link).
+    const relacionados = EVENTOS_DATA.filter(e => e.id !== evento.id && e.link).slice(0, 3);
 
     if (relacionados.length > 0) {
       relacionados.forEach(rel => {

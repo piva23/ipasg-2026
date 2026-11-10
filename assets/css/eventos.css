@@ -2,14 +2,14 @@
    EVENTOS.CSS — IPASG LISTA PRO & CONTROLES
 ============================================================ */
 .events-controls-bar {
-  display: none; /* oculto por padrão; ative se quiser */
+  /* OCULTO — uso futuro. Para reativar, troque display:none por display:flex. */
+  display: none;
   background: #ffffff;
   border: 1px solid var(--green-border);
   border-radius: var(--radius-lg);
   padding: 18px 24px;
   margin-bottom: 30px;
   box-shadow: var(--shadow-sm);
-  display: flex;
   flex-wrap: wrap;
   gap: 16px;
   align-items: center;
@@ -100,6 +100,11 @@
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
   border-color: var(--green);
+}
+
+/* Evento sem página de detalhe: ocupa a 3ª coluna, sem coluna de ações */
+.event-item--nolink {
+  grid-template-columns: 180px 84px 1fr;
 }
 
 .event-image {
