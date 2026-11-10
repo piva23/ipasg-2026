@@ -55,9 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const titulo = link
       ? `<h3 class="event-title"><a href="${link}">${evento.titulo}</a></h3>`
       : `<h3 class="event-title">${evento.titulo}</h3>`;
-    const valor = evento.valor
-      ? `<span><i class="fa-solid fa-ticket"></i> ${evento.valor}</span>`
-      : '';
     const acoes = link
       ? `<div class="event-actions">
            <a href="${link}" class="btn-ghost-dark event-btn"><i class="fa-solid fa-circle-info"></i> Detalhes</a>
@@ -76,8 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
         ${titulo}
         <p class="muted event-meta">
           <span><i class="fa-solid fa-location-dot"></i> ${evento.local}</span>
-          <span><i class="fa-regular fa-clock"></i> ${evento.horarioInicio} às ${evento.horarioFim}</span>
-          ${valor}
         </p>
         <p class="muted" style="font-size: 14px; margin-top: 6px; line-height: 1.5;">${evento.resumo || ''}</p>
       </div>
