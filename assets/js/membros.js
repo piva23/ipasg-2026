@@ -53,10 +53,7 @@ const MEMBERS = [
     url: 'team-antonio.html',
     socials: {
       whatsapp: 'https://wa.me/5551992429974',
-      instagram: 'https://instagram.com',
-      facebook: 'https://facebook.com',
-      youtube: 'https://youtube.com',
-      email: 'mailto:',
+      instagram: 'https://instagram.com/',
     },
   },
   {
@@ -67,9 +64,6 @@ const MEMBERS = [
     socials: {
       whatsapp: 'https://wa.me/5551992429974',
       instagram: 'https://instagram.com/patricia1436',
-      facebook: 'https://facebook.com',
-      youtube: 'https://youtube.com',
-      email: 'mailto:',
     },
   },
   {
@@ -80,9 +74,6 @@ const MEMBERS = [
     socials: {
       whatsapp: 'https://wa.me/5551992429974',
       instagram: 'https://instagram.com/helenapfrantz',
-      facebook: 'https://facebook.com',
-      youtube: 'https://youtube.com',
-      email: 'mailto:',
     },
   },
   {
@@ -93,9 +84,6 @@ const MEMBERS = [
     socials: {
       whatsapp: 'https://wa.me/5551992429974',
       instagram: 'https://instagram.com/artemiosoaresmarques',
-      facebook: 'https://facebook.com',
-      youtube: 'https://youtube.com',
-      email: 'mailto:',
     },
   },
   {
@@ -105,10 +93,7 @@ const MEMBERS = [
     url: 'team-alexandre.html',
     socials: {
       whatsapp: 'https://wa.me/5551992429974',
-      instagram: 'https://instagram.com',
-      facebook: 'https://facebook.com',
-      youtube: 'https://youtube.com',
-      email: 'mailto:',
+      instagram: 'https://instagram.com/',
       website: 'http://www.studiooneartes.com',
     },
   },
@@ -120,9 +105,6 @@ const MEMBERS = [
     socials: {
       whatsapp: 'https://wa.me/5551992429974',
       instagram: 'https://instagram.com/siokronbauer',
-      facebook: 'https://facebook.com',
-      youtube: 'https://youtube.com',
-      email: 'mailto:',
     },
   },
   {
@@ -133,9 +115,6 @@ const MEMBERS = [
     socials: {
       whatsapp: 'https://wa.me/5551992429974',
       instagram: 'https://instagram.com/varandacultural',
-      facebook: 'https://facebook.com',
-      youtube: 'https://youtube.com',
-      email: 'mailto:',
     },
   },
   {
@@ -146,9 +125,6 @@ const MEMBERS = [
     socials: {
       whatsapp: 'https://wa.me/5551992429974',
       instagram: 'https://instagram.com/zezekronbauer',
-      facebook: 'https://facebook.com',
-      youtube: 'https://youtube.com',
-      email: 'mailto:',
     },
   },
   {
@@ -159,9 +135,6 @@ const MEMBERS = [
     socials: {
       whatsapp: 'https://wa.me/5551992429974',
       instagram: 'https://instagram.com/guiviwoo',
-      facebook: 'https://facebook.com',
-      youtube: 'https://youtube.com',
-      email: 'mailto:',
     },
   },
   {
@@ -172,9 +145,6 @@ const MEMBERS = [
     socials: {
       whatsapp: 'https://wa.me/5551992429974',
       instagram: 'https://instagram.com/jjorgeherrmann',
-      facebook: 'https://facebook.com',
-      youtube: 'https://youtube.com',
-      email: 'mailto:',
     },
   },
 ];
@@ -221,8 +191,10 @@ function buildCard(member, index) {
       // WhatsApp fica oculto para todos os membros (contato via institucional).
       if (network === 'whatsapp') continue;
       if (!link) continue;
+      // Marca links de Instagram placeholder (ainda sem preencher)
+      const isInstaPlaceholder = network === 'instagram' && link === 'https://instagram.com/';
       const iconClass = iconMap[network] || 'fa-solid fa-link';
-      socialsHTML += `<li><a href="${link}" target="_blank" class="social-btn"><i class="${iconClass}"></i></a></li>`;
+      socialsHTML += `<li><a href="${link}" target="_blank" class="social-btn${isInstaPlaceholder ? ' social-btn--placeholder' : ''}"${isInstaPlaceholder ? ' aria-label="Instagram (a preencher)"' : ''}><i class="${iconClass}"></i></a></li>`;
     }
   }
 
