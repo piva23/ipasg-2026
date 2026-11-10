@@ -69,6 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="event-date">
         <span class="day">${String(evento.dia).padStart(2, '0')}</span>
         <span class="month">${mesTexto}</span>
+        <span class="year">${evento.ano}</span>
       </div>
       <div class="event-info">
         <span class="event-category-badge"><i class="fa-solid fa-tag"></i> ${evento.categoria}</span>
