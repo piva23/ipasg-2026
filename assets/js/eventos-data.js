@@ -30,7 +30,7 @@ const EVENTOS_DATA = [
     horarioFim: '17:00',
     titulo: 'Lançamento Semear',
     categoria: 'Permacultura',
-    local: 'Farmacinha Violeta — Mampituba/RS',
+    local: 'Farmacinha Violeta, Mampituba/RS',
     endereco: 'Estrada Municipal, 885 — Mampituba/RS',
     resumo: 'Lançamento oficial do projeto Semear — Tecendo Saberes Populares, com as guardiãs da Farmacinha Violeta.',
     descricao: 'Venha conhecer o projeto Semear — Tecendo Saberes Populares em sua primeira vivência aberta. O encontro celebra os 30 anos da Farmacinha Violeta com oficinas de sementes crioulas e plantas medicinais da Mata Atlântica, troca de saberes entre gerações e a construção coletiva das frentes do projeto com a comunidade de Mampituba.',
@@ -53,7 +53,7 @@ const EVENTOS_DATA = [
     horarioFim: '17:00',
     titulo: '4ª Vivência Permacultural',
     categoria: 'Permacultura',
-    local: 'Mampituba / Rio da Invernada',
+    local: 'Rio da Invernada, Mampituba/RS',
     resumo:
       'Dança Circular com Elaine Regina, introdução à Permacultura com Leandro Nunes, bioconstrução (manutenção e reboco de parede de adobe) e roda de conversa.',
   },
@@ -67,7 +67,7 @@ const EVENTOS_DATA = [
     horarioFim: '18:00',
     titulo: 'Oficina de Abelhas indígenas (sem ferrão)',
     categoria: 'Agroecologia',
-    local: 'Azenha — Porto Alegre/RS',
+    local: 'Azenha, Porto Alegre/RS',
     resumo: 'Introdução à criação de abelhas indígenas sem ferrão.',
   },
   {
@@ -80,7 +80,7 @@ const EVENTOS_DATA = [
     horarioFim: '18:00',
     titulo: '3ª Vivência Permacultural',
     categoria: 'Permacultura',
-    local: 'Parque 35 — Guaíba/RS',
+    local: 'Parque 35, Guaíba/RS',
     resumo:
       'Dança Circular com Elaine Regina, introdução à Permacultura com Leandro Nunes e bioconstrução (manutenção/reboco de parede de adobe).',
   },
@@ -94,7 +94,7 @@ const EVENTOS_DATA = [
     horarioFim: '16:30',
     titulo: 'Dança Circular',
     categoria: 'Artes Integradas',
-    local: 'Paraíso — Sapucaia do Sul/RS',
+    local: 'Paraíso, Sapucaia do Sul/RS',
     resumo:
       'Roda de dança realizada na AOCART (Sapucaia do Sul) pela focalizadora Elaine Regina.',
   },
@@ -108,7 +108,7 @@ const EVENTOS_DATA = [
     horarioFim: '18:00',
     titulo: 'Autocuidado',
     categoria: 'Artes Integradas',
-    local: 'Stan — Torres/RS',
+    local: 'Stan, Torres/RS',
     resumo:
       'Encontro com dança circular, dança dos florais, fitoenergética e vivências terapêuticas.',
   },
@@ -163,7 +163,7 @@ const EVENTOS_DATA = [
     horarioFim: '18:00',
     titulo: 'Oficina "Fermentando"',
     categoria: 'Agroecologia',
-    local: 'Parque 35 — Guaíba/RS',
+    local: 'Parque 35, Guaíba/RS',
     resumo:
       'Primeiro módulo sobre Kombucha: produção, saborização, manutenção, adaptação da cultura (scoby) e vinagre. Em parceria com o Dharma Coletivo (Guaíba/RS).',
   },
@@ -177,7 +177,7 @@ const EVENTOS_DATA = [
     horarioFim: '21:00',
     titulo: 'Oficina Cervejeiro Caseiro',
     categoria: 'Agroecologia',
-    local: 'Azenha — Porto Alegre/RS',
+    local: 'Azenha, Porto Alegre/RS',
     valor: 'R$ 100,00 – R$ 130,00',
     resumo:
       'Treinamento 100% prático: brassagem, resfriamento, fermentação, maturação, priming e envase. 08 vagas.',
@@ -192,7 +192,7 @@ const EVENTOS_DATA = [
     horarioFim: '18:30',
     titulo: 'Danças Circulares',
     categoria: 'Artes Integradas',
-    local: 'Espaço Cultural TEN CATEN — Torres/RS',
+    local: 'Espaço Cultural TEN CATEN, Torres/RS',
     valor: 'R$ 20,00 – R$ 30,00',
     resumo:
       'Coreografias em roda para ampliar a capacidade de expressão e harmonia e trabalhar a tolerância.',
@@ -207,7 +207,7 @@ const EVENTOS_DATA = [
     horarioFim: '14:00',
     titulo: 'Oficina de Abelhas Nativas',
     categoria: 'Agroecologia',
-    local: 'Galpão Crioulo do Gaúcho Amigo — Porto Alegre/RS',
+    local: 'Galpão Crioulo do Gaúcho Amigo, Porto Alegre/RS',
     resumo:
       'Criação de abelhas sem ferrão (meliponicultura): espécies nativas do RS, enxameagem, divisão, inspeção e alimentação.',
   }
