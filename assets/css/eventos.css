@@ -109,9 +109,8 @@
 
 .event-image {
   width: auto;
-  max-width: 200px;
-  height: auto;
-  max-height: 160px;
+  max-width: 210px;
+  height: 170px; /* container fixo para acomodar fotos variadas sem corte */
   border-radius: 12px;
   overflow: hidden;
   flex-shrink: 0;
