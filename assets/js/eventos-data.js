@@ -122,7 +122,7 @@ const EVENTOS_DATA = [
     horarioFim: '10:30',
     titulo: 'Dançando os Florais',
     categoria: 'Artes Integradas',
-    local: 'Sans Souci',
+    local: 'Sans Souci, Eldorado do Sul/RS',
     resumo: 'Dança Circular com a focalizadora Elaine Regina.',
   },
   {
