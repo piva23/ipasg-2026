@@ -3,13 +3,40 @@
    Integrado com colors.css, base.css, header.css e footer.css
 ============================================================ */
 
-/* BARRA "VOLTAR" SIMPLES (estilo membros) */
+/* BARRA "VOLTAR" — removida do fluxo (o botão agora fica na linha do título, dentro do hero) */
 .projeto-back-bar {
-  padding: 24px 0 0;
+  display: none;
 }
 
-/* Botão voltar: só o ícone da seta, em círculo compacto */
-.projeto-back-bar .btn-ghost-dark {
+/* Linha do título com botão voltar à direita (mesma linha, sem altura extra) */
+.projeto-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: nowrap;
+  margin-bottom: 10px;
+}
+
+.projeto-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+@media (max-width: 600px) {
+  .projeto-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .projeto-header-row .btn-ghost-dark {
+    align-self: flex-start;
+  }
+}
+
+.projeto-header-row .btn-ghost-dark {
   width: 44px;
   height: 44px;
   min-height: 44px;
@@ -18,9 +45,10 @@
   border-width: 1px;
   border-radius: var(--radius-full);
   background: transparent;
+  flex-shrink: 0;
 }
 
-.projeto-back-bar .btn-ghost-dark:hover {
+.projeto-header-row .btn-ghost-dark:hover {
   transform: none;
 }
 
