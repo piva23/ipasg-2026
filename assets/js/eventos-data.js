@@ -149,7 +149,7 @@ const EVENTOS_DATA = [
     horarioFim: '19:00',
     titulo: 'Vivências em Permacultura',
     categoria: 'Permacultura',
-    local: 'Local a ser definido',
+    local: 'Eldorado do Sul/RS',
     resumo:
       'Dança Circular, bioconstrução e roda de conversa sobre as pétalas da Permacultura.',
   },
