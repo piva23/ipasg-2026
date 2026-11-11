@@ -212,12 +212,12 @@
   transform: scale(1.05);
 }
 
-/* Foto da fossa sem corte: mostra toda a imagem com fundo neutro */
+/* Foto da fossa: zoom para preencher toda a largura */
 .servico-thumb--contain {
-  background: #f5f5f7;
+  background: var(--surface-2);
 }
 .servico-thumb__img--contain {
-  object-fit: contain !important;
+  object-fit: cover !important;
   object-position: center !important;
 }
 
