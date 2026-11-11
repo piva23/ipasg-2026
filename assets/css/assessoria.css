@@ -296,10 +296,10 @@
   }
   .servico-card {
     grid-template-columns: 1fr;
-    grid-template-rows: 220px 1fr;
+    grid-template-rows: 280px 1fr;
   }
   .servico-card__thumb {
-    height: 220px;
+    height: 280px;
   }
   .servico-card__body {
     padding: 22px 20px 22px;
@@ -420,8 +420,8 @@
   /* uma coluna por vez, com largura máxima e centralizada */
   .servicos-grid,
   .especialidades-grid { grid-template-columns: 1fr; max-width: 100%; margin: 0 auto; }
-  .servico-card { grid-template-columns: 1fr; grid-template-rows: 220px 1fr; }
-  .servico-card__thumb { height: 220px; }
+  .servico-card { grid-template-columns: 1fr; grid-template-rows: 280px 1fr; }
+  .servico-card__thumb { height: 280px; }
   .assessoria-cta { grid-template-columns: 1fr; padding: 36px 28px; }
   .assessoria-cta__actions { flex-direction: row; flex-wrap: wrap; }
 }
