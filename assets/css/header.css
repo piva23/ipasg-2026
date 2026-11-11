@@ -31,6 +31,12 @@
   transition: var(--transition);
 }
 
+/* O atributo hidden precisa vencer o display: inline-flex acima
+   (a stylesheet do autor ganha da UA sheet do [hidden]) */
+.topbar a[hidden] {
+  display: none !important;
+}
+
 .topbar a:hover {
   color: #8ce3bf;
 }
